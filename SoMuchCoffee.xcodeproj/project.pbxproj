@@ -74,36 +74,36 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
-		2F11CC0223A2CC0F0011BC94 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
+		2F11CC0223A2CC0F0011BC94 /* Recipe.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Recipe.swift; path = SoMuchCoffee/Brew/Recipe.swift; sourceTree = SOURCE_ROOT; };
 		2F11CC0723A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
 		2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
-		2F11CC0B23A310FE0011BC94 /* WaitStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitStep.swift; sourceTree = "<group>"; };
-		2F11CC0D23A35C900011BC94 /* TimerPillStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerPillStep.swift; path = SoMuchCoffee/APSteps/TimerPillStep.swift; sourceTree = SOURCE_ROOT; };
-		2F11CC0F23A35CC00011BC94 /* TimerPillTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerPillTotal.swift; path = SoMuchCoffee/APSteps/TimerPillTotal.swift; sourceTree = SOURCE_ROOT; };
-		2F11CC1123A3D9250011BC94 /* GrindStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrindStep.swift; sourceTree = "<group>"; };
-		2F11CC1323A3D93B0011BC94 /* HeatWaterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatWaterStep.swift; sourceTree = "<group>"; };
-		2F11CC1923A430590011BC94 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
+		2F11CC0B23A310FE0011BC94 /* WaitStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WaitStep.swift; path = SoMuchCoffee/Brew/APSteps/WaitStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC0D23A35C900011BC94 /* TimerPillStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerPillStep.swift; path = SoMuchCoffee/Brew/APSteps/SubViews/TimerPillStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC0F23A35CC00011BC94 /* TimerPillTotal.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = TimerPillTotal.swift; path = SoMuchCoffee/Brew/APSteps/SubViews/TimerPillTotal.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC1123A3D9250011BC94 /* GrindStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GrindStep.swift; path = SoMuchCoffee/Brew/APSteps/GrindStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC1323A3D93B0011BC94 /* HeatWaterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeatWaterStep.swift; path = SoMuchCoffee/Brew/APSteps/HeatWaterStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC1923A430590011BC94 /* Stopwatch.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = Stopwatch.swift; path = SoMuchCoffee/Brew/APSteps/Stopwatch.swift; sourceTree = SOURCE_ROOT; };
 		2F11CC1F23A7258E0011BC94 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		2F11CC2123A732EC0011BC94 /* GoHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
-		2F11CC2323A741210011BC94 /* AddWaterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterStep.swift; sourceTree = "<group>"; };
-		2F11CC2723A741520011BC94 /* StirStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StirStep.swift; sourceTree = "<group>"; };
-		2F11CC2923A7415D0011BC94 /* PlungeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlungeStep.swift; sourceTree = "<group>"; };
-		2F11CC2D23A809130011BC94 /* AddWaterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWaterSettings.swift; sourceTree = "<group>"; };
-		2F11CC2F23A8097B0011BC94 /* HeatWaterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatWaterSettings.swift; sourceTree = "<group>"; };
-		2F11CC3123A8098A0011BC94 /* GrindSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GrindSettings.swift; sourceTree = "<group>"; };
-		2F11CC3323A809980011BC94 /* WaitSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WaitSettings.swift; sourceTree = "<group>"; };
-		2F11CC3523A809AA0011BC94 /* StirSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = StirSettings.swift; sourceTree = "<group>"; };
-		2F11CC3723A810AE0011BC94 /* PlungeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PlungeSettings.swift; sourceTree = "<group>"; };
-		2F11CC3923A815300011BC94 /* MoreTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MoreTime.swift; sourceTree = "<group>"; };
-		2F11CC3B23A815590011BC94 /* LessTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LessTime.swift; sourceTree = "<group>"; };
-		2F11CC3D23A81A8B0011BC94 /* RinseFilterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RinseFilterStep.swift; sourceTree = "<group>"; };
+		2F11CC2323A741210011BC94 /* AddWaterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddWaterStep.swift; path = SoMuchCoffee/Brew/APSteps/AddWaterStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC2723A741520011BC94 /* StirStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StirStep.swift; path = SoMuchCoffee/Brew/APSteps/StirStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC2923A7415D0011BC94 /* PlungeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlungeStep.swift; path = SoMuchCoffee/Brew/APSteps/PlungeStep.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC2D23A809130011BC94 /* AddWaterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AddWaterSettings.swift; path = SoMuchCoffee/Brew/APSteps/AddWaterSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC2F23A8097B0011BC94 /* HeatWaterSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = HeatWaterSettings.swift; path = SoMuchCoffee/Brew/APSteps/HeatWaterSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3123A8098A0011BC94 /* GrindSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = GrindSettings.swift; path = SoMuchCoffee/Brew/APSteps/GrindSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3323A809980011BC94 /* WaitSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = WaitSettings.swift; path = SoMuchCoffee/Brew/APSteps/WaitSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3523A809AA0011BC94 /* StirSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = StirSettings.swift; path = SoMuchCoffee/Brew/APSteps/StirSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3723A810AE0011BC94 /* PlungeSettings.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = PlungeSettings.swift; path = SoMuchCoffee/Brew/APSteps/PlungeSettings.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3923A815300011BC94 /* MoreTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = MoreTime.swift; path = SoMuchCoffee/Brew/APSteps/SubViews/MoreTime.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3B23A815590011BC94 /* LessTime.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = LessTime.swift; path = SoMuchCoffee/Brew/APSteps/SubViews/LessTime.swift; sourceTree = SOURCE_ROOT; };
+		2F11CC3D23A81A8B0011BC94 /* RinseFilterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RinseFilterStep.swift; path = SoMuchCoffee/Brew/APSteps/RinseFilterStep.swift; sourceTree = SOURCE_ROOT; };
 		2F11CC3F23A9E88B0011BC94 /* roasters.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = roasters.png; sourceTree = "<group>"; };
 		2F11CC4023A9E88B0011BC94 /* log.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = log.png; sourceTree = "<group>"; };
 		2F11CC4123A9E88C0011BC94 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2F11CC4223A9E88C0011BC94 /* flavors.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = flavors.png; sourceTree = "<group>"; };
 		2F11CC4323A9E88C0011BC94 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2F11CC4423A9E88D0011BC94 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
-		2F11CC4B23A9EB980011BC94 /* RecipeConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeConductor.swift; sourceTree = "<group>"; };
+		2F11CC4B23A9EB980011BC94 /* RecipeConductor.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeConductor.swift; path = SoMuchCoffee/Brew/RecipeConductor.swift; sourceTree = SOURCE_ROOT; };
 		2F12C8D5239EBB9500BFF066 /* SoMuchCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMuchCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F12C8D8239EBB9500BFF066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Fonts/AppDelegate.swift; sourceTree = "<group>"; };
 		2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
@@ -119,14 +119,14 @@
 		2F12C8F9239EBB9D00BFF066 /* SoMuchCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoMuchCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F12C8FD239EBB9D00BFF066 /* SoMuchCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeUITests.swift; sourceTree = "<group>"; };
 		2F12C8FF239EBB9D00BFF066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
-		2F12C90F239EC5CA00BFF066 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
-		2F12C958239F012F00BFF066 /* RecipeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeRow.swift; sourceTree = "<group>"; };
-		2F12C95A239F015500BFF066 /* RecipeBuilder.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; path = RecipeBuilder.swift; sourceTree = "<group>"; tabWidth = 4; };
+		2F12C90F239EC5CA00BFF066 /* RecipesView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipesView.swift; path = SoMuchCoffee/Brew/RecipesView.swift; sourceTree = SOURCE_ROOT; };
+		2F12C958239F012F00BFF066 /* RecipeRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = RecipeRow.swift; path = SoMuchCoffee/Brew/RecipeRow.swift; sourceTree = SOURCE_ROOT; };
+		2F12C95A239F015500BFF066 /* RecipeBuilder.swift */ = {isa = PBXFileReference; indentWidth = 4; lastKnownFileType = sourcecode.swift; name = RecipeBuilder.swift; path = SoMuchCoffee/Brew/RecipeBuilder.swift; sourceTree = SOURCE_ROOT; tabWidth = 4; };
 		2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Bold.ttf"; sourceTree = "<group>"; };
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
-		2F2E336A23AAF7B10064DC09 /* InstallFilterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallFilterStep.swift; sourceTree = "<group>"; };
+		2F2E336A23AAF7B10064DC09 /* InstallFilterStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = InstallFilterStep.swift; path = SoMuchCoffee/Brew/APSteps/InstallFilterStep.swift; sourceTree = SOURCE_ROOT; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
-		2F90F51E23A0823800C4F0F4 /* APStepsPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = APStepsPopover.swift; sourceTree = "<group>"; };
+		2F90F51E23A0823800C4F0F4 /* APStepsPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = APStepsPopover.swift; path = SoMuchCoffee/Brew/APStepsPopover.swift; sourceTree = SOURCE_ROOT; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -177,19 +177,13 @@
 		2F12C8D7239EBB9500BFF066 /* SoMuchCoffee */ = {
 			isa = PBXGroup;
 			children = (
-				2F90F51C23A0503100C4F0F4 /* AddButton.swift */,
 				2F12C8D8239EBB9500BFF066 /* AppDelegate.swift */,
-				2F90F51E23A0823800C4F0F4 /* APStepsPopover.swift */,
-				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
-				2F11CC2123A732EC0011BC94 /* GoHome.swift */,
-				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
-				2F11CC0223A2CC0F0011BC94 /* Recipe.swift */,
-				2F12C95A239F015500BFF066 /* RecipeBuilder.swift */,
-				2F11CC4B23A9EB980011BC94 /* RecipeConductor.swift */,
-				2F12C958239F012F00BFF066 /* RecipeRow.swift */,
-				2F12C90F239EC5CA00BFF066 /* RecipesView.swift */,
 				2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */,
-				2F90F52023A08B7C00C4F0F4 /* APSteps */,
+				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
+				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
+				2F90F51C23A0503100C4F0F4 /* AddButton.swift */,
+				2F11CC2123A732EC0011BC94 /* GoHome.swift */,
+				2F624FDD23ADAFB4000E7BC2 /* Brew */,
 				2F12C8E1239EBB9D00BFF066 /* Assets.xcassets */,
 				2F2E336223AAEBAB0064DC09 /* Fonts */,
 				2F2E336723AAEDE40064DC09 /* Graphics */,
@@ -251,31 +245,54 @@
 			path = Graphics;
 			sourceTree = "<group>";
 		};
+		2F624FDD23ADAFB4000E7BC2 /* Brew */ = {
+			isa = PBXGroup;
+			children = (
+				2F90F52023A08B7C00C4F0F4 /* APSteps */,
+				2F90F51E23A0823800C4F0F4 /* APStepsPopover.swift */,
+				2F11CC0223A2CC0F0011BC94 /* Recipe.swift */,
+				2F12C95A239F015500BFF066 /* RecipeBuilder.swift */,
+				2F12C958239F012F00BFF066 /* RecipeRow.swift */,
+				2F12C90F239EC5CA00BFF066 /* RecipesView.swift */,
+				2F11CC4B23A9EB980011BC94 /* RecipeConductor.swift */,
+			);
+			path = Brew;
+			sourceTree = "<group>";
+		};
+		2F624FDE23ADB379000E7BC2 /* SubViews */ = {
+			isa = PBXGroup;
+			children = (
+				2F11CC0D23A35C900011BC94 /* TimerPillStep.swift */,
+				2F11CC0F23A35CC00011BC94 /* TimerPillTotal.swift */,
+				2F11CC3B23A815590011BC94 /* LessTime.swift */,
+				2F11CC3923A815300011BC94 /* MoreTime.swift */,
+			);
+			path = SubViews;
+			sourceTree = "<group>";
+		};
 		2F90F52023A08B7C00C4F0F4 /* APSteps */ = {
 			isa = PBXGroup;
 			children = (
+				2F624FDE23ADB379000E7BC2 /* SubViews */,
 				2F11CC2D23A809130011BC94 /* AddWaterSettings.swift */,
 				2F11CC2323A741210011BC94 /* AddWaterStep.swift */,
 				2F11CC3123A8098A0011BC94 /* GrindSettings.swift */,
 				2F11CC1123A3D9250011BC94 /* GrindStep.swift */,
 				2F11CC2F23A8097B0011BC94 /* HeatWaterSettings.swift */,
 				2F11CC1323A3D93B0011BC94 /* HeatWaterStep.swift */,
-				2F11CC3B23A815590011BC94 /* LessTime.swift */,
-				2F11CC3923A815300011BC94 /* MoreTime.swift */,
 				2F11CC3723A810AE0011BC94 /* PlungeSettings.swift */,
 				2F11CC2923A7415D0011BC94 /* PlungeStep.swift */,
 				2F11CC3D23A81A8B0011BC94 /* RinseFilterStep.swift */,
 				2F11CC3523A809AA0011BC94 /* StirSettings.swift */,
 				2F11CC2723A741520011BC94 /* StirStep.swift */,
 				2F11CC1923A430590011BC94 /* Stopwatch.swift */,
-				2F11CC0D23A35C900011BC94 /* TimerPillStep.swift */,
-				2F11CC0F23A35CC00011BC94 /* TimerPillTotal.swift */,
 				2F11CC3323A809980011BC94 /* WaitSettings.swift */,
 				2F11CC0B23A310FE0011BC94 /* WaitStep.swift */,
 				2F2E336A23AAF7B10064DC09 /* InstallFilterStep.swift */,
 			);
-			path = APSteps;
-			sourceTree = "<group>";
+			name = APSteps;
+			path = SoMuchCoffee/Brew/APSteps;
+			sourceTree = SOURCE_ROOT;
 		};
 /* End PBXGroup section */
 

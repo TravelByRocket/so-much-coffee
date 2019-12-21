@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 52;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -54,6 +54,10 @@
 		2FEE940F23ADCBF30006A16C /* RecipeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */; };
 		2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F723ADCBF20006A16C /* RecipeRow.swift */; };
 		2FEE941123ADCBF30006A16C /* APStepsPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F823ADCBF20006A16C /* APStepsPopover.swift */; };
+		2FEE941A23ADE0060006A16C /* Artboard 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941323ADE0050006A16C /* Artboard 1@2x.png */; };
+		2FEE941B23ADE0060006A16C /* Artboard 1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941523ADE0060006A16C /* Artboard 1.svg */; };
+		2FEE941C23ADE0060006A16C /* Artboard 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941723ADE0060006A16C /* Artboard 1@3x.png */; };
+		2FEE941D23ADE0060006A16C /* Artboard 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941923ADE0060006A16C /* Artboard 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,6 +131,10 @@
 		2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeConductor.swift; sourceTree = "<group>"; };
 		2FEE93F723ADCBF20006A16C /* RecipeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeRow.swift; sourceTree = "<group>"; };
 		2FEE93F823ADCBF20006A16C /* APStepsPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APStepsPopover.swift; sourceTree = "<group>"; };
+		2FEE941323ADE0050006A16C /* Artboard 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1@2x.png"; sourceTree = "<group>"; };
+		2FEE941523ADE0060006A16C /* Artboard 1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Artboard 1.svg"; sourceTree = "<group>"; };
+		2FEE941723ADE0060006A16C /* Artboard 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1@3x.png"; sourceTree = "<group>"; };
+		2FEE941923ADE0060006A16C /* Artboard 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -163,6 +171,7 @@
 				2F12C8D6239EBB9500BFF066 /* Products */,
 			);
 			sourceTree = "<group>";
+			usesTabs = 1;
 		};
 		2F12C8D6239EBB9500BFF066 /* Products */ = {
 			isa = PBXGroup;
@@ -235,6 +244,10 @@
 		2F2E336723AAEDE40064DC09 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				2FEE941823ADE0060006A16C /* 1x */,
+				2FEE941223ADE0050006A16C /* 2x */,
+				2FEE941623ADE0060006A16C /* 3x */,
+				2FEE941423ADE0060006A16C /* SVG */,
 				2F11CC4123A9E88C0011BC94 /* brew.png */,
 				2F11CC4423A9E88D0011BC94 /* find.png */,
 				2F11CC4223A9E88C0011BC94 /* flavors.png */,
@@ -291,6 +304,38 @@
 				2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */,
 			);
 			path = SubViews;
+			sourceTree = "<group>";
+		};
+		2FEE941223ADE0050006A16C /* 2x */ = {
+			isa = PBXGroup;
+			children = (
+				2FEE941323ADE0050006A16C /* Artboard 1@2x.png */,
+			);
+			path = 2x;
+			sourceTree = "<group>";
+		};
+		2FEE941423ADE0060006A16C /* SVG */ = {
+			isa = PBXGroup;
+			children = (
+				2FEE941523ADE0060006A16C /* Artboard 1.svg */,
+			);
+			path = SVG;
+			sourceTree = "<group>";
+		};
+		2FEE941623ADE0060006A16C /* 3x */ = {
+			isa = PBXGroup;
+			children = (
+				2FEE941723ADE0060006A16C /* Artboard 1@3x.png */,
+			);
+			path = 3x;
+			sourceTree = "<group>";
+		};
+		2FEE941823ADE0060006A16C /* 1x */ = {
+			isa = PBXGroup;
+			children = (
+				2FEE941923ADE0060006A16C /* Artboard 1.png */,
+			);
+			path = 1x;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -373,7 +418,7 @@
 				};
 			};
 			buildConfigurationList = 2F12C8D0239EBB9500BFF066 /* Build configuration list for PBXProject "SoMuchCoffee" */;
-			compatibilityVersion = "Xcode 9.3";
+			compatibilityVersion = "Xcode 11.0";
 			developmentRegion = en;
 			hasScannedForEncodings = 0;
 			knownRegions = (
@@ -403,6 +448,8 @@
 				2F11CC4823A9E88D0011BC94 /* flavors.png in Resources */,
 				2F11CC0A23A2D67B0011BC94 /* Lato-Light.ttf in Resources */,
 				2F11CC4923A9E88D0011BC94 /* origins.png in Resources */,
+				2FEE941A23ADE0060006A16C /* Artboard 1@2x.png in Resources */,
+				2FEE941B23ADE0060006A16C /* Artboard 1.svg in Resources */,
 				2F12C8E8239EBB9D00BFF066 /* LaunchScreen.storyboard in Resources */,
 				2F11CC4623A9E88D0011BC94 /* log.png in Resources */,
 				2F11CC4A23A9E88D0011BC94 /* find.png in Resources */,
@@ -410,6 +457,8 @@
 				2F11CC0923A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf in Resources */,
 				2F12C8E2239EBB9D00BFF066 /* Assets.xcassets in Resources */,
 				2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */,
+				2FEE941C23ADE0060006A16C /* Artboard 1@3x.png in Resources */,
+				2FEE941D23ADE0060006A16C /* Artboard 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

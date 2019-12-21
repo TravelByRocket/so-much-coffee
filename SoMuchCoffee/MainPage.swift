@@ -16,7 +16,7 @@ struct MainPage: View {
         VStack {
             // TITLE
             Text("So Much Coffee")
-                .foregroundColor(appOrange)
+                .foregroundColor(Color.appOrange)
                 .font(Font.custom(alfa,size: 40))
             
             // FIRST ROW

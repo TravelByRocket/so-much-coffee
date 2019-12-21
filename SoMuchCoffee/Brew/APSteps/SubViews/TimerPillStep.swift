@@ -16,7 +16,7 @@ struct TimerPillStep: View {
         ZStack (alignment: .top){
             Capsule()
                 .frame(width: 10, height: 400 * (timeElapsedSec / timeDurationSec))
-                .foregroundColor(appOrange)
+                .foregroundColor(Color.appOrange)
             Capsule()
                 .fill(transparent)
                 .frame(width: 10, height: 400)

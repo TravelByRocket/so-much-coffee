@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-var appOrange:    Color = Color.init(red: 1.00, green: 0.34, blue: 0.13)
+//var appOrange:    Color = Color.init(red: 1.00, green: 0.34, blue: 0.13)
 var appOrange50:  Color = Color.init(red: 1.00, green: 0.67, blue: 0.26)
 var appBlue:      Color = Color.init(red: 0.26, green: 0.52, blue: 0.97)
 var appDarkGray:  Color = Color.init(red: 0.66, green: 0.66, blue: 0.66)
@@ -62,4 +62,8 @@ struct ContentView_Previews: PreviewProvider {
 
 class UserSettings: ObservableObject {
     @Published var curPage = "MAIN"
+}
+
+extension Color {
+    static let appOrange = Color("appOrange")
 }

@@ -27,7 +27,7 @@ struct Stopwatch: View {
             Circle()
                 .fill(transparent)
                 .frame(width:175, height: 175)
-                .overlay(Circle().trim(from: 0.0, to: (timeElapsedSec / 60)).stroke(appOrange, lineWidth: 8))
+                .overlay(Circle().trim(from: 0.0, to: (timeElapsedSec / 60)).stroke(Color.appOrange, lineWidth: 8))
                 .rotationEffect(.degrees(270))
             
             VStack {

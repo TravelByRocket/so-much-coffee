@@ -19,7 +19,7 @@ struct RecipesView: View {
             }
             .padding()
             Text("Saved Recipes")
-                .foregroundColor(appOrange)
+                .foregroundColor(Color.appOrange)
                 .font(Font.custom(lato,size: 40))
             HStack {
                 Text("AeroPress")

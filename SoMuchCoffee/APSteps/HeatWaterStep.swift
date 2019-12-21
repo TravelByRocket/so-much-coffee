@@ -22,8 +22,8 @@ struct HeatWaterStep: View {
             Spacer()
         }
         .overlay(RoundedRectangle(cornerRadius: 10)
-        .stroke(Color.black)
-        .foregroundColor(transparent))
+        .stroke(Color.primary)
+        .foregroundColor(Color.clear))
         .padding()
     }
 }

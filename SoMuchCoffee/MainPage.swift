@@ -9,9 +9,8 @@
 import SwiftUI
 
 struct MainPage: View {
-    let menuFontSize: CGFloat = 18
     var body: some View {
-
+		// NOTE can't figure out how to give the title significantly more space
         VStack {
             // TITLE
 			Spacer()
@@ -22,11 +21,11 @@ struct MainPage: View {
             
             // FIRST ROW
 			HStack (alignment: .bottom) {
-				NavItem(imageName: "find", itemName: "Find", destinationName: "FIND")
+				NavItem(imageName: "find", label: "Find", destinationName: "FIND")
 				Divider()
-				NavItem(imageName: "brew", itemName: "Brew", destinationName: "BREW")
+				NavItem(imageName: "brew", label: "Brew", destinationName: "BREW")
 				Divider()
-				NavItem(imageName: "log", itemName: "Log", destinationName: "LOG")
+				NavItem(imageName: "log", label: "Log", destinationName: "LOG")
 			}
 			.padding([.leading, .trailing])
 			.padding(.bottom, 0)
@@ -35,11 +34,11 @@ struct MainPage: View {
 			
             //SECOND ROW
             HStack (alignment: .bottom) {
-				NavItem(imageName: "roasters", itemName: "Roasters", destinationName: "ROASTERS")
+				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
 				Divider()
-				NavItem(imageName: "origins", itemName: "Origins", destinationName: "ORIGINS")
+				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
 				Divider()
-				NavItem(imageName: "flavors", itemName: "Flavors", destinationName: "FLAVORS")
+				NavItem(imageName: "flavors", label: "Flavors", destinationName: "FLAVORS")
             }
 			.padding([.leading, .trailing])
 			.padding(.top, 0)
@@ -55,14 +54,14 @@ struct Main_Previews: PreviewProvider {
 
 struct NavItem: View {
 	var imageName: String
-	var itemName: String
+	var label: String
 	var destinationName: String
 	@EnvironmentObject var settings: UserSettings
 	
 	var body: some View {
 		VStack{
 			Image(imageName).resizable().aspectRatio(contentMode: .fit).padding()
-			Text(itemName)
+			Text(label)
 		}
 		.onTapGesture {self.settings.curPage = self.destinationName}
 	}

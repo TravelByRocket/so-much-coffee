@@ -40,7 +40,7 @@ struct MainPage: View {
                 }
                 .frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)
                 .border(appDarkGray, width: 1)
-                .onTapGesture {self.settings.curPage = "BREW"}
+				.onTapGesture {withAnimation{self.settings.curPage = "BREW"}}
 
                 VStack{
                     Spacer()

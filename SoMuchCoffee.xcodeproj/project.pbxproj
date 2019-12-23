@@ -57,7 +57,7 @@
 		2FEE941A23ADE0060006A16C /* Artboard 1@2x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941323ADE0050006A16C /* Artboard 1@2x.png */; };
 		2FEE941B23ADE0060006A16C /* Artboard 1.svg in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941523ADE0060006A16C /* Artboard 1.svg */; };
 		2FEE941C23ADE0060006A16C /* Artboard 1@3x.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941723ADE0060006A16C /* Artboard 1@3x.png */; };
-		2FEE941D23ADE0060006A16C /* Artboard 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941923ADE0060006A16C /* Artboard 1.png */; };
+		2FEE942023ADE36F0006A16C /* Artboard 1.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FEE941F23ADE36E0006A16C /* Artboard 1.png */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -134,7 +134,7 @@
 		2FEE941323ADE0050006A16C /* Artboard 1@2x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1@2x.png"; sourceTree = "<group>"; };
 		2FEE941523ADE0060006A16C /* Artboard 1.svg */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = "Artboard 1.svg"; sourceTree = "<group>"; };
 		2FEE941723ADE0060006A16C /* Artboard 1@3x.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1@3x.png"; sourceTree = "<group>"; };
-		2FEE941923ADE0060006A16C /* Artboard 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1.png"; sourceTree = "<group>"; };
+		2FEE941F23ADE36E0006A16C /* Artboard 1.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = "Artboard 1.png"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -244,7 +244,7 @@
 		2F2E336723AAEDE40064DC09 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
-				2FEE941823ADE0060006A16C /* 1x */,
+				2FEE941E23ADE36E0006A16C /* 1024w */,
 				2FEE941223ADE0050006A16C /* 2x */,
 				2FEE941623ADE0060006A16C /* 3x */,
 				2FEE941423ADE0060006A16C /* SVG */,
@@ -330,12 +330,12 @@
 			path = 3x;
 			sourceTree = "<group>";
 		};
-		2FEE941823ADE0060006A16C /* 1x */ = {
+		2FEE941E23ADE36E0006A16C /* 1024w */ = {
 			isa = PBXGroup;
 			children = (
-				2FEE941923ADE0060006A16C /* Artboard 1.png */,
+				2FEE941F23ADE36E0006A16C /* Artboard 1.png */,
 			);
-			path = 1x;
+			path = 1024w;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -453,12 +453,12 @@
 				2F12C8E8239EBB9D00BFF066 /* LaunchScreen.storyboard in Resources */,
 				2F11CC4623A9E88D0011BC94 /* log.png in Resources */,
 				2F11CC4A23A9E88D0011BC94 /* find.png in Resources */,
+				2FEE942023ADE36F0006A16C /* Artboard 1.png in Resources */,
 				2F12C8E5239EBB9D00BFF066 /* Preview Assets.xcassets in Resources */,
 				2F11CC0923A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf in Resources */,
 				2F12C8E2239EBB9D00BFF066 /* Assets.xcassets in Resources */,
 				2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */,
 				2FEE941C23ADE0060006A16C /* Artboard 1@3x.png in Resources */,
-				2FEE941D23ADE0060006A16C /* Artboard 1.png in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

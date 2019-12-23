@@ -13,7 +13,7 @@ struct GoHome: View {
     var body: some View {
         Text("Back to Main Screen")
             .foregroundColor(Color.blue)
-            .onTapGesture {self.settings.curPage = "MAIN"}
+			.onTapGesture {withAnimation{self.settings.curPage = "MAIN"}}
     }
 }
 

@@ -23,10 +23,7 @@ struct MainPage: View {
             HStack {
                 VStack{
                     Spacer()
-//                    Text("Section Under Construction")
-//                        .foregroundColor(Color.orange)
-//                        .multilineTextAlignment(.center)
-                    Image("find").resizable().aspectRatio(contentMode: .fit).padding()
+					Image("find").resizable().aspectRatio(contentMode: .fit).padding()
                     Text("Find").font(Font.custom(lato,size: menuFontSize))
                 }
                 .frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)
@@ -43,11 +40,8 @@ struct MainPage: View {
 				.onTapGesture {withAnimation{self.settings.curPage = "BREW"}}
 
                 VStack{
-                    Spacer()
-//                    Text("Section Under Construction")
-//                        .foregroundColor(Color.orange)
-//                        .multilineTextAlignment(.center)
-                    Image("log").resizable().aspectRatio(contentMode: .fit)
+					Spacer()
+					Image("log").resizable().aspectRatio(contentMode: .fit)
                     Text("Log").font(Font.custom(lato,size: menuFontSize))
                 }
                 .frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)
@@ -60,9 +54,6 @@ struct MainPage: View {
                 // LEFT BUTTON
                 VStack{
                     Spacer()
-//                    Text("Section Under Construction")
-//                        .foregroundColor(Color.orange)
-//                        .multilineTextAlignment(.center)
                     Image("roasters").resizable().aspectRatio(contentMode: .fit).padding()
                     Text("Roasters").font(Font.custom(lato,size: menuFontSize))
                 }.frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)
@@ -73,9 +64,6 @@ struct MainPage: View {
                 // MIDDLE BUTTON
                 VStack{
                     Spacer()
-//                    Text("Section Under Construction")
-//                        .foregroundColor(Color.orange)
-//                        .multilineTextAlignment(.center)
                     Image("origins").resizable().aspectRatio(contentMode: .fit)
                     Text("Origins").font(Font.custom(lato,size: menuFontSize))
                 }.frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)
@@ -86,9 +74,6 @@ struct MainPage: View {
                 // RIGHT BUTTON
                 VStack{
                     Spacer()
-//                    Text("Section Under Construction")
-//                        .foregroundColor(Color.orange)
-//                        .multilineTextAlignment(.center)
                     Image("flavors").resizable().aspectRatio(contentMode: .fit)
                     Text("Flavors").font(Font.custom(lato,size: menuFontSize))
                 }.frame(width: (UIScreen.main.bounds.width - 30)/3, height: UIScreen.main.bounds.height/3)

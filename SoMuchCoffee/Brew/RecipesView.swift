@@ -12,36 +12,34 @@ struct RecipesView: View {
     var recipes: [Recipe] = testRecipes
     @EnvironmentObject var settings: UserSettings
     var body: some View {
-        VStack {
-            HStack{
-                Spacer()
-                GoHome()
-            }
-            .padding()
-            Text("Saved Recipes")
-                .foregroundColor(Color.appOrange)
-                .font(Font.custom(lato,size: 40))
-            HStack {
-                Text("AeroPress")
-                    .font(.headline)
-                Spacer()
-            }
-            .padding(.bottom, 0)
-            .padding([.leading,.trailing,.top])
-            
-            ForEach (recipes) {recipe in
-                RecipeRow(recipe: recipe)
-                    .onTapGesture {
-                        self.settings.curPage = "RECIPECONDUCTOR"
-                }
-            }
-            
-            Spacer()
-            
-            AddButton().onTapGesture {
-                self.settings.curPage = "RECIPEBUILDER"
-            }
-        }
+		NavigationView{
+			VStack {
+				HStack{
+					Spacer()
+					GoHome()
+				}
+				.padding()
+				
+				List {
+					Text("AeroPress")
+					ForEach (recipes) {recipe in
+						NavigationLink(destination: RecipeConductor(recipe: recipe)){
+							Text(recipe.name)
+						}
+					}
+					.padding()
+					.overlay(RoundedRectangle(cornerRadius: 10)
+						.stroke(Color.black, lineWidth: 1))
+					
+				}.navigationBarTitle("Saved Recipes")
+				
+				Spacer()
+				
+				NavigationLink(destination: RecipeBuilder()){
+					Text("Add New Recipe")
+				}
+			}
+		}
     }
 }
 

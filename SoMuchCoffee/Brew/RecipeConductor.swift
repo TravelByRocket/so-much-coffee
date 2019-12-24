@@ -9,6 +9,7 @@
 import SwiftUI
 
 struct RecipeConductor: View {
+	var recipe: Recipe
     @State var timeElapsedSec: CGFloat = 0
     var recipeTotalTimeSec : CGFloat = 115
     
@@ -24,10 +25,10 @@ struct RecipeConductor: View {
     var body: some View {
         
         VStack {
-            HStack {
-                Spacer()
-                GoHome()
-            }.padding()
+//            HStack {
+//                Spacer()
+//                GoHome()
+//            }.padding()
             Spacer()
             if curStep == 0 {
                 Text("Prepare for Brewing")
@@ -60,7 +61,7 @@ struct RecipeConductor: View {
             } else {
                 Text("Coffee Time!")
                     .font(.largeTitle)
-                GoHome().padding()
+//                GoHome().padding()
                 Spacer()
             }
 //        Spacer()
@@ -92,7 +93,9 @@ struct RecipeConductor: View {
                     }.padding()
 //                }
                 
-                TimerPillTotal(timeElapsedSec: $timeElapsedSec, timeDurationSec: recipeTotalTimeSec).onReceive(timer) { _ in
+                TimerPillTotal(timeElapsedSec: $timeElapsedSec, timeDurationSec: recipeTotalTimeSec)
+					.navigationBarTitle(recipe.name)
+					.onReceive(timer) { _ in
     //            if self.timeElapsedSec <= self.recipeTotalTimeSec && self.clockIsRunning {
                 if self.clockIsRunning {
                     self.timeElapsedSec += timerInterval
@@ -124,7 +127,10 @@ struct RecipeConductor: View {
 }
 
 struct RecipeConductor_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeConductor()
+    static var recipes: [Recipe] = testRecipes
+	static var previews: some View {
+		NavigationView{
+			RecipeConductor(recipe: recipes[0])
+		}
     }
 }

@@ -419,11 +419,11 @@
 			children = (
 				2FEE93DE23ADCBF20006A16C /* Recipe.swift */,
 				2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */,
-				2FEE93E023ADCBF20006A16C /* APSteps */,
 				2FEE93F523ADCBF20006A16C /* RecipesView.swift */,
 				2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */,
 				2FEE93F723ADCBF20006A16C /* RecipeRow.swift */,
 				2FEE93F823ADCBF20006A16C /* APStepsPopover.swift */,
+				2FEE93E023ADCBF20006A16C /* APSteps */,
 			);
 			path = Brew;
 			sourceTree = "<group>";

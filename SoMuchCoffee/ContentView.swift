@@ -31,8 +31,6 @@ struct ContentView: View {
                 MainPage()
             } else if settings.curPage == "BREW" {
                RecipesView()
-            } else if settings.curPage == "RECIPECONDUCTOR" {
-                RecipeConductor()
             } else if settings.curPage == "RECIPEBUILDER" {
                 RecipeBuilder()
             } else if settings.curPage == "APSTEPS" {
@@ -47,6 +45,12 @@ struct ContentView: View {
                             .foregroundColor(Color.red)
                         Text("HINT: Click on Brew")
                             .foregroundColor(Color.red)
+						Spacer()
+						Spacer()
+						Spacer()
+						Spacer()
+						Spacer()
+						Spacer()
                     }.padding()
                 }
             }

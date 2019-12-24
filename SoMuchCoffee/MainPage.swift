@@ -60,7 +60,7 @@ struct NavItem: View {
 	
 	var body: some View {
 		VStack{
-			Image(imageName).resizable().aspectRatio(contentMode: .fit).padding()
+			Image(imageName).resizable().aspectRatio(contentMode: .fit)
 			Text(label)
 		}
 		.onTapGesture {self.settings.curPage = self.destinationName}

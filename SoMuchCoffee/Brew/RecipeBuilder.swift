@@ -26,7 +26,7 @@ struct RecipeBuilder: View {
     //                TextField("on20191209", text: $recipeName)
                     Text("on20191209")
                     Spacer()
-                    GoHome()
+//                    GoHome()
                 }
                 .padding()
                 

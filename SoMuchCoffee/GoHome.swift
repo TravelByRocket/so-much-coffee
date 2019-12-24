@@ -11,9 +11,10 @@ import SwiftUI
 struct GoHome: View {
     @EnvironmentObject var settings: UserSettings
     var body: some View {
-        Text("Back to Main Screen")
-            .foregroundColor(Color.blue)
+		Image(systemName: "house")
+			.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
 			.onTapGesture {withAnimation{self.settings.curPage = "MAIN"}}
+        
     }
 }
 

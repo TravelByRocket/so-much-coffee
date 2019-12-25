@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import PDFKit
 
 struct FlavorsPage: View {
 	@State var isZoomed = false

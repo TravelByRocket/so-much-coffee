@@ -10,7 +10,7 @@ import SwiftUI
 
 struct RecipesView: View {
     var recipes: [Recipe] = testRecipes
-    @EnvironmentObject var settings: UserSettings
+//    @EnvironmentObject var settings: UserSettings
     var body: some View {
 		NavigationView{
 			VStack {

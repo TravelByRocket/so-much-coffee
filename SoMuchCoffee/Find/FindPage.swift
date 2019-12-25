@@ -11,9 +11,23 @@ import SwiftUI
 struct FindPage: View {
 	@State private var shops: [Shop] = testShops
     var body: some View {
-		VStack {
-			Text(/*@START_MENU_TOKEN@*/"Hello, World!"/*@END_MENU_TOKEN@*/)
-			MapShops(shops: $shops)
+		NavigationView {
+			VStack {
+				HStack {
+					Spacer()
+					GoHome().padding()
+				}
+				MapShops(shops: $shops)
+					.navigationBarTitle("Find a Shop")
+				List {
+					ForEach (shops) {shop in
+						NavigationLink (destination: ShopView(shop: shop)){
+							Text(shop.name)
+						}
+						
+					}
+				}
+			}
 		}
     }
 }

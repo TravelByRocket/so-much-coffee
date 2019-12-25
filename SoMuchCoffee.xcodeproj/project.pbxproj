@@ -80,9 +80,16 @@
 		2FB0744623B2DA0000A7EB7B /* icon87.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743723B2DA0000A7EB7B /* icon87.png */; };
 		2FB0744723B2DA0000A7EB7B /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743823B2DA0000A7EB7B /* icon1024.png */; };
 		2FB0744823B2DA0000A7EB7B /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743923B2DA0000A7EB7B /* icon152.png */; };
-		2FB0748923B2DD6800A7EB7B /* FindPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748823B2DD6800A7EB7B /* FindPage.swift */; };
 		2FB0748C23B2DE0E00A7EB7B /* MapShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */; };
 		2FB0748E23B2E0D700A7EB7B /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748D23B2E0D700A7EB7B /* Shop.swift */; };
+		2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748F23B2F41100A7EB7B /* FindPage.swift */; };
+		2FB0749223B2F66D00A7EB7B /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749123B2F66D00A7EB7B /* ShopView.swift */; };
+		2FB0749423B2F6A900A7EB7B /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749323B2F6A900A7EB7B /* MapView.swift */; };
+		2FB0749723B3119600A7EB7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB0749623B3119600A7EB7B /* MapKit.framework */; };
+		2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */; };
+		2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */; };
+		2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A023B31E3100A7EB7B /* RoastersPage.swift */; };
+		2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A223B31E3D00A7EB7B /* LogPage.swift */; };
 		2FEE93F923ADCBF20006A16C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DE23ADCBF20006A16C /* Recipe.swift */; };
 		2FEE93FA23ADCBF20006A16C /* RecipeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */; };
 		2FEE93FB23ADCBF20006A16C /* PlungeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */; };
@@ -207,9 +214,16 @@
 		2FB0743723B2DA0000A7EB7B /* icon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon87.png; sourceTree = "<group>"; };
 		2FB0743823B2DA0000A7EB7B /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		2FB0743923B2DA0000A7EB7B /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
-		2FB0748823B2DD6800A7EB7B /* FindPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FindPage.swift; sourceTree = "<group>"; };
 		2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapShops.swift; sourceTree = "<group>"; };
 		2FB0748D23B2E0D700A7EB7B /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		2FB0748F23B2F41100A7EB7B /* FindPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPage.swift; sourceTree = "<group>"; };
+		2FB0749123B2F66D00A7EB7B /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
+		2FB0749323B2F6A900A7EB7B /* MapView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2FB0749623B3119600A7EB7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
+		2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorsPage.swift; sourceTree = "<group>"; };
+		2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsPage.swift; sourceTree = "<group>"; };
+		2FB074A023B31E3100A7EB7B /* RoastersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastersPage.swift; sourceTree = "<group>"; };
+		2FB074A223B31E3D00A7EB7B /* LogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPage.swift; sourceTree = "<group>"; };
 		2FEE93DE23ADCBF20006A16C /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBuilder.swift; sourceTree = "<group>"; };
 		2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlungeSettings.swift; sourceTree = "<group>"; };
@@ -242,6 +256,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FB0749723B3119600A7EB7B /* MapKit.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -269,6 +284,7 @@
 				2F12C8F1239EBB9D00BFF066 /* SoMuchCoffeeTests */,
 				2F12C8FC239EBB9D00BFF066 /* SoMuchCoffeeUITests */,
 				2F12C8D6239EBB9500BFF066 /* Products */,
+				2FB0749523B3119600A7EB7B /* Frameworks */,
 			);
 			sourceTree = "<group>";
 			usesTabs = 1;
@@ -290,11 +306,14 @@
 				2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */,
 				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
 				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
-				2FB0748823B2DD6800A7EB7B /* FindPage.swift */,
 				2FB0748A23B2DDE400A7EB7B /* Find */,
+				2FEE93DD23ADCBF20006A16C /* Brew */,
+				2FB0749823B31D8400A7EB7B /* Log */,
+				2FB0749923B31D8E00A7EB7B /* Roasters */,
+				2FB0749A23B31DA300A7EB7B /* Origins */,
+				2FB0749B23B31DAF00A7EB7B /* Flavors */,
 				2F90F51C23A0503100C4F0F4 /* AddButton.swift */,
 				2F11CC2123A732EC0011BC94 /* GoHome.swift */,
-				2FEE93DD23ADCBF20006A16C /* Brew */,
 				2F12C8E1239EBB9D00BFF066 /* Assets.xcassets */,
 				2F2E336223AAEBAB0064DC09 /* Fonts */,
 				2F2E336723AAEDE40064DC09 /* Graphics */,
@@ -426,10 +445,53 @@
 		2FB0748A23B2DDE400A7EB7B /* Find */ = {
 			isa = PBXGroup;
 			children = (
+				2FB0748F23B2F41100A7EB7B /* FindPage.swift */,
+				2FB0749123B2F66D00A7EB7B /* ShopView.swift */,
 				2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */,
+				2FB0749323B2F6A900A7EB7B /* MapView.swift */,
 				2FB0748D23B2E0D700A7EB7B /* Shop.swift */,
 			);
 			path = Find;
+			sourceTree = "<group>";
+		};
+		2FB0749523B3119600A7EB7B /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				2FB0749623B3119600A7EB7B /* MapKit.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
+		2FB0749823B31D8400A7EB7B /* Log */ = {
+			isa = PBXGroup;
+			children = (
+				2FB074A223B31E3D00A7EB7B /* LogPage.swift */,
+			);
+			path = Log;
+			sourceTree = "<group>";
+		};
+		2FB0749923B31D8E00A7EB7B /* Roasters */ = {
+			isa = PBXGroup;
+			children = (
+				2FB074A023B31E3100A7EB7B /* RoastersPage.swift */,
+			);
+			path = Roasters;
+			sourceTree = "<group>";
+		};
+		2FB0749A23B31DA300A7EB7B /* Origins */ = {
+			isa = PBXGroup;
+			children = (
+				2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */,
+			);
+			path = Origins;
+			sourceTree = "<group>";
+		};
+		2FB0749B23B31DAF00A7EB7B /* Flavors */ = {
+			isa = PBXGroup;
+			children = (
+				2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */,
+			);
+			path = Flavors;
 			sourceTree = "<group>";
 		};
 		2FEE93DD23ADCBF20006A16C /* Brew */ = {
@@ -672,7 +734,6 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				2FB0748923B2DD6800A7EB7B /* FindPage.swift in Sources */,
 				2F12C8D9239EBB9500BFF066 /* AppDelegate.swift in Sources */,
 				2FEE940823ADCBF30006A16C /* RinseFilterStep.swift in Sources */,
 				2FEE93FF23ADCBF30006A16C /* InstallFilterStep.swift in Sources */,
@@ -680,6 +741,9 @@
 				2FEE940C23ADCBF30006A16C /* GrindSettings.swift in Sources */,
 				2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */,
 				2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */,
+				2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */,
+				2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */,
+				2FB0749423B2F6A900A7EB7B /* MapView.swift in Sources */,
 				2FEE93FE23ADCBF30006A16C /* WaitStep.swift in Sources */,
 				2FEE940A23ADCBF30006A16C /* Stopwatch.swift in Sources */,
 				2FB0748C23B2DE0E00A7EB7B /* MapShops.swift in Sources */,
@@ -699,9 +763,13 @@
 				2FEE940D23ADCBF30006A16C /* HeatWaterSettings.swift in Sources */,
 				2FEE93FC23ADCBF20006A16C /* PlungeStep.swift in Sources */,
 				2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */,
+				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
 				2FEE940923ADCBF30006A16C /* WaitSettings.swift in Sources */,
+				2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */,
+				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,
 				2FEE941123ADCBF30006A16C /* APStepsPopover.swift in Sources */,
+				2FB0749223B2F66D00A7EB7B /* ShopView.swift in Sources */,
 				2FEE940F23ADCBF30006A16C /* RecipeConductor.swift in Sources */,
 				2FEE93F923ADCBF20006A16C /* Recipe.swift in Sources */,
 				2FEE93FA23ADCBF20006A16C /* RecipeBuilder.swift in Sources */,

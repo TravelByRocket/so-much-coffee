@@ -17,11 +17,11 @@ struct Shop : Identifiable {
 
 #if DEBUG
 let testShops = [
-	Shop(name: "Little Owl", location: .init(latitude: 39.754450, longitude: -104.996856)),
-	Shop(name: "Mercantile", location: .init(latitude: 39.764450, longitude: -104.986856)),
-	Shop(name: "Denver Bicycle Cafe", location: .init(latitude: 39.774450, longitude: -104.976856)),
-	Shop(name: "Weathervane", location: .init(latitude: 39.784450, longitude: -104.966856)),
-	Shop(name: "Huckleberry", location: .init(latitude: 39.794450, longitude: -104.956856))
+	Shop(name: "Little Owl Coffee", location: .init(latitude: 39.750535, longitude: -104.999658)),
+	Shop(name: "Mercantile Dining & Provision", location: .init(latitude: 39.753630, longitude: -104.999705)),
+	Shop(name: "Precision Pours", location: .init(latitude: 39.986922, longitude: -105.131426)),
+	Shop(name: "The Weathervane Cafe", location: .init(latitude: 39.743460, longitude: -104.966524)),
+	Shop(name: "Huckleberry Roasters (Milk Market)", location: .init(latitude: 39.753550, longitude: -104.996746))
 ]
 
 #endif

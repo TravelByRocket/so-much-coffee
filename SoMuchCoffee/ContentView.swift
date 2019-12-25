@@ -29,30 +29,18 @@ struct ContentView: View {
         VStack{
             if settings.curPage == "MAIN" {
                 MainPage()
+            } else if settings.curPage == "FIND" {
+               FindPage()
             } else if settings.curPage == "BREW" {
-               RecipesView()
-            } else if settings.curPage == "RECIPEBUILDER" {
-                RecipeBuilder()
-            } else if settings.curPage == "APSTEPS" {
-                RecipeBuilder()
-            }
-            else {
-                ZStack{
-                    MainPage()
-                    VStack {
-                        Spacer()
-                        Text("Section Does not Exist Yet")
-                            .foregroundColor(Color.red)
-                        Text("HINT: Click on Brew")
-                            .foregroundColor(Color.red)
-						Spacer()
-						Spacer()
-						Spacer()
-						Spacer()
-						Spacer()
-						Spacer()
-                    }.padding()
-                }
+                RecipesView()
+            } else if settings.curPage == "LOG" {
+                LogPage()
+            } else if settings.curPage == "ROASTERS" {
+                RoastersPage()
+            } else if settings.curPage == "ORIGINS" {
+                OriginsPage()
+            } else if settings.curPage == "FLAVORS" {
+                FlavorsPage()
             }
         }
     }

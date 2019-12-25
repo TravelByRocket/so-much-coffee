@@ -17,6 +17,8 @@ struct RecipeBuilder: View {
     @State var canAddSteps: Bool = false
     @State var showStepsPopover: Bool = false
     
+//	NOTE: Seems this might be good place to implement Modal sheet
+	
     var body: some View {
         ZStack {
             VStack {
@@ -65,6 +67,12 @@ struct RecipeBuilder: View {
                 }
                 .padding(.bottom)
                 
+				Toggle(isOn: $isSelectedInverted) {
+				Text("Inverted")
+				}
+				
+				
+				
                 // FILTER SECTION
                 HStack (spacing: 0){
                     // PAPER SELECTION

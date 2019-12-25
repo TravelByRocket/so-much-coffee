@@ -16,6 +16,15 @@ struct RoastersPage: View {
 					Spacer()
 					GoHome().padding().navigationBarTitle("Roasters")
 				}
+				List {
+					Text("Coda")
+					Text("Huckleberry")
+					Text("Metropolis")
+					Text("Fourtillfour")
+					Text("Middle State")
+					Text("Ozo")
+					Text("Color")
+				}
 				Spacer()
 			}
 		}

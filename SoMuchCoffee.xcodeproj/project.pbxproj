@@ -90,6 +90,7 @@
 		2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */; };
 		2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A023B31E3100A7EB7B /* RoastersPage.swift */; };
 		2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A223B31E3D00A7EB7B /* LogPage.swift */; };
+		2FB074A523B3276900A7EB7B /* CCC_FlavorWheel_English.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */; };
 		2FEE93F923ADCBF20006A16C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DE23ADCBF20006A16C /* Recipe.swift */; };
 		2FEE93FA23ADCBF20006A16C /* RecipeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */; };
 		2FEE93FB23ADCBF20006A16C /* PlungeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */; };
@@ -224,6 +225,7 @@
 		2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsPage.swift; sourceTree = "<group>"; };
 		2FB074A023B31E3100A7EB7B /* RoastersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastersPage.swift; sourceTree = "<group>"; };
 		2FB074A223B31E3D00A7EB7B /* LogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPage.swift; sourceTree = "<group>"; };
+		2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CCC_FlavorWheel_English.pdf; sourceTree = "<group>"; };
 		2FEE93DE23ADCBF20006A16C /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBuilder.swift; sourceTree = "<group>"; };
 		2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlungeSettings.swift; sourceTree = "<group>"; };
@@ -365,6 +367,7 @@
 		2F2E336723AAEDE40064DC09 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */,
 				2FAC605723B17D8800122255 /* exports */,
 				2FAC600223B17D1500122255 /* 33_CUPS_OF_COFFEE_INTERIOR-NEW_1024x1024.jpg */,
 				2FAC5FF823B17D1400122255 /* brew.png */,
@@ -679,6 +682,7 @@
 				2FAC604923B17D1600122255 /* noun_timer_2300861.svg in Resources */,
 				2F12C8E8239EBB9D00BFF066 /* LaunchScreen.storyboard in Resources */,
 				2FAC603623B17D1600122255 /* noun_stir_2732963.svg in Resources */,
+				2FB074A523B3276900A7EB7B /* CCC_FlavorWheel_English.pdf in Resources */,
 				2FB0744323B2DA0000A7EB7B /* icon120.png in Resources */,
 				2FB0744623B2DA0000A7EB7B /* icon87.png in Resources */,
 				2FAC604623B17D1600122255 /* noun_Shopping Cart_2966428.svg in Resources */,

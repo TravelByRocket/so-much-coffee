@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F0BEB582409B85300338D9E /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BEB572409B85300338D9E /* RecipeStep.swift */; };
 		2F11CC0923A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F11CC0723A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf */; };
 		2F11CC0A23A2D67B0011BC94 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */; };
 		2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F11CC1F23A7258E0011BC94 /* MainPage.swift */; };
@@ -136,6 +137,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		2F0BEB572409B85300338D9E /* RecipeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
 		2F11CC0723A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
 		2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		2F11CC1F23A7258E0011BC94 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -501,6 +503,7 @@
 			isa = PBXGroup;
 			children = (
 				2FEE93DE23ADCBF20006A16C /* Recipe.swift */,
+				2F0BEB572409B85300338D9E /* RecipeStep.swift */,
 				2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */,
 				2FEE93F523ADCBF20006A16C /* RecipesView.swift */,
 				2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */,
@@ -745,6 +748,7 @@
 				2FEE940C23ADCBF30006A16C /* GrindSettings.swift in Sources */,
 				2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */,
 				2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */,
+				2F0BEB582409B85300338D9E /* RecipeStep.swift in Sources */,
 				2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */,
 				2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */,
 				2FB0749423B2F6A900A7EB7B /* MapView.swift in Sources */,

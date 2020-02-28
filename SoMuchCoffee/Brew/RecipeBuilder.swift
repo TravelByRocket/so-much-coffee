@@ -9,13 +9,19 @@
 import SwiftUI
 
 struct RecipeBuilder: View {
-//    var recipeName: String = "20191209222959"
-    @State var isSelectedUpright: Bool = false
-    @State var isSelectedInverted: Bool = false
-    @State var isSelectedPaper: Bool = false
-    @State var isSelectedMetal: Bool = false
-    @State var canAddSteps: Bool = false
-    @State var showStepsPopover: Bool = false
+	
+	
+	
+	
+//	let dateString = dateFormatter.string(from: Date())
+	
+    @State private var recipeName: String = ""
+    @State private var isSelectedUpright: Bool = false
+    @State private var isSelectedInverted: Bool = false
+    @State private var isSelectedPaper: Bool = false
+    @State private var isSelectedMetal: Bool = false
+    @State private var canAddSteps: Bool = false
+    @State private var showStepsPopover: Bool = false
     
 //	NOTE: Seems this might be good place to implement Modal sheet
 	
@@ -24,10 +30,12 @@ struct RecipeBuilder: View {
             VStack {
                 // RECIPE NAME
                 HStack {
-                    Text("Recipe Name: ")
-    //                TextField("on20191209", text: $recipeName)
-                    Text("on20191209")
-                    Spacer()
+                    TextField("Recipe Name", text: $recipeName)
+					Button(action: {self.recipeName = self.randomTitle()}) {
+						Image(systemName: "shuffle")
+						Text("Random")
+					}
+					Spacer()
 //                    GoHome()
                 }
                 .padding()
@@ -66,12 +74,6 @@ struct RecipeBuilder: View {
                     }
                 }
                 .padding(.bottom)
-                
-				Toggle(isOn: $isSelectedInverted) {
-				Text("Inverted")
-				}
-				
-				
 				
                 // FILTER SECTION
                 HStack (spacing: 0){
@@ -120,7 +122,7 @@ struct RecipeBuilder: View {
             if showStepsPopover {
                 APStepsPopover(showPopover: $showStepsPopover)
             }
-        }
+		}
     }
     
     func handleMethodSelection(methodPressed: String){
@@ -156,6 +158,47 @@ struct RecipeBuilder: View {
     func checkInitialConditions(){
         canAddSteps = (isSelectedUpright || isSelectedInverted) && (isSelectedPaper || isSelectedMetal)
     }
+	
+	func randomTitle() -> String {
+		var dateString: String {
+			var dateFormatter: DateFormatter { //NOTE I don't know why the version in the documentation gives multiple errors but this closer version from HackingWithSwift works fine
+				let formatter = DateFormatter()
+				formatter.dateStyle = .medium
+				formatter.timeStyle = .none
+				return formatter
+			}
+			return dateFormatter.string(from: Date())
+		}
+		
+		switch Int.random(in: 0...6) { // TODO make more completely random options
+		case 0:
+			return "Unbelievable Brew " + dateString
+		case 1:
+			return "Lucky Beans " + dateString
+		case 2:
+			return "Brew of Faith " + dateString
+		case 3:
+			return "Caffeine Healer " + dateString
+		case 4:
+			return "Can't Stop Brewing " + dateString
+		case 5:
+			return "Lucky Beans " + dateString
+		case 6:
+			var chaosName = ""
+			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Healer","Energy","Morning","Anytime"]
+//			let wordCount = Int.random(in: 3...5)
+			let wordCount = 3
+			for _ in 1...wordCount {
+				chaosName += wordList[Int.random(in: 0..<wordList.count)]
+				chaosName += " "
+			}
+			chaosName += dateString
+			return chaosName
+		default:
+			return "Dunno " + dateString
+		}
+		
+	}
 }
 
 struct RecipeBuilder_Previews: PreviewProvider {

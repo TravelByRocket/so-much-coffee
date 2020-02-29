@@ -127,7 +127,7 @@ struct APStepsPopover: View {
                             .onTapGesture {
                                 self.showPopover = false
 //								self.recipe.addStep()
-								self.recipe.steps.append(FilterStep())
+								self.recipe.steps.append(InstallFilter())
                         }
                     }
                     .frame(width: 100,height: 100)

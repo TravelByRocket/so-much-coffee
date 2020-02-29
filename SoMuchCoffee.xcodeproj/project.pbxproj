@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F0BEB582409B85300338D9E /* RecipeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BEB572409B85300338D9E /* RecipeStep.swift */; };
+		2F0BEB5A240A1C6A00338D9E /* InstallFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F0BEB59240A1C6A00338D9E /* InstallFilter.swift */; };
 		2F11CC0923A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F11CC0723A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf */; };
 		2F11CC0A23A2D67B0011BC94 /* Lato-Light.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */; };
 		2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F11CC1F23A7258E0011BC94 /* MainPage.swift */; };
@@ -98,7 +99,6 @@
 		2FEE93FC23ADCBF20006A16C /* PlungeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E223ADCBF20006A16C /* PlungeStep.swift */; };
 		2FEE93FD23ADCBF20006A16C /* HeatWaterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */; };
 		2FEE93FE23ADCBF30006A16C /* WaitStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E423ADCBF20006A16C /* WaitStep.swift */; };
-		2FEE93FF23ADCBF30006A16C /* InstallFilterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E523ADCBF20006A16C /* InstallFilterStep.swift */; };
 		2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E623ADCBF20006A16C /* GrindStep.swift */; };
 		2FEE940123ADCBF30006A16C /* AddWaterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */; };
 		2FEE940223ADCBF30006A16C /* AddWaterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */; };
@@ -138,6 +138,7 @@
 
 /* Begin PBXFileReference section */
 		2F0BEB572409B85300338D9E /* RecipeStep.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RecipeStep.swift; sourceTree = "<group>"; };
+		2F0BEB59240A1C6A00338D9E /* InstallFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallFilter.swift; sourceTree = "<group>"; };
 		2F11CC0723A2D67B0011BC94 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
 		2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		2F11CC1F23A7258E0011BC94 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
@@ -234,7 +235,6 @@
 		2FEE93E223ADCBF20006A16C /* PlungeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlungeStep.swift; sourceTree = "<group>"; };
 		2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatWaterStep.swift; sourceTree = "<group>"; };
 		2FEE93E423ADCBF20006A16C /* WaitStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitStep.swift; sourceTree = "<group>"; };
-		2FEE93E523ADCBF20006A16C /* InstallFilterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = InstallFilterStep.swift; sourceTree = "<group>"; };
 		2FEE93E623ADCBF20006A16C /* GrindStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrindStep.swift; sourceTree = "<group>"; };
 		2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaterStep.swift; sourceTree = "<group>"; };
 		2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaterSettings.swift; sourceTree = "<group>"; };
@@ -517,11 +517,11 @@
 		2FEE93E023ADCBF20006A16C /* APSteps */ = {
 			isa = PBXGroup;
 			children = (
+				2F0BEB59240A1C6A00338D9E /* InstallFilter.swift */,
 				2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */,
 				2FEE93E223ADCBF20006A16C /* PlungeStep.swift */,
 				2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */,
 				2FEE93E423ADCBF20006A16C /* WaitStep.swift */,
-				2FEE93E523ADCBF20006A16C /* InstallFilterStep.swift */,
 				2FEE93E623ADCBF20006A16C /* GrindStep.swift */,
 				2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */,
 				2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */,
@@ -743,11 +743,11 @@
 			files = (
 				2F12C8D9239EBB9500BFF066 /* AppDelegate.swift in Sources */,
 				2FEE940823ADCBF30006A16C /* RinseFilterStep.swift in Sources */,
-				2FEE93FF23ADCBF30006A16C /* InstallFilterStep.swift in Sources */,
 				2F12C8DB239EBB9500BFF066 /* SceneDelegate.swift in Sources */,
 				2FEE940C23ADCBF30006A16C /* GrindSettings.swift in Sources */,
 				2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */,
 				2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */,
+				2F0BEB5A240A1C6A00338D9E /* InstallFilter.swift in Sources */,
 				2F0BEB582409B85300338D9E /* RecipeStep.swift in Sources */,
 				2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */,
 				2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */,

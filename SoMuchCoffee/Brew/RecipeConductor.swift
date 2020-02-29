@@ -49,7 +49,8 @@ struct RecipeConductor: View {
                 StirStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Wait")
             } else if curStep == 3 {
-                InstallFilterStep()
+//                InstallFilterStep()
+				Text("Placeholder for InstallFilter")
                 WaitStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Plunge")
             } else if curStep == 4 {

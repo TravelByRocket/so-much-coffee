@@ -22,30 +22,10 @@ class RecipeStep: Identifiable {
 		return "This belongs to RecipeStep"
 	}
 	
-	func asView() -> AnyView {
+	func asViewForList() -> AnyView {
 		return AnyView(Text("View from RecipeStep"))
 	}
-	
-	struct descriptionView: View {
-		var body: some View {
-			Text("it's a view!")
-		}
-	}
-	
-}
 
-class FilterStep: RecipeStep {
-	init() {
-		super.init(isCombinable: true)
-	}
+	// NOTE could change RecipeStep to protocol or just make a protocol that applies to all the individual step types to make sure that I cover all the methods that I expect to have
 	
-	override func asString() -> String {
-		return "This belongs to FilterStep"
-	}
-	
-	override func asView() -> AnyView {
-		return AnyView(
-			Text("Underlined").underline()+Text(" and not underlined"))
-	}
-
 }

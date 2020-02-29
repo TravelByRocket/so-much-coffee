@@ -108,10 +108,10 @@ struct RecipeBuilder: View {
 				
 				Form{
 					Section{
-						Button("Add step", action: {self.recipe.addStep()})
+						Button("Add step", action: {self.recipe.steps.append(InstallFilter())})
 						ForEach(self.recipe.steps, id: \.id){step in
 //							Text(step.asString()) // this works
-							step.asView()
+							step.asViewForList()
 						}
 					}
 					Section{

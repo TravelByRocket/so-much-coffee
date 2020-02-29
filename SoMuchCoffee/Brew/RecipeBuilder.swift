@@ -10,11 +10,6 @@ import SwiftUI
 
 struct RecipeBuilder: View {
 	
-	
-	
-	
-//	let dateString = dateFormatter.string(from: Date())
-	
     @State private var recipeName: String = ""
     @State private var isSelectedUpright: Bool = false
     @State private var isSelectedInverted: Bool = false
@@ -22,8 +17,11 @@ struct RecipeBuilder: View {
     @State private var isSelectedMetal: Bool = false
     @State private var canAddSteps: Bool = false
     @State private var showStepsPopover: Bool = false
+	
+	@State private var recipe: Recipe = Recipe(name: "Tester")
+	@State private var testArray = ["first","second","third"]
     
-//	NOTE: Seems this might be good place to implement Modal sheet
+//	NOTE Seems this might be good place to implement Modal sheet
 	
     var body: some View {
         ZStack {
@@ -32,11 +30,9 @@ struct RecipeBuilder: View {
                 HStack {
                     TextField("Recipe Name", text: $recipeName)
 					Button(action: {self.recipeName = self.randomTitle()}) {
-						Image(systemName: "shuffle")
-						Text("Random")
+						Image(systemName: "shuffle").rotationEffect(.degrees(180))
+						Text("Generate")
 					}
-					Spacer()
-//                    GoHome()
                 }
                 .padding()
                 
@@ -109,7 +105,24 @@ struct RecipeBuilder: View {
                     }
                 }
                 .padding(.bottom)
-
+				
+				Form{
+					Section{
+						Button("Add step", action: {self.recipe.addStep()})
+						ForEach(self.recipe.steps, id: \.id){step in
+//							Text(step.asString()) // this works
+							step.asView()
+						}
+					}
+					Section{
+						Button("Add string", action: {self.testArray.append("another")})
+						ForEach(testArray, id: \.self){str in
+							Text(str)
+						}
+					}
+					Text("hey")
+				}
+				
                 if canAddSteps {
                     AddButton(isEnabled: true)
                     .onTapGesture {self.showStepsPopover = true}
@@ -120,7 +133,7 @@ struct RecipeBuilder: View {
                 Spacer()
             }
             if showStepsPopover {
-                APStepsPopover(showPopover: $showStepsPopover)
+				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)
             }
 		}
     }
@@ -170,7 +183,7 @@ struct RecipeBuilder: View {
 			return dateFormatter.string(from: Date())
 		}
 		
-		switch Int.random(in: 0...6) { // TODO make more completely random options
+		switch Int.random(in: 0...8) { // TODO make more completely random options
 		case 0:
 			return "Unbelievable Brew " + dateString
 		case 1:
@@ -183,10 +196,9 @@ struct RecipeBuilder: View {
 			return "Can't Stop Brewing " + dateString
 		case 5:
 			return "Lucky Beans " + dateString
-		case 6:
+		case 6...8:
 			var chaosName = ""
-			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Healer","Energy","Morning","Anytime"]
-//			let wordCount = Int.random(in: 3...5)
+			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Energy","Morning","Anytime"]
 			let wordCount = 3
 			for _ in 1...wordCount {
 				chaosName += wordList[Int.random(in: 0..<wordList.count)]

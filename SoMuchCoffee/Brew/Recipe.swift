@@ -13,6 +13,11 @@ struct Recipe : Identifiable {
     var name: String
 	var steps: [RecipeStep] = []
 	
+	
+	mutating func addStep() -> Void {
+		var tempStep = RecipeStep(isCombinable: true)
+		steps.append(tempStep)
+	}
 }
 
 #if DEBUG

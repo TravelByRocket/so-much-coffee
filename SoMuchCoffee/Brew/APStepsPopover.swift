@@ -10,6 +10,7 @@ import SwiftUI
 
 struct APStepsPopover: View {
     @Binding var showPopover: Bool
+	@Binding var recipe: Recipe
     
     @State var optHeatWater: Bool = false
     @State var optGrind: Bool = false
@@ -125,6 +126,8 @@ struct APStepsPopover: View {
                             .multilineTextAlignment(.center)
                             .onTapGesture {
                                 self.showPopover = false
+//								self.recipe.addStep()
+								self.recipe.steps.append(FilterStep())
                         }
                     }
                     .frame(width: 100,height: 100)
@@ -210,8 +213,9 @@ struct APStepsPopover: View {
 
 struct APStepsPopover_Previews: PreviewProvider {
     @State private static var fakeEnabler: Bool = true
+	@State private static var fakeRecipe: Recipe = Recipe(name: "fakerecipe")
     static var previews: some View {
-        APStepsPopover(showPopover: $fakeEnabler)
+        APStepsPopover(showPopover: $fakeEnabler, recipe: $fakeRecipe)
     }
 }
 

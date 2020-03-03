@@ -26,6 +26,7 @@
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
 		2FA4614C240DE671009EA112 /* Plunge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614B240DE671009EA112 /* Plunge.swift */; };
+		2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614D240E32E1009EA112 /* InstallPlunger.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -96,8 +97,6 @@
 		2FB074A523B3276900A7EB7B /* CCC_FlavorWheel_English.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */; };
 		2FEE93F923ADCBF20006A16C /* Recipe.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DE23ADCBF20006A16C /* Recipe.swift */; };
 		2FEE93FA23ADCBF20006A16C /* RecipeBuilder.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */; };
-		2FEE93FB23ADCBF20006A16C /* PlungeSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */; };
-		2FEE93FC23ADCBF20006A16C /* PlungeStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E223ADCBF20006A16C /* PlungeStep.swift */; };
 		2FEE93FD23ADCBF20006A16C /* HeatWaterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */; };
 		2FEE93FE23ADCBF30006A16C /* WaitStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E423ADCBF20006A16C /* WaitStep.swift */; };
 		2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E623ADCBF20006A16C /* GrindStep.swift */; };
@@ -163,6 +162,7 @@
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		2FA4614B240DE671009EA112 /* Plunge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plunge.swift; sourceTree = "<group>"; };
+		2FA4614D240E32E1009EA112 /* InstallPlunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPlunger.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -233,8 +233,6 @@
 		2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CCC_FlavorWheel_English.pdf; sourceTree = "<group>"; };
 		2FEE93DE23ADCBF20006A16C /* Recipe.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Recipe.swift; sourceTree = "<group>"; };
 		2FEE93DF23ADCBF20006A16C /* RecipeBuilder.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeBuilder.swift; sourceTree = "<group>"; };
-		2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlungeSettings.swift; sourceTree = "<group>"; };
-		2FEE93E223ADCBF20006A16C /* PlungeStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = PlungeStep.swift; sourceTree = "<group>"; };
 		2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HeatWaterStep.swift; sourceTree = "<group>"; };
 		2FEE93E423ADCBF20006A16C /* WaitStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitStep.swift; sourceTree = "<group>"; };
 		2FEE93E623ADCBF20006A16C /* GrindStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrindStep.swift; sourceTree = "<group>"; };
@@ -520,9 +518,8 @@
 			isa = PBXGroup;
 			children = (
 				2F0BEB59240A1C6A00338D9E /* InstallFilter.swift */,
+				2FA4614D240E32E1009EA112 /* InstallPlunger.swift */,
 				2FA4614B240DE671009EA112 /* Plunge.swift */,
-				2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */,
-				2FEE93E223ADCBF20006A16C /* PlungeStep.swift */,
 				2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */,
 				2FEE93E423ADCBF20006A16C /* WaitStep.swift */,
 				2FEE93E623ADCBF20006A16C /* GrindStep.swift */,
@@ -761,6 +758,7 @@
 				2F11CC2223A732EC0011BC94 /* GoHome.swift in Sources */,
 				2FEE940123ADCBF30006A16C /* AddWaterStep.swift in Sources */,
 				2FEE940723ADCBF30006A16C /* TimerPillStep.swift in Sources */,
+				2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */,
 				2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */,
 				2FEE940E23ADCBF30006A16C /* RecipesView.swift in Sources */,
 				2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */,
@@ -772,7 +770,6 @@
 				2FEE940323ADCBF30006A16C /* StirSettings.swift in Sources */,
 				2FEE940223ADCBF30006A16C /* AddWaterSettings.swift in Sources */,
 				2FEE940D23ADCBF30006A16C /* HeatWaterSettings.swift in Sources */,
-				2FEE93FC23ADCBF20006A16C /* PlungeStep.swift in Sources */,
 				2FA4614C240DE671009EA112 /* Plunge.swift in Sources */,
 				2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */,
 				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
@@ -785,7 +782,6 @@
 				2FEE940F23ADCBF30006A16C /* RecipeConductor.swift in Sources */,
 				2FEE93F923ADCBF20006A16C /* Recipe.swift in Sources */,
 				2FEE93FA23ADCBF20006A16C /* RecipeBuilder.swift in Sources */,
-				2FEE93FB23ADCBF20006A16C /* PlungeSettings.swift in Sources */,
 				2FEE93FD23ADCBF20006A16C /* HeatWaterStep.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

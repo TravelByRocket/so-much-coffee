@@ -106,6 +106,7 @@ struct APStepsPopover: View {
                             .multilineTextAlignment(.center)
                             .onTapGesture {
                                 self.showPopover = false
+								self.recipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
                         }
                     }
                     .frame(width: 100,height: 100)
@@ -127,7 +128,7 @@ struct APStepsPopover: View {
                             .onTapGesture {
                                 self.showPopover = false
 //								self.recipe.addStep()
-								self.recipe.steps.append(InstallFilter())
+								self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
                         }
                     }
                     .frame(width: 100,height: 100)
@@ -195,7 +196,7 @@ struct APStepsPopover: View {
                             self.showPopover = false
                     }
                 } else if optPlunge {
-                    PlungeForSettings(recipe: $recipe)
+                    PlungeForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optPlunge)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

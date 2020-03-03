@@ -111,15 +111,6 @@ struct RecipeBuilder: View {
 						Button("Add plunge", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))})
 						ForEach(self.recipe.steps, id: \.id){step in
 							self.getViewForList(recipeStep: step.descriptor)
-//							step.descriptor == .plunge ? PlungeForList(duration: 20) : InstallFilterForList()
-//							Text(String(step.descriptor))
-//							VStack{
-//								if (step.descriptor == .plunge) {
-//							PlungeForList(duration: step.descriptor.duration)
-//								} else {
-//									InstallFilterForList()
-//								}
-//							}
 						}
 						
 					}
@@ -144,8 +135,12 @@ struct RecipeBuilder: View {
 		switch kind {
 		case .plunge(let secs):
 			return AnyView(PlungeForList(duration: secs))
-		default:
+		case .installFilter:
 			return AnyView(InstallFilterForList())
+		case .installPlunger:
+			return AnyView(InstallPlungerForList())
+		default:
+			return AnyView(Text("Something else added"))
 		}
 	}
     

@@ -54,7 +54,7 @@ struct RecipeConductor: View {
                 WaitStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Plunge")
             } else if curStep == 4 {
-                PlungeStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
+                PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Add Water")
             } else if curStep == 5 {
                 AddWaterStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 160)

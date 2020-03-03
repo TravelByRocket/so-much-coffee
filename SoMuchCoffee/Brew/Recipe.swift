@@ -12,7 +12,6 @@ struct Recipe : Identifiable {
     var id = UUID()
     var name: String
 	var steps: [RecipeStep] = []
-	
 }
 
 #if DEBUG

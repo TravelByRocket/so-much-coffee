@@ -19,7 +19,6 @@ struct RecipeBuilder: View {
     @State private var showStepsPopover: Bool = false
 	
 	@State private var recipe: Recipe = Recipe(name: "Tester")
-	@State private var testArray = ["first","second","third"]
     
 //	NOTE Seems this might be good place to implement Modal sheet
 	
@@ -108,19 +107,22 @@ struct RecipeBuilder: View {
 				
 				Form{
 					Section{
-						Button("Add step", action: {self.recipe.steps.append(InstallFilter())})
+						Button("Add filter install", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))})
+						Button("Add plunge", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))})
 						ForEach(self.recipe.steps, id: \.id){step in
-//							Text(step.asString()) // this works
-							step.asViewForList()
+							self.getViewForList(recipeStep: step.descriptor)
+//							step.descriptor == .plunge ? PlungeForList(duration: 20) : InstallFilterForList()
+//							Text(String(step.descriptor))
+//							VStack{
+//								if (step.descriptor == .plunge) {
+//							PlungeForList(duration: step.descriptor.duration)
+//								} else {
+//									InstallFilterForList()
+//								}
+//							}
 						}
+						
 					}
-					Section{
-						Button("Add string", action: {self.testArray.append("another")})
-						ForEach(testArray, id: \.self){str in
-							Text(str)
-						}
-					}
-					Text("hey")
 				}
 				
                 if canAddSteps {
@@ -137,6 +139,15 @@ struct RecipeBuilder: View {
             }
 		}
     }
+	
+	func getViewForList(recipeStep kind: KindOfStep) -> AnyView{
+		switch kind {
+		case .plunge(let secs):
+			return AnyView(PlungeForList(duration: secs))
+		default:
+			return AnyView(InstallFilterForList())
+		}
+	}
     
     func handleMethodSelection(methodPressed: String){
         // There is redundancy in this but no need to write more code to do less
@@ -183,7 +194,7 @@ struct RecipeBuilder: View {
 			return dateFormatter.string(from: Date())
 		}
 		
-		switch Int.random(in: 0...8) { // TODO make more completely random options
+		switch Int.random(in: 0...10) { // TODO make more completely random options
 		case 0:
 			return "Unbelievable Brew " + dateString
 		case 1:
@@ -196,9 +207,9 @@ struct RecipeBuilder: View {
 			return "Can't Stop Brewing " + dateString
 		case 5:
 			return "Lucky Beans " + dateString
-		case 6...8:
+		case 6...10:
 			var chaosName = ""
-			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Energy","Morning","Anytime"]
+			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Energy","Morning","Anytime","Afternooon","Mindful","Sunset","Yogi","Mountain","Bliss","Vibe","Chakra","Peace","Tranquil","Amped","Lit","Celestial","Visionary"]
 			let wordCount = 3
 			for _ in 1...wordCount {
 				chaosName += wordList[Int.random(in: 0..<wordList.count)]

@@ -12,20 +12,23 @@ class RecipeStep: Identifiable {
 	var id = UUID()
 	var isCombinable: Bool
 	var forceAsLastGroupedStep: Bool
+	let descriptor: KindOfStep
 	
-	init(isCombinable: Bool, forceAsLastGroupedStep: Bool = false) {
+	init(kindOfStep type: KindOfStep, isCombinable: Bool, forceAsLastGroupedStep: Bool = false) {
+		self.descriptor = type
 		self.isCombinable = isCombinable
 		self.forceAsLastGroupedStep = forceAsLastGroupedStep
 	}
-	
-	func asString() -> String {
-		return "This belongs to RecipeStep"
-	}
-	
-	func asViewForList() -> AnyView {
-		return AnyView(Text("View from RecipeStep"))
-	}
+}
 
-	// NOTE could change RecipeStep to protocol or just make a protocol that applies to all the individual step types to make sure that I cover all the methods that I expect to have
-	
+enum KindOfStep {
+	case addWater(seconds: Int, grams: Int)
+	case grind(mass: Int) // future need for grinder name or type, setting name or value, maybe more
+	case heatWater(tempC: Float?) // nil means "just boil"
+	case insertPlunger
+	case installFilter
+	case plunge(seconds: Int)
+	case rinseFilter
+	case stir(seconds: Int)
+	case wait(seconds: Int)
 }

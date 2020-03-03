@@ -195,7 +195,7 @@ struct APStepsPopover: View {
                             self.showPopover = false
                     }
                 } else if optPlunge {
-                    PlungeSettings()
+                    PlungeForSettings(recipe: $recipe)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

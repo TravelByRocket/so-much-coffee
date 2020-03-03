@@ -25,6 +25,7 @@
 		2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */; };
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
+		2FA4614C240DE671009EA112 /* Plunge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614B240DE671009EA112 /* Plunge.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -161,6 +162,7 @@
 		2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Bold.ttf"; sourceTree = "<group>"; };
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		2FA4614B240DE671009EA112 /* Plunge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plunge.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -518,6 +520,7 @@
 			isa = PBXGroup;
 			children = (
 				2F0BEB59240A1C6A00338D9E /* InstallFilter.swift */,
+				2FA4614B240DE671009EA112 /* Plunge.swift */,
 				2FEE93E123ADCBF20006A16C /* PlungeSettings.swift */,
 				2FEE93E223ADCBF20006A16C /* PlungeStep.swift */,
 				2FEE93E323ADCBF20006A16C /* HeatWaterStep.swift */,
@@ -770,6 +773,7 @@
 				2FEE940223ADCBF30006A16C /* AddWaterSettings.swift in Sources */,
 				2FEE940D23ADCBF30006A16C /* HeatWaterSettings.swift in Sources */,
 				2FEE93FC23ADCBF20006A16C /* PlungeStep.swift in Sources */,
+				2FA4614C240DE671009EA112 /* Plunge.swift in Sources */,
 				2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */,
 				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,

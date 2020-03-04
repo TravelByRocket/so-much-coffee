@@ -141,6 +141,8 @@ struct RecipeBuilder: View {
 			return AnyView(InstallPlungerForList())
 		case .heatWater(let tempC):
 			return AnyView(HeatWaterForList(tempC: tempC))
+		case .rinseFilter:
+			return AnyView(RinseFilterForList())
 		default:
 			return AnyView(Text("Something else added"))
 		}

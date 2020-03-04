@@ -58,6 +58,7 @@ struct APStepsPopover: View {
                     .border(appDarkGray)
                     .onTapGesture {
                         self.showPopover = false
+						self.recipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
                     }
                 }
                 .padding(.bottom)

@@ -31,7 +31,7 @@ struct GrindStep_Previews: PreviewProvider {
             GrindStep(grinderName: "Rok", grindSetting: "8.5")
             GrindStep()
 //            HeatWaterStep()
-            RinseFilterStep()
+//            RinseFilterStep()
         }
         
     }

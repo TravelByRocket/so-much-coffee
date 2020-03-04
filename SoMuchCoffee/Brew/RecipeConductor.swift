@@ -34,7 +34,7 @@ struct RecipeConductor: View {
                 Text("Prepare for Brewing")
                 GrindStep(grinderName: "Rok", grindSetting: "10.5", beanMass: 35)
                 HeatWaterForRecipe(tempC: 80)
-                RinseFilterStep()
+                RinseFilterForRecipe()
                 Text("Tap to start brewing")
                     .foregroundColor(Color.blue)
                     .onTapGesture {self.clockIsRunning = true}

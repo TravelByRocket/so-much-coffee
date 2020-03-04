@@ -28,6 +28,7 @@
 		2FA4614C240DE671009EA112 /* Plunge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614B240DE671009EA112 /* Plunge.swift */; };
 		2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614D240E32E1009EA112 /* InstallPlunger.swift */; };
 		2FA46150240F5893009EA112 /* HeatWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614F240F5893009EA112 /* HeatWater.swift */; };
+		2FA4615224100EA1009EA112 /* RinseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4615124100EA1009EA112 /* RinseFilter.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -107,7 +108,6 @@
 		2FEE940523ADCBF30006A16C /* MoreTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EC23ADCBF20006A16C /* MoreTime.swift */; };
 		2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93ED23ADCBF20006A16C /* TimerPillTotal.swift */; };
 		2FEE940723ADCBF30006A16C /* TimerPillStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */; };
-		2FEE940823ADCBF30006A16C /* RinseFilterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EF23ADCBF20006A16C /* RinseFilterStep.swift */; };
 		2FEE940923ADCBF30006A16C /* WaitSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F023ADCBF20006A16C /* WaitSettings.swift */; };
 		2FEE940A23ADCBF30006A16C /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F123ADCBF20006A16C /* Stopwatch.swift */; };
 		2FEE940B23ADCBF30006A16C /* StirStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F223ADCBF20006A16C /* StirStep.swift */; };
@@ -163,6 +163,7 @@
 		2FA4614B240DE671009EA112 /* Plunge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plunge.swift; sourceTree = "<group>"; };
 		2FA4614D240E32E1009EA112 /* InstallPlunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPlunger.swift; sourceTree = "<group>"; };
 		2FA4614F240F5893009EA112 /* HeatWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatWater.swift; sourceTree = "<group>"; };
+		2FA4615124100EA1009EA112 /* RinseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RinseFilter.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -242,7 +243,6 @@
 		2FEE93EC23ADCBF20006A16C /* MoreTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTime.swift; sourceTree = "<group>"; };
 		2FEE93ED23ADCBF20006A16C /* TimerPillTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPillTotal.swift; sourceTree = "<group>"; };
 		2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPillStep.swift; sourceTree = "<group>"; };
-		2FEE93EF23ADCBF20006A16C /* RinseFilterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RinseFilterStep.swift; sourceTree = "<group>"; };
 		2FEE93F023ADCBF20006A16C /* WaitSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = WaitSettings.swift; sourceTree = "<group>"; };
 		2FEE93F123ADCBF20006A16C /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
 		2FEE93F223ADCBF20006A16C /* StirStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StirStep.swift; sourceTree = "<group>"; };
@@ -519,17 +519,17 @@
 				2FA4614D240E32E1009EA112 /* InstallPlunger.swift */,
 				2FA4614B240DE671009EA112 /* Plunge.swift */,
 				2FA4614F240F5893009EA112 /* HeatWater.swift */,
+				2FA4615124100EA1009EA112 /* RinseFilter.swift */,
 				2FEE93E423ADCBF20006A16C /* WaitStep.swift */,
+				2FEE93F023ADCBF20006A16C /* WaitSettings.swift */,
 				2FEE93E623ADCBF20006A16C /* GrindStep.swift */,
+				2FEE93F323ADCBF20006A16C /* GrindSettings.swift */,
 				2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */,
 				2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */,
+				2FEE93F223ADCBF20006A16C /* StirStep.swift */,
 				2FEE93E923ADCBF20006A16C /* StirSettings.swift */,
 				2FEE93EA23ADCBF20006A16C /* SubViews */,
-				2FEE93EF23ADCBF20006A16C /* RinseFilterStep.swift */,
-				2FEE93F023ADCBF20006A16C /* WaitSettings.swift */,
 				2FEE93F123ADCBF20006A16C /* Stopwatch.swift */,
-				2FEE93F223ADCBF20006A16C /* StirStep.swift */,
-				2FEE93F323ADCBF20006A16C /* GrindSettings.swift */,
 			);
 			path = APSteps;
 			sourceTree = "<group>";
@@ -739,7 +739,6 @@
 			buildActionMask = 2147483647;
 			files = (
 				2F12C8D9239EBB9500BFF066 /* AppDelegate.swift in Sources */,
-				2FEE940823ADCBF30006A16C /* RinseFilterStep.swift in Sources */,
 				2F12C8DB239EBB9500BFF066 /* SceneDelegate.swift in Sources */,
 				2FEE940C23ADCBF30006A16C /* GrindSettings.swift in Sources */,
 				2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */,
@@ -759,6 +758,7 @@
 				2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */,
 				2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */,
 				2FEE940E23ADCBF30006A16C /* RecipesView.swift in Sources */,
+				2FA4615224100EA1009EA112 /* RinseFilter.swift in Sources */,
 				2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */,
 				2F12C8E0239EBB9500BFF066 /* ContentView.swift in Sources */,
 				2FB0748E23B2E0D700A7EB7B /* Shop.swift in Sources */,

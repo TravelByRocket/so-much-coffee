@@ -25,7 +25,7 @@ struct RinseFilterStep_Previews: PreviewProvider {
     static var previews: some View {
         VStack{
             GrindStep()
-            HeatWaterStep()
+//            HeatWaterStep()
             RinseFilterStep()
         }
     }

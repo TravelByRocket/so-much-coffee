@@ -154,8 +154,7 @@ struct APStepsPopover: View {
             VStack{
                 if optHeatWater {
                     VStack {
-                        
-                        HeatWaterSettings()
+                        HeatWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optHeatWater)
                         Text("Dismiss").foregroundColor(Color.blue)
                             .padding()
                             .onTapGesture {

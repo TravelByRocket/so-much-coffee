@@ -24,7 +24,7 @@ class RecipeStep: Identifiable {
 enum KindOfStep {
 	case addWater(seconds: Int, grams: Int)
 	case grind(mass: Int) // future need for grinder name or type, setting name or value, maybe more
-	case heatWater(tempC: Float?) // nil means "just boil"
+	case heatWater(tempC: Double?) // nil means "just boil"
 	case installPlunger
 	case installFilter
 	case plunge(seconds: Int)

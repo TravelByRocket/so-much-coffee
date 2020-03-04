@@ -33,7 +33,7 @@ struct RecipeConductor: View {
             if curStep == 0 {
                 Text("Prepare for Brewing")
                 GrindStep(grinderName: "Rok", grindSetting: "10.5", beanMass: 35)
-                HeatWaterStep(temperature: 183, isFahrenheit: true)
+                HeatWaterForRecipe(tempC: 80)
                 RinseFilterStep()
                 Text("Tap to start brewing")
                     .foregroundColor(Color.blue)

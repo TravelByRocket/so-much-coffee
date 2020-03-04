@@ -107,8 +107,8 @@ struct RecipeBuilder: View {
 				
 				Form{
 					Section{
-						Button("Add filter install", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))})
-						Button("Add plunge", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))})
+//						Button("Add filter install", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))})
+//						Button("Add plunge", action: {self.recipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))})
 						ForEach(self.recipe.steps, id: \.id){step in
 							self.getViewForList(recipeStep: step.descriptor)
 						}
@@ -139,6 +139,8 @@ struct RecipeBuilder: View {
 			return AnyView(InstallFilterForList())
 		case .installPlunger:
 			return AnyView(InstallPlungerForList())
+		case .heatWater(let tempC):
+			return AnyView(HeatWaterForList(tempC: tempC))
 		default:
 			return AnyView(Text("Something else added"))
 		}

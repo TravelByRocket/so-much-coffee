@@ -143,6 +143,8 @@ struct RecipeBuilder: View {
 			return AnyView(HeatWaterForList(tempC: tempC))
 		case .rinseFilter:
 			return AnyView(RinseFilterForList())
+		case .wait(let secs):
+			return AnyView(WaitForList(duration: secs))
 		default:
 			return AnyView(Text("Something else added"))
 		}

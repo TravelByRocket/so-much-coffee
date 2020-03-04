@@ -188,7 +188,7 @@ struct APStepsPopover: View {
                             self.showPopover = false
                     }
                 } else if optWait {
-                    WaitSettings()
+                    WaitForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optWait)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

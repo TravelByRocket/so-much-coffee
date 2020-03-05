@@ -46,7 +46,7 @@ struct RecipeConductor: View {
                 AddWaterStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 150)
                 Text("Next Step: Stir")
             } else if curStep == 2 {
-                StirStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
+                StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Wait")
             } else if curStep == 3 {
 //                InstallFilterStep()

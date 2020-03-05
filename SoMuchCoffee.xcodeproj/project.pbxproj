@@ -30,6 +30,7 @@
 		2FA46150240F5893009EA112 /* HeatWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614F240F5893009EA112 /* HeatWater.swift */; };
 		2FA4615224100EA1009EA112 /* RinseFilter.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4615124100EA1009EA112 /* RinseFilter.swift */; };
 		2FA46154241010E0009EA112 /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46153241010E0009EA112 /* Wait.swift */; };
+		2FA461562410424F009EA112 /* Stir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA461552410424F009EA112 /* Stir.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -103,13 +104,11 @@
 		2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E623ADCBF20006A16C /* GrindStep.swift */; };
 		2FEE940123ADCBF30006A16C /* AddWaterStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */; };
 		2FEE940223ADCBF30006A16C /* AddWaterSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */; };
-		2FEE940323ADCBF30006A16C /* StirSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93E923ADCBF20006A16C /* StirSettings.swift */; };
 		2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EB23ADCBF20006A16C /* LessTime.swift */; };
 		2FEE940523ADCBF30006A16C /* MoreTime.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EC23ADCBF20006A16C /* MoreTime.swift */; };
 		2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93ED23ADCBF20006A16C /* TimerPillTotal.swift */; };
 		2FEE940723ADCBF30006A16C /* TimerPillStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */; };
 		2FEE940A23ADCBF30006A16C /* Stopwatch.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F123ADCBF20006A16C /* Stopwatch.swift */; };
-		2FEE940B23ADCBF30006A16C /* StirStep.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F223ADCBF20006A16C /* StirStep.swift */; };
 		2FEE940C23ADCBF30006A16C /* GrindSettings.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F323ADCBF20006A16C /* GrindSettings.swift */; };
 		2FEE940E23ADCBF30006A16C /* RecipesView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F523ADCBF20006A16C /* RecipesView.swift */; };
 		2FEE940F23ADCBF30006A16C /* RecipeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */; };
@@ -164,6 +163,7 @@
 		2FA4614F240F5893009EA112 /* HeatWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatWater.swift; sourceTree = "<group>"; };
 		2FA4615124100EA1009EA112 /* RinseFilter.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RinseFilter.swift; sourceTree = "<group>"; };
 		2FA46153241010E0009EA112 /* Wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
+		2FA461552410424F009EA112 /* Stir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stir.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -237,13 +237,11 @@
 		2FEE93E623ADCBF20006A16C /* GrindStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrindStep.swift; sourceTree = "<group>"; };
 		2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaterStep.swift; sourceTree = "<group>"; };
 		2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = AddWaterSettings.swift; sourceTree = "<group>"; };
-		2FEE93E923ADCBF20006A16C /* StirSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StirSettings.swift; sourceTree = "<group>"; };
 		2FEE93EB23ADCBF20006A16C /* LessTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LessTime.swift; sourceTree = "<group>"; };
 		2FEE93EC23ADCBF20006A16C /* MoreTime.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MoreTime.swift; sourceTree = "<group>"; };
 		2FEE93ED23ADCBF20006A16C /* TimerPillTotal.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPillTotal.swift; sourceTree = "<group>"; };
 		2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TimerPillStep.swift; sourceTree = "<group>"; };
 		2FEE93F123ADCBF20006A16C /* Stopwatch.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Stopwatch.swift; sourceTree = "<group>"; };
-		2FEE93F223ADCBF20006A16C /* StirStep.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = StirStep.swift; sourceTree = "<group>"; };
 		2FEE93F323ADCBF20006A16C /* GrindSettings.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GrindSettings.swift; sourceTree = "<group>"; };
 		2FEE93F523ADCBF20006A16C /* RecipesView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipesView.swift; sourceTree = "<group>"; };
 		2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeConductor.swift; sourceTree = "<group>"; };
@@ -519,12 +517,11 @@
 				2FA4614F240F5893009EA112 /* HeatWater.swift */,
 				2FA4615124100EA1009EA112 /* RinseFilter.swift */,
 				2FA46153241010E0009EA112 /* Wait.swift */,
+				2FA461552410424F009EA112 /* Stir.swift */,
 				2FEE93E623ADCBF20006A16C /* GrindStep.swift */,
 				2FEE93F323ADCBF20006A16C /* GrindSettings.swift */,
 				2FEE93E723ADCBF20006A16C /* AddWaterStep.swift */,
 				2FEE93E823ADCBF20006A16C /* AddWaterSettings.swift */,
-				2FEE93F223ADCBF20006A16C /* StirStep.swift */,
-				2FEE93E923ADCBF20006A16C /* StirSettings.swift */,
 				2FEE93EA23ADCBF20006A16C /* SubViews */,
 				2FEE93F123ADCBF20006A16C /* Stopwatch.swift */,
 			);
@@ -741,6 +738,7 @@
 				2FEE940423ADCBF30006A16C /* LessTime.swift in Sources */,
 				2FEE940623ADCBF30006A16C /* TimerPillTotal.swift in Sources */,
 				2FA46150240F5893009EA112 /* HeatWater.swift in Sources */,
+				2FA461562410424F009EA112 /* Stir.swift in Sources */,
 				2F0BEB5A240A1C6A00338D9E /* InstallFilter.swift in Sources */,
 				2F0BEB582409B85300338D9E /* RecipeStep.swift in Sources */,
 				2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */,
@@ -760,9 +758,7 @@
 				2F12C8E0239EBB9500BFF066 /* ContentView.swift in Sources */,
 				2FB0748E23B2E0D700A7EB7B /* Shop.swift in Sources */,
 				2F12C8DE239EBB9500BFF066 /* SoMuchCoffee.xcdatamodeld in Sources */,
-				2FEE940B23ADCBF30006A16C /* StirStep.swift in Sources */,
 				2FEE940523ADCBF30006A16C /* MoreTime.swift in Sources */,
-				2FEE940323ADCBF30006A16C /* StirSettings.swift in Sources */,
 				2FEE940223ADCBF30006A16C /* AddWaterSettings.swift in Sources */,
 				2FA4614C240DE671009EA112 /* Plunge.swift in Sources */,
 				2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */,

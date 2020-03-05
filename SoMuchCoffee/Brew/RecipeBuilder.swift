@@ -145,6 +145,8 @@ struct RecipeBuilder: View {
 			return AnyView(RinseFilterForList())
 		case .wait(let secs):
 			return AnyView(WaitForList(duration: secs))
+		case .stir(let secs):
+			return AnyView(StirForList(duration: secs))
 		default:
 			return AnyView(Text("Something else added"))
 		}

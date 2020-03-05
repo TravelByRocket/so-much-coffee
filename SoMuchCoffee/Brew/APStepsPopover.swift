@@ -180,7 +180,7 @@ struct APStepsPopover: View {
                             self.showPopover = false
                     }
                 } else if optStir {
-                    StirSettings()
+                    StirForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optStir)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

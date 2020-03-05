@@ -9,16 +9,14 @@
 import SwiftUI
 
 struct RecipeBuilder: View {
+	@State var recipe: Recipe = Recipe()
 	
-    @State private var recipeName: String = ""
     @State private var isSelectedUpright: Bool = false
     @State private var isSelectedInverted: Bool = false
     @State private var isSelectedPaper: Bool = false
     @State private var isSelectedMetal: Bool = false
     @State private var canAddSteps: Bool = false
     @State private var showStepsPopover: Bool = false
-	
-	@State private var recipe: Recipe = Recipe(name: "Tester")
     
 //	NOTE Seems this might be good place to implement Modal sheet
 	
@@ -27,8 +25,8 @@ struct RecipeBuilder: View {
             VStack {
                 // RECIPE NAME
                 HStack {
-                    TextField("Recipe Name", text: $recipeName)
-					Button(action: {self.recipeName = self.randomTitle()}) {
+					TextField("Recipe Name", text: $recipe.name)
+					Button(action: {self.recipe.name = self.randomTitle()}) {
 						Image(systemName: "shuffle").rotationEffect(.degrees(180))
 						Text("Generate")
 					}
@@ -39,33 +37,21 @@ struct RecipeBuilder: View {
                 HStack (spacing: 0){
                     
                     // UPRIGHT SELECTION
-                    HStack {
-                        Spacer()
-                        Text("Upright\nMethod")
-                            .font(.title)
-                        Spacer()
-                    }
-                    .padding(.vertical, 40)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .border(Color.black, width: 1)
-                    .background(isSelectedUpright ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
-                    .onTapGesture {
-                        self.handleMethodSelection(methodPressed: "Upright")
-                    }
+					OptionBox(msg: "Upright\nMethod")
+					.background(isSelectedUpright ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
+					.onTapGesture {
+						self.isSelectedUpright = true
+						self.isSelectedInverted = false
+						self.checkInitialConditions()
+					}
                     
                     // INVERTED SELECTION
-                    HStack {
-                        Spacer()
-                        Text("Inverted\nMethod")
-                            .font(.title)
-                        Spacer()
-                    }
-                    .padding(.vertical, 40)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .border(Color.black, width: 1)
+                    OptionBox(msg: "Inverted\nMethod")
                     .background(isSelectedInverted ? Color(red: 176/255, green: 160/255, blue: 255/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-                        self.handleMethodSelection(methodPressed: "Inverted")
+						self.isSelectedUpright = false
+						self.isSelectedInverted = true
+						self.checkInitialConditions()
                     }
                 }
                 .padding(.bottom)
@@ -73,34 +59,21 @@ struct RecipeBuilder: View {
                 // FILTER SECTION
                 HStack (spacing: 0){
                     // PAPER SELECTION
-                    HStack {
-                        Spacer()
-                        Text("Paper Filter")
-                            .font(.title)
-                        Spacer()
-                    }
-                    .padding(.vertical, 40)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .border(Color.black, width: 1)
+                    OptionBox(msg: "Paper\nFilter")
                     .background(isSelectedPaper ? Color(red: 255/255, green: 234/255, blue: 147/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-                        self.handleFilterSelection(filterPressed: "Paper")
+						self.isSelectedPaper = true
+						self.isSelectedMetal = false
+						self.checkInitialConditions()
                     }
                     
                     // METAL SELECTION
-                    HStack {
-                        Spacer()
-                        Text("Metal Filter")
-                            .font(.title)
-                            
-                        Spacer()
-                    }
-                    .padding(.vertical, 40)
-                    .frame(minWidth: 0, maxWidth: .infinity)
-                    .border(Color.black, width: 1)
+                    OptionBox(msg: "Metal\nFilter")
                     .background(isSelectedMetal ? Color(red: 255/255, green: 160/255, blue: 147/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-                        self.handleFilterSelection(filterPressed: "Metal")
+						self.isSelectedPaper = false
+						self.isSelectedMetal = true
+						self.checkInitialConditions()
                     }
                 }
                 .padding(.bottom)
@@ -151,36 +124,6 @@ struct RecipeBuilder: View {
 		}
 	}
     
-    func handleMethodSelection(methodPressed: String){
-        // There is redundancy in this but no need to write more code to do less
-        if methodPressed == "Upright"{
-            isSelectedUpright = true
-            isSelectedInverted = false
-        }
-        
-        if methodPressed == "Inverted" {
-            isSelectedUpright = false
-            isSelectedInverted = true
-        }
-        
-        checkInitialConditions()
-    }
-    
-    func handleFilterSelection(filterPressed: String){
-        // There is redundancy in this but no need to write more code to do less
-        if filterPressed == "Paper"{
-            isSelectedPaper = true
-            isSelectedMetal = false
-        }
-        
-        if filterPressed == "Metal" {
-            isSelectedPaper = false
-            isSelectedMetal = true
-        }
-        
-        checkInitialConditions()
-    }
-    
     func checkInitialConditions(){
         canAddSteps = (isSelectedUpright || isSelectedInverted) && (isSelectedPaper || isSelectedMetal)
     }
@@ -227,8 +170,24 @@ struct RecipeBuilder: View {
 }
 
 struct RecipeBuilder_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipeBuilder()
+    private static var fakeRecipe = Recipe()
+	static var previews: some View {
+		RecipeBuilder(recipe: fakeRecipe)
     }
 }
 
+
+struct OptionBox: View {
+	var msg: String
+	var body: some View {
+		HStack {
+			Spacer()
+			Text(msg)
+				.font(.title)
+			Spacer()
+		}
+		.padding(.vertical, 40)
+		.frame(minWidth: 0, maxWidth: .infinity)
+		.border(Color.black, width: 1)
+	}
+}

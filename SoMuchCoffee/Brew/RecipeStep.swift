@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-class RecipeStep: Identifiable {
+struct RecipeStep: Identifiable {
 	var id = UUID()
 	var isCombinable: Bool
 	var forceAsLastGroupedStep: Bool

@@ -52,7 +52,7 @@ struct WaitForSettings: View {
 	func addToRecipe() -> AnyView{
 		return AnyView(
 			Button(action:
-				{ self.recipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: Int(self.duration)),isCombinable: false))
+				{ self.recipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: Int(self.duration)),isCombinable: false, forceAsLastGroupedStep: true))
 					self.showPopover = false
 					self.showSettings = false
 			}) { Text("Add to Recipe") }

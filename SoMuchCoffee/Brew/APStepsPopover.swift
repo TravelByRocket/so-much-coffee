@@ -29,112 +29,45 @@ struct APStepsPopover: View {
             VStack{
                 Text("Preparation")
                 HStack{
-                    VStack {
-                        Text("Heat\nWater")
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    .onTapGesture {
-                        self.optHeatWater = true
-                    }
-                    VStack {
-                        Text("Grind")
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    .onTapGesture {
-                        self.optGrind = true
-                    }
-                    VStack {
-                        Text("Rinse\nFilter")
-                            .multilineTextAlignment(.center)
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    .onTapGesture {
-                        self.showPopover = false
-						self.recipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
-                    }
+					RecipeStepButton(message: "Heat\nWater")
+						.onTapGesture{self.optHeatWater = true}
+					RecipeStepButton(message: "Grind")
+						.onTapGesture{self.optGrind = true}
+					RecipeStepButton(message: "Rinse\nFilter")
+						.onTapGesture{
+							self.showPopover = false
+							self.recipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
+					}
                 }
                 .padding(.bottom)
                 .padding(.top,0)
                 
                 Text("Process")
                 HStack{
-                    VStack {
-                        Text("Add\nWater")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.optAddWater = true
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    VStack {
-                        Text("Stir")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.optStir = true
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    VStack {
-                        Text("Wait")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.optWait = true
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
+					RecipeStepButton(message: "Add\nWater")
+						.onTapGesture {self.optAddWater = true}
+					RecipeStepButton(message: "Stir")
+						.onTapGesture {self.optStir = true}
+					RecipeStepButton(message: "Wait")
+						.onTapGesture {self.optWait = true}
                 }
                 .padding(.bottom)
                 .padding(.top,0)
                 
                 Text("Completion")
                 HStack{
-                    VStack {
-                        Text("Insert\nPlunger")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.showPopover = false
-								self.recipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    VStack {
-                        Text("Plunge")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.optPlunge = true
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
-                    VStack {
-                        Text("Attach\nFilter")
-                            .multilineTextAlignment(.center)
-                            .onTapGesture {
-                                self.showPopover = false
-//								self.recipe.addStep()
-								self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
-                        }
-                    }
-                    .frame(width: 100,height: 100)
-                    .background(Color.white)
-                    .border(appDarkGray)
+					RecipeStepButton(message: "Insert\nPlunger")
+						.onTapGesture {
+							self.showPopover = false
+							self.recipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
+					}
+					RecipeStepButton(message: "Plunge")
+						.onTapGesture {self.optPlunge = true}
+					RecipeStepButton(message: "Attach\nFilter")
+						.onTapGesture {
+							self.showPopover = false
+							self.recipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
+					}
                 }
                 .padding(.bottom)
                 .padding(.top,0)
@@ -143,7 +76,7 @@ struct APStepsPopover: View {
                     .onTapGesture {
                         self.showPopover = false
                 }
-                Spacer()
+//                Spacer()
             }
             
             if optHeatWater || optGrind || optAddWater || optStir || optWait || optPlunge {
@@ -189,3 +122,17 @@ struct APStepsPopover_Previews: PreviewProvider {
 }
 
 
+
+struct RecipeStepButton: View {
+	let message: String
+	
+	var body: some View {
+		VStack {
+			Text(message)
+				.multilineTextAlignment(.center)
+		}
+		.frame(width: 100,height: 100)
+		.background(Color.white)
+		.border(appDarkGray)
+	}
+}

@@ -160,7 +160,6 @@ struct APStepsPopover: View {
                             .padding()
                             .onTapGesture {
                                 self.optHeatWater = false
-                                self.showPopover = false
                         }
                     }
                 } else if optGrind {
@@ -169,7 +168,6 @@ struct APStepsPopover: View {
                         .padding()
                         .onTapGesture {
                             self.optGrind = false
-                            self.showPopover = false
                     }
                 } else if optAddWater {
                     AddWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optAddWater)
@@ -177,7 +175,6 @@ struct APStepsPopover: View {
                         .padding()
                         .onTapGesture {
                             self.optAddWater = false
-                            self.showPopover = false
                     }
                 } else if optStir {
                     StirForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optStir)
@@ -185,7 +182,6 @@ struct APStepsPopover: View {
                         .padding()
                         .onTapGesture {
                             self.optStir = false
-                            self.showPopover = false
                     }
                 } else if optWait {
                     WaitForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optWait)
@@ -193,7 +189,6 @@ struct APStepsPopover: View {
                         .padding()
                         .onTapGesture {
                             self.optWait = false
-                            self.showPopover = false
                     }
                 } else if optPlunge {
                     PlungeForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optPlunge)
@@ -201,7 +196,6 @@ struct APStepsPopover: View {
                         .padding()
                         .onTapGesture {
                             self.optPlunge = false
-                            self.showPopover = false
                     }
                 }
                 if optHeatWater || optGrind || optAddWater || optStir || optWait || optPlunge {

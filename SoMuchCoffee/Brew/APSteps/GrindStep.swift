@@ -30,8 +30,6 @@ struct GrindStep_Previews: PreviewProvider {
         VStack{
             GrindStep(grinderName: "Rok", grindSetting: "8.5")
             GrindStep()
-//            HeatWaterStep()
-//            RinseFilterStep()
         }
         
     }

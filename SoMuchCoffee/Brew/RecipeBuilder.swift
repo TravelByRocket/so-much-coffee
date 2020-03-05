@@ -149,8 +149,8 @@ struct RecipeBuilder: View {
 			return AnyView(StirForList(duration: secs))
 		case .addWater(let secs, let mass):
 			return AnyView(AddWaterForList(duration: secs, mass: mass))
-		default:
-			return AnyView(Text("Something else added"))
+		case .grind(let mass):
+			return AnyView(GrindForList(mass: mass))
 		}
 	}
     

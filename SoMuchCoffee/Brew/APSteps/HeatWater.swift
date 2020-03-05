@@ -106,6 +106,7 @@ struct HeatWaterForRecipe: View {
 			} else {
 				Text("Boil the water").font(.title).padding()
 			}
+			Spacer()
 		}
         .overlay(RoundedRectangle(cornerRadius: 10)
         .stroke(Color.primary)

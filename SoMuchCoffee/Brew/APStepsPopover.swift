@@ -164,7 +164,7 @@ struct APStepsPopover: View {
                         }
                     }
                 } else if optGrind {
-                    GrindSettings()
+                    GrindForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optGrind)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

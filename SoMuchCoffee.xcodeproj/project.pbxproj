@@ -32,6 +32,7 @@
 		2FA46154241010E0009EA112 /* Wait.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46153241010E0009EA112 /* Wait.swift */; };
 		2FA461562410424F009EA112 /* Stir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA461552410424F009EA112 /* Stir.swift */; };
 		2FA46158241080EF009EA112 /* AddWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46157241080EF009EA112 /* AddWater.swift */; };
+		2FA4615A241085CA009EA112 /* Grind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46159241085CA009EA112 /* Grind.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -164,6 +165,7 @@
 		2FA46153241010E0009EA112 /* Wait.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Wait.swift; sourceTree = "<group>"; };
 		2FA461552410424F009EA112 /* Stir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stir.swift; sourceTree = "<group>"; };
 		2FA46157241080EF009EA112 /* AddWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWater.swift; sourceTree = "<group>"; };
+		2FA46159241085CA009EA112 /* Grind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grind.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -517,6 +519,7 @@
 				2FA46153241010E0009EA112 /* Wait.swift */,
 				2FA461552410424F009EA112 /* Stir.swift */,
 				2FA46157241080EF009EA112 /* AddWater.swift */,
+				2FA46159241085CA009EA112 /* Grind.swift */,
 				2FEE93E623ADCBF20006A16C /* GrindStep.swift */,
 				2FEE93F323ADCBF20006A16C /* GrindSettings.swift */,
 				2FEE93EA23ADCBF20006A16C /* SubViews */,
@@ -747,6 +750,7 @@
 				2FA46154241010E0009EA112 /* Wait.swift in Sources */,
 				2FEE940723ADCBF30006A16C /* TimerPillStep.swift in Sources */,
 				2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */,
+				2FA4615A241085CA009EA112 /* Grind.swift in Sources */,
 				2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */,
 				2FEE940E23ADCBF30006A16C /* RecipesView.swift in Sources */,
 				2FA4615224100EA1009EA112 /* RinseFilter.swift in Sources */,

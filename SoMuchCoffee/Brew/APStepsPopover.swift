@@ -172,7 +172,7 @@ struct APStepsPopover: View {
                             self.showPopover = false
                     }
                 } else if optAddWater {
-                    AddWaterSettings()
+                    AddWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optAddWater)
                     Text("Dismiss").foregroundColor(Color.blue)
                         .padding()
                         .onTapGesture {

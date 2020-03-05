@@ -63,7 +63,7 @@ struct WaitForSettings: View {
 struct WaitForList: View {
 	var duration: Int
 	var body: some View {
-		Text("Wait \(duration) seconds")
+		Text("Wait ")+Text("\(duration)").underline()+Text(" seconds")
 	}
 }
 

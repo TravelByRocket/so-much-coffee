@@ -43,7 +43,7 @@ struct RecipeConductor: View {
                     .padding()
                 Text("Next Step: Add Water")
             } else if curStep == 1 {
-                AddWaterStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 150)
+                AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 150)
                 Text("Next Step: Stir")
             } else if curStep == 2 {
                 StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
@@ -57,7 +57,7 @@ struct RecipeConductor: View {
                 PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
                 Text("Next Step: Add Water")
             } else if curStep == 5 {
-                AddWaterStep(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 160)
+                AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 160)
                 Text("Next Step: Enjoy")
             } else {
                 Text("Coffee Time!")

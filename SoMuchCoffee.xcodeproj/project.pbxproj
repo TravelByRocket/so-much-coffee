@@ -33,6 +33,7 @@
 		2FA461562410424F009EA112 /* Stir.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA461552410424F009EA112 /* Stir.swift */; };
 		2FA46158241080EF009EA112 /* AddWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46157241080EF009EA112 /* AddWater.swift */; };
 		2FA4615A241085CA009EA112 /* Grind.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA46159241085CA009EA112 /* Grind.swift */; };
+		2FA4615E2410904E009EA112 /* DismissToPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4615D2410904E009EA112 /* DismissToPopover.swift */; };
 		2FAC602A23B17D1600122255 /* brew.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FF823B17D1400122255 /* brew.png */; };
 		2FAC602C23B17D1600122255 /* origins.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFB23B17D1500122255 /* origins.png */; };
 		2FAC602D23B17D1600122255 /* find.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FAC5FFC23B17D1500122255 /* find.png */; };
@@ -166,6 +167,7 @@
 		2FA461552410424F009EA112 /* Stir.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Stir.swift; sourceTree = "<group>"; };
 		2FA46157241080EF009EA112 /* AddWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddWater.swift; sourceTree = "<group>"; };
 		2FA46159241085CA009EA112 /* Grind.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Grind.swift; sourceTree = "<group>"; };
+		2FA4615D2410904E009EA112 /* DismissToPopover.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = DismissToPopover.swift; sourceTree = "<group>"; };
 		2FAC5FF823B17D1400122255 /* brew.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = brew.png; sourceTree = "<group>"; };
 		2FAC5FFB23B17D1500122255 /* origins.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = origins.png; sourceTree = "<group>"; };
 		2FAC5FFC23B17D1500122255 /* find.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = find.png; sourceTree = "<group>"; };
@@ -532,6 +534,7 @@
 			isa = PBXGroup;
 			children = (
 				2FEE93EB23ADCBF20006A16C /* LessTime.swift */,
+				2FA4615D2410904E009EA112 /* DismissToPopover.swift */,
 				2FEE93EC23ADCBF20006A16C /* MoreTime.swift */,
 				2FEE93ED23ADCBF20006A16C /* TimerPillTotal.swift */,
 				2FEE93EE23ADCBF20006A16C /* TimerPillStep.swift */,
@@ -753,6 +756,7 @@
 				2FA4615A241085CA009EA112 /* Grind.swift in Sources */,
 				2FEE940023ADCBF30006A16C /* GrindStep.swift in Sources */,
 				2FEE940E23ADCBF30006A16C /* RecipesView.swift in Sources */,
+				2FA4615E2410904E009EA112 /* DismissToPopover.swift in Sources */,
 				2FA4615224100EA1009EA112 /* RinseFilter.swift in Sources */,
 				2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */,
 				2F12C8E0239EBB9500BFF066 /* ContentView.swift in Sources */,

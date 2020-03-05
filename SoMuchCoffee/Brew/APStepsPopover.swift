@@ -154,49 +154,23 @@ struct APStepsPopover: View {
             
             VStack{
                 if optHeatWater {
-                    VStack {
-                        HeatWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optHeatWater)
-                        Text("Dismiss").foregroundColor(Color.blue)
-                            .padding()
-                            .onTapGesture {
-                                self.optHeatWater = false
-                        }
-                    }
+					HeatWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optHeatWater)
+					DismissToPopover(activeOption: $optHeatWater)
                 } else if optGrind {
                     GrindForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optGrind)
-                    Text("Dismiss").foregroundColor(Color.blue)
-                        .padding()
-                        .onTapGesture {
-                            self.optGrind = false
-                    }
+                    DismissToPopover(activeOption: $optGrind)
                 } else if optAddWater {
                     AddWaterForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optAddWater)
-                    Text("Dismiss").foregroundColor(Color.blue)
-                        .padding()
-                        .onTapGesture {
-                            self.optAddWater = false
-                    }
+                    DismissToPopover(activeOption: $optAddWater)
                 } else if optStir {
                     StirForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optStir)
-                    Text("Dismiss").foregroundColor(Color.blue)
-                        .padding()
-                        .onTapGesture {
-                            self.optStir = false
-                    }
+                    DismissToPopover(activeOption: $optStir)
                 } else if optWait {
                     WaitForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optWait)
-                    Text("Dismiss").foregroundColor(Color.blue)
-                        .padding()
-                        .onTapGesture {
-                            self.optWait = false
-                    }
+                    DismissToPopover(activeOption: $optWait)
                 } else if optPlunge {
                     PlungeForSettings(recipe: $recipe, showPopover: $showPopover, showSettings: $optPlunge)
-                    Text("Dismiss").foregroundColor(Color.blue)
-                        .padding()
-                        .onTapGesture {
-                            self.optPlunge = false
-                    }
+                    DismissToPopover(activeOption: $optPlunge)
                 }
                 if optHeatWater || optGrind || optAddWater || optStir || optWait || optPlunge {
                     Spacer()
@@ -213,4 +187,5 @@ struct APStepsPopover_Previews: PreviewProvider {
         APStepsPopover(showPopover: $fakeEnabler, recipe: $fakeRecipe)
     }
 }
+
 

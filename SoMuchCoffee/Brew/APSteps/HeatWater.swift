@@ -80,7 +80,7 @@ struct HeatWaterForList: View {
 	var body: some View {
 		VStack{
 			if hasTempValue(temp: tempC) {
-				Text("Heat water to \(tempC!, specifier: "%.f") °C")
+				Text("Heat water to ")+Text("\(tempC!, specifier: "%.f") °C").underline()
 			} else {
 				Text("Boil the water")
 			}

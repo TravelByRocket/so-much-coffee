@@ -8,14 +8,23 @@
 
 import SwiftUI
 
+//struct Recipe : Identifiable, Hashable { // seems to break with Hashable added even when I leave the functions that make it fulfill Hashable
 struct Recipe : Identifiable {
     var id = UUID()
     var name: String = ""
 	var steps: [RecipeStep] = []
+	
+	func hash(into hasher: inout Hasher) {
+		hasher.combine(id)
+	}
+	
+	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
+		return lhs.id == rhs.id
+	}
 }
 
 #if DEBUG
-let testRecipes = [
+var testRecipes = [
     Recipe(name: "Unbelievable Brew"),
     Recipe(name: "Lucky Beans"),
     Recipe(name: "Brew of Faith"),

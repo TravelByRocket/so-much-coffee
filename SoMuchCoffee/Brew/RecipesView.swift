@@ -9,12 +9,13 @@
 import SwiftUI
 
 struct RecipesView: View {
-    var recipes: [Recipe] = testRecipes
+    @State var recipes: [Recipe] = testRecipes
 //    @EnvironmentObject var settings: UserSettings
     var body: some View {
 		NavigationView{
 			VStack {
 				HStack{
+					EditButton()
 					Spacer()
 					GoHome()
 				}
@@ -23,10 +24,12 @@ struct RecipesView: View {
 				List {
 					Text("AeroPress")
 					ForEach (recipes) {recipe in
-						NavigationLink(destination: RecipeConductor(recipe: recipe)){
+						NavigationLink(destination: RecipeBuilder(recipe: recipe)){
 							Text(recipe.name)
 						}
 					}
+					.onDelete(perform: deleteItem)
+					.onMove(perform: moveItem)
 					.padding()
 					.overlay(RoundedRectangle(cornerRadius: 10)
 						.stroke(Color.black, lineWidth: 1))
@@ -41,10 +44,19 @@ struct RecipesView: View {
 			}
 		}
     }
+	
+	private func moveItem(from source: IndexSet, to destination: Int) {
+		self.recipes.move(fromOffsets: source, toOffset: destination)
+    }
+	
+	private func deleteItem(at offsets: IndexSet) {
+		self.recipes.remove(atOffsets: offsets)
+    }
 }
 
 struct RecipesView_Previews: PreviewProvider {
-    static var previews: some View {
-        RecipesView()
+    @State static var fakeRecipes = testRecipes
+	static var previews: some View {
+		RecipesView(recipes: fakeRecipes)
     }
 }

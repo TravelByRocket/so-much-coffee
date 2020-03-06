@@ -78,19 +78,30 @@ struct RecipeBuilder: View {
                 }
                 .padding(.bottom)
 				
+				HStack{
+					Spacer()
+					EditButton()
+				}.padding()
+				
 				Form{
 					Section{
 						ForEach(self.recipe.steps, id: \.id){step in
 							self.getViewForList(recipeStep: step.descriptor)
 						}
+						.onDelete(perform: deleteItem)
+						.onMove(perform: moveItem)
 					}
 				}
 				
                 if canAddSteps {
                     AddButton(isEnabled: true)
-                    .onTapGesture {self.showStepsPopover = true}
+						.onTapGesture {self.showStepsPopover = true}
+					Button(action: {testRecipes.append(self.recipe)}) {
+						Text("Save Recipe")
+					}
                 } else {
-                    AddButton(isEnabled: false)
+					AddButton(isEnabled: false)
+					Text("can't save")
                 }
                 
                 Spacer()
@@ -99,6 +110,14 @@ struct RecipeBuilder: View {
 				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)
             }
 		}
+    }
+	
+	private func moveItem(from source: IndexSet, to destination: Int) {
+		self.recipe.steps.move(fromOffsets: source, toOffset: destination)
+    }
+	
+	private func deleteItem(at offsets: IndexSet) {
+		self.recipe.steps.remove(atOffsets: offsets)
     }
 	
 	func getViewForList(recipeStep kind: KindOfStep) -> AnyView{

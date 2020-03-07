@@ -9,7 +9,7 @@
 import SwiftUI
 
 //struct Recipe : Identifiable, Hashable { // seems to break with Hashable added even when I leave the functions that make it fulfill Hashable
-struct Recipe : Identifiable {
+struct Recipe : Identifiable, Codable {
     var id = UUID()
     var name: String = ""
 	var steps: [RecipeStep] = []

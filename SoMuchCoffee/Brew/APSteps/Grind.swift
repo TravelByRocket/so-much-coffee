@@ -51,7 +51,7 @@ struct GrindForSettings: View {
 	func addToRecipe() -> AnyView{
 		return AnyView(
 			Button(action:
-				{ self.recipe.steps.append(RecipeStep(kindOfStep: .grind(mass: Int(self.mass)),isCombinable: true))
+				{ self.recipe.steps.append(RecipeStep(kindOfStep: .grind(grams: Int(self.mass)),isCombinable: true))
 					self.showPopover = false
 					self.showSettings = false
 			}) { Text("Add to Recipe") }

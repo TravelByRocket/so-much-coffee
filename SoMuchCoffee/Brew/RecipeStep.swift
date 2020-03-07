@@ -22,11 +22,12 @@ struct RecipeStep: Identifiable, Codable {
 }
 
 enum KindOfStep {
+	// TODO add a steo or otherwise some kind of indication of whether you are running an inverted or upright recipe
 	case addWater(seconds: Int, grams: Int)
 	case grind(grams: Int) // future need for grinder name or type, setting name or value, maybe more
 	case heatWater(tempC: Double?) // nil means "just boil" TODO should be Int? and use `temp: Int?` and `isCelsius: Bool?`
 	case installPlunger
-	case installFilter
+	case installFilter // TODO make associated value (isPaper: Bool)
 	case plunge(seconds: Int)
 	case rinseFilter
 	case stir(seconds: Int)

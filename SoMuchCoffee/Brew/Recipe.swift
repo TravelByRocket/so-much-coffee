@@ -16,6 +16,27 @@ struct Recipe : Identifiable, Codable {
 	var isUpright: Bool?
 	var isPaper: Bool?
 	
+	var totalTimeSec: Int {
+		var totalTime: Int = 0
+		for step in steps {
+			let tempDesc = step.descriptor
+//			let stepTime = 0
+			switch tempDesc {
+			case .wait(let secs):
+				totalTime += secs
+			case .addWater(let secs, _):
+				totalTime += secs
+			case .plunge(let secs):
+				totalTime += secs
+			case .stir(let secs):
+				totalTime += secs
+			default:
+				totalTime += 0
+			}
+		}
+		return totalTime
+	}
+	
 //	func hash(into hasher: inout Hasher) {
 //		hasher.combine(id)
 //	}

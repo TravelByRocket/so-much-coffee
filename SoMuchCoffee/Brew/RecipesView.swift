@@ -46,6 +46,20 @@ struct RecipesView: View {
 				.navigationBarTitle("Saved Recipes")
 				
 				Spacer()
+				Text("Make full recipe\n")
+					.onTapGesture {
+						var newRecipe = Recipe(id: UUID(), name: "Full Recipe", steps: [], isUpright: true, isPaper: true)
+						newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 80), isCombinable: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 15), isCombinable: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 20, grams: 40), isCombinable: false))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 20), isCombinable: false))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 20),isCombinable: true, forceAsLastGroupedStep: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
+						newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))
+						self.recipes.append(newRecipe)
+				}
 				Text("Load UserDefaults\n")
 					.onTapGesture {
 						self.recipes = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes

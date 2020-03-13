@@ -32,6 +32,7 @@ struct RecipeConductor: View {
             Spacer()
             if curStep == 0 {
                 Text("Prepare for Brewing")
+				Text("Recipe takes \(recipe.totalTimeSec) seconds")
                 GrindStep(grinderName: "Rok", grindSetting: "10.5", beanMass: 35)
                 HeatWaterForRecipe(tempC: 80)
                 RinseFilterForRecipe()

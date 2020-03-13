@@ -15,26 +15,57 @@ struct Recipe : Identifiable, Codable {
 	var steps: [RecipeStep] = []
 	var isUpright: Bool?
 	var isPaper: Bool?
-	
+
 	var totalTimeSec: Int {
 		var totalTime: Int = 0
 		for step in steps {
-			let tempDesc = step.descriptor
-//			let stepTime = 0
-			switch tempDesc {
-			case .wait(let secs):
-				totalTime += secs
-			case .addWater(let secs, _):
-				totalTime += secs
-			case .plunge(let secs):
-				totalTime += secs
-			case .stir(let secs):
-				totalTime += secs
-			default:
-				totalTime += 0
-			}
+			totalTime += timeForStep(step: step)
 		}
 		return totalTime
+	}
+	
+	var switchTimesSec: [Int] {
+		var tempTimes: [Int] = []
+		var tempRunTime: Int = 0
+		for i in 0..<(steps.count - 1) { // logic within loop looks ahead one step
+			tempRunTime += timeForStep(step: steps[i])
+			if !steps[i+1].isCombinable{
+				tempTimes.append(tempRunTime)
+			}
+		}
+		return tempTimes
+	}
+	
+	var switchTimesFromArranged: [Int] {
+		var tempTimes: [Int] = []
+		var tempRunTime: Int = 0
+		for stage in stepsArranged {
+			for step in stage {
+				tempRunTime += timeForStep(step: step)
+			}
+			tempTimes.append(tempRunTime)
+		}
+		return tempTimes
+	}
+	
+	var stepsArranged: [[RecipeStep]] {
+		var arranged = [[RecipeStep]]()
+		var curStage = [RecipeStep]()
+		for step in steps {
+			if step.isCombinable { // if the step can be combined with other
+				curStage.append(step) // then add it to the stage, which collects all compatible steps
+			} else { // otherwise (if it cannot be combined)
+				if !curStage.isEmpty {
+					arranged.append(curStage) // then the collecting stage is complete and is added to complete stages if it is not empty
+				}
+				arranged.append([step]) // and the current step gets its own dedicated stage because it cannot be combined
+				curStage = [] // and the collecting stage should be cleared to collect on the next iteration
+			}
+		}
+		if curStage.count > 0 {
+			arranged.append(curStage)
+		}
+		return arranged
 	}
 	
 //	func hash(into hasher: inout Hasher) {
@@ -43,6 +74,23 @@ struct Recipe : Identifiable, Codable {
 //
 	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
 		return lhs.id == rhs.id
+	}
+	
+}
+	
+func timeForStep(step: RecipeStep) -> Int{
+	let tempDesc = step.descriptor
+	switch tempDesc {
+		case .wait(let secs):
+			return secs
+		case .addWater(let secs, _):
+			return secs
+		case .plunge(let secs):
+			return secs
+		case .stir(let secs):
+			return secs
+		default:
+			return 0
 	}
 }
 

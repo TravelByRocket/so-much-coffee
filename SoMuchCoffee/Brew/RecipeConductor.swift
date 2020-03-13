@@ -33,6 +33,8 @@ struct RecipeConductor: View {
             if curStep == 0 {
                 Text("Prepare for Brewing")
 				Text("Recipe takes \(recipe.totalTimeSec) seconds")
+				Text("Recipe switches at \(intArrToString(recipe.switchTimesSec)) seconds")
+				Text("Recipe switches at \(intArrToString(recipe.switchTimesFromArranged)) seconds")
                 GrindStep(grinderName: "Rok", grindSetting: "10.5", beanMass: 35)
                 HeatWaterForRecipe(tempC: 80)
                 RinseFilterForRecipe()
@@ -135,4 +137,13 @@ struct RecipeConductor_Previews: PreviewProvider {
 			RecipeConductor(recipe: recipes[0])
 		}
     }
+}
+
+func intArrToString(_ arr: [Int]) -> String {
+	var tempString = "["
+	for val in arr {
+		tempString += String(val) + ","
+	}
+	tempString += "]"
+	return tempString
 }

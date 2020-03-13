@@ -11,6 +11,7 @@ import SwiftUI
 struct RecipesView: View {
     @State var recipes: [Recipe] = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
 	@State var showSheet = false
+	@State var showNavViewTemp = false
 	
 //    @EnvironmentObject var settings: UserSettings
     var body: some View {
@@ -46,6 +47,9 @@ struct RecipesView: View {
 				.navigationBarTitle("Saved Recipes")
 				
 				Spacer()
+//				NavigationLink(destination: {Text("Click to hopefully go back")}, isActive: $showNavViewTemp) {return Text("Click to hopefully go back")}
+//				NavigationLink("Do a NavLinkTest", destination: Text("Click to hopefully go back"), isActive: $showNavViewTemp)
+//				NavigationLink(destination: InstallPlungerForRecipe()) {Text("Run")}
 				Text("Make full recipe\n")
 					.onTapGesture {
 						var newRecipe = Recipe(id: UUID(), name: "Full Recipe", steps: [], isUpright: true, isPaper: true)
@@ -60,30 +64,34 @@ struct RecipesView: View {
 						newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))
 						self.recipes.append(newRecipe)
 				}
-				Text("Load UserDefaults\n")
-					.onTapGesture {
-						self.recipes = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
-				}
-				Text("Save to UserDefaults\n")
-					.onTapGesture {
-						let encoder = JSONEncoder()
-						print(UserDefaults.standard.dictionaryRepresentation())
-						
-						
-						if let data = try? encoder.encode(self.recipes) {
-							print(String(data: data, encoding: .utf8)!)
-							UserDefaults.standard.set(data, forKey: "recipes")
-							print("Saved recipes to UserDefaults")
-						} else {
-							print("Failed to save recipes to UserDefaults")
-						}
-				}
+//				Text("Load UserDefaults\n")
+//					.onTapGesture {
+//						self.recipes = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
+//				}
+//				Text("Save to UserDefaults\n")
+//					.onTapGesture {
+//						let encoder = JSONEncoder()
+//						print(UserDefaults.standard.dictionaryRepresentation())
+//
+//
+//						if let data = try? encoder.encode(self.recipes) {
+//							print(String(data: data, encoding: .utf8)!)
+//							UserDefaults.standard.set(data, forKey: "recipes")
+//							print("Saved recipes to UserDefaults")
+//						} else {
+//							print("Failed to save recipes to UserDefaults")
+//						}
+//				}
 				Text("Try a sheet here\n")
 					.onTapGesture{self.showSheet = true}
 					.sheet(isPresented: self.$showSheet, content: {RecipeBuilder()})
 				NavigationLink(destination: RecipeBuilder()){
-					Text("Add New Recipe")
+					Text("Add New Recipe\n")
 				}
+//				NavigationLink(destination: InstallPlungerForRecipe()) {Text("Run")}
+				NavigationLink("Do a NavLinkTest", destination: Text("Click to hopefully go back").onTapGesture {
+					self.showNavViewTemp = false
+				}, isActive: $showNavViewTemp)
 			}
 		}
     }

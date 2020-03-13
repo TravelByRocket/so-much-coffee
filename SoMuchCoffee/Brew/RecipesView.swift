@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecipesView: View {
     @State var recipes: [Recipe] = testRecipes
+	@State var showSheet = false
 //    @EnvironmentObject var settings: UserSettings
     var body: some View {
 		NavigationView{
@@ -37,7 +38,23 @@ struct RecipesView: View {
 				}.navigationBarTitle("Saved Recipes")
 				
 				Spacer()
-				
+				Text("Try saving JSON here\n")
+					.onTapGesture {
+						let encoder = JSONEncoder()
+						print(UserDefaults.standard.dictionaryRepresentation())
+						
+						
+						if let data = try? encoder.encode(self.recipes) {
+							print(String(data: data, encoding: .utf8)!)
+							UserDefaults.standard.set(data, forKey: "recipes")
+							print("Saved recipes to UserDefaults")
+						} else {
+							print("Failed to save recipes to UserDefaults")
+						}
+				}
+				Text("Try a sheet here\n")
+					.onTapGesture{self.showSheet = true}
+					.sheet(isPresented: self.$showSheet, content: {RecipeBuilder()})
 				NavigationLink(destination: RecipeBuilder()){
 					Text("Add New Recipe")
 				}

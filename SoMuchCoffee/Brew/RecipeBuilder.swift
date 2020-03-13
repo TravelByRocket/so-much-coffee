@@ -11,10 +11,6 @@ import SwiftUI
 struct RecipeBuilder: View {
 	@State var recipe: Recipe = Recipe()
 	
-    @State private var isSelectedUpright: Bool = false
-    @State private var isSelectedInverted: Bool = false
-    @State private var isSelectedPaper: Bool = false
-    @State private var isSelectedMetal: Bool = false
     @State private var canAddSteps: Bool = false
     @State private var showStepsPopover: Bool = false
     
@@ -38,19 +34,17 @@ struct RecipeBuilder: View {
                     
                     // UPRIGHT SELECTION
 					OptionBox(msg: "Upright\nMethod")
-					.background(isSelectedUpright ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
+					.background(recipe.isUpright ?? false ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
 					.onTapGesture {
-						self.isSelectedUpright = true
-						self.isSelectedInverted = false
+						self.recipe.isUpright = true
 						self.checkInitialConditions()
 					}
                     
                     // INVERTED SELECTION
                     OptionBox(msg: "Inverted\nMethod")
-                    .background(isSelectedInverted ? Color(red: 176/255, green: 160/255, blue: 255/255, opacity: 1.0) : appLightGray)
+                    .background(!(recipe.isUpright ?? true) ? Color(red: 176/255, green: 160/255, blue: 255/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-						self.isSelectedUpright = false
-						self.isSelectedInverted = true
+						self.recipe.isUpright = false
 						self.checkInitialConditions()
                     }
                 }
@@ -60,19 +54,17 @@ struct RecipeBuilder: View {
                 HStack (spacing: 0){
                     // PAPER SELECTION
                     OptionBox(msg: "Paper\nFilter")
-                    .background(isSelectedPaper ? Color(red: 255/255, green: 234/255, blue: 147/255, opacity: 1.0) : appLightGray)
+                    .background(recipe.isPaper ?? false ? Color(red: 255/255, green: 234/255, blue: 147/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-						self.isSelectedPaper = true
-						self.isSelectedMetal = false
+						self.recipe.isPaper = true
 						self.checkInitialConditions()
                     }
                     
                     // METAL SELECTION
                     OptionBox(msg: "Metal\nFilter")
-                    .background(isSelectedMetal ? Color(red: 255/255, green: 160/255, blue: 147/255, opacity: 1.0) : appLightGray)
+                    .background(!(recipe.isPaper ?? true) ? Color(red: 255/255, green: 160/255, blue: 147/255, opacity: 1.0) : appLightGray)
                     .onTapGesture {
-						self.isSelectedPaper = false
-						self.isSelectedMetal = true
+						self.recipe.isPaper = false
 						self.checkInitialConditions()
                     }
                 }
@@ -96,7 +88,13 @@ struct RecipeBuilder: View {
                 if canAddSteps {
                     AddButton(isEnabled: true)
 						.onTapGesture {self.showStepsPopover = true}
-					Button(action: {testRecipes.append(self.recipe)}) {
+					Button(action: {
+//						if let index = testRecipes.firstIndex(of: self.recipe) {
+//							testRecipes[index] = self.recipe
+//						} else {
+							testRecipes.append(self.recipe)
+//						}
+					}) {
 						Text("Save Recipe")
 					}
                 } else {
@@ -144,7 +142,7 @@ struct RecipeBuilder: View {
 	}
     
     func checkInitialConditions(){
-        canAddSteps = (isSelectedUpright || isSelectedInverted) && (isSelectedPaper || isSelectedMetal)
+		canAddSteps = (recipe.isUpright != nil) && (recipe.isPaper != nil)
     }
 	
 	func randomTitle() -> String {
@@ -192,6 +190,7 @@ struct RecipeBuilder_Previews: PreviewProvider {
     private static var fakeRecipe = Recipe()
 	static var previews: some View {
 		RecipeBuilder(recipe: fakeRecipe)
+//		RecipeBuilder()
     }
 }
 
@@ -202,10 +201,10 @@ struct OptionBox: View {
 		HStack {
 			Spacer()
 			Text(msg)
-				.font(.title)
+				.font(.headline)
 			Spacer()
 		}
-		.padding(.vertical, 40)
+		.padding(.vertical, 20)
 		.frame(minWidth: 0, maxWidth: .infinity)
 		.border(Color.black, width: 1)
 	}

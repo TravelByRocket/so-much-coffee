@@ -13,11 +13,13 @@ struct Recipe : Identifiable, Codable {
     var id = UUID()
     var name: String = ""
 	var steps: [RecipeStep] = []
+	var isUpright: Bool?
+	var isPaper: Bool?
 	
-	func hash(into hasher: inout Hasher) {
-		hasher.combine(id)
-	}
-	
+//	func hash(into hasher: inout Hasher) {
+//		hasher.combine(id)
+//	}
+//
 	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
 		return lhs.id == rhs.id
 	}

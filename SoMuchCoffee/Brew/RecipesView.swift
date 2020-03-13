@@ -9,8 +9,9 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @State var recipes: [Recipe] = testRecipes
+    @State var recipes: [Recipe] = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
 	@State var showSheet = false
+	
 //    @EnvironmentObject var settings: UserSettings
     var body: some View {
 		NavigationView{
@@ -25,20 +26,31 @@ struct RecipesView: View {
 				List {
 					Text("AeroPress")
 					ForEach (recipes) {recipe in
-						NavigationLink(destination: RecipeBuilder(recipe: recipe)){
+						HStack{
 							Text(recipe.name)
+							Spacer()
 						}
+						.contextMenu(menuItems: {
+							// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue
+							NavigationLink(destination: RecipeConductor(recipe: recipe)) {Text("Run")}
+							NavigationLink(destination: RecipeBuilder(recipe: recipe)) {Text("Edit")}
+						})
 					}
 					.onDelete(perform: deleteItem)
 					.onMove(perform: moveItem)
 					.padding()
 					.overlay(RoundedRectangle(cornerRadius: 10)
-						.stroke(Color.black, lineWidth: 1))
+					.stroke(Color.black, lineWidth: 1))
 					
-				}.navigationBarTitle("Saved Recipes")
+				}
+				.navigationBarTitle("Saved Recipes")
 				
 				Spacer()
-				Text("Try saving JSON here\n")
+				Text("Load UserDefaults\n")
+					.onTapGesture {
+						self.recipes = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
+				}
+				Text("Save to UserDefaults\n")
 					.onTapGesture {
 						let encoder = JSONEncoder()
 						print(UserDefaults.standard.dictionaryRepresentation())

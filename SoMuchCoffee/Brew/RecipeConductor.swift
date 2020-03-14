@@ -10,140 +10,144 @@ import SwiftUI
 
 struct RecipeConductor: View {
 	var recipe: Recipe
-    @State var timeElapsedSec: CGFloat = 0
-    var recipeTotalTimeSec : CGFloat = 115
-    
-    @State var timeElapsedStepSec: CGFloat = 0
-    
-    let timer = Timer.publish(every: Double(timerInterval), on: .main, in: .common).autoconnect()
-    
-    @State var curStep = 0
-    @State var clockIsRunning = false
-    
-    let switchTimeSec: [CGFloat] = [0,15,35,65,95,115]
-    
-    var body: some View {
-        
-        VStack {
-//            HStack {
-//                Spacer()
-//                GoHome()
-//            }.padding()
-            Spacer()
-            if curStep == 0 {
-                Text("Prepare for Brewing")
+	@State var timeElapsedSec: CGFloat = 0
+	
+	@State var timeElapsedStepSec: CGFloat = 0
+	
+	let timer = Timer.publish(every: Double(timerInterval), on: .main, in: .common).autoconnect()
+	
+	@State var curStage = 0
+	@State var clockIsRunning = false
+	
+	var body: some View {
+		
+		VStack {
+			Spacer()
+			if curStage == 0 {
+				Text("Prepare for Brewing")
 				Text("Recipe takes \(recipe.totalTimeSec) seconds")
-				Text("Recipe switches at \(intArrToString(recipe.switchTimesSec)) seconds")
-				Text("Recipe switches at \(intArrToString(recipe.switchTimesFromArranged)) seconds")
-                GrindStep(grinderName: "Rok", grindSetting: "10.5", beanMass: 35)
-                HeatWaterForRecipe(tempC: 80)
-                RinseFilterForRecipe()
-                Text("Tap to start brewing")
-                    .foregroundColor(Color.blue)
-                    .onTapGesture {self.clockIsRunning = true}
-                    .padding()
-                    .border(Color.blue, width: 1)
-                    .padding()
-                Text("Next Step: Add Water")
-            } else if curStep == 1 {
-                AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 150)
-                Text("Next Step: Stir")
-            } else if curStep == 2 {
-                StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
-                Text("Next Step: Wait")
-            } else if curStep == 3 {
-//                InstallFilterStep()
-				Text("Placeholder for InstallFilter")
-                WaitForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
-                Text("Next Step: Plunge")
-            } else if curStep == 4 {
-                PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1])
-                Text("Next Step: Add Water")
-            } else if curStep == 5 {
-                AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: switchTimeSec[curStep] - switchTimeSec[curStep - 1], waterMassG: 160)
-                Text("Next Step: Enjoy")
-            } else {
-                Text("Coffee Time!")
-                    .font(.largeTitle)
-//                GoHome().padding()
-                Spacer()
-            }
-//        Spacer()
-            VStack {
-                
-//                if curStep != 0 && curStep != 6 {
-                    HStack{
-                        Text("< Previous")
-                            .foregroundColor(curStep > 0 ? Color.black : appLightGray)
-                            .onTapGesture {
-//                            self.timeElapsedSec = self.switchTimeSec[self.curStep-2]
-                                if self.curStep == 1 {
-                                    self.timeElapsedSec = 0
-                                    self.clockIsRunning = false
-                                    self.curStep = 0
-                                } else {
-                                    self.timeElapsedSec = self.switchTimeSec[self.curStep-2]
-                                    self.clockIsRunning = true // this only applies when curStep = 6 but seems unecessary to write anoth logic section for this
-                                }
-                            }
-                        Spacer()
-                        Text("Next >")
-                            .foregroundColor(clockIsRunning ? Color.black : appLightGray)
-                            .onTapGesture {
-                                if self.clockIsRunning {
-                                    self.timeElapsedSec = self.switchTimeSec[self.curStep]
-                                }
-                        }
-                    }.padding()
-//                }
-                
-                TimerPillTotal(timeElapsedSec: $timeElapsedSec, timeDurationSec: recipeTotalTimeSec)
+				Text("Recipe stages at \(intArrToString(recipe.switchTimesFromArranged)) seconds")
+				ForEach (recipe.stepsArranged[curStage]) {step in
+					self.GetStepViewForRecipe(step: step)
+				}
+				Text("Tap to start brewing")
+					.foregroundColor(Color.blue)
+					.onTapGesture {self.clockIsRunning = true}
+					.padding()
+					.border(Color.blue, width: 1)
+					.padding()
+				// TODO a Next Step view e.g. Text("Next Step: Stir")
+			} else if curStage > 0 && curStage < recipe.switchTimesFromArranged.count {
+				ForEach (recipe.stepsArranged[curStage]) {step in
+					self.GetStepViewForRecipe(step: step)
+				}
+				// TODO a Next Step view e.g. Text("Next Step: Stir")
+			} else { // implies `curStage = recipe.switchTimesFromArranged.count`
+				Text("Coffee Time!")
+					.font(.largeTitle)
+				Spacer()
+			}
+			VStack {
+				SkipForwardBack(curStage: $curStage, clockIsRunning: $clockIsRunning, timeElapsedSec: $timeElapsedSec, recipe: recipe)
+				TimerPillTotal(timeElapsedSec: $timeElapsedSec, timeDurationSec: recipe.totalTimeSec)
 					.navigationBarTitle(recipe.name)
-					.onReceive(timer) { _ in
-    //            if self.timeElapsedSec <= self.recipeTotalTimeSec && self.clockIsRunning {
-                if self.clockIsRunning {
-                    self.timeElapsedSec += timerInterval
-                    if self.timeElapsedSec < self.switchTimeSec[0] {
-                        self.curStep = 0
-                    } else if self.timeElapsedSec < self.switchTimeSec[1] {
-                        self.curStep = 1
-                    } else if self.timeElapsedSec < self.switchTimeSec[2] {
-                        self.curStep = 2
-                    } else if self.timeElapsedSec < self.switchTimeSec[3] {
-                        self.curStep = 3
-                    } else if self.timeElapsedSec < self.switchTimeSec[4] {
-                        self.curStep = 4
-                    } else if self.timeElapsedSec < self.switchTimeSec[5] {
-                        self.curStep = 5
-                    } else {
-                        self.curStep = 6
-                    }
-                    self.timeElapsedStepSec = self.timeElapsedSec - self.switchTimeSec[self.curStep-1]
-                    if self.timeElapsedSec >= self.recipeTotalTimeSec {
-                        self.clockIsRunning = false
-                        self.timeElapsedSec = self.recipeTotalTimeSec
-                    }
-                }
-                }
-            }
-        }
-    }
+					.onReceive(timer) { _ in // need to attach the timer to something, this made sense and it works
+						if self.clockIsRunning {
+							self.timeElapsedSec += timerInterval // progress elapsed time by timer interval every time it triggers, which is controlled by a global variable in ContentView
+							self.curStage = self.recipe.switchTimesFromArranged.firstIndex(where: { $0 > self.timeElapsedSec }) ?? self.recipe.stepsArranged.count // set the current stage index by finding the first index in the switch times array that is less than the current time; e.g. if the switch times are [0,20,40,60] then at time=25 the first index less than that is 1 and that is the stage index. TODO look into "stage" use and clarify `stage` being a set of of steps while `stageIndex` tells which step it is on; TODO see if there is a better nil coalescing value or a way to force unwrwap based on what I know in the logic of the program
+							self.timeElapsedStepSec = self.timeElapsedSec - self.recipe.switchTimesFromArranged[self.curStage-1] // the time that has passed in the current step is equal to the total elapsed time minus the previous switch time
+							if self.timeElapsedSec >= self.recipe.totalTimeSec { // if the total elapsed time is >= the total recipe time (possibly from overshoot with CGFloat or system inaccuracy)
+								self.clockIsRunning = false // then stop the clock
+								self.timeElapsedSec = self.recipe.totalTimeSec // and set the elapsed time equal (exactly) to the total time that the recipe should run
+							}
+						}
+				}
+			}
+		}
+	}
+	
+	func GetStepViewForRecipe(step: RecipeStep) -> AnyView{
+		let tempKind = step.descriptor
+		switch tempKind {
+		case .plunge(_):
+			return AnyView(
+				PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+			)
+		case .installFilter:
+			return AnyView(InstallFilterForRecipe())
+		case .installPlunger:
+			return AnyView(InstallPlungerForRecipe())
+		case .heatWater(let tempC):
+			return AnyView(HeatWaterForRecipe(tempC: tempC))
+		case .rinseFilter:
+			return AnyView(RinseFilterForRecipe())
+		case .wait(_):
+			return AnyView(
+				WaitForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+			)
+		case .stir(_):
+			return AnyView(
+				StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+			)
+		case .addWater(_, let mass):
+			return AnyView(
+				AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]), waterMassG: CGFloat(mass))
+			)
+		case .grind(let mass):
+			return AnyView(GrindForRecipe(mass: mass))
+		}
+		
+	}
 }
 
 struct RecipeConductor_Previews: PreviewProvider {
-    static var recipes: [Recipe] = testRecipes
+	static var recipes: [Recipe] = testRecipes
 	static var previews: some View {
 		NavigationView{
 			RecipeConductor(recipe: recipes[0])
 		}
-    }
+	}
 }
 
-func intArrToString(_ arr: [Int]) -> String {
+func intArrToString(_ arr: [CGFloat]) -> String {
 	var tempString = "["
 	for val in arr {
-		tempString += String(val) + ","
+		tempString += String(Int(val)) + ","
 	}
+	let extraCommaIndex = tempString.lastIndex(of: ",")
+	tempString.remove(at: extraCommaIndex!)
 	tempString += "]"
 	return tempString
+}
+
+struct SkipForwardBack: View {
+	@Binding var curStage: Int
+	@Binding var clockIsRunning: Bool
+	@Binding var timeElapsedSec: CGFloat
+	var recipe: Recipe
+	
+	var body: some View {
+		HStack{
+			Text("< Previous")
+				.foregroundColor(curStage > 0 ? Color.primary : appLightGray) // if the current stage is not 0 then it is possible to go backward and so the button appears active; TODO change this to be actually active or (in)visible or something more concrete than this larger-than-needed chunk of logic
+				.onTapGesture { // when the back button is tapped
+					if self.curStage == 1 { // if the current stage index is 1
+						self.timeElapsedSec = 0 // then set the timer (elapsed time) to 0
+						self.clockIsRunning = false // and stop the clock
+						self.curStage = 0 // and set the stage index to 0; TODO this might not be needed so delete if extraneous because this might be handled by stage index logic in the timer attachment block
+					} else { // otherwise
+						self.timeElapsedSec = self.recipe.switchTimesFromArranged[self.curStage-2] // set the elapsed time equal to the beginning of the previous step; going back just 1 would only reset the current step, so go back 2 for the beginning of the previous step; the time switch associated with current stage is for when it completes
+						self.clockIsRunning = true // this only changes anything after getting to the end of the recipe (it's already true) but no need to write more logic
+					}
+			}
+			Spacer()
+			Text("Next >")
+				.foregroundColor(clockIsRunning ? Color.primary : appLightGray)
+				.onTapGesture { // when the button is clicked
+					if self.clockIsRunning { // if the clock is running
+						self.timeElapsedSec = self.recipe.switchTimesFromArranged[self.curStage] // then set the elapsed time equal to the time switch at current stage index because the associated time is actually when the current stage completes
+					}
+			}
+		}.padding()
+	}
 }

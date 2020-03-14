@@ -13,8 +13,7 @@ struct RecipesView: View {
 	@State var showSheet = false
 	@State var showNavViewTemp = false
 	
-//    @EnvironmentObject var settings: UserSettings
-    var body: some View {
+	var body: some View {
 		NavigationView{
 			VStack {
 				HStack{
@@ -47,51 +46,15 @@ struct RecipesView: View {
 				.navigationBarTitle("Saved Recipes")
 				
 				Spacer()
-//				NavigationLink(destination: {Text("Click to hopefully go back")}, isActive: $showNavViewTemp) {return Text("Click to hopefully go back")}
-//				NavigationLink("Do a NavLinkTest", destination: Text("Click to hopefully go back"), isActive: $showNavViewTemp)
-//				NavigationLink(destination: InstallPlungerForRecipe()) {Text("Run")}
-				Text("Make full recipe\n")
-					.onTapGesture {
-						var newRecipe = Recipe(id: UUID(), name: "Full Recipe", steps: [], isUpright: true, isPaper: true)
-						newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 80), isCombinable: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 15), isCombinable: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 20, grams: 40), isCombinable: false))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 20), isCombinable: false))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 20),isCombinable: true, forceAsLastGroupedStep: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
-						newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))
-						self.recipes.append(newRecipe)
+				Button(action: {self.makeFullRecipe()}){
+					Text("Make full recipe\n")
 				}
-//				Text("Load UserDefaults\n")
-//					.onTapGesture {
-//						self.recipes = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
-//				}
-//				Text("Save to UserDefaults\n")
-//					.onTapGesture {
-//						let encoder = JSONEncoder()
-//						print(UserDefaults.standard.dictionaryRepresentation())
-//
-//
-//						if let data = try? encoder.encode(self.recipes) {
-//							print(String(data: data, encoding: .utf8)!)
-//							UserDefaults.standard.set(data, forKey: "recipes")
-//							print("Saved recipes to UserDefaults")
-//						} else {
-//							print("Failed to save recipes to UserDefaults")
-//						}
-//				}
 				Text("Try a sheet here\n")
 					.onTapGesture{self.showSheet = true}
 					.sheet(isPresented: self.$showSheet, content: {RecipeBuilder()})
 				NavigationLink(destination: RecipeBuilder()){
 					Text("Add New Recipe\n")
 				}
-//				NavigationLink(destination: InstallPlungerForRecipe()) {Text("Run")}
-				NavigationLink("Do a NavLinkTest", destination: Text("Click to hopefully go back").onTapGesture {
-					self.showNavViewTemp = false
-				}, isActive: $showNavViewTemp)
 			}
 		}
     }
@@ -103,6 +66,20 @@ struct RecipesView: View {
 	private func deleteItem(at offsets: IndexSet) {
 		self.recipes.remove(atOffsets: offsets)
     }
+	
+	func makeFullRecipe() {
+		var newRecipe = Recipe(id: UUID(), name: "Full Recipe", steps: [], isUpright: true, isPaper: true)
+		newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 80), isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 15), isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 20, grams: 40), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 20), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 20),isCombinable: true, forceAsLastGroupedStep: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))
+		self.recipes.append(newRecipe)
+	}
 }
 
 struct RecipesView_Previews: PreviewProvider {

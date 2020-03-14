@@ -27,9 +27,8 @@ struct StirForRecipe: View {
                 }
                 Spacer()
             }
-            .overlay(RoundedRectangle(cornerRadius: 10).stroke(Color.black).foregroundColor(transparent))
         }
-        .padding()
+		.recipeStepContainer()
     }
 }
 

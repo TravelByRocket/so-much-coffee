@@ -20,10 +20,7 @@ struct InstallPlungerForRecipe: View {
 			Text("Install the plunger").font(.title).padding()
 			Spacer()
 		}
-		.overlay(RoundedRectangle(cornerRadius: 10)
-		.stroke(Color.black)
-		.foregroundColor(transparent))
-		.padding()
+		.recipeStepContainer()
 	}
 }
 

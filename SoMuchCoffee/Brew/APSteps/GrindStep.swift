@@ -18,10 +18,7 @@ struct GrindStep: View {
             Text("Grind \(beanMass, specifier: "%.1f") g beans with \(grinderName) at \(grindSetting)").font(.title).padding()
             Spacer()
         }
-        .overlay(RoundedRectangle(cornerRadius: 10)
-        .stroke(Color.primary)
-        .foregroundColor(Color.clear))
-        .padding()
+		.recipeStepContainer()
     }
 }
 

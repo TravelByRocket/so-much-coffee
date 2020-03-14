@@ -108,11 +108,7 @@ struct HeatWaterForRecipe: View {
 			}
 			Spacer()
 		}
-        .overlay(RoundedRectangle(cornerRadius: 10)
-        .stroke(Color.primary)
-        .foregroundColor(Color.clear))
-        .padding()
-
+		.recipeStepContainer()
     }
 	
 	func hasTempValue(temp value: Double?) -> Bool {

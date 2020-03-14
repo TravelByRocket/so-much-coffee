@@ -13,8 +13,6 @@ struct RecipeBuilder: View {
 	
     @State private var canAddSteps: Bool = false
     @State private var showStepsPopover: Bool = false
-    
-//	NOTE Seems this might be good place to implement Modal sheet
 	
     var body: some View {
         ZStack {

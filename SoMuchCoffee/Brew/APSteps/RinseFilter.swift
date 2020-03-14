@@ -14,10 +14,7 @@ struct RinseFilterForRecipe: View {
             Text("Rinse filter").font(.title).padding()
             Spacer()
         }
-        .overlay(RoundedRectangle(cornerRadius: 10)
-        .stroke(Color.primary)
-        .foregroundColor(Color.clear))
-        .padding()
+		.recipeStepContainer()
     }
 }
 

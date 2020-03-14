@@ -20,10 +20,7 @@ struct InstallFilterForRecipe: View {
 			Text("Install the filter").font(.title).padding()
 			Spacer()
 		}
-		.overlay(RoundedRectangle(cornerRadius: 10)
-		.stroke(Color.black)
-		.foregroundColor(transparent))
-		.padding()
+		.recipeStepContainer()
 	}
 }
 

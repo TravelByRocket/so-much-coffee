@@ -93,11 +93,11 @@ struct RecipeBuilder: View {
 							testRecipes.append(self.recipe)
 //						}
 					}) {
-						Text("Save Recipe")
+						Text("Save Recipe (this doesn't work yet)")
 					}
                 } else {
 					AddButton(isEnabled: false)
-					Text("can't save")
+					Text("Can't Save – Incomplete Recipe")
                 }
                 
                 Spacer()

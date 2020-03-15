@@ -15,7 +15,6 @@ struct Shop : Identifiable {
 	let location: CLLocationCoordinate2D
 }
 
-#if DEBUG
 let testShops = [
 	Shop(name: "Little Owl Coffee", location: .init(latitude: 39.750535, longitude: -104.999658)),
 	Shop(name: "Mercantile Dining & Provision", location: .init(latitude: 39.753630, longitude: -104.999705)),
@@ -24,5 +23,4 @@ let testShops = [
 	Shop(name: "Huckleberry Roasters (Milk Market)", location: .init(latitude: 39.753550, longitude: -104.996746))
 ]
 
-#endif
 

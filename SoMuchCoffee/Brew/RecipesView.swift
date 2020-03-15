@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @State var recipes: [Recipe] = UserDefaults.standard.object(forKey: "recipes") as? [Recipe] ?? testRecipes
+    @State var recipes: [Recipe] = []
 	@State var showSheet = false
 	@State var showNavViewTemp = false
 	
@@ -47,11 +47,8 @@ struct RecipesView: View {
 				
 				Spacer()
 				Button(action: {self.makeFullRecipe()}){
-					Text("Make full recipe\n")
+					Text("Auto-fill a test recipe\n")
 				}
-				Text("Try a sheet here\n")
-					.onTapGesture{self.showSheet = true}
-					.sheet(isPresented: self.$showSheet, content: {RecipeBuilder()})
 				NavigationLink(destination: RecipeBuilder()){
 					Text("Add New Recipe\n")
 				}
@@ -68,7 +65,7 @@ struct RecipesView: View {
     }
 	
 	func makeFullRecipe() {
-		var newRecipe = Recipe(id: UUID(), name: "Full Recipe", steps: [], isUpright: true, isPaper: true)
+		var newRecipe = Recipe(id: UUID(), name: "Full Recipe (long hold to run/edit)", steps: [], isUpright: true, isPaper: true)
 		newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 80), isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 15), isCombinable: true))

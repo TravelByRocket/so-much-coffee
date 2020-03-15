@@ -86,7 +86,6 @@ func timeForStep(step: RecipeStep) -> Int{
 	}
 }
 
-#if DEBUG
 var testRecipes = [
     Recipe(name: "Unbelievable Brew"),
     Recipe(name: "Lucky Beans"),
@@ -94,5 +93,3 @@ var testRecipes = [
     Recipe(name: "Caffeine Healer"),
     Recipe(name: "Can't Stop Brewing")
 ]
-
-#endif

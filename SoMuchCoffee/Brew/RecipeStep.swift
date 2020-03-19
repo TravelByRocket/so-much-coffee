@@ -122,7 +122,7 @@ extension KindOfStep: Codable {
 				try container.encode(Base.rinseFilter, forKey: .base)
 			case let .stir(seconds):
 				try container.encode(Base.stir, forKey: .base)
-				try container.encode(stirParams(seconds: seconds), forKey: .plungeParams)
+				try container.encode(stirParams(seconds: seconds), forKey: .stirParams)
 			case let .wait(seconds):
 				try container.encode(Base.wait, forKey: .base)
 				try container.encode(waitParams(seconds: seconds), forKey: .waitParams)

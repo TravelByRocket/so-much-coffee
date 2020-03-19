@@ -61,7 +61,7 @@ struct RecipeConductor: View {
 								self.timeElapsedSec = self.recipe.totalTimeSec // and set the elapsed time equal (exactly) to the total time that the recipe should run
 							}
 						}
-				}
+					}
 			}
 		}
 	}
@@ -114,8 +114,10 @@ func intArrToString(_ arr: [CGFloat]) -> String {
 	for val in arr {
 		tempString += String(Int(val)) + ","
 	}
-	let extraCommaIndex = tempString.lastIndex(of: ",")
-	tempString.remove(at: extraCommaIndex!)
+	if let extraCommaIndex = tempString.lastIndex(of: ",") {
+		tempString.remove(at: extraCommaIndex)
+	}
+	
 	tempString += "]"
 	return tempString
 }

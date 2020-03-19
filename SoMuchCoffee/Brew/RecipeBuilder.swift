@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RecipeBuilder: View {
 	@State var recipe: Recipe = Recipe()
+	@ObservedObject var recipes: Recipes
 	
     @State private var canAddSteps: Bool = false
     @State private var showStepsPopover: Bool = false
@@ -87,10 +88,13 @@ struct RecipeBuilder: View {
                     AddButton(isEnabled: true)
 						.onTapGesture {self.showStepsPopover = true}
 					Button(action: {
+						for item in self.recipes.items {
+							print("just checking")
+						}
 //						if let index = testRecipes.firstIndex(of: self.recipe) {
 //							testRecipes[index] = self.recipe
 //						} else {
-							testRecipes.append(self.recipe)
+						self.recipes.items.append(self.recipe)
 //						}
 					}) {
 						Text("Save Recipe (this doesn't work yet)")
@@ -106,6 +110,7 @@ struct RecipeBuilder: View {
 				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)
             }
 		}
+		.onAppear(perform: self.checkInitialConditions)
     }
 	
 	private func moveItem(from source: IndexSet, to destination: Int) {
@@ -185,10 +190,8 @@ struct RecipeBuilder: View {
 }
 
 struct RecipeBuilder_Previews: PreviewProvider {
-    private static var fakeRecipe = Recipe()
 	static var previews: some View {
-		RecipeBuilder(recipe: fakeRecipe)
-//		RecipeBuilder()
+		RecipeBuilder(recipes: Recipes())
     }
 }
 

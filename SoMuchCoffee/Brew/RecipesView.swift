@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct RecipesView: View {
-    @State var recipes: [Recipe] = []
+    @ObservedObject var recipes = Recipes()
 	@State var showSheet = false
 	@State var showNavViewTemp = false
 	
@@ -25,7 +25,7 @@ struct RecipesView: View {
 				
 				List {
 					Text("AeroPress")
-					ForEach (recipes) {recipe in
+					ForEach (recipes.items) {recipe in
 						HStack{
 							Text(recipe.name)
 							Spacer()
@@ -33,7 +33,7 @@ struct RecipesView: View {
 						.contextMenu(menuItems: {
 							// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue
 							NavigationLink(destination: RecipeConductor(recipe: recipe)) {Text("Run")}
-							NavigationLink(destination: RecipeBuilder(recipe: recipe)) {Text("Edit")}
+							NavigationLink(destination: RecipeBuilder(recipe: recipe, recipes: self.recipes)) {Text("Edit")}
 						})
 					}
 					.onDelete(perform: deleteItem)
@@ -49,7 +49,7 @@ struct RecipesView: View {
 				Button(action: {self.makeFullRecipe()}){
 					Text("Auto-fill a test recipe\n")
 				}
-				NavigationLink(destination: RecipeBuilder()){
+				NavigationLink(destination: RecipeBuilder(recipes: recipes)){
 					Text("Add New Recipe\n")
 				}
 			}
@@ -57,11 +57,11 @@ struct RecipesView: View {
     }
 	
 	private func moveItem(from source: IndexSet, to destination: Int) {
-		self.recipes.move(fromOffsets: source, toOffset: destination)
+		self.recipes.items.move(fromOffsets: source, toOffset: destination)
     }
 	
 	private func deleteItem(at offsets: IndexSet) {
-		self.recipes.remove(atOffsets: offsets)
+		self.recipes.items.remove(atOffsets: offsets)
     }
 	
 	func makeFullRecipe() {
@@ -75,13 +75,13 @@ struct RecipesView: View {
 		newRecipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))
-		self.recipes.append(newRecipe)
+		self.recipes.items.append(newRecipe)
 	}
 }
 
 struct RecipesView_Previews: PreviewProvider {
     @State static var fakeRecipes = testRecipes
 	static var previews: some View {
-		RecipesView(recipes: fakeRecipes)
+		RecipesView()
     }
 }

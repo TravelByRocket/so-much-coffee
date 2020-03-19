@@ -8,6 +8,37 @@
 
 import SwiftUI
 
+class Recipes: ObservableObject {
+	@Published var items: [Recipe] {
+		didSet {
+			let encoder = JSONEncoder()
+			if let encoded = try? encoder.encode(items) {
+				UserDefaults.standard.set(encoded, forKey: "Recipes")
+				print(encoded)
+				print("JSON encoding success")
+			} else {
+				print("JSON encoding failed")
+			}
+		}
+	}
+	
+	init() {
+		if let items = UserDefaults.standard.data(forKey: "Recipes") {
+			let decoder = JSONDecoder()
+			if let decoded = try? decoder.decode([Recipe].self, from: items) {
+				self.items = decoded
+				print(decoded)
+				print("JSON decoding success")
+				return
+			} else {
+				print("JSON decoding failed")
+			}
+		}
+		self.items = []
+	}
+	
+}
+
 //struct Recipe : Identifiable, Hashable { // seems to break with Hashable added even when I leave the functions that make it fulfill Hashable
 struct Recipe : Identifiable, Codable {
     var id = UUID()
@@ -57,14 +88,6 @@ struct Recipe : Identifiable, Codable {
 			arranged.append(curStage)
 		}
 		return arranged
-	}
-	
-//	func hash(into hasher: inout Hasher) {
-//		hasher.combine(id)
-//	}
-//
-	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
-		return lhs.id == rhs.id
 	}
 	
 }

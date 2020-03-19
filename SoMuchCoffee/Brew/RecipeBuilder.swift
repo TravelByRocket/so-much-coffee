@@ -12,62 +12,82 @@ struct RecipeBuilder: View {
 	@State var recipe: Recipe = Recipe()
 	@ObservedObject var recipes: Recipes
 	
-    @State private var canAddSteps: Bool = false
-    @State private var showStepsPopover: Bool = false
+	@Environment(\.presentationMode) var presentationMode
 	
-    var body: some View {
-        ZStack {
-            VStack {
-                // RECIPE NAME
-                HStack {
+	@State private var canAddSteps: Bool = false
+	@State private var showStepsPopover: Bool = false
+	
+	private var recipeReplacementIndex: Int? {
+		var matchedRecipeIndex: Int?
+		for searchIndex in 0 ..< self.recipes.items.count {
+			if self.recipes.items[searchIndex].id == self.recipe.id {
+				matchedRecipeIndex = searchIndex
+			}
+		}
+		return matchedRecipeIndex
+	}
+	
+	private var isNewRecipe: Bool {
+		if recipeReplacementIndex == nil {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	var body: some View {
+		ZStack {
+			VStack {
+				// RECIPE NAME
+				HStack {
 					TextField("Recipe Name", text: $recipe.name)
 					Button(action: {self.recipe.name = self.randomTitle()}) {
 						Image(systemName: "shuffle").rotationEffect(.degrees(180))
 						Text("Generate")
 					}
-                }
-                .padding()
-                
-                // SELECT UPRIGHT OR INVERTED
-                HStack (spacing: 0){
-                    
-                    // UPRIGHT SELECTION
-					OptionBox(msg: "Upright\nMethod")
-					.background(recipe.isUpright ?? false ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
-					.onTapGesture {
-						self.recipe.isUpright = true
-						self.checkInitialConditions()
-					}
-                    
-                    // INVERTED SELECTION
-                    OptionBox(msg: "Inverted\nMethod")
-                    .background(!(recipe.isUpright ?? true) ? Color(red: 176/255, green: 160/255, blue: 255/255, opacity: 1.0) : appLightGray)
-                    .onTapGesture {
-						self.recipe.isUpright = false
-						self.checkInitialConditions()
-                    }
-                }
-                .padding(.bottom)
+				}
+				.padding()
 				
-                // FILTER SECTION
-                HStack (spacing: 0){
-                    // PAPER SELECTION
-                    OptionBox(msg: "Paper\nFilter")
-                    .background(recipe.isPaper ?? false ? Color(red: 255/255, green: 234/255, blue: 147/255, opacity: 1.0) : appLightGray)
-                    .onTapGesture {
-						self.recipe.isPaper = true
-						self.checkInitialConditions()
-                    }
-                    
-                    // METAL SELECTION
-                    OptionBox(msg: "Metal\nFilter")
-                    .background(!(recipe.isPaper ?? true) ? Color(red: 255/255, green: 160/255, blue: 147/255, opacity: 1.0) : appLightGray)
-                    .onTapGesture {
-						self.recipe.isPaper = false
-						self.checkInitialConditions()
-                    }
-                }
-                .padding(.bottom)
+				// SELECT UPRIGHT OR INVERTED
+				HStack (spacing: 0){
+					
+					// UPRIGHT SELECTION
+					OptionBox(msg: "Upright\nMethod")
+						.background(recipe.isUpright ?? false ? Color(red: 147/255, green: 255/255, blue: 175/255, opacity: 1.0) : appLightGray)
+						.onTapGesture {
+							self.recipe.isUpright = true
+							self.checkInitialConditions()
+					}
+					
+					// INVERTED SELECTION
+					OptionBox(msg: "Inverted\nMethod")
+						.background(!(recipe.isUpright ?? true) ? Color(red: 176/255, green: 160/255, blue: 255/255, opacity: 1.0) : appLightGray)
+						.onTapGesture {
+							self.recipe.isUpright = false
+							self.checkInitialConditions()
+					}
+				}
+				.padding(.bottom)
+				
+				// FILTER SECTION
+				HStack (spacing: 0){
+					// PAPER SELECTION
+					OptionBox(msg: "Paper\nFilter")
+						.background(recipe.isPaper ?? false ? Color(red: 255/255, green: 234/255, blue: 147/255, opacity: 1.0) : appLightGray)
+						.onTapGesture {
+							self.recipe.isPaper = true
+							self.checkInitialConditions()
+					}
+					
+					// METAL SELECTION
+					OptionBox(msg: "Metal\nFilter")
+						.background(!(recipe.isPaper ?? true) ? Color(red: 255/255, green: 160/255, blue: 147/255, opacity: 1.0) : appLightGray)
+						.onTapGesture {
+							self.recipe.isPaper = false
+							self.checkInitialConditions()
+					}
+				}
+				.padding(.bottom)
 				
 				HStack{
 					Spacer()
@@ -84,45 +104,51 @@ struct RecipeBuilder: View {
 					}
 				}
 				
-                if canAddSteps {
-                    AddButton(isEnabled: true)
+				if canAddSteps {
+					AddButton(isEnabled: true)
 						.onTapGesture {self.showStepsPopover = true}
 					Button(action: {
-						var matchedRecipeIndex: Int?
-						for searchIndex in 0 ..< self.recipes.items.count {
-							if self.recipes.items[searchIndex].id == self.recipe.id {
-								matchedRecipeIndex = searchIndex
-							}
-						}
-						if let matchIndex = matchedRecipeIndex {
+						if let matchIndex = self.recipeReplacementIndex {
 							self.recipes.items[matchIndex] = self.recipe
 						} else {
 							self.recipes.items.append(self.recipe)
 						}
+						self.presentationMode.wrappedValue.dismiss()
 					}) {
-						Text("Save Recipe")
+						Text(isNewRecipe ? "Save Recipe" : "Update Recipe")
 					}
-                } else {
+				} else {
 					AddButton(isEnabled: false)
 					Text("Can't Save – Incomplete Recipe")
-                }
-                
-                Spacer()
-            }
-            if showStepsPopover {
+				}
+				
+				Spacer()
+			}
+			if showStepsPopover {
 				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)
-            }
+			}
 		}
-		.onAppear(perform: self.checkInitialConditions)
-    }
+		.navigationBarBackButtonHidden(true)
+		.navigationBarItems(leading:
+			Button(action: {
+				self.presentationMode.wrappedValue.dismiss()
+			}) {
+				HStack {
+					Image(systemName: "chevron.left")
+					Text("Cancel")
+				}
+				.foregroundColor(Color.red)
+		})
+			.onAppear(perform: self.checkInitialConditions)
+	}
 	
 	private func moveItem(from source: IndexSet, to destination: Int) {
 		self.recipe.steps.move(fromOffsets: source, toOffset: destination)
-    }
+	}
 	
 	private func deleteItem(at offsets: IndexSet) {
 		self.recipe.steps.remove(atOffsets: offsets)
-    }
+	}
 	
 	func getViewForList(recipeStep kind: KindOfStep) -> AnyView{
 		switch kind {
@@ -146,10 +172,10 @@ struct RecipeBuilder: View {
 			return AnyView(GrindForList(mass: mass))
 		}
 	}
-    
-    func checkInitialConditions(){
+	
+	func checkInitialConditions(){
 		canAddSteps = (recipe.isUpright != nil) && (recipe.isPaper != nil)
-    }
+	}
 	
 	func randomTitle() -> String {
 		var dateString: String {
@@ -162,7 +188,7 @@ struct RecipeBuilder: View {
 			return dateFormatter.string(from: Date())
 		}
 		
-		switch Int.random(in: 0...10) { // TODO make more completely random options
+		switch Int.random(in: 0...20) { // TODO make more completely random options
 		case 0:
 			return "Unbelievable Brew " + dateString
 		case 1:
@@ -175,7 +201,7 @@ struct RecipeBuilder: View {
 			return "Can't Stop Brewing " + dateString
 		case 5:
 			return "Lucky Beans " + dateString
-		case 6...10:
+		case 6...20:
 			var chaosName = ""
 			let wordList = ["Unbelievable","Brew","Bean","Faith","Caffeine","Healer","Lucky","Energy","Morning","Anytime","Afternooon","Mindful","Sunset","Yogi","Mountain","Bliss","Vibe","Chakra","Peace","Tranquil","Amped","Lit","Celestial","Visionary"]
 			let wordCount = 3
@@ -195,7 +221,7 @@ struct RecipeBuilder: View {
 struct RecipeBuilder_Previews: PreviewProvider {
 	static var previews: some View {
 		RecipeBuilder(recipes: Recipes())
-    }
+	}
 }
 
 

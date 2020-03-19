@@ -90,6 +90,10 @@ struct Recipe : Identifiable, Codable {
 		return arranged
 	}
 	
+	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
+		return lhs.id == rhs.id
+	}
+	
 }
 	
 func timeForStep(step: RecipeStep) -> Int{

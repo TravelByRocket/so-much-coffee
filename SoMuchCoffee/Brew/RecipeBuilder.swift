@@ -88,16 +88,19 @@ struct RecipeBuilder: View {
                     AddButton(isEnabled: true)
 						.onTapGesture {self.showStepsPopover = true}
 					Button(action: {
-						for item in self.recipes.items {
-							print("just checking")
+						var matchedRecipeIndex: Int?
+						for searchIndex in 0 ..< self.recipes.items.count {
+							if self.recipes.items[searchIndex].id == self.recipe.id {
+								matchedRecipeIndex = searchIndex
+							}
 						}
-//						if let index = testRecipes.firstIndex(of: self.recipe) {
-//							testRecipes[index] = self.recipe
-//						} else {
-						self.recipes.items.append(self.recipe)
-//						}
+						if let matchIndex = matchedRecipeIndex {
+							self.recipes.items[matchIndex] = self.recipe
+						} else {
+							self.recipes.items.append(self.recipe)
+						}
 					}) {
-						Text("Save Recipe (this doesn't work yet)")
+						Text("Save Recipe")
 					}
                 } else {
 					AddButton(isEnabled: false)

@@ -107,6 +107,11 @@ struct RecipeBuilder: View {
 				if canAddSteps {
 					AddButton(isEnabled: true)
 						.onTapGesture {self.showStepsPopover = true}
+				} else {
+					AddButton(isEnabled: false)
+				}
+				
+				if recipe.canSave {
 					Button(action: {
 						if let matchIndex = self.recipeReplacementIndex {
 							self.recipes.items[matchIndex] = self.recipe
@@ -118,7 +123,6 @@ struct RecipeBuilder: View {
 						Text(isNewRecipe ? "Save Recipe" : "Update Recipe")
 					}
 				} else {
-					AddButton(isEnabled: false)
 					Text("Can't Save – Incomplete Recipe")
 				}
 				

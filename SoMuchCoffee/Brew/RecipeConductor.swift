@@ -26,7 +26,7 @@ struct RecipeConductor: View {
 			if curStage == 0 {
 				Text("Prepare for Brewing")
 				Text("Recipe takes \(recipe.totalTimeSec) seconds")
-				Text("Recipe stages at \(intArrToString(recipe.switchTimesFromArranged)) seconds")
+				Text("Recipe stages at \(intArrToString(recipe.switchTimes)) seconds")
 				ForEach (recipe.stepsArranged[curStage]) {step in
 					self.GetStepViewForRecipe(step: step)
 				}
@@ -37,7 +37,7 @@ struct RecipeConductor: View {
 					.border(Color.blue, width: 1)
 					.padding()
 				// TODO a Next Step view e.g. Text("Next Step: Stir")
-			} else if curStage > 0 && curStage < recipe.switchTimesFromArranged.count {
+			} else if curStage > 0 && curStage < recipe.switchTimes.count {
 				ForEach (recipe.stepsArranged[curStage]) {step in
 					self.GetStepViewForRecipe(step: step)
 				}
@@ -54,8 +54,8 @@ struct RecipeConductor: View {
 					.onReceive(timer) { _ in // need to attach the timer to something, this made sense and it works
 						if self.clockIsRunning {
 							self.timeElapsedSec += timerInterval // progress elapsed time by timer interval every time it triggers, which is controlled by a global variable in ContentView
-							self.curStage = self.recipe.switchTimesFromArranged.firstIndex(where: { $0 > self.timeElapsedSec }) ?? self.recipe.stepsArranged.count // set the current stage index by finding the first index in the switch times array that is less than the current time; e.g. if the switch times are [0,20,40,60] then at time=25 the first index less than that is 1 and that is the stage index. TODO look into "stage" use and clarify `stage` being a set of of steps while `stageIndex` tells which step it is on; TODO see if there is a better nil coalescing value or a way to force unwrwap based on what I know in the logic of the program
-							self.timeElapsedStepSec = self.timeElapsedSec - self.recipe.switchTimesFromArranged[self.curStage-1] // the time that has passed in the current step is equal to the total elapsed time minus the previous switch time
+							self.curStage = self.recipe.switchTimes.firstIndex(where: { $0 > self.timeElapsedSec }) ?? self.recipe.stepsArranged.count // set the current stage index by finding the first index in the switch times array that is less than the current time; e.g. if the switch times are [0,20,40,60] then at time=25 the first index less than that is 1 and that is the stage index. TODO look into "stage" use and clarify `stage` being a set of of steps while `stageIndex` tells which step it is on; TODO see if there is a better nil coalescing value or a way to force unwrwap based on what I know in the logic of the program
+							self.timeElapsedStepSec = self.timeElapsedSec - self.recipe.switchTimes[self.curStage-1] // the time that has passed in the current step is equal to the total elapsed time minus the previous switch time
 							if self.timeElapsedSec >= self.recipe.totalTimeSec { // if the total elapsed time is >= the total recipe time (possibly from overshoot with CGFloat or system inaccuracy)
 								self.clockIsRunning = false // then stop the clock
 								self.timeElapsedSec = self.recipe.totalTimeSec // and set the elapsed time equal (exactly) to the total time that the recipe should run
@@ -71,7 +71,7 @@ struct RecipeConductor: View {
 		switch tempKind {
 		case .plunge(_):
 			return AnyView(
-				PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+				PlungeForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimes[curStage] - recipe.switchTimes[curStage - 1]))
 			)
 		case .installFilter:
 			return AnyView(InstallFilterForRecipe())
@@ -83,15 +83,15 @@ struct RecipeConductor: View {
 			return AnyView(RinseFilterForRecipe())
 		case .wait(_):
 			return AnyView(
-				WaitForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+				WaitForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimes[curStage] - recipe.switchTimes[curStage - 1]))
 			)
 		case .stir(_):
 			return AnyView(
-				StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]))
+				StirForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimes[curStage] - recipe.switchTimes[curStage - 1]))
 			)
 		case .addWater(_, let mass):
 			return AnyView(
-				AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimesFromArranged[curStage] - recipe.switchTimesFromArranged[curStage - 1]), waterMassG: CGFloat(mass))
+				AddWaterForRecipe(timeElapsedSec: $timeElapsedStepSec, totalTimeSec: CGFloat(recipe.switchTimes[curStage] - recipe.switchTimes[curStage - 1]), waterMassG: CGFloat(mass))
 			)
 		case .grind(let mass):
 			return AnyView(GrindForRecipe(mass: mass))
@@ -138,7 +138,7 @@ struct SkipForwardBack: View {
 						self.clockIsRunning = false // and stop the clock
 						self.curStage = 0 // and set the stage index to 0; TODO this might not be needed so delete if extraneous because this might be handled by stage index logic in the timer attachment block
 					} else { // otherwise
-						self.timeElapsedSec = self.recipe.switchTimesFromArranged[self.curStage-2] // set the elapsed time equal to the beginning of the previous step; going back just 1 would only reset the current step, so go back 2 for the beginning of the previous step; the time switch associated with current stage is for when it completes
+						self.timeElapsedSec = self.recipe.switchTimes[self.curStage-2] // set the elapsed time equal to the beginning of the previous step; going back just 1 would only reset the current step, so go back 2 for the beginning of the previous step; the time switch associated with current stage is for when it completes
 						self.clockIsRunning = true // this only changes anything after getting to the end of the recipe (it's already true) but no need to write more logic
 					}
 			}
@@ -147,7 +147,7 @@ struct SkipForwardBack: View {
 				.foregroundColor(clockIsRunning ? Color.primary : appLightGray)
 				.onTapGesture { // when the button is clicked
 					if self.clockIsRunning { // if the clock is running
-						self.timeElapsedSec = self.recipe.switchTimesFromArranged[self.curStage] // then set the elapsed time equal to the time switch at current stage index because the associated time is actually when the current stage completes
+						self.timeElapsedSec = self.recipe.switchTimes[self.curStage] // then set the elapsed time equal to the time switch at current stage index because the associated time is actually when the current stage completes
 					}
 			}
 		}.padding()

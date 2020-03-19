@@ -57,7 +57,7 @@ struct Recipe : Identifiable, Codable {
 	}
 
 	// Time stamps for when to swtich to each step, including 0 and the total time; Adds up the time values for every step within a stage
-	var switchTimesFromArranged: [CGFloat] { // The times are integers but (I think) Timer uses CGFloat
+	var switchTimes: [CGFloat] { // The times are integers but (I think) Timer uses CGFloat
 		var transitionTimes: [CGFloat] = [] // array to store the transitions times in, initally empty
 		var cumulativeTime: CGFloat = 0 // temporary value to collect running time as I go through each step
 		for stage in stepsArranged { // for each array the represents a stage
@@ -89,6 +89,64 @@ struct Recipe : Identifiable, Codable {
 		}
 		return arranged
 	}
+	
+	// considering computed properties or function to collectively allow or disallow save. This would be (1) start with a stage that has no time (the first index of switchtimes is 0), (2) not have an intermediate stage with no time (there are no adjacent switch times with the same time value), (3) Have a title, (4)
+	
+	var firstStagePrepValid: Bool {
+		if switchTimes.count < 2 {return false}
+		
+		if switchTimes[0] == 0{ // not a valis recipe if not at least two steps
+			return true
+		} else {
+			return false
+		}
+		
+	}
+	
+	var allStagesTimeValid: Bool {
+		if switchTimes.count < 2 {return false}
+		
+		var foundInvalid = false
+		for i in 0 ..< (switchTimes.count - 1) {
+			if switchTimes[i] == switchTimes[i + 1] {
+				foundInvalid = true
+			}
+		}
+		return !foundInvalid
+	}
+	
+	var nameValid: Bool {
+		if name != "" {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	var methodSelected: Bool  {
+		if isUpright != nil {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	var filterSelected: Bool  {
+		if isUpright != nil {
+			return true
+		} else {
+			return false
+		}
+	}
+	
+	var canSave: Bool {
+		if firstStagePrepValid && allStagesTimeValid && nameValid && methodSelected && filterSelected {
+			return true
+		} else {
+			return false
+		}
+	}
+	
 	
 	static func ==(lhs: Recipe, rhs: Recipe) -> Bool {
 		return lhs.id == rhs.id

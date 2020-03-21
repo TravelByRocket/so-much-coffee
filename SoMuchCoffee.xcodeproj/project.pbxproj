@@ -119,6 +119,7 @@
 		2FEE940F23ADCBF30006A16C /* RecipeConductor.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */; };
 		2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F723ADCBF20006A16C /* RecipeRow.swift */; };
 		2FEE941123ADCBF30006A16C /* APStepsPopover.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEE93F823ADCBF20006A16C /* APStepsPopover.swift */; };
+		2FFAFBD42425A44B00E99E46 /* shops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FFAFBD32425A44B00E99E46 /* shops.json */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -257,6 +258,7 @@
 		2FEE93F623ADCBF20006A16C /* RecipeConductor.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeConductor.swift; sourceTree = "<group>"; };
 		2FEE93F723ADCBF20006A16C /* RecipeRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RecipeRow.swift; sourceTree = "<group>"; };
 		2FEE93F823ADCBF20006A16C /* APStepsPopover.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = APStepsPopover.swift; sourceTree = "<group>"; };
+		2FFAFBD32425A44B00E99E46 /* shops.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = shops.json; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -460,6 +462,7 @@
 				2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */,
 				2FB0749323B2F6A900A7EB7B /* MapView.swift */,
 				2FB0748D23B2E0D700A7EB7B /* Shop.swift */,
+				2FFAFBD32425A44B00E99E46 /* shops.json */,
 			);
 			path = Find;
 			sourceTree = "<group>";
@@ -689,6 +692,7 @@
 				2FAC604A23B17D1600122255 /* noun_coffee beans_2048876.svg in Resources */,
 				2FAC603723B17D1600122255 /* noun_kettle pour_2310158.svg in Resources */,
 				2FAC603823B17D1600122255 /* noun_Trash_831392.svg in Resources */,
+				2FFAFBD42425A44B00E99E46 /* shops.json in Resources */,
 				2FAC604923B17D1600122255 /* noun_timer_2300861.svg in Resources */,
 				2F12C8E8239EBB9D00BFF066 /* LaunchScreen.storyboard in Resources */,
 				2FAC603623B17D1600122255 /* noun_stir_2732963.svg in Resources */,

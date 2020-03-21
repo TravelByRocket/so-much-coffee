@@ -13,12 +13,9 @@ struct FindPage: View {
     var body: some View {
 		NavigationView {
 			VStack {
-				HStack {
-					Spacer()
-					GoHome().padding()
-				}
-				MapShops(shops: $shops)
+				MapView()
 					.navigationBarTitle("Find a Shop")
+					.navigationBarItems(trailing: GoHome())
 				List {
 					ForEach (shops) {shop in
 						NavigationLink (destination: ShopView(shop: shop)){

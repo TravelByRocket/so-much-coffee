@@ -1,0 +1,59 @@
+[
+	{
+		"id": "ozowest",
+		"name": "OZO Coffee | West Pearl",
+		"address":"1015 Pearl St, Boulder, CO 80302"
+		"lat":40.017738
+		"lon":-105.282188
+	},
+	{
+		"id": "ozoeast",
+		"name": "OZO Coffee | East Pearl",
+		"address":"1521 Pearl St, Boulder, CO 80302"
+		"lat":40.019130
+		"lon":-105.275430
+	},
+	{
+		"id": "ozotraining",
+		"name": "OZO Coffee | Roastery Cafe & Lab",
+		"address":"1898 S Flatiron Ct #110, Boulder, CO 80301"
+		"lat":40.020170
+		"lon":-105.217970
+	},
+	{
+		"id": "ozoarapahoe",
+		"name": "OZO Coffee | Arapahoe",
+		"address":"5340 Arapahoe Ave, Boulder, CO 80303"
+		"lat":40.014190
+		"lon":-105.228360
+	},
+	{
+		"id": "ozolongmont",
+		"name": "OZO Coffee | Longmont",
+		"address":"1232A S Hover St #400, Longmont, CO 80501"
+		"lat":40.145080
+		"lon":-105.130790
+	},
+	{
+		"id": "middlestate",
+		"name": "Middle State Coffee",
+		"address":"212 Santa Fe Dr, Denver, CO 80223"
+		"lat":39.7196471
+		"lon":-104.9984711
+	},
+	{
+		"id": "littleowlblake",
+		"name": "Little Owl Coffee",
+		"address":"1555 Blake St, Denver, CO 80202"
+		"lat":39.7196471
+		"lon":-104.9984711
+	},
+	{
+		"id": "littleowldairyblock",
+		"name": "Little Owl Coffee at Dairy Block",
+		"address":"1801 Blake St, Denver, CO 80202"
+		"lat":39.7526873
+		"lon":-104.9966602
+	}
+
+]

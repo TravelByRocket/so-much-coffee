@@ -1,59 +1,60 @@
 [
-	{
-		"id": "ozowest",
-		"name": "OZO Coffee | West Pearl",
-		"address":"1015 Pearl St, Boulder, CO 80302"
-		"lat":40.017738
-		"lon":-105.282188
-	},
-	{
-		"id": "ozoeast",
-		"name": "OZO Coffee | East Pearl",
-		"address":"1521 Pearl St, Boulder, CO 80302"
-		"lat":40.019130
-		"lon":-105.275430
-	},
-	{
-		"id": "ozotraining",
-		"name": "OZO Coffee | Roastery Cafe & Lab",
-		"address":"1898 S Flatiron Ct #110, Boulder, CO 80301"
-		"lat":40.020170
-		"lon":-105.217970
-	},
-	{
-		"id": "ozoarapahoe",
-		"name": "OZO Coffee | Arapahoe",
-		"address":"5340 Arapahoe Ave, Boulder, CO 80303"
-		"lat":40.014190
-		"lon":-105.228360
-	},
-	{
-		"id": "ozolongmont",
-		"name": "OZO Coffee | Longmont",
-		"address":"1232A S Hover St #400, Longmont, CO 80501"
-		"lat":40.145080
-		"lon":-105.130790
-	},
-	{
-		"id": "middlestate",
-		"name": "Middle State Coffee",
-		"address":"212 Santa Fe Dr, Denver, CO 80223"
-		"lat":39.7196471
-		"lon":-104.9984711
-	},
-	{
-		"id": "littleowlblake",
-		"name": "Little Owl Coffee",
-		"address":"1555 Blake St, Denver, CO 80202"
-		"lat":39.7196471
-		"lon":-104.9984711
-	},
-	{
-		"id": "littleowldairyblock",
-		"name": "Little Owl Coffee at Dairy Block",
-		"address":"1801 Blake St, Denver, CO 80202"
-		"lat":39.7526873
-		"lon":-104.9966602
-	}
-
+{"id":"ozowest","name":"OZO Coffee | West Pearl","address":"1015 Pearl St, Boulder, CO 80302","latitude":40.017564,"longitude":-105.282169},
+{"id":"ozoeast","name":"OZO Coffee | East Pearl","address":"1521 Pearl St, Boulder, CO 80302","latitude":40.0190869,"longitude":-105.2753813},
+{"id":"ozotraining","name":"OZO Coffee | Roastery Cafe & Lab","address":"1898 S Flatiron Ct #110, Boulder, CO 80301","latitude":40.0201629,"longitude":-105.2183452},
+{"id":"ozoarapahoe","name":"OZO Coffee | Arapahoe","address":"5340 Arapahoe Ave, Boulder, CO 80303","latitude":40.0141309,"longitude":-105.2284171},
+{"id":"ozolongmont","name":"OZO Coffee | Longmont","address":"1232A S Hover St #400, Longmont, CO 80501","latitude":40.1472143,"longitude":-105.1289996},
+{"id":"middlestate","name":"Middle State Coffee","address":"212 Santa Fe Dr, Denver, CO 80223","latitude":39.7196484,"longitude":-104.9984691},
+{"id":"littleowlblake","name":"Little Owl Coffee","address":"1555 Blake St, Denver, CO 80202","latitude":39.7505306,"longitude":-104.9996993},
+{"id":"littleowldairyblock","name":"Little Owl Coffee at Dairy Block","address":"1801 Blake St, Denver, CO 80202","latitude":39.7526838,"longitude":-104.9967766},
+{"id":"boxcarboulder","name":"Boxcar Coffee Roasters","address":"1825 Pearl St B, Boulder, CO 80302","latitude":40.0198412,"longitude":-105.2714926},
+{"id":"raphaboulder","name":"Rapha Boulder","address":"1815 Pearl St, Boulder, CO 80302","latitude":40.0199041,"longitude":-105.2716584},
+{"id":"alpinemodernhill","name":"Alpine Modern Café","address":"904 College Ave, Boulder, CO 80302","latitude":40.0071261,"longitude":-105.2817358},
+{"id":"alpinemodernpearl","name":"Alpine Modern Café","address":"1048 Pearl St, Boulder, CO 80302","latitude":40.0171379,"longitude":-105.2817021},
+{"id":"beleza","name":"Beleza Coffee Bar","address":"2680 Broadway, Boulder, CO 80304","latitude":40.0252868,"longitude":-105.2810327},
+{"id":"precisionpours","name":"Precision Pours - Coffee and Bakes","address":"1030 E South Boulder Rd, Louisville, CO 80027","latitude":39.9866905,"longitude":-105.1314575},
+{"id":"sweetbloomlakewood","name":"Sweet Bloom Tasting Room & Roastery","address":"1619 Reed St, Lakewood, CO 80214","latitude":39.7422813,"longitude":-105.0748299},
+{"id":"sweetbloomarvada","name":"Sweet Bloom Coffee Roasters Cafe","address":"7745 Wadsworth Blvd C, Arvada, CO 80003","latitude":39.837828,"longitude":-105.083435},
+{"id":"mercantile","name":"Mercantile Dining and Provision","address":"1701 Wynkoop St #155, Denver, CO 80202","latitude":39.7529662,"longitude":-105.0002556},
+{"id":"beanfostersgolden","name":"Bean Fosters (Golden)","address":"720 Golden Ridge Rd Ste D, Golden, CO 80401","latitude":39.7283984,"longitude":-105.2087853},
+{"id":"beanfosterslittleton","name":"Bean Fosters (Littleton)","address":"9956 W Remington Place, Ste A-1 · Littleton, CO 80128","latitude":39.5634951,"longitude":-105.1075013},
+{"id":"huckroaster","name":"Huckleberry Roasters (Pecos Roastery)","address":"4301 N Pecos St, Denver, CO 80211","latitude":39.775492,"longitude":-105.006749},
+{"id":"huckdairyblock","name":"Huckleberry Roasters at Dairy Block","address":"1800 Wazee St, Denver, CO 80202","latitude":39.7531094,"longitude":-104.9972788},
+{"id":"portside","name":"Port Side","address":"2500 Larimer St #103, Denver, CO 80205","latitude":39.7576532,"longitude":-104.9861197},
+{"id":"boxcardenver","name":"Boxcar Coffee Roasters","address":"3350 Brighton Blvd, Denver, CO 80216","latitude":39.768559,"longitude":-104.9795818},
+{"id":"blackeye","name":"Black Eye Coffee (LoHi)","address":"3408 Navajo St, Denver, CO 80211","latitude":39.7646929,"longitude":-105.0039653},
+{"id":"aviano","name":"Aviano Coffee Cherry Creek","address":"244 Detroit St, Denver, CO 80206","latitude":39.720378,"longitude":-104.9543261},
+{"id":"metropolislohi","name":"Metropolis Coffee (LoHi)","address":"1661 Central St, Denver, CO 80211","latitude":39.7589785,"longitude":-105.0087146},
+{"id":"metropolisgoldentriangle","name":"Metropolis Coffee (Golden Triangle)","address":"300 W 11th Ave, Denver, CO 80204","latitude":39.73371,"longitude":-104.991939},
+{"id":"metropolisbroadway","name":"Metropolis Coffee (Baker)","address":"1 S Broadway, Denver, CO 80223","latitude":39.7164424,"longitude":-104.9877488},
+{"id":"corvusbroadway","name":"Corvus Coffee Roasters (Flagship Roastery & Espresso Bar)","address":"1740 S Broadway, Denver, CO 80210","latitude":39.684904,"longitude":-104.987262},
+{"id":"corvusdtc","name":"Corvus Coffee Roasters DTC","address":"4925 S. Newport St., Denver, CO 80210","latitude":39.6249874,"longitude":-104.9071354},
+{"id":"amethystbroadway","name":"Amethyst Coffee (Broadway)","address":"1111 Broadway, Denver, CO 80203","latitude":39.734134,"longitude":-104.987841},
+{"id":"amethystlakeside","name":"Amethyst Coffee (Lakeside)","address":"4999 W 44th Ave, Denver, CO 80212","latitude":39.7767266,"longitude":-105.0506591},
+{"id":"amethystrealm","name":"Amethyst Coffee (Realm)","address":"3851 Steele St, Denver, CO 80205","latitude":39.7696672,"longitude":-104.9573211},
+{"id":"amethystedgewater","name":"Amethyst Coffee (Edgewater)","address":"5505 W 20th Ave, Edgewater, CO 80214","latitude":39.7486013,"longitude":-105.0569911},
+{"id":"copperdoor","name":"Copper Door Coffee Roasters","address":"938 Jersey St, Denver, CO 80220","latitude":39.731104,"longitude":-104.9190324},
+{"id":"downpoursclayton","name":"Downpours Coffee (Clayton)","address":"1200 Clayton St, Denver, CO 80206","latitude":39.7353429,"longitude":-104.9547125},
+{"id":"downpourstennyson","name":"Downpours Coffee (Tennyson)","address":"3937 Tennyson St, Denver, CO 80212","latitude":39.7718344,"longitude":-105.0441636},
+{"id":"downpourspearl","name":"Downpours Coffee (Pearl)","address":"1085 S Pearl St, Denver, CO 80209","latitude":39.6968467,"longitude":-104.9806415},
+{"id":"lularose","name":"Lula Rose General Store","address":"3434 E Colfax Ave, Denver, CO 80206","latitude":39.7398949,"longitude":-104.9463595},
+{"id":"novogilpin","name":"Novo Coffee (Gilpin)","address":"1700 E 6th Ave, Denver, CO 80218","latitude":39.7254389,"longitude":-104.9669622},
+{"id":"novoglenarm","name":"Novo Coffee (Glenarm)","address":"1600 Glenarm Pl, Denver, CO 80202","latitude":39.7439425,"longitude":-104.9897263},
+{"id":"novoroastery","name":"Novo Coffee (Roastery)","address":"3008 Larimer St, Denver, CO 80205","latitude":39.7624187,"longitude":-104.979821},
+{"id":"novohighlands","name":"Novo Coffee (Highlands)","address":"3617 W 32nd Ave, Denver, CO 80211","latitude":39.7623296,"longitude":-105.0349362},
+{"id":"vert","name":"Vert Kitchen","address":"712 1/2 S Pearl St, Denver, CO 80209","latitude":39.703654,"longitude":-104.980315},
+{"id":"steamespresso","name":"Steam Espresso Bar","address":"1801 S Pearl St, Denver, CO 80210","latitude":39.683851,"longitude":-104.980791},
+{"id":"stowaway","name":"Stowaway Coffee + Kitchen","address":"2528 Walnut St, Denver, CO 80205","latitude":39.758579,"longitude":-104.986555},
+{"id":"neptune","name":"Neptune Cafe and Bar","address":"633 S. Broadway, Boulder, CO 80305","latitude":39.9841395,"longitude":-105.2497177},
+{"id":"hudsonhill","name":"Hudson Hill","address":"619 E 13th Ave, Denver, CO 80203","latitude":39.7370202,"longitude":-104.979404},
+{"id":"moleeculeeffect","name":"The Molecule Effect","address":"1201 Santa Fe Dr, Denver, CO 80204","latitude":39.7354548,"longitude":-104.9989453},
+{"id":"allegrotennyson","name":"Allegro Coffee Roasters","address":"4040 Tennyson St, Denver, CO 80212","latitude":39.7724042,"longitude":-105.0438317},
+{"id":"codaedgewater","name":"Coda Coffee Edgewater","address":"5224 W 25th Ave, Edgewater, CO 80214","latitude":39.752844,"longitude":-105.0540502},
+{"id":"bellwether","name":"Bellwether","address":"5126 E Colfax Ave, Denver, CO 80220","latitude":39.7399025,"longitude":-104.9274205},
+{"id":"method","name":"Method Roasters","address":"4321 Broadway, Denver, CO 80216","latitude":39.7759263,"longitude":-104.9883209},
+{"id":"weathervane","name":"The Weathervane Cafe","address":"1725 E 17th Ave, Denver, CO 80218","latitude":39.7434498,"longitude":-104.9665249},
+{"id":"gragonfly","name":"Dragonfly Coffee Roasters","address":"1501 Lee Hill Dr, Boulder, CO 80304","latitude":40.0626328,"longitude":-105.278842},
+{"id":"motorrad","name":"Motorrad Cafe","address":"3200 Pearl St., Boulder, CO 80301","latitude":40.0237131,"longitude":-105.2496848},
+{"id":"hookedoncolfax","name":"Hooked on Colfax","address":"3213 E Colfax Ave, Denver, CO 80206","latitude":39.7403565,"longitude":-104.9496373},
+{"id":"bluesparrow","name":"Blue Sparrow Coffee","address":"3040 Blake St, Denver, CO 80205","latitude":39.7643375,"longitude":-104.981111},
 ]

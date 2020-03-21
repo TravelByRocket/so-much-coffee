@@ -10,6 +10,10 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
+	let shops: [Shop]
+	var center: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40, longitude: -105)
+	var latlonDelta = 0.1 // 0.1 shows roughly all of Denver
+	var showMarker = true
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
 		var parent: MapView
@@ -19,7 +23,10 @@ struct MapView: UIViewRepresentable {
 		}
 		
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
+			print("center: ")
 			print(mapView.centerCoordinate)
+			print("bounds:")
+			print(mapView.visibleMapRect)
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -30,23 +37,17 @@ struct MapView: UIViewRepresentable {
 		
 	}
 	
-	var center = CLLocationCoordinate2D(latitude: 39.7392, longitude: -104.9903)
-	var latlonDelta = 0.1 // 0.1 shows roughly all of Denver
-	var showMarker = false
-	
     func makeUIView(context: Context) -> MKMapView {
         let mapView = MKMapView()
 		mapView.delegate = context.coordinator
 		
-		for shop in testShops {
+		for shop in shops {
 			let annotation = MKPointAnnotation()
 			annotation.title = shop.name
 			annotation.subtitle = "Tasty coffee"
-			annotation.coordinate = shop.location
+			annotation.coordinate = shop.latlon
 			mapView.addAnnotation(annotation)
 		}
-		
-		// TODO force non-clustering of markers https://stackoverflow.com/questions/48473227/is-it-possible-to-force-mapkit-to-show-all-annotations-without-clustering
 
 		return mapView
     }
@@ -74,8 +75,8 @@ struct MapView: UIViewRepresentable {
 	}
 }
 
-struct MapView_Previews: PreviewProvider {
-    static var previews: some View {
-        MapView()
-    }
-}
+//struct MapView_Previews: PreviewProvider {
+//    static var previews: some View {
+//        MapView()
+//    }
+//}

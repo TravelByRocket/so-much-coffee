@@ -25,6 +25,7 @@
 		2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */; };
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
 		2F4B2569241D440100D21BA8 /* recipeStepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */; };
+		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
 		2FA4614C240DE671009EA112 /* Plunge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614B240DE671009EA112 /* Plunge.swift */; };
 		2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614D240E32E1009EA112 /* InstallPlunger.swift */; };
@@ -92,7 +93,6 @@
 		2FB0744623B2DA0000A7EB7B /* icon87.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743723B2DA0000A7EB7B /* icon87.png */; };
 		2FB0744723B2DA0000A7EB7B /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743823B2DA0000A7EB7B /* icon1024.png */; };
 		2FB0744823B2DA0000A7EB7B /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743923B2DA0000A7EB7B /* icon152.png */; };
-		2FB0748C23B2DE0E00A7EB7B /* MapShops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */; };
 		2FB0748E23B2E0D700A7EB7B /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748D23B2E0D700A7EB7B /* Shop.swift */; };
 		2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748F23B2F41100A7EB7B /* FindPage.swift */; };
 		2FB0749223B2F66D00A7EB7B /* ShopView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749123B2F66D00A7EB7B /* ShopView.swift */; };
@@ -164,6 +164,7 @@
 		2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Bold.ttf"; sourceTree = "<group>"; };
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeStepContainer.swift; sourceTree = "<group>"; };
+		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
 		2FA4614B240DE671009EA112 /* Plunge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plunge.swift; sourceTree = "<group>"; };
 		2FA4614D240E32E1009EA112 /* InstallPlunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPlunger.swift; sourceTree = "<group>"; };
@@ -231,7 +232,6 @@
 		2FB0743723B2DA0000A7EB7B /* icon87.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon87.png; sourceTree = "<group>"; };
 		2FB0743823B2DA0000A7EB7B /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		2FB0743923B2DA0000A7EB7B /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
-		2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapShops.swift; sourceTree = "<group>"; };
 		2FB0748D23B2E0D700A7EB7B /* Shop.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		2FB0748F23B2F41100A7EB7B /* FindPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPage.swift; sourceTree = "<group>"; };
 		2FB0749123B2F66D00A7EB7B /* ShopView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopView.swift; sourceTree = "<group>"; };
@@ -459,8 +459,8 @@
 			children = (
 				2FB0748F23B2F41100A7EB7B /* FindPage.swift */,
 				2FB0749123B2F66D00A7EB7B /* ShopView.swift */,
-				2FB0748B23B2DE0E00A7EB7B /* MapShops.swift */,
 				2FB0749323B2F6A900A7EB7B /* MapView.swift */,
+				2F6AFCE92426A7D5006CC990 /* Shops.swift */,
 				2FB0748D23B2E0D700A7EB7B /* Shop.swift */,
 				2FFAFBD32425A44B00E99E46 /* shops.json */,
 			);
@@ -765,9 +765,9 @@
 				2F4B2569241D440100D21BA8 /* recipeStepContainer.swift in Sources */,
 				2FB0749023B2F41200A7EB7B /* FindPage.swift in Sources */,
 				2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */,
+				2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */,
 				2FB0749423B2F6A900A7EB7B /* MapView.swift in Sources */,
 				2FEE940A23ADCBF30006A16C /* Stopwatch.swift in Sources */,
-				2FB0748C23B2DE0E00A7EB7B /* MapShops.swift in Sources */,
 				2F11CC2223A732EC0011BC94 /* GoHome.swift in Sources */,
 				2FA46154241010E0009EA112 /* Wait.swift in Sources */,
 				2FEE940723ADCBF30006A16C /* TimerPillStep.swift in Sources */,

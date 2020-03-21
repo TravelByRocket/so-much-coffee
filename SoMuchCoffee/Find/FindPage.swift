@@ -7,19 +7,35 @@
 //
 
 import SwiftUI
+import MapKit
 
 struct FindPage: View {
-	@State private var shops: [Shop] = testShops
-    var body: some View {
+	@State private var centerCoordinate = CLLocationCoordinate2D(latitude: 40.017564, longitude: -105.282169)
+	let shops: Shops = Shops()
+    
+	var body: some View {
 		NavigationView {
 			VStack {
-				MapView()
-					.navigationBarTitle("Find a Shop")
-					.navigationBarItems(trailing: GoHome())
+				ZStack {
+					MapView(shops: shops.items, center: shops.items[0].latlon)
+						.navigationBarTitle("Find a Shop")
+						.navigationBarItems(trailing: GoHome())
+					Circle()
+						.frame(width: 10, height: 10)
+						.foregroundColor(Color.orange.opacity(0.5))
+				}
 				List {
-					ForEach (shops) {shop in
+					ForEach (shops.allWithinMapAreaSorted) {shop in
 						NavigationLink (destination: ShopView(shop: shop)){
-							Text(shop.name)
+							HStack {
+								Text("\(shop.kilometersAway(from: self.centerCoordinate), specifier: "%4.1f") km")
+									.font(Font.custom(monoregular, size: 15))
+									.padding(.vertical, 3)
+									.padding(.horizontal, 6)
+									.overlay(Capsule()
+										.stroke(Color.primary))
+								Text(shop.name)
+							}
 						}
 						
 					}

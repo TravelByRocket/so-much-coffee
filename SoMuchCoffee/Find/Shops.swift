@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 
 class Shops: ObservableObject {
-	@Published var allWithinMapAreaSorted: [Shop] = []
+	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
 	let items: [Shop]
 	
 	init() {
@@ -49,6 +49,7 @@ class Shops: ObservableObject {
 				shopsWithDistance.append(ShopWithDistance(shop: shop, point: point))
 			}
 		}
-		allWithinMapAreaSorted = shopsWithDistance.sorted().map { $0.shop }
+		allWithinMapAreaSorted = shopsWithDistance.sorted()
+//		allWithinMapAreaSorted = shopsWithDistance.sorted().map { $0.shop }
 	}
 }

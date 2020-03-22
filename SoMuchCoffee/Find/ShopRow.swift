@@ -11,17 +11,18 @@ import CoreLocation
 
 struct ShopRow: View {
 	@Binding var centerCoordinate: CLLocationCoordinate2D
-	let shop: Shop
+	let shop: Shops.ShopWithDistance
 	
 	var body: some View {
 		HStack {
-			Text("\(shop.kilometersAway(from: self.centerCoordinate), specifier: "%4.1f") km")
+//			Text("\(shop.kilometersAway(from: self.centerCoordinate), specifier: "%4.1f") km")
+			Text("\(shop.distance, specifier: "%4.1f") km")
 				.font(Font.custom(monoregular, size: 15))
 				.padding(.vertical, 3)
 				.padding(.horizontal, 6)
 				.overlay(Capsule()
 					.stroke(Color.primary))
-			Text(shop.name)
+			Text(shop.shop.name)
 		}
 	}
 }

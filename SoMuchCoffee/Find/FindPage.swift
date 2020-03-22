@@ -24,11 +24,11 @@ struct FindPage: View {
 						.frame(width: 10, height: 10)
 						.foregroundColor(Color.orange.opacity(0.5))
 				}
-				List (shops.allWithinMapAreaSorted) {shop in
-					NavigationLink (destination: ShopView(shop: shop)){
+				List (shops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+					NavigationLink (destination: Text("You are somewhere. Go back.")){
 						ShopRow(centerCoordinate: self.$centerCoordinate, shop: shop)
 					}
-				}.onAppear() { print("the list of shops ran onAppear") }
+				}
 			}
 		}
 	}

@@ -10,8 +10,8 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-	let shops: [Shop]
-	var center: CLLocationCoordinate2D = CLLocationCoordinate2D(latitude: 40, longitude: -105)
+	var shopContainer: Shops
+	var centerCoordinate: CLLocationCoordinate2D
 	var latlonDelta = 0.1 // 0.1 shows roughly all of Denver
 	var showMarker = true
 	
@@ -23,13 +23,12 @@ struct MapView: UIViewRepresentable {
 		}
 		
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
-			print("center: ")
-			print(mapView.centerCoordinate)
-			print("bounds:")
-			print(mapView.visibleMapRect)
+			parent.centerCoordinate = mapView.centerCoordinate
+			parent.shopContainer.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+			print("ran mapView")
 			let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
 			view.canShowCallout = true
 			return view
@@ -38,22 +37,26 @@ struct MapView: UIViewRepresentable {
 	}
 	
     func makeUIView(context: Context) -> MKMapView {
+		print("ran makeUIVew")
         let mapView = MKMapView()
 		mapView.delegate = context.coordinator
 		
-		for shop in shops {
-			let annotation = MKPointAnnotation()
-			annotation.title = shop.name
-			annotation.subtitle = "Tasty coffee"
-			annotation.coordinate = shop.latlon
-			mapView.addAnnotation(annotation)
+		if shopContainer.items.count != mapView.annotations.count {
+			for shop in shopContainer.items {
+				let annotation = MKPointAnnotation()
+				annotation.title = shop.name
+				annotation.subtitle = "Tasty coffee"
+				annotation.coordinate = shop.latlon
+				mapView.addAnnotation(annotation)
+			}
 		}
 
 		return mapView
     }
 	
     func updateUIView(_ view: MKMapView, context: Context) {
-        let coordinate = center
+		print("ran updateUIVew")
+        let coordinate = centerCoordinate
 		let span = MKCoordinateSpan(latitudeDelta: latlonDelta, longitudeDelta: latlonDelta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
@@ -63,11 +66,7 @@ struct MapView: UIViewRepresentable {
 // https://www.hackingwithswift.com/books/ios-swiftui/advanced-mkmapview-with-swiftui
 // https://www.hackingwithswift.com/books/ios-swiftui/communicating-with-a-mapkit-coordinator
 // https://www.hackingwithswift.com/read/16/2/up-and-running-with-mapkit
-		
-		if showMarker {
-			let place = MKPlacemark(coordinate: center)
-			view.addAnnotation(place)
-		}
+
     }
 	
 	func makeCoordinator() -> Coordinator {

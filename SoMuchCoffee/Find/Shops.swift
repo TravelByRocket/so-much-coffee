@@ -9,7 +9,17 @@
 import SwiftUI
 import MapKit
 
-class Shops {
+class Shops: ObservableObject {
+	@Published var allWithinMapAreaSorted: [Shop] = []
+	let items: [Shop]
+	
+	init() {
+		self.items = Bundle.main.decode([Shop].self, from: "shops.json")
+	}
+	
+	init(oneShop: Shop) {
+		self.items = [oneShop]
+	}
 	
 	struct ShopWithDistance: Comparable {
 		let shop: Shop
@@ -30,9 +40,7 @@ class Shops {
 		
 	}
 	
-	let items: [Shop] = Bundle.main.decode([Shop].self, from: "shops.json")
 	
-	var allWithinMapAreaSorted: [Shop] = []
 	
 	func updateShopsInMapAreaSorted(within area: MKMapRect, distanceTo point: CLLocationCoordinate2D) {
 		var shopsWithDistance: [ShopWithDistance] = []

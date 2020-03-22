@@ -12,7 +12,9 @@ struct ShopView: View {
 	var shop: Shop
 	var body: some View {
 		VStack {
-			MapView(shops: [shop], center: shop.latlon, latlonDelta: 0.01, showMarker: true)
+//			MapView(shopContainer: Shops(oneShop: shop), center: shop.latlon, latlonDelta: 0.01, showMarker: true)
+//				.navigationBarTitle(shop.name)
+			Text("Hi, you've reached the page for \(shop.name)")
 				.navigationBarTitle(shop.name)
 			List {
 				Text("Hours")

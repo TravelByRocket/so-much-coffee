@@ -16,6 +16,14 @@ struct Shop : Identifiable, Codable {
 	var latitude: Double
 	var longitude: Double
 	
+	init(shop: Shop) {
+		self.id = shop.id
+		self.name = shop.name
+		self.address = shop.address
+		self.latitude = shop.latitude
+		self.longitude = shop.longitude
+	}
+	
 	var latlon: CLLocationCoordinate2D {
 		let lat = CLLocationDegrees(latitude)
 		let lon = CLLocationDegrees(longitude)

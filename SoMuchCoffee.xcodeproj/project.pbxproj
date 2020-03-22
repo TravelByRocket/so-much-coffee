@@ -26,6 +26,9 @@
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
 		2F4B2569241D440100D21BA8 /* recipeStepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */; };
 		2F4EFD3B24273F3300404A2A /* docs in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3A24273F3300404A2A /* docs */; };
+		2F4EFD3E2427F73600404A2A /* dark in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3C2427F73600404A2A /* dark */; };
+		2F4EFD3F2427F73600404A2A /* any_light in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3D2427F73600404A2A /* any_light */; };
+		2F4EFD412427F74B00404A2A /* assets.ai in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD402427F74B00404A2A /* assets.ai */; };
 		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
@@ -167,6 +170,9 @@
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeStepContainer.swift; sourceTree = "<group>"; };
 		2F4EFD3A24273F3300404A2A /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
+		2F4EFD3C2427F73600404A2A /* dark */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dark; sourceTree = "<group>"; };
+		2F4EFD3D2427F73600404A2A /* any_light */ = {isa = PBXFileReference; lastKnownFileType = folder; path = any_light; sourceTree = "<group>"; };
+		2F4EFD402427F74B00404A2A /* assets.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = assets.ai; sourceTree = "<group>"; };
 		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -381,6 +387,7 @@
 		2F2E336723AAEDE40064DC09 /* Graphics */ = {
 			isa = PBXGroup;
 			children = (
+				2F4EFD402427F74B00404A2A /* assets.ai */,
 				2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */,
 				2FAC605723B17D8800122255 /* exports */,
 				2FAC600223B17D1500122255 /* 33_CUPS_OF_COFFEE_INTERIOR-NEW_1024x1024.jpg */,
@@ -440,6 +447,8 @@
 		2FAC605723B17D8800122255 /* exports */ = {
 			isa = PBXGroup;
 			children = (
+				2F4EFD3D2427F73600404A2A /* any_light */,
+				2F4EFD3C2427F73600404A2A /* dark */,
 				2FB0742B23B2D9FF00A7EB7B /* icon@1x.png */,
 				2FB0742C23B2D9FF00A7EB7B /* icon@2x.png */,
 				2FB0742D23B2D9FF00A7EB7B /* icon@3x.png */,
@@ -671,6 +680,7 @@
 				2FAC603423B17D1600122255 /* noun_edit_2964091.svg in Resources */,
 				2FAC604523B17D1600122255 /* noun_Location_82758.svg in Resources */,
 				2FAC605023B17D1600122255 /* noun_coffee mug_402890.svg in Resources */,
+				2F4EFD412427F74B00404A2A /* assets.ai in Resources */,
 				2FAC604023B17D1600122255 /* noun_Map_748499.svg in Resources */,
 				2FAC603523B17D1600122255 /* noun_Magnifying Glass_465964.svg in Resources */,
 				2FB0743A23B2DA0000A7EB7B /* icon@1x.png in Resources */,
@@ -703,6 +713,7 @@
 				2F12C8E8239EBB9D00BFF066 /* LaunchScreen.storyboard in Resources */,
 				2FAC603623B17D1600122255 /* noun_stir_2732963.svg in Resources */,
 				2FB074A523B3276900A7EB7B /* CCC_FlavorWheel_English.pdf in Resources */,
+				2F4EFD3E2427F73600404A2A /* dark in Resources */,
 				2FB0744323B2DA0000A7EB7B /* icon120.png in Resources */,
 				2FB0744623B2DA0000A7EB7B /* icon87.png in Resources */,
 				2FAC604623B17D1600122255 /* noun_Shopping Cart_2966428.svg in Resources */,
@@ -713,6 +724,7 @@
 				2FB0744223B2DA0000A7EB7B /* icon40.png in Resources */,
 				2FBB04B7241B4430002341D5 /* README.md in Resources */,
 				2FAC604C23B17D1600122255 /* noun_Aeropress_1675763.svg in Resources */,
+				2F4EFD3F2427F73600404A2A /* any_light in Resources */,
 				2FAC605423B17D1600122255 /* log.png in Resources */,
 				2F12C8E5239EBB9D00BFF066 /* Preview Assets.xcassets in Resources */,
 				2FB0743C23B2DA0000A7EB7B /* icon@3x.png in Resources */,

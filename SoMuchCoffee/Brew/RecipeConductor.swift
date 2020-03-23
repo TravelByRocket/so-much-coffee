@@ -137,7 +137,7 @@ struct SkipForwardBack: View {
 						self.timeElapsedSec = 0 // then set the timer (elapsed time) to 0
 						self.clockIsRunning = false // and stop the clock
 						self.curStage = 0 // and set the stage index to 0; TODO this might not be needed so delete if extraneous because this might be handled by stage index logic in the timer attachment block
-					} else { // otherwise
+					} else if self.curStage > 1 { // otherwise
 						self.timeElapsedSec = self.recipe.switchTimes[self.curStage-2] // set the elapsed time equal to the beginning of the previous step; going back just 1 would only reset the current step, so go back 2 for the beginning of the previous step; the time switch associated with current stage is for when it completes
 						self.clockIsRunning = true // this only changes anything after getting to the end of the recipe (it's already true) but no need to write more logic
 					}

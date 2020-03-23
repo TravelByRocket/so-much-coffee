@@ -52,9 +52,6 @@ struct RecipesView: View {
 								withAnimation {
 									self.highlightHint.toggle()
 								}
-//								withAnimation {
-//									self.highlightHint.toggle()
-//								}
 							}
 							.contextMenu(menuItems: {
 								// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue

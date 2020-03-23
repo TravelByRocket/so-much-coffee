@@ -17,26 +17,16 @@ struct FlavorsPage: View {
 			VStack {
 				ZStack {
 					Color.white
-//					ScrollView ([.horizontal, .vertical], showsIndicators: false) {
-//						Image("flavorwheel")
-//							.resizable()
-//							.aspectRatio(contentMode: isZoomed ? .fit : .fill)
-//							.offset(x: 150, y: 200)
-//					}
-					
 					if isZoomed {
 						ScrollView ([.horizontal, .vertical], showsIndicators: false) {
 							Image("flavorwheel")
 								.resizable()
-//								.aspectRatio(contentMode: .fit)
 								.offset(x: 150, y: 20)
-//								.onTapGesture {withAnimation {self.isZoomed.toggle()}}
 						}
 					} else {
 						Image("flavorwheel")
 							.resizable()
 							.aspectRatio(contentMode: .fit)
-//							.onTapGesture {withAnimation {self.isZoomed.toggle()}}
 					}
 					
 				}

@@ -124,6 +124,7 @@ struct RecipeBuilder: View {
 							.opacity(canAddSteps ? 1.0 : 0.3)
 						Spacer()
 					}
+				Spacer()
 				}
 				
 				Button(action: {
@@ -150,7 +151,7 @@ struct RecipeBuilder: View {
 				.disabled(!recipe.canSave)
 				.padding(.horizontal,40)
 				
-				Spacer()
+//				Spacer()
 			}
 			if showStepsPopover {
 				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)

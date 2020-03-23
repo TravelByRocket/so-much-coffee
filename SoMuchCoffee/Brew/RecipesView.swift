@@ -16,43 +16,57 @@ struct RecipesView: View {
 	var body: some View {
 		NavigationView{
 			VStack {
-				HStack{
-					EditButton()
-					Spacer()
-					GoHome()
-				}
-				.padding()
-				
+				Text("Long hold a recipe to run or edit")
 				List {
-					Text("AeroPress")
-					ForEach (recipes.items) {recipe in
-						HStack{
-							Text(recipe.name)
+					Section (header:
+							HStack {
+							Text("AeroPress")
+							Button(action: {self.makeFullRecipe()}){
+								Text("(Add Demo Recipe)").italic().fontWeight(.ultraLight)
+							}
 							Spacer()
+							NavigationLink(destination: RecipeBuilder(recipes: recipes)){
+								HStack {
+									Text("New").foregroundColor(Color.purple)
+									Image(systemName: "plus.circle").foregroundColor(Color.purple)
+								}
+							}
 						}
-						.contextMenu(menuItems: {
-							// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue
-							NavigationLink(destination: RecipeConductor(recipe: recipe)) {Text("Run")}
-							NavigationLink(destination: RecipeBuilder(recipe: recipe, recipes: self.recipes)) {Text("Edit")}
-						})
-					}
-					.onDelete(perform: deleteItem)
-					.onMove(perform: moveItem)
-					.padding()
-					.overlay(RoundedRectangle(cornerRadius: 10)
+
+					) {
+						ForEach (recipes.items) {recipe in
+							HStack{
+								Text(recipe.name)
+								Spacer()
+							}
+							.contextMenu(menuItems: {
+								// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue
+								NavigationLink(destination: RecipeConductor(recipe: recipe)) {Text("Run")}
+								NavigationLink(destination: RecipeBuilder(recipe: recipe, recipes: self.recipes)) {Text("Edit")}
+							})
+						}
+						.onDelete(perform: deleteItem)
+						.onMove(perform: moveItem)
+						.padding()
+						.overlay(RoundedRectangle(cornerRadius: 10)
 					.stroke(Color.black, lineWidth: 1))
-					
+					}
+					Section (header: Text("Pourover")) {Text("Under development")}
+					Section (header: Text("French Press")) {Text("Under development")}
+					Section (header: Text("Espresso")) {Text("Under development")}
 				}
 				.navigationBarTitle("Saved Recipes")
 				
-				Spacer()
-				Button(action: {self.makeFullRecipe()}){
-					Text("Auto-fill a test recipe\n")
-				}
-				NavigationLink(destination: RecipeBuilder(recipes: recipes)){
-					Text("Add New Recipe\n")
-				}
+//				Spacer()
+//				Button(action: {self.makeFullRecipe()}){
+//					Text("Auto-fill a test recipe\n")
+//				}
+//				NavigationLink(destination: RecipeBuilder(recipes: recipes)){
+//					Text("Add New Recipe\n")
+//				}
 			}
+			.navigationBarTitle("Saved Recipes")
+			.navigationBarItems(trailing: GoHome())
 		}
     }
 	
@@ -65,13 +79,17 @@ struct RecipesView: View {
     }
 	
 	func makeFullRecipe() {
-		var newRecipe = Recipe(id: UUID(), name: "Full Recipe (long hold to run/edit)", steps: [], isUpright: true, isPaper: true)
-		newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 80), isCombinable: true))
+		var newRecipe = Recipe(id: UUID(), name: "My First Inverted Recipe", steps: [], isUpright: true, isPaper: true)
+		newRecipe.steps.append(RecipeStep(kindOfStep: .heatWater(tempC: 88), isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .rinseFilter, isCombinable: true))
-		newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 15), isCombinable: true))
-		newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 20, grams: 40), isCombinable: false))
-		newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 20), isCombinable: false))
-		newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 20),isCombinable: true, forceAsLastGroupedStep: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .grind(grams: 18), isCombinable: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 10, grams: 50), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 30),isCombinable: true, forceAsLastGroupedStep: true))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 35, grams: 100), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 30), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .addWater(seconds: 15, grams: 80), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .stir(seconds: 30), isCombinable: false))
+		newRecipe.steps.append(RecipeStep(kindOfStep: .wait(seconds: 15),isCombinable: true, forceAsLastGroupedStep: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .installFilter, isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .installPlunger, isCombinable: true))
 		newRecipe.steps.append(RecipeStep(kindOfStep: .plunge(seconds: 20), isCombinable: false))

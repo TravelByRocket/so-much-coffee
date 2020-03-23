@@ -123,7 +123,7 @@ struct RecipeBuilder: View {
 						Text(isNewRecipe ? "Save Recipe" : "Update Recipe")
 					}
 				} else {
-					Text("Can't Save – Incomplete Recipe")
+					Text("Incomplete Recipe - Can't Save")
 				}
 				
 				Spacer()

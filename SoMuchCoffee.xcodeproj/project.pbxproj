@@ -31,6 +31,7 @@
 		2F4EFD412427F74B00404A2A /* assets.ai in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD402427F74B00404A2A /* assets.ai */; };
 		2F4EFD4324283F3A00404A2A /* OriginsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4224283F3A00404A2A /* OriginsRow.swift */; };
 		2F4EFD472428461100404A2A /* RegionPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD462428461000404A2A /* RegionPages.swift */; };
+		2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4824285A2400404A2A /* SafariView.swift */; };
 		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
@@ -177,6 +178,7 @@
 		2F4EFD402427F74B00404A2A /* assets.ai */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = assets.ai; sourceTree = "<group>"; };
 		2F4EFD4224283F3A00404A2A /* OriginsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsRow.swift; sourceTree = "<group>"; };
 		2F4EFD462428461000404A2A /* RegionPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPages.swift; sourceTree = "<group>"; };
+		2F4EFD4824285A2400404A2A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -340,6 +342,7 @@
 				2FB0749B23B31DAF00A7EB7B /* Flavors */,
 				2F90F51C23A0503100C4F0F4 /* AddButton.swift */,
 				2F11CC2123A732EC0011BC94 /* GoHome.swift */,
+				2F4EFD4824285A2400404A2A /* SafariView.swift */,
 				2F12C8E1239EBB9D00BFF066 /* Assets.xcassets */,
 				2F2E336223AAEBAB0064DC09 /* Fonts */,
 				2F2E336723AAEDE40064DC09 /* Graphics */,
@@ -814,6 +817,7 @@
 				2FEE941023ADCBF30006A16C /* RecipeRow.swift in Sources */,
 				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
 				2FBB04BD241BEB60002341D5 /* DefaultRecipes.swift in Sources */,
+				2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
 				2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */,
 				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,

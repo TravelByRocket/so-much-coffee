@@ -7,7 +7,6 @@
 //
 
 import SwiftUI
-import SafariServices
 
 struct OriginsPage: View {
 	let urlByCountry = ["Angola": "https://en.wikipedia.org/wiki/Coffee_production_in_Angola",
@@ -75,21 +74,6 @@ struct OriginsPage: View {
 		}
 	}
 }
-
-struct SafariView: UIViewControllerRepresentable {
-	
-	let url: URL
-	
-	func makeUIViewController(context: UIViewControllerRepresentableContext<SafariView>) -> SFSafariViewController {
-		return SFSafariViewController(url: url)
-	}
-	
-	func updateUIViewController(_ uiViewController: SFSafariViewController, context: UIViewControllerRepresentableContext<SafariView>) {
-		
-	}
-	
-}
-
 
 struct OriginsPage_Previews: PreviewProvider {
 	static var previews: some View {

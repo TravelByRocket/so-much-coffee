@@ -12,11 +12,16 @@ struct RecipesView: View {
     @ObservedObject var recipes = Recipes()
 	@State var showSheet = false
 	@State var showNavViewTemp = false
+	@State var highlightHint = false
 	
 	var body: some View {
 		NavigationView{
 			VStack {
-				Text("Long hold a recipe to run or edit").italic()
+				Text("Long hold a recipe to run or edit")
+					.italic()
+					.padding(.vertical,3)
+					.padding(.horizontal,8)
+					.background(highlightHint ? Color.blue.opacity(0.5) : Color.clear)
 				List {
 					Section (header:
 							HStack {
@@ -42,6 +47,14 @@ struct RecipesView: View {
 							HStack{
 								Text(recipe.name)
 								Spacer()
+							}
+							.onTapGesture {
+								withAnimation {
+									self.highlightHint.toggle()
+								}
+//								withAnimation {
+//									self.highlightHint.toggle()
+//								}
 							}
 							.contextMenu(menuItems: {
 								// TODO move "run" access to a click on each row; ran into issues having one NavigationLink for list item and another for ContextMenu or getting both on list item but I was able to get both in context menu without issue

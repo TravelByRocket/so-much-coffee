@@ -10,35 +10,51 @@ import SwiftUI
 
 struct FlavorsPage: View {
 	@State var isZoomed = false
+	@State var sheetIsPresented = false
+	
 	var body: some View {
 		NavigationView {
 			VStack {
-				HStack {
-					Spacer()
-					GoHome().padding().navigationBarTitle("Flavors")
-				}
-
-				if isZoomed {
-					ScrollView ([.horizontal, .vertical], showsIndicators: false) {
+				ZStack {
+					Color.white
+//					ScrollView ([.horizontal, .vertical], showsIndicators: false) {
+//						Image("flavorwheel")
+//							.resizable()
+//							.aspectRatio(contentMode: isZoomed ? .fit : .fill)
+//							.offset(x: 150, y: 200)
+//					}
+					
+					if isZoomed {
+						ScrollView ([.horizontal, .vertical], showsIndicators: false) {
+							Image("flavorwheel")
+								.resizable()
+//								.aspectRatio(contentMode: .fit)
+								.offset(x: 150, y: 20)
+//								.onTapGesture {withAnimation {self.isZoomed.toggle()}}
+						}
+					} else {
 						Image("flavorwheel")
 							.resizable()
 							.aspectRatio(contentMode: .fit)
-							.offset(x: 150, y: 200)
-							.onTapGesture {withAnimation {self.isZoomed.toggle()}}
+//							.onTapGesture {withAnimation {self.isZoomed.toggle()}}
 					}
-				} else {
-					Image("flavorwheel")
-						.resizable()
-						.aspectRatio(contentMode: .fit)
-						.onTapGesture {withAnimation {self.isZoomed.toggle()}}
+					
 				}
-				Spacer()
-				Text("Chart Courtesy of Counter Culture Coffee").font(.caption)
-//				Text("https://counterculturecoffee.com/learn/resource-center/coffee-tasters-flavor-wheel").font(.caption)
+				.onTapGesture {withAnimation {self.isZoomed.toggle()}}
 //				Spacer()
+				if !isZoomed {
+					Button(action: {self.sheetIsPresented = true} ) {
+						Text("Chart Courtesy of Counter Culture Coffee")
+							.font(.caption)
+					}
+				}
+				
 			}
+			.navigationBarTitle(isZoomed ? "" : "Flavor Wheel")
+			.navigationBarItems(trailing: GoHome())
+			.sheet(isPresented: $sheetIsPresented) {
+			SafariView(url:URL(string: "https://counterculturecoffee.com/learn/resource-center/coffee-tasters-flavor-wheel")!) }
 		}
-		
 	}
 }
 

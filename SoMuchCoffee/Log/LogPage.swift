@@ -12,12 +12,12 @@ struct LogPage: View {
     var body: some View {
 		NavigationView {
 			VStack {
-				HStack {
-					Spacer()
-					GoHome().padding().navigationBarTitle("Log of Coffees")
-				}
+				Spacer()
+				Text("Under development")
 				Spacer()
 			}
+			.navigationBarTitle("Log")
+			.navigationBarItems(trailing: GoHome())
 		}
     }
 }

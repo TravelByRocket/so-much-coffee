@@ -16,18 +16,22 @@ struct RecipesView: View {
 	var body: some View {
 		NavigationView{
 			VStack {
-				Text("Long hold a recipe to run or edit")
+				Text("Long hold a recipe to run or edit").italic()
 				List {
 					Section (header:
 							HStack {
 							Text("AeroPress")
+							Spacer()
 							Button(action: {self.makeFullRecipe()}){
-								Text("(Add Demo Recipe)").italic().fontWeight(.ultraLight)
+								HStack {
+									Text("Demo Recipe").foregroundColor(Color.green).padding(.trailing,-3)
+									Image(systemName: "plus.circle").foregroundColor(Color.green)
+								}
 							}
 							Spacer()
 							NavigationLink(destination: RecipeBuilder(recipes: recipes)){
 								HStack {
-									Text("New").foregroundColor(Color.purple)
+									Text("New").foregroundColor(Color.purple).padding(.trailing,-3)
 									Image(systemName: "plus.circle").foregroundColor(Color.purple)
 								}
 							}

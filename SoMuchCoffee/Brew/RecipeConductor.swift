@@ -23,29 +23,36 @@ struct RecipeConductor: View {
 		
 		VStack {
 			Spacer()
-			if curStage == 0 {
-				Text("Prepare for Brewing")
-				Text("Recipe takes \(recipe.totalTimeSec) seconds")
-				Text("Recipe stages at \(intArrToString(recipe.switchTimes)) seconds")
-				ForEach (recipe.stepsArranged[curStage]) {step in
-					self.GetStepViewForRecipe(step: step)
+			ScrollView (.vertical) {
+				if curStage == 0 {
+					VStack (alignment: .leading) {
+						Text("- Prepare for Brewing")
+						Text("- Recipe takes \(Int(recipe.totalTimeSec)) seconds")
+						Text("- Recipe stages at \(intArrToString(recipe.switchTimes)) seconds")
+					}
+					Spacer()
+					ForEach (recipe.stepsArranged[curStage]) {step in
+						self.GetStepViewForRecipe(step: step)
+					}
+					Text("Tap to start brewing")
+						.foregroundColor(Color.blue)
+						.onTapGesture {self.clockIsRunning = true}
+						.padding()
+						.border(Color.blue, width: 1)
+						.padding()
+					// TODO a Next Step view e.g. Text("Next Step: Stir")
+				} else if curStage > 0 && curStage < recipe.switchTimes.count {
+	//				ScrollView (.vertical) {
+						ForEach (recipe.stepsArranged[curStage]) {step in
+							self.GetStepViewForRecipe(step: step)
+						}
+	//				}
+					// TODO a Next Step view e.g. Text("Next Step: Stir")
+				} else { // implies `curStage = recipe.switchTimesFromArranged.count`
+					Text("Coffee Time!")
+						.font(.largeTitle)
+					Spacer()
 				}
-				Text("Tap to start brewing")
-					.foregroundColor(Color.blue)
-					.onTapGesture {self.clockIsRunning = true}
-					.padding()
-					.border(Color.blue, width: 1)
-					.padding()
-				// TODO a Next Step view e.g. Text("Next Step: Stir")
-			} else if curStage > 0 && curStage < recipe.switchTimes.count {
-				ForEach (recipe.stepsArranged[curStage]) {step in
-					self.GetStepViewForRecipe(step: step)
-				}
-				// TODO a Next Step view e.g. Text("Next Step: Stir")
-			} else { // implies `curStage = recipe.switchTimesFromArranged.count`
-				Text("Coffee Time!")
-					.font(.largeTitle)
-				Spacer()
 			}
 			VStack {
 				SkipForwardBack(curStage: $curStage, clockIsRunning: $clockIsRunning, timeElapsedSec: $timeElapsedSec, recipe: recipe)

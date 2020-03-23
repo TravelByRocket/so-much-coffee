@@ -13,6 +13,7 @@ struct RecipeBuilder: View {
 	@ObservedObject var recipes: Recipes
 	
 	@Environment(\.presentationMode) var presentationMode
+	@Environment(\.editMode) var editMode
 	
 	@State private var canAddSteps: Bool = false
 	@State private var showStepsPopover: Bool = false
@@ -41,9 +42,10 @@ struct RecipeBuilder: View {
 				// RECIPE NAME
 				HStack {
 					TextField("Recipe Name", text: $recipe.name)
+						.textFieldStyle(RoundedBorderTextFieldStyle())
 					Button(action: {self.recipe.name = self.randomTitle()}) {
 						Image(systemName: "shuffle").rotationEffect(.degrees(180))
-						Text("Generate")
+						Text("Randomize")
 					}
 				}
 				.padding()
@@ -89,42 +91,64 @@ struct RecipeBuilder: View {
 				}
 				.padding(.bottom)
 				
-				HStack{
+				HStack { //TODO put this HStack to a proper section heading for a (currently a List). Suspect the issue is that EditButton() modifies an environment that is a level deeper when it is embedded in a header. Need to find a way to bind the edit mode of the child view to the parent
+					Text("Recipe Steps")
 					Spacer()
 					EditButton()
-				}.padding()
+						.disabled(!canAddSteps)
+				}
+				.font(.footnote)
+				.padding(.horizontal)
+				.padding(.vertical,10)
+					//				.foregroundColor(Color.black)
+					.background(Color(UIColor.systemGray6))
 				
-				Form{
-					Section{
-						ForEach(self.recipe.steps, id: \.id){step in
-							self.getViewForList(recipeStep: step.descriptor)
-						}
-						.onDelete(perform: deleteItem)
-						.onMove(perform: moveItem)
+				List {
+					ForEach(self.recipe.steps, id: \.id){step in
+						self.getViewForList(recipeStep: step.descriptor)
+					}
+					.onDelete(perform: deleteItem)
+					.onMove(perform: moveItem)
+					HStack {
+						Spacer()
+						Image(systemName: "plus").font(.title)
+							.padding()
+							.background(Color.orange)
+							.mask(Circle())
+							.overlay(
+								Circle()
+									.stroke(Color.primary, lineWidth: 1)
+						)
+							.onTapGesture {self.showStepsPopover = true}
+							.disabled(!canAddSteps)
+							.opacity(canAddSteps ? 1.0 : 0.3)
+						Spacer()
 					}
 				}
 				
-				if canAddSteps {
-					AddButton(isEnabled: true)
-						.onTapGesture {self.showStepsPopover = true}
-				} else {
-					AddButton(isEnabled: false)
-				}
-				
-				if recipe.canSave {
-					Button(action: {
-						if let matchIndex = self.recipeReplacementIndex {
-							self.recipes.items[matchIndex] = self.recipe
+				Button(action: {
+					if let matchIndex = self.recipeReplacementIndex {
+						self.recipes.items[matchIndex] = self.recipe
+					} else {
+						self.recipes.items.append(self.recipe)
+					}
+					self.presentationMode.wrappedValue.dismiss()
+				}) {
+					HStack {
+						Spacer()
+						if recipe.canSave {
+							Text(isNewRecipe ? "Save Recipe" : "Update Recipe").padding(.vertical)
 						} else {
-							self.recipes.items.append(self.recipe)
+							Text("Incomplete Recipe").padding(.vertical)
 						}
-						self.presentationMode.wrappedValue.dismiss()
-					}) {
-						Text(isNewRecipe ? "Save Recipe" : "Update Recipe")
+						Spacer()
 					}
-				} else {
-					Text("Incomplete Recipe - Can't Save")
+					.overlay(
+						Capsule().stroke(recipe.canSave ? Color.green : Color.yellow, lineWidth: 5)
+					)
 				}
+				.disabled(!recipe.canSave)
+				.padding(.horizontal,40)
 				
 				Spacer()
 			}
@@ -132,6 +156,7 @@ struct RecipeBuilder: View {
 				APStepsPopover(showPopover: $showStepsPopover, recipe: $recipe)
 			}
 		}
+		.navigationBarTitle("Aeropress Recipe")
 		.navigationBarBackButtonHidden(true)
 		.navigationBarItems(leading:
 			Button(action: {

@@ -63,7 +63,7 @@ struct RecipesView: View {
 						.onMove(perform: moveItem)
 						.padding()
 						.overlay(RoundedRectangle(cornerRadius: 10)
-					.stroke(Color.black, lineWidth: 1))
+						.stroke(Color.primary, lineWidth: 1))
 					}
 					Section (header: Text("Pourover")) {Text("Under development")}
 					Section (header: Text("French Press")) {Text("Under development")}

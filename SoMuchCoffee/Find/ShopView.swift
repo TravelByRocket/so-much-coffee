@@ -12,33 +12,50 @@ struct ShopView: View {
 	var shop: Shop
 	var body: some View {
 		VStack {
-//			MapView(shopContainer: Shops(oneShop: shop), center: shop.latlon, latlonDelta: 0.01, showMarker: true)
-//				.navigationBarTitle(shop.name)
-			Text("Hi, you've reached the page for \(shop.name)")
+			MapView(shopContainer: Shops(oneShop: shop), centerCoordinate: shop.latlon, latlonDelta: 0.01, showMarker: true)
 				.navigationBarTitle(shop.name)
 			List {
-				Text("Hours")
-				Text("Address")
-				Text("Phone")
-				Text("Instagram")
-				Text("Twitter")
-				Text("Facebook")
-				Text("Food")
-				Text("Internet")
-				Text("Power")
-				Text("Power")
-//				Text("Power")
-//				Text("Power")
+				Section (header: Text("Support During COVID-19")) {
+					Text("Notes about where to order coffee, tip baristas, etc.")
+				}
+				Section (header: Text("Coffee Served")) {
+					Text("Espresso X served every day")
+					Text("Espresso Y served Mon-Thu")
+					Text("A single-origin espresso is served Fri-Sun")
+				}
+				Section (header: Text("Supplying Roasters")) {
+					Text("Roaster 1 (tap for roaster profile in future)")
+					Text("Roaster 2 > ")
+				}
+				Section (header: Text("Atmosphere & Features")) {
+					Text("(Range of beverages)")
+					Text("(Food)")
+					Text("(WiFi)")
+					Text("(Power Outlets)")
+					Text("(Good for studying)")
+					Text("(Good for socializing)")
+				}
+				Section (header: Text("Online & Social")) {
+					Text("Website: ")
+					Text("Instagram: ")
+					Text("Facebook: ")
+					Text("Twitter: ")
+					Text("FourSquare/Swarm: ")
+				}
+				Section (header: Text("Contact")) {
+					Text(shop.address)
+					Text("(Phone)")
+					Text("(Hours)")
+				}
 			}
-			
 		}
     }
 }
 
-//struct ShopView_Previews: PreviewProvider {
-//	static var previews: some View {
-//		NavigationView {
-//			ShopView(shop: fakeShop)
-//		}
-//    }
-//}
+struct ShopView_Previews: PreviewProvider {
+	static var previews: some View {
+		NavigationView {
+			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104))
+		}
+    }
+}

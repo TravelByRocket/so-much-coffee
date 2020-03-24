@@ -25,7 +25,7 @@ struct FindPage: View {
 						.foregroundColor(Color.orange.opacity(0.5))
 				}
 				List (shops.allWithinMapAreaSorted, id: \.shop.id) {shop in
-					NavigationLink (destination: Text("You are somewhere. Go back.")){
+					NavigationLink (destination: ShopView(shop: shop.shop)){
 						ShopRow(centerCoordinate: self.$centerCoordinate, shop: shop)
 					}
 				}

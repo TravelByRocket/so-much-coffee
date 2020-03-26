@@ -35,6 +35,7 @@
 		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
+		2F9FD072242C381A00FED48E /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9FD071242C381A00FED48E /* LocationManager.swift */; };
 		2FA4614C240DE671009EA112 /* Plunge.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614B240DE671009EA112 /* Plunge.swift */; };
 		2FA4614E240E32E1009EA112 /* InstallPlunger.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614D240E32E1009EA112 /* InstallPlunger.swift */; };
 		2FA46150240F5893009EA112 /* HeatWater.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FA4614F240F5893009EA112 /* HeatWater.swift */; };
@@ -182,6 +183,7 @@
 		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
+		2F9FD071242C381A00FED48E /* LocationManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
 		2FA4614B240DE671009EA112 /* Plunge.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Plunge.swift; sourceTree = "<group>"; };
 		2FA4614D240E32E1009EA112 /* InstallPlunger.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InstallPlunger.swift; sourceTree = "<group>"; };
 		2FA4614F240F5893009EA112 /* HeatWater.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HeatWater.swift; sourceTree = "<group>"; };
@@ -479,6 +481,7 @@
 			isa = PBXGroup;
 			children = (
 				2FB0748F23B2F41100A7EB7B /* FindPage.swift */,
+				2F9FD071242C381A00FED48E /* LocationManager.swift */,
 				2FB0749123B2F66D00A7EB7B /* ShopView.swift */,
 				2FB0749323B2F6A900A7EB7B /* MapView.swift */,
 				2F6AFCE92426A7D5006CC990 /* Shops.swift */,
@@ -781,6 +784,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2F9FD072242C381A00FED48E /* LocationManager.swift in Sources */,
 				2F12C8D9239EBB9500BFF066 /* AppDelegate.swift in Sources */,
 				2F12C8DB239EBB9500BFF066 /* SceneDelegate.swift in Sources */,
 				2F4EFD4324283F3A00404A2A /* OriginsRow.swift in Sources */,

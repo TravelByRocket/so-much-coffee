@@ -21,7 +21,7 @@ struct FindPage: View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shopContainer: shops, centerCoordinate: centerCoordinate)
+					MapView(shopContainer: shops, centerCoordinate: centerCoordinate, latlonDelta: 0.05)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
 					Circle()
@@ -35,9 +35,6 @@ struct FindPage: View {
 								.frame(width:10, height: 10)
 								.padding(10)
 								.background(Color.gray.opacity(0.3))
-//								.mask(Circle())
-//								.overlay(Circle().foregroundColor(Color.green.opacity(0.5)))
-//								.mask(RoundedRectangle(cornerRadius: 4.0))
 								.overlay(RoundedRectangle(cornerRadius: 4.0).stroke(lineWidth: 0.5))
 								.padding(10)
 								.onTapGesture {
@@ -48,8 +45,6 @@ struct FindPage: View {
 						}
 					}
 				}
-//				Text("Latitude: \(self.latitude)")
-//				Text("Longitude: \(self.longitude)")
 				List (shops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 					NavigationLink (destination: ShopView(shop: shop.shop)){
 						ShopRow(centerCoordinate: self.$centerCoordinate, shop: shop)

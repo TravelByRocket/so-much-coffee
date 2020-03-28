@@ -13,7 +13,7 @@ struct FindPage: View {
 	@State private var centerCoordinate = CLLocationCoordinate2D(latitude: 40.017564, longitude: -105.282169)
 	@ObservedObject var shops: Shops = Shops()
 	@ObservedObject var lm = LocationManager()
-	var reportingShop = ReportingShop()
+	private var reportingShop = ReportingShop()
 	
 //	var latitude: String  { return("\(lm.location?.coordinate.latitude ?? 0)") }
 //	var longitude: String  { return("\(lm.location?.coordinate.longitude ?? 0)") }

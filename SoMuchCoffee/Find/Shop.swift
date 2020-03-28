@@ -15,6 +15,15 @@ struct Shop : Identifiable, Codable {
 	var address: String
 	var latitude: Double
 	var longitude: Double
+	var roasters: String = "unknown" // probably better as [String]? optional but complicates Codable and needs changes to JSON format as it exists now
+	var phone: String = "unknown"
+	var instagram: String = "unknown"
+	var website: String = "unknown"
+	var twitter: String = "unknown"
+	var foursquare: String = "unknown"
+	var yelp: String = "unknown"
+	var email: String = "unknown"
+	var hours: String = "No schedule set"
 	
 	init(shop: Shop) {
 		self.id = shop.id

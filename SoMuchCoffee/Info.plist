@@ -27,6 +27,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>B612Mono-Medium.otf</string>
+		<string>FontAwesome.ttf</string>
 		<string>B612Mono-Bold.otf</string>
 		<string>AlfaSlabOne-Regular.ttf</string>
 		<string>Lato-Light.ttf</string>

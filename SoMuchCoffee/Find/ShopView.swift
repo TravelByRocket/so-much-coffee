@@ -121,13 +121,7 @@ struct PhoneNumberRow: View {
 						ActionIndicator()
 					}
 					.onTapGesture {
-						if let url = URL(string: "tel://\(self.phone)"), UIApplication.shared.canOpenURL(url) {
-							if #available(iOS 10, *) {
-								UIApplication.shared.open(url)
-							} else {
-								UIApplication.shared.openURL(url)
-							}
-						}
+						callPhoneNumber(number: self.phone)
 					}
 				} else {
 					Text("No phone number set").italic()
@@ -149,13 +143,7 @@ struct EmailRow: View {
 				ActionIndicator()
 			}
 			.onTapGesture {
-				if let url = URL(string: "mailto:\(self.email)"), UIApplication.shared.canOpenURL(url) {
-					if #available(iOS 10, *) {
-						UIApplication.shared.open(url)
-					} else {
-						UIApplication.shared.openURL(url)
-					}
-				}
+				sendEmail(addr: self.email)
 			}
 			Spacer()
 			CopyFieldToClipboard(string: self.email)
@@ -176,23 +164,15 @@ struct ScheduleRow: View {
 
 struct EmailCorrectionRow: View {
 	var body: some View {
-		
 		HStack {
 			Image(systemName: "exclamationmark.square.fill")
 			Text("Correction? Send us an email!")
 				.italic()
 			ActionIndicator()
-//			Spacer()
 		}
 		.foregroundColor(Color.orange)
 		.onTapGesture {
-			if let url = URL(string: "mailto:app@somuchcoffee.co"), UIApplication.shared.canOpenURL(url) {
-				if #available(iOS 10, *) {
-					UIApplication.shared.open(url)
-				} else {
-					UIApplication.shared.openURL(url)
-				}
-			}
+			sendEmail(addr: "app@somuchcoffee.co")
 		}
 	}
 }
@@ -212,3 +192,26 @@ extension String {
         return String(self[start..<end])
     }
 }
+
+func callPhoneNumber(number: String) {
+	// https://stackoverflow.com/questions/27259824/calling-a-phone-number-in-swift
+	if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
+		if #available(iOS 10, *) {
+			UIApplication.shared.open(url)
+		} else {
+			UIApplication.shared.openURL(url)
+		}
+	}
+}
+
+func sendEmail(addr: String) {
+	if let url = URL(string: "mailto:\(addr)"), UIApplication.shared.canOpenURL(url) {
+		if #available(iOS 10, *) {
+			UIApplication.shared.open(url)
+		} else {
+			UIApplication.shared.openURL(url)
+		}
+	}
+}
+
+

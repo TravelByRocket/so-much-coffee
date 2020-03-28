@@ -14,6 +14,10 @@ class Shops: ObservableObject {
 	let items: [Shop]
 	
 	init() {
+		// https://www.npmjs.com/package/csvtojson
+		// npm i -g csvtojson
+		// csvtojson shops.csv > shops.json
+		// only issue is that lat/lon surrounded by quotes so for now manually adjusting JSON to fit the Float/Double formatting that is has now
 		self.items = Bundle.main.decode([Shop].self, from: "shops.json")
 	}
 	

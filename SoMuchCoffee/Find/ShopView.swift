@@ -10,12 +10,16 @@ import SwiftUI
 import FontAwesome_swift
 
 struct ShopView: View {
+	@EnvironmentObject var reportingShop: ReportingShop
 	var shop: Shop
 	
 	var body: some View {
 		VStack {
 			MapView(shopContainer: Shops(oneShop: shop), centerCoordinate: shop.latlon, latlonDelta: 0.01, showMarker: true)
 				.navigationBarTitle(shop.name)
+				.onAppear() {
+					self.reportingShop.shop = self.shop
+			}
 			List {
 				Section (header: Text("Support During COVID-19")) {
 					Text("Notes about where to order coffee, tip baristas, etc.")
@@ -67,7 +71,7 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104))
+			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104)).environmentObject(ReportingShop())
 		}
 	}
 }
@@ -272,9 +276,17 @@ struct StandardDetailRow: View {
 }
 
 struct NotAvailable: View {
+	@EnvironmentObject var reportingShop: ReportingShop
 	var body: some View {
-		Text("Not available")
+		Text("Not available. Click to provide details.")
 			.italic()
 			.foregroundColor(Color.secondary)
+			.onTapGesture {
+				sendEmail(addr: "app@somuchcoffee.co?subject=Correction%20for%20Shop%20%22\(self.reportingShop.shop!.id)%22")
+		}
 	}
+}
+
+class ReportingShop: ObservableObject {
+	@Published var shop: Shop?
 }

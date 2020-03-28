@@ -39,39 +39,15 @@ struct ShopView: View {
 					Text("(Good for socializing)")
 				}
 				Section (header: Text("Online & Social")) {
-					HStack {
-						FontAwesomeIcon(name: .globe, type: .solid)
-						Text(shop.website)
-						ActionIndicator()
-					}
-					HStack {
-						FontAwesomeIcon(name: .instagram, type: .brands)
-						Text("@\(shop.instagram)")
-						ActionIndicator()
-					}
-					HStack {
-						FontAwesomeIcon(name: .twitter, type: .brands)
-						Text("@\(shop.twitter)")
-						ActionIndicator()
-					}
+					StandardDetailRow(name: .globe, type: .solid, str: shop.website, url: shop.website, rawString: shop.website)
+					StandardDetailRow(name: .instagram, type: .brands, str: "@\(shop.instagram)", url: "https://instagram.com/\(shop.instagram)", rawString: shop.instagram)
+					StandardDetailRow(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
 					// Sending people to Foursquare might bely my intentions
-					HStack {
-						FontAwesomeIcon(name: .foursquare, type: .brands)
-						Text("View on Foursquare").italic()
-						ActionIndicator()
-					}
+					StandardDetailRow(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
 					// Maybe combine with address row
-					HStack {
-						FontAwesomeIcon(name: .google, type: .brands)
-						Text("View on Google Maps").italic()
-						ActionIndicator()
-					}
+					StandardDetailRow(name: .google, type: .brands, str: "View on Google Maps", url: "http://maps.google.com", rawString: "")
 					// Maybe combine with address row
-					HStack {
-						FontAwesomeIcon(name: .apple, type: .brands)
-						Text("View on Apple Maps").italic()
-						ActionIndicator()
-					}
+					StandardDetailRow(name: .apple, type: .brands, str: "View on Apple Maps", url: "http://maps.apple.com", rawString: "")
 				}
 				Section (header: Text("Contact")) {
 					AddressRow(addr: shop.address)
@@ -157,7 +133,7 @@ struct PhoneNumberRow: View {
 						callPhoneNumber(number: self.phone) // and make a call if clicked
 					}
 				} else { // otherwise if phone is blank then just show that it's not set
-					Text("No phone number set").italic()
+					NotAvailable()
 				}
 			}
 			Spacer()
@@ -180,10 +156,9 @@ struct EmailRow: View {
 					.onTapGesture {
 						sendEmail(addr: self.email) // and make a call if clicked
 					}
-				} else { // otherwise if phone is nil then just show that it's not set
-					Text("No email address set").italic()
+				} else { // otherwise if phone is empty then just show that it's not set
+					NotAvailable()
 				}
-				ActionIndicator()
 			}
 			Spacer()
 			CopyFieldToClipboard(string: self.email)
@@ -268,5 +243,38 @@ struct FontAwesomeIcon: View {
 			.background(Color.white)
 			.mask(RoundedRectangle(cornerRadius: 3.0))
 			.padding(.leading,-5)
+	}
+}
+
+struct StandardDetailRow: View {
+	@State private var showSheet = false
+	let name: FontAwesome
+	let type: FontAwesomeStyle
+	let str: String
+	let url: String
+	let rawString: String
+	
+	var body: some View {
+		HStack {
+			FontAwesomeIcon(name: name, type: type)
+			if (rawString != "") {
+				HStack {
+					Text(str)
+					ActionIndicator()
+				}.onTapGesture {
+					self.showSheet = true
+				}
+			} else {
+				NotAvailable()
+			}
+		}.sheet(isPresented: $showSheet, content: { SafariView(url: URL(string: self.url)!) } )
+	}
+}
+
+struct NotAvailable: View {
+	var body: some View {
+		Text("Not available")
+			.italic()
+			.foregroundColor(Color.secondary)
 	}
 }

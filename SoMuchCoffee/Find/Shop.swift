@@ -15,15 +15,15 @@ struct Shop : Identifiable, Codable {
 	var address: String
 	var latitude: Double
 	var longitude: Double
-	var roasters: String? // probably better as [String]? or [String?]
-	var phone: String?
-	var instagram: String?
-	var website: String?
-	var twitter: String?
-	var foursquare: String?
-	var yelp: String?
-	var email: String?
-	var hours: String?
+	var roasters: String = "" // probably better as [String]? or [String?]
+	var phone: String = ""
+	var instagram: String = ""
+	var website: String = ""
+	var twitter: String = ""
+	var foursquare: String = ""
+	var yelp: String = ""
+	var email: String = ""
+	var hours: String = ""
 	
 	init(shop: Shop) {
 		self.id = shop.id

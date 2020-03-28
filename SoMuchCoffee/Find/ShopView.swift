@@ -27,7 +27,7 @@ struct ShopView: View {
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach ([shop.roasters], id: \.self) {roaster in
-						Text("\(roaster ?? "unknown")")
+						Text(roaster != "" ? roaster : "Roaster not set")
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {
@@ -41,17 +41,17 @@ struct ShopView: View {
 				Section (header: Text("Online & Social")) {
 					HStack {
 						FontAwesomeIcon(name: .globe, type: .solid)
-						Text(shop.website ?? "none")
+						Text(shop.website)
 						ActionIndicator()
 					}
 					HStack {
 						FontAwesomeIcon(name: .instagram, type: .brands)
-						Text("@\(shop.instagram ?? "unknown")")
+						Text("@\(shop.instagram)")
 						ActionIndicator()
 					}
 					HStack {
 						FontAwesomeIcon(name: .twitter, type: .brands)
-						Text("@\(shop.twitter ?? "unknown")")
+						Text("@\(shop.twitter)")
 						ActionIndicator()
 					}
 					// Sending people to Foursquare might bely my intentions
@@ -119,11 +119,11 @@ struct ActionIndicator: View {
 }
 
 struct AddressRow: View {
-	let addr: String?
+	let addr: String
 	var body: some View {
 		HStack {
 			Image(systemName: "map")
-			Text(addr ?? "Not available")
+			Text(addr)
 			Spacer()
 			CopyFieldToClipboard(string: addr)
 		}
@@ -131,10 +131,10 @@ struct AddressRow: View {
 }
 
 struct PhoneNumberRow: View {
-	let phone: String?
+	let phone: String
 	var phoneFormatted: String {
 		var formatted = ""
-		if let phone = phone {
+		if phone != "" {
 			formatted += "+1 ("
 			formatted += phone[0..<3]
 			formatted += ") "
@@ -148,15 +148,15 @@ struct PhoneNumberRow: View {
 		HStack {
 			HStack {
 				Image(systemName: "phone")
-				if phone != nil { // if phone is not nil
+				if phone != "" { // if phone is not empty
 					HStack {
 						Text(phoneFormatted) // then show the formatted phone number
 						ActionIndicator() // and the indicator that it will do an action if clicked
 					}
 					.onTapGesture {
-						callPhoneNumber(number: self.phone!) // and make a call if clicked
+						callPhoneNumber(number: self.phone) // and make a call if clicked
 					}
-				} else { // otherwise if phone is nil then just show that it's not set
+				} else { // otherwise if phone is blank then just show that it's not set
 					Text("No phone number set").italic()
 				}
 			}
@@ -167,18 +167,18 @@ struct PhoneNumberRow: View {
 }
 
 struct EmailRow: View {
-	let email: String?
+	let email: String
 	var body: some View {
 		HStack {
 			HStack {
 				Image(systemName: "envelope")
-				if email != nil { // if phone is not nil
+				if email != "" { // if phone is not nil
 					HStack {
-						Text(email!) // then show the formatted phone number
+						Text(email) // then show the formatted phone number
 						ActionIndicator() // and the indicator that it will do an action if clicked
 					}
 					.onTapGesture {
-						sendEmail(addr: self.email!) // and make a call if clicked
+						sendEmail(addr: self.email) // and make a call if clicked
 					}
 				} else { // otherwise if phone is nil then just show that it's not set
 					Text("No email address set").italic()
@@ -192,11 +192,11 @@ struct EmailRow: View {
 }
 
 struct ScheduleRow: View {
-	let sched: String?
+	let sched: String
 	var body: some View {
 		HStack {
 			Image(systemName: "calendar")
-			Text(sched ?? "No hours set")
+			Text(sched != "" ? sched : "No hours set")
 			Spacer()
 		}
 	}

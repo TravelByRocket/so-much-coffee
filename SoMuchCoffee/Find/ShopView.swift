@@ -11,6 +11,7 @@ import FontAwesome_swift
 
 struct ShopView: View {
 	@EnvironmentObject var reportingShop: ReportingShop
+	@EnvironmentObject var roasters: Roasters
 	var shop: Shop
 	
 	var body: some View {
@@ -29,7 +30,10 @@ struct ShopView: View {
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach (shop.roasters.components(separatedBy: ","), id: \.self) {roaster in
-						DetailRowDisplayOnly(symbol: "r.circle.fill", str: roaster)
+						NavigationLink(destination: RoasterView(roaster: self.roasters.roasterFromID(roaster))) {
+							DetailRowDisplayOnly(symbol: "r.circle.fill", str: self.roasters.roasterNameFromID(roaster))
+						}
+						
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {
@@ -42,8 +46,8 @@ struct ShopView: View {
 					
 				}
 				Section (header: Text("Online & Social")) {
-					DetailRowActionableFA(name: .globe, type: .solid, str: shop.website, url: shop.website, rawString: shop.website)
-					DetailRowActionableFA(name: .instagram, type: .brands, str: "@\(shop.instagram)", url: "https://instagram.com/\(shop.instagram)", rawString: shop.instagram)
+					WebsiteRow(url: shop.website)
+					InstagramRow(instagramHandle: shop.instagram)
 //					DetailRowActionableFA(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
 					// Sending people to Foursquare might bely my intentions
 //					DetailRowActionableFA(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
@@ -70,7 +74,9 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104)).environmentObject(ReportingShop())
+			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104))
+			.environmentObject(ReportingShop())
+			.environmentObject(Roasters())
 		}
 	}
 }
@@ -325,4 +331,19 @@ struct NotAvailable: View {
 
 class ReportingShop: ObservableObject {
 	@Published var shop: Shop?
+}
+
+
+struct InstagramRow: View {
+	let instagramHandle: String
+	var body: some View {
+		DetailRowActionableFA(name: .instagram, type: .brands, str: "@\(instagramHandle)", url: "https://instagram.com/\(instagramHandle)", rawString: instagramHandle)
+	}
+}
+
+struct WebsiteRow: View {
+	let url: String
+	var body: some View {
+		DetailRowActionableFA(name: .globe, type: .solid, str: url, url: url, rawString: url)
+	}
 }

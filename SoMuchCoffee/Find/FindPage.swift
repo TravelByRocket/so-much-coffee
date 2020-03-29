@@ -11,7 +11,8 @@ import MapKit
 
 struct FindPage: View {
 	@State private var centerCoordinate = CLLocationCoordinate2D(latitude: 40.017564, longitude: -105.282169)
-	@ObservedObject var shops: Shops = Shops()
+	@EnvironmentObject var shops: Shops
+	@EnvironmentObject var roasters: Roasters
 	@ObservedObject var lm = LocationManager()
 	private var reportingShop = ReportingShop()
 	

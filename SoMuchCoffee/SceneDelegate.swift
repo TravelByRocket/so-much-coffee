@@ -10,7 +10,9 @@ import UIKit
 import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
-    var settings = UserSettings() 
+    var settings = UserSettings()
+	@ObservedObject var shops: Shops = Shops()
+	@ObservedObject var roasters: Roasters = Roasters()
     var window: UIWindow?
 
 
@@ -29,7 +31,11 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
             let window = UIWindow(windowScene: windowScene)
-            window.rootViewController = UIHostingController(rootView: ContentView().environmentObject(settings))
+            window.rootViewController = UIHostingController(rootView: ContentView()
+				.environmentObject(settings)
+				.environmentObject(shops)
+				.environmentObject(roasters)
+			)
             self.window = window
             window.makeKeyAndVisible()
         }

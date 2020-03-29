@@ -21,42 +21,42 @@ struct ShopView: View {
 					self.reportingShop.shop = self.shop
 			}
 			List {
-				Section (header: Text("Support During COVID-19")) {
-					Text("Notes about where to order coffee, tip baristas, etc.")
+				Section (header: Text("Support During COVID-19 Stay at Home Order")) {
+					DetailRowDisplayOnly(symbol: "message.fill", str: shop.stayAtHomeOrderNote)
 				}
-				Section (header: Text("Coffee Served")) {
-					Text("Espresso X served every day")
-					Text("Espresso Y served Mon-Thu")
-					Text("A single-origin espresso is served Fri-Sun")
+				Section (header: Text("The Coffee and The Coffee Shop")) {
+					DetailRowDisplayOnlyFA(name: .coffee, type: .solid, str: shop.summary)
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach ([shop.roasters], id: \.self) {roaster in
-						Text(roaster != "" ? roaster : "Roaster not set")
+//						Text(roaster != "" ? roaster : "Roaster not set")
+						DetailRowDisplayOnly(symbol: "r.circle.fill", str: roaster)
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {
-					Text("(Range of beverages)")
-					Text("(Food)")
-					Text("(WiFi)")
-					Text("(Power Outlets)")
-					Text("(Good for studying)")
-					Text("(Good for socializing)")
+					DetailRowDisplayOnlyFA(name: .glassWhiskey, type: .solid, str: shop.beverages)
+					DetailRowDisplayOnlyFA(name: .utensils, type: .solid, str: shop.food)
+					DetailRowDisplayOnlyFA(name: .wifi, type: .solid, str: shop.wifi)
+					DetailRowDisplayOnlyFA(name: .plug, type: .solid, str: shop.power)
+					DetailRowDisplayOnlyFA(name: .userFriends, type: .solid, str: shop.socializing)
+					DetailRowDisplayOnlyFA(name: .book, type: .solid, str: shop.working)
+					
 				}
 				Section (header: Text("Online & Social")) {
-					StandardDetailRow(name: .globe, type: .solid, str: shop.website, url: shop.website, rawString: shop.website)
-					StandardDetailRow(name: .instagram, type: .brands, str: "@\(shop.instagram)", url: "https://instagram.com/\(shop.instagram)", rawString: shop.instagram)
-					StandardDetailRow(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
+					DetailRowActionableFA(name: .globe, type: .solid, str: shop.website, url: shop.website, rawString: shop.website)
+					DetailRowActionableFA(name: .instagram, type: .brands, str: "@\(shop.instagram)", url: "https://instagram.com/\(shop.instagram)", rawString: shop.instagram)
+					DetailRowActionableFA(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
 					// Sending people to Foursquare might bely my intentions
-					StandardDetailRow(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
+					DetailRowActionableFA(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
 					// Maybe combine with address row
-					StandardDetailRow(name: .google, type: .brands, str: "View on Google Maps", url: "http://maps.google.com", rawString: "")
+					DetailRowActionableFA(name: .google, type: .brands, str: "View on Google Maps", url: "http://maps.google.com", rawString: "")
 					// Maybe combine with address row
-					StandardDetailRow(name: .apple, type: .brands, str: "View on Apple Maps", url: "http://maps.apple.com", rawString: "")
+					DetailRowActionableFA(name: .apple, type: .brands, str: "View on Apple Maps", url: "http://maps.apple.com", rawString: "")
 				}
 				Section (header: Text("Contact")) {
 					AddressRow(addr: shop.address)
 					PhoneNumberRow(phone: shop.phone)
-					ScheduleRow(sched: shop.hours)
+					DetailRowDisplayOnly(symbol: "clock.fill", str: shop.hours)
 					EmailRow(email: shop.email)
 				}
 				Section (header: Text("Other")) {
@@ -102,7 +102,7 @@ struct AddressRow: View {
 	let addr: String
 	var body: some View {
 		HStack {
-			Image(systemName: "map")
+			Image(systemName: "map.fill")
 			Text(addr)
 			Spacer()
 			CopyFieldToClipboard(string: addr)
@@ -127,7 +127,7 @@ struct PhoneNumberRow: View {
 	var body: some View {
 		HStack {
 			HStack {
-				Image(systemName: "phone")
+				Image(systemName: "phone.fill")
 				if phone != "" { // if phone is not empty
 					HStack {
 						Text(phoneFormatted) // then show the formatted phone number
@@ -151,7 +151,7 @@ struct EmailRow: View {
 	var body: some View {
 		HStack {
 			HStack {
-				Image(systemName: "envelope")
+				Image(systemName: "at")
 				if email != "" { // if phone is not nil
 					HStack {
 						Text(email) // then show the formatted phone number
@@ -250,7 +250,7 @@ struct FontAwesomeIcon: View {
 	}
 }
 
-struct StandardDetailRow: View {
+struct DetailRowActionableFA: View {
 	@State private var showSheet = false
 	let name: FontAwesome
 	let type: FontAwesomeStyle
@@ -275,10 +275,47 @@ struct StandardDetailRow: View {
 	}
 }
 
+struct DetailRowDisplayOnly: View {
+	let symbol: String
+	let str: String
+	
+	var body: some View {
+		HStack {
+			Image(systemName: symbol)
+			if (str != "") {
+				HStack {
+					Text(str)
+				}
+			} else {
+				NotAvailable()
+			}
+		}
+	}
+}
+
+struct DetailRowDisplayOnlyFA: View {
+	let name: FontAwesome
+	let type: FontAwesomeStyle
+	let str: String
+	
+	var body: some View {
+		HStack {
+			FontAwesomeIcon(name: name, type: type)
+			if (str != "") {
+				HStack {
+					Text(str)
+				}
+			} else {
+				NotAvailable()
+			}
+		}
+	}
+}
+
 struct NotAvailable: View {
 	@EnvironmentObject var reportingShop: ReportingShop
 	var body: some View {
-		Text("Not available. Click to provide details.")
+		Text("No info. Click to provide details.")
 			.italic()
 			.foregroundColor(Color.secondary)
 			.onTapGesture {

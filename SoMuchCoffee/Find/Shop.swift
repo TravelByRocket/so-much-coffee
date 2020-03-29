@@ -24,6 +24,14 @@ struct Shop : Identifiable, Codable {
 	var yelp: String = ""
 	var email: String = ""
 	var hours: String = ""
+	var stayAtHomeOrderNote = ""
+	var beverages = ""
+	var food = ""
+	var wifi = ""
+	var power = ""
+	var socializing = ""
+	var working = ""
+	var summary = ""
 	
 	init(shop: Shop) {
 		self.id = shop.id

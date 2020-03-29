@@ -25,6 +25,7 @@
 		2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */; };
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
 		2F3F0E3424307CEA004FC8B3 /* roasters.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3324307CEA004FC8B3 /* roasters.json */; };
+		2F3F0E3624310B03004FC8B3 /* RoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3524310B03004FC8B3 /* RoasterView.swift */; };
 		2F4B2569241D440100D21BA8 /* recipeStepContainer.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */; };
 		2F4EFD3B24273F3300404A2A /* docs in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3A24273F3300404A2A /* docs */; };
 		2F4EFD3E2427F73600404A2A /* dark in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3C2427F73600404A2A /* dark */; };
@@ -180,6 +181,7 @@
 		2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Bold.ttf"; sourceTree = "<group>"; };
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2F3F0E3324307CEA004FC8B3 /* roasters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roasters.json; sourceTree = "<group>"; };
+		2F3F0E3524310B03004FC8B3 /* RoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterView.swift; sourceTree = "<group>"; };
 		2F4B2568241D440100D21BA8 /* recipeStepContainer.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = recipeStepContainer.swift; sourceTree = "<group>"; };
 		2F4EFD3A24273F3300404A2A /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
 		2F4EFD3C2427F73600404A2A /* dark */ = {isa = PBXFileReference; lastKnownFileType = folder; path = dark; sourceTree = "<group>"; };
@@ -533,6 +535,7 @@
 			isa = PBXGroup;
 			children = (
 				2FB074A023B31E3100A7EB7B /* RoastersPage.swift */,
+				2F3F0E3524310B03004FC8B3 /* RoasterView.swift */,
 				2F3F0E3324307CEA004FC8B3 /* roasters.json */,
 			);
 			path = Roasters;
@@ -967,6 +970,7 @@
 				2FBB04BD241BEB60002341D5 /* DefaultRecipes.swift in Sources */,
 				2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
+				2F3F0E3624310B03004FC8B3 /* RoasterView.swift in Sources */,
 				2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */,
 				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,
 				2FEE941123ADCBF30006A16C /* APStepsPopover.swift in Sources */,

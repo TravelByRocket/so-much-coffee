@@ -28,8 +28,7 @@ struct ShopView: View {
 					DetailRowDisplayOnlyFA(name: .coffee, type: .solid, str: shop.summary)
 				}
 				Section (header: Text("Supplying Roasters")) {
-					ForEach ([shop.roasters], id: \.self) {roaster in
-//						Text(roaster != "" ? roaster : "Roaster not set")
+					ForEach (shop.roasters.components(separatedBy: ","), id: \.self) {roaster in
 						DetailRowDisplayOnly(symbol: "r.circle.fill", str: roaster)
 					}
 				}
@@ -45,13 +44,13 @@ struct ShopView: View {
 				Section (header: Text("Online & Social")) {
 					DetailRowActionableFA(name: .globe, type: .solid, str: shop.website, url: shop.website, rawString: shop.website)
 					DetailRowActionableFA(name: .instagram, type: .brands, str: "@\(shop.instagram)", url: "https://instagram.com/\(shop.instagram)", rawString: shop.instagram)
-					DetailRowActionableFA(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
+//					DetailRowActionableFA(name: .twitter, type: .brands, str: "@\(shop.twitter)", url: "https://twitter.com/\(shop.twitter)", rawString: shop.twitter)
 					// Sending people to Foursquare might bely my intentions
-					DetailRowActionableFA(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
+//					DetailRowActionableFA(name: .foursquare, type: .brands, str: "View on Foursquare", url: shop.foursquare, rawString: shop.foursquare)
 					// Maybe combine with address row
-					DetailRowActionableFA(name: .google, type: .brands, str: "View on Google Maps", url: "http://maps.google.com", rawString: "")
+//					DetailRowActionableFA(name: .google, type: .brands, str: "View on Google Maps", url: "http://maps.google.com", rawString: "")
 					// Maybe combine with address row
-					DetailRowActionableFA(name: .apple, type: .brands, str: "View on Apple Maps", url: "http://maps.apple.com", rawString: "")
+//					DetailRowActionableFA(name: .apple, type: .brands, str: "View on Apple Maps", url: "http://maps.apple.com", rawString: "")
 				}
 				Section (header: Text("Contact")) {
 					AddressRow(addr: shop.address)

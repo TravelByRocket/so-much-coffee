@@ -13,28 +13,36 @@ class Shops: ObservableObject {
 	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
 	let items: [Shop]
 	
-	var latitudes: [Double] { items.map { $0.latitude } }
-	var longitudes: [Double] { items.map { $0.longitude } }
+	private var latitudes: [Double] { items.map { $0.latitude } }
+	private var longitudes: [Double] { items.map { $0.longitude } }
 	
-	var minLatitude: Double { latitudes.min()! }
-	var maxLatitude: Double { latitudes.max()! }
-	var midLatitude: Double { (maxLatitude + minLatitude) / 2 }
+	private var minLatitude: Double { latitudes.min()! }
+	private var maxLatitude: Double { latitudes.max()! }
+	private var midLatitude: Double { (maxLatitude + minLatitude) / 2 }
 	
-	var minLongitude: Double { longitudes.min()! }
-	var maxLongitude: Double { longitudes.max()! }
-	var midLongitude: Double { (maxLongitude + minLongitude) / 2 }
+	private var minLongitude: Double { longitudes.min()! }
+	private var maxLongitude: Double { longitudes.max()! }
+	private var midLongitude: Double { (maxLongitude + minLongitude) / 2 }
+	
+	private let bufferFactor = 1.2
 	
 	var centerOfShops: CLLocationCoordinate2D {
 		return CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
 	}
 	
-	var latlonDeltaOfShops: Double {
-		let latlonBuffer = 1.1 // Needs about 1.4 if not ignoring top safe area
+	var latitudeDeltaOfShops: Double {
 		let minDelta = 0.015
 		let latDelta = maxLatitude - minLatitude
 		let lonDelta = maxLongitude - minLongitude
 		let latlonDelta = max(latDelta,lonDelta,minDelta)
-		return latlonDelta * latlonBuffer
+		return latlonDelta * bufferFactor
+	}
+	var longitudeDeltaOfShops: Double {
+		let minDelta = 0.015
+		let latDelta = maxLatitude - minLatitude
+		let lonDelta = maxLongitude - minLongitude
+		let latlonDelta = max(latDelta,lonDelta,minDelta)
+		return latlonDelta * bufferFactor
 	}
 	
 	init() {

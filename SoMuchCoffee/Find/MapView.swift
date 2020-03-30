@@ -12,7 +12,8 @@ import MapKit
 struct MapView: UIViewRepresentable {
 	var shops: Shops
 	var centerCoordinate: CLLocationCoordinate2D
-	var latlonDelta = 0.1 // 0.1 shows roughly all of Denver
+	var latitudeDelta: Double
+	var longitudeDelta: Double
 	var showMarker = true
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
@@ -57,7 +58,7 @@ struct MapView: UIViewRepresentable {
     func updateUIView(_ view: MKMapView, context: Context) {
 		print("ran updateUIVew")
         let coordinate = centerCoordinate
-		let span = MKCoordinateSpan(latitudeDelta: latlonDelta, longitudeDelta: latlonDelta)
+		let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
         view.setRegion(region, animated: true)
 

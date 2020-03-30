@@ -10,7 +10,7 @@ import SwiftUI
 import MapKit
 
 struct MapView: UIViewRepresentable {
-	var shopContainer: Shops
+	var shops: Shops
 	var centerCoordinate: CLLocationCoordinate2D
 	var latlonDelta = 0.1 // 0.1 shows roughly all of Denver
 	var showMarker = true
@@ -24,7 +24,7 @@ struct MapView: UIViewRepresentable {
 		
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
 			parent.centerCoordinate = mapView.centerCoordinate
-			parent.shopContainer.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
+			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
@@ -41,8 +41,8 @@ struct MapView: UIViewRepresentable {
         let mapView = MKMapView()
 		mapView.delegate = context.coordinator
 		
-		if shopContainer.items.count != mapView.annotations.count {
-			for shop in shopContainer.items {
+		if shops.items.count != mapView.annotations.count {
+			for shop in shops.items {
 				let annotation = MKPointAnnotation()
 				annotation.title = shop.name
 //				annotation.subtitle = "Tasty coffee"

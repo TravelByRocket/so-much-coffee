@@ -19,7 +19,7 @@ struct RoasterView: View {
 	
     var body: some View {
 		VStack {
-			MapView(shopContainer: filteredShops, centerCoordinate: filteredShops.centerOfShops, latlonDelta: filteredShops.latlonDeltaOfShops)
+			MapView(shops: filteredShops, centerCoordinate: filteredShops.centerOfShops, latlonDelta: filteredShops.latlonDeltaOfShops)
 			Text(roaster.name).font(.title).multilineTextAlignment(.center)
 			Text(roaster.description).multilineTextAlignment(.leading)
 			List {

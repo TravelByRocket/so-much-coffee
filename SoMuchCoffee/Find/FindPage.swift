@@ -47,7 +47,7 @@ struct FindPage: View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shopContainer: allShops, centerCoordinate: centerCoordinate, latlonDelta: latlonDelta)
+					MapView(shops: allShops, centerCoordinate: centerCoordinate, latlonDelta: latlonDelta)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
 					Circle()

@@ -17,10 +17,22 @@ struct FindPage: View {
 	
 	@State private var locationSource: LocationSource = .shopsCenter
 	
-	var latlonDelta: Double {
+	var latitudeDelta: Double {
 		switch locationSource {
 		case .shopsCenter:
-			return allShops.latlonDeltaOfShops
+			return allShops.latitudeDeltaOfShops
+		case .userLocation:
+			if lm.status == .authorizedWhenInUse {
+				return 0.03
+			} else {
+				return 0.20
+			}
+		}
+	}
+	var longitudeDelta: Double {
+		switch locationSource {
+		case .shopsCenter:
+			return allShops.longitudeDeltaOfShops
 		case .userLocation:
 			if lm.status == .authorizedWhenInUse {
 				return 0.03
@@ -47,7 +59,7 @@ struct FindPage: View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shops: allShops, centerCoordinate: centerCoordinate, latlonDelta: latlonDelta)
+					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
 					Circle()

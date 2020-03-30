@@ -28,6 +28,7 @@ struct MainPage: View {
 					Image(systemName: "calendar")
 						.resizable()
 						.aspectRatio(contentMode: .fit)
+						.padding(.horizontal,30)
 					Text("Events")
 				}
 				.foregroundColor(Color.gray)

@@ -17,16 +17,14 @@ struct ShopView: View {
 	var body: some View {
 		VStack {
 			MapView(shopContainer: Shops(oneShop: shop), centerCoordinate: shop.latlon, latlonDelta: 0.01, showMarker: true)
-				.navigationBarTitle(shop.name)
 				.onAppear() {
 					self.reportingShop.shop = self.shop
 			}
+			Text(shop.name).font(.title).multilineTextAlignment(.center)
+			Text(shop.summary).multilineTextAlignment(.leading)
 			List {
 				Section (header: Text("Support During COVID-19 Stay at Home Order")) {
 					DetailRowDisplayOnly(symbol: "message.fill", str: shop.stayAtHomeOrderNote)
-				}
-				Section (header: Text("The Coffee and The Coffee Shop")) {
-					DetailRowDisplayOnlyFA(name: .coffee, type: .solid, str: shop.summary)
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach (shop.roasters.components(separatedBy: ","), id: \.self) {roaster in
@@ -68,6 +66,9 @@ struct ShopView: View {
 				
 			}
 		}
+		.edgesIgnoringSafeArea(.top)
+//		.navigationBarTitle(shop.name)
+//		.navigationBarHidden(true)
 	}
 }
 

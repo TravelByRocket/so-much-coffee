@@ -29,7 +29,7 @@ class Shops: ObservableObject {
 	}
 	
 	var latlonDeltaOfShops: Double {
-		let latlonBuffer = 1.4
+		let latlonBuffer = 1.1 // Needs about 1.4 if not ignoring top safe area
 		let latDelta = maxLatitude - minLatitude
 		let lonDelta = maxLongitude - minLongitude
 		let latlonDelta = max(latDelta,lonDelta)
@@ -85,7 +85,7 @@ class Shops: ObservableObject {
 		var matchingShops = [Shop]()
 		for shop in items {
 			for id in shop.roasters.components(separatedBy: ",") {
-				if roasterID == id {
+				if roasterID == id { // could make this a `where` in enclosing `for`
 					matchingShops.append(shop)
 				}
 			}

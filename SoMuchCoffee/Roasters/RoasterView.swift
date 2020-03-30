@@ -10,11 +10,16 @@ import SwiftUI
 
 struct RoasterView: View {
 	var roaster: Roaster
-	@EnvironmentObject var shops: Shops
+	@EnvironmentObject var allShops: Shops
+	
+	var filteredShops: Shops {
+		let filtered = allShops.shopsServing(roasterID: roaster.id)
+		return Shops(shops: filtered)
+	}
 	
     var body: some View {
 		VStack {
-			MapView(shopContainer: shops, centerCoordinate: shops.items[0].latlon)
+			MapView(shopContainer: filteredShops, centerCoordinate: filteredShops.centerOfShops, latlonDelta: filteredShops.latlonDeltaOfShops)
 			List {
 				Section {
 	//				Text(roaster.name)
@@ -35,7 +40,7 @@ struct RoasterView: View {
 struct RoasterView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			RoasterView(roaster: Roaster(id: "anyid", name: "Space Roaster", description: "Using energy from the Sun", instagram: "sunny"))
+			RoasterView(roaster: Roaster(id: "sweetbloom", name: "Fake Sweet Bloom", description: "Using energy from the Sun", instagram: "sunny"))
 		}
 		.environmentObject(Shops())
 		.navigationBarTitle("Shop Name")

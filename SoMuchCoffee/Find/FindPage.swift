@@ -11,19 +11,16 @@ import MapKit
 
 struct FindPage: View {
 	@State private var centerCoordinate = CLLocationCoordinate2D(latitude: 40.017564, longitude: -105.282169)
-	@EnvironmentObject var shops: Shops
-	@EnvironmentObject var roasters: Roasters
+	@EnvironmentObject var allShops: Shops
+	@EnvironmentObject var allRoasters: Roasters
 	@ObservedObject var lm = LocationManager()
 	private var reportingShop = ReportingShop()
-	
-//	var latitude: String  { return("\(lm.location?.coordinate.latitude ?? 0)") }
-//	var longitude: String  { return("\(lm.location?.coordinate.longitude ?? 0)") }
 
 	var body: some View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shopContainer: shops, centerCoordinate: centerCoordinate, latlonDelta: 0.05)
+					MapView(shopContainer: allShops, centerCoordinate: allShops.centerOfShops, latlonDelta: allShops.latlonDeltaOfShops)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
 					Circle()
@@ -47,7 +44,7 @@ struct FindPage: View {
 						}
 					}
 				}
-				List (shops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+				List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 					NavigationLink (destination: ShopView(shop: shop.shop).environmentObject(self.reportingShop)){
 						ShopRow(centerCoordinate: self.$centerCoordinate, shop: shop)
 					}

@@ -14,7 +14,6 @@ var appBlue:      Color = Color.init(red: 0.26, green: 0.52, blue: 0.97)
 var appDarkGray:  Color = Color.init(red: 0.66, green: 0.66, blue: 0.66)
 var appLightGray: Color = Color.init(red: 0.90, green: 0.90, blue: 0.90)
 var transparent:  Color = Color.init(red: 0.00, green: 0.00, blue: 0.00, opacity: 0.00)
-//let largeTitle:   Font  = Font.custom("AlfaSlabOne", size: 20)
 let alfa: String = "AlfaSlabOne-Regular"
 let lato: String = "Lato-Light"
 let monoregular: String = "B12Mono-Regular"
@@ -31,8 +30,6 @@ struct ContentView: View {
                 MainPage()
             } else if settings.curPage == "FIND" {
                FindPage()
-            } else if settings.curPage == "BREW" {
-                RecipesView()
             } else if settings.curPage == "LOG" {
                 LogPage()
             } else if settings.curPage == "ROASTERS" {

@@ -9,47 +9,59 @@
 import SwiftUI
 
 struct MainPage: View {
-    var body: some View {
-		// NOTE can't figure out how to give the title significantly more space
-        VStack {
-            // TITLE
+	var body: some View {
+		VStack {
+			// TITLE
 			Spacer()
-            Text("So Much Coffee")
-                .foregroundColor(Color("appOrange"))
-                .font(Font.custom(alfa,size: 40))
+			Text("So Much Coffee")
+				.foregroundColor(Color("appOrange"))
+				.font(Font.custom(alfa,size: 40))
+				.frame(maxHeight: .infinity)
 			Spacer()
-            
-            // FIRST ROW
+			// FIRST ROW
 			HStack (alignment: .bottom) {
-				NavItem(imageName: "find", label: "Find", destinationName: "FIND")
-				Divider()
-				NavItem(imageName: "brew", label: "Brew", destinationName: "BREW")
+				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
+					.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "log", label: "Log", destinationName: "LOG")
+					.frame(maxWidth: .infinity)
+				Divider()
+				VStack {
+					Image(systemName: "calendar")
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+					Text("Events")
+				}
+				.foregroundColor(Color.gray)
+				.frame(maxWidth: .infinity)
 			}
 			.padding([.leading, .trailing])
 			.padding(.bottom, 0)
 			
 			Divider()
 			
-            //SECOND ROW
-            HStack (alignment: .bottom) {
+			//SECOND ROW
+			HStack (alignment: .bottom) {
 				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
+					.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
+					.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "flavors", label: "Flavors", destinationName: "FLAVORS")
-            }
+					.frame(maxWidth: .infinity)
+			}
 			.padding([.leading, .trailing])
 			.padding(.top, 0)
-        }
-    }
+			//			Divider()
+		}
+	}
 }
 
 struct Main_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(UserSettings())
-    }
+	static var previews: some View {
+		ContentView().environmentObject(UserSettings())
+	}
 }
 
 struct NavItem: View {

@@ -2836,6 +2836,7 @@ public enum FontAwesome: String {
             case .youtube: return "\u{f167}"
             case .youtubeSquare: return "\u{f431}"
             case .zhihu: return "\u{f63f}"
+            default: return ""
         }
     }
 }

@@ -21,6 +21,7 @@
 {"id":"ozo","name":"OZO Coffee Company","description":"Based in Boulder, Colorado. Tasting room at 6560 Odell Pl Unit C, Boulder, CO 80301.","instagram":"ozocoffee","fairtrade":"","code":"","offer":"","ordering":"https://ozocoffee.com/coffee/","subscription":"https://ozocoffee.com/subscriptions/"},
 {"id":"sonder","name":"Sonder Coffee & Tea","description":"Based in Denver, Colorado","instagram":"sondercoffee","fairtrade":"","code":"","offer":"","ordering":"https://sondercoffee.co/shop/","subscription":""},
 {"id":"sweetbloom","name":"Sweet Bloom Coffee Roasters","description":"Based in Denver, Colorado","instagram":"sweetbloomcoffee","fairtrade":"","code":"","offer":"","ordering":"https://sweetbloomcoffee.com/collections/coffee","subscription":"https://sweetbloomcoffee.com/collections/subscriptions"},
-{"id":"rotating","name":"We can't keep up with the changes!","description":"none","instagram":"none","fairtrade":"","code":"","offer":"","ordering":"","subscription":""},
-{"id":"unknown","name":"We don't know what beans this shop uses","description":"none","instagram":"none","fairtrade":"","code":"","offer":"","ordering":"","subscription":""}
+{"id":"rotating","name":"rotating roasters","description":"We can't keep up with the changes!","instagram":"somuchcoffee__","fairtrade":"","code":"","offer":"","ordering":"http://somuchcoffee.co/","subscription":"http://somuchcoffee.co/"},
+{"id":"unknown","name":"unknown roaster","description":"We don't know what beans this shop uses","instagram":"somuchcoffee__","fairtrade":"","code":"","offer":"","ordering":"http://somuchcoffee.co/","subscription":"http://somuchcoffee.co/"},
+{"id":"various","name":"various roasters","description":"So many choices","instagram":"somuchcoffee__","fairtrade":"","code":"","offer":"","ordering":"http://somuchcoffee.co/","subscription":"http://somuchcoffee.co/"}
 ]

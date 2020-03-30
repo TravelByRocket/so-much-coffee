@@ -13,6 +13,29 @@ class Shops: ObservableObject {
 	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
 	let items: [Shop]
 	
+	var latitudes: [Double] { items.map { $0.latitude } }
+	var longitudes: [Double] { items.map { $0.longitude } }
+	
+	var minLatitude: Double { latitudes.min()! }
+	var maxLatitude: Double { latitudes.max()! }
+	var midLatitude: Double { (maxLatitude + minLatitude) / 2 }
+	
+	var minLongitude: Double { longitudes.min()! }
+	var maxLongitude: Double { longitudes.max()! }
+	var midLongitude: Double { (maxLongitude + minLongitude) / 2 }
+	
+	var centerOfShops: CLLocationCoordinate2D {
+		return CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
+	}
+	
+	var latlonDeltaOfShops: Double {
+		let latlonBuffer = 1.4
+		let latDelta = maxLatitude - minLatitude
+		let lonDelta = maxLongitude - minLongitude
+		let latlonDelta = max(latDelta,lonDelta)
+		return latlonDelta * latlonBuffer
+	}
+	
 	init() {
 		// https://www.npmjs.com/package/csvtojson
 		// npm i -g csvtojson
@@ -23,6 +46,10 @@ class Shops: ObservableObject {
 	
 	init(oneShop: Shop) {
 		self.items = [oneShop]
+	}
+	
+	init(shops: [Shop]) {
+		self.items = shops
 	}
 	
 	struct ShopWithDistance: Comparable {
@@ -44,8 +71,6 @@ class Shops: ObservableObject {
 		
 	}
 	
-	
-	
 	func updateShopsInMapAreaSorted(within area: MKMapRect, distanceTo point: CLLocationCoordinate2D) {
 		var shopsWithDistance: [ShopWithDistance] = []
 		for shop in items {
@@ -54,6 +79,18 @@ class Shops: ObservableObject {
 			}
 		}
 		allWithinMapAreaSorted = shopsWithDistance.sorted()
-//		allWithinMapAreaSorted = shopsWithDistance.sorted().map { $0.shop }
 	}
+	
+	func shopsServing(roasterID: String) -> [Shop] {
+		var matchingShops = [Shop]()
+		for shop in items {
+			for id in shop.roasters.components(separatedBy: ",") {
+				if roasterID == id {
+					matchingShops.append(shop)
+				}
+			}
+		}
+		return matchingShops
+	}
+	
 }

@@ -45,7 +45,7 @@ struct MapView: UIViewRepresentable {
 			for shop in shopContainer.items {
 				let annotation = MKPointAnnotation()
 				annotation.title = shop.name
-				annotation.subtitle = "Tasty coffee"
+//				annotation.subtitle = "Tasty coffee"
 				annotation.coordinate = shop.latlon
 				mapView.addAnnotation(annotation)
 			}

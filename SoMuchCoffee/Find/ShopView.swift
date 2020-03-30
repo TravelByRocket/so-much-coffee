@@ -16,7 +16,7 @@ struct ShopView: View {
 	
 	var body: some View {
 		VStack {
-			MapView(shopContainer: Shops(oneShop: shop), centerCoordinate: shop.latlon, latlonDelta: 0.01, showMarker: true)
+			MapView(shopContainer: Shops(oneShop: shop), centerCoordinate: shop.latlon, latlonDelta: 0.02)
 				.onAppear() {
 					self.reportingShop.shop = self.shop
 			}

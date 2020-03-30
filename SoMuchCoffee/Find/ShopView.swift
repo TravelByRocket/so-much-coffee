@@ -67,8 +67,6 @@ struct ShopView: View {
 			}
 		}
 		.edgesIgnoringSafeArea(.top)
-//		.navigationBarTitle(shop.name)
-//		.navigationBarHidden(true)
 	}
 }
 

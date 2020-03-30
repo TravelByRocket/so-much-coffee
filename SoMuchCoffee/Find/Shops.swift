@@ -33,16 +33,14 @@ class Shops: ObservableObject {
 	var latitudeDeltaOfShops: Double {
 		let minDelta = 0.015
 		let latDelta = maxLatitude - minLatitude
-		let lonDelta = maxLongitude - minLongitude
-		let latlonDelta = max(latDelta,lonDelta,minDelta)
-		return latlonDelta * bufferFactor
+		let latDeltaChecked = max(latDelta,minDelta)
+		return latDeltaChecked * bufferFactor
 	}
 	var longitudeDeltaOfShops: Double {
 		let minDelta = 0.015
-		let latDelta = maxLatitude - minLatitude
 		let lonDelta = maxLongitude - minLongitude
-		let latlonDelta = max(latDelta,lonDelta,minDelta)
-		return latlonDelta * bufferFactor
+		let lonDeltaChecked = max(lonDelta,minDelta)
+		return lonDeltaChecked * bufferFactor
 	}
 	
 	init() {

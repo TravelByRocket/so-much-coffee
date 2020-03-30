@@ -10,7 +10,7 @@ import SwiftUI
 import CoreLocation
 
 struct ShopRow: View {
-	@Binding var centerCoordinate: CLLocationCoordinate2D
+//	var centerCoordinate: CLLocationCoordinate2D
 	let shop: Shops.ShopWithDistance
 	
 	var body: some View {

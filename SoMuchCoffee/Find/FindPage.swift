@@ -10,17 +10,44 @@ import SwiftUI
 import MapKit
 
 struct FindPage: View {
-	@State private var centerCoordinate = CLLocationCoordinate2D(latitude: 40.017564, longitude: -105.282169)
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
 	@ObservedObject var lm = LocationManager()
 	private var reportingShop = ReportingShop()
+	
+	@State private var locationSource: LocationSource = .shopsCenter
+	
+	var latlonDelta: Double {
+		switch locationSource {
+		case .shopsCenter:
+			return allShops.latlonDeltaOfShops
+		case .userLocation:
+			if lm.status == .authorizedWhenInUse {
+				return 0.03
+			} else {
+				return 0.20
+			}
+		}
+	}
+	
+	var centerCoordinate: CLLocationCoordinate2D {
+		switch locationSource {
+		case .shopsCenter:
+			return allShops.centerOfShops
+		case .userLocation:
+			return CLLocationCoordinate2D(latitude: (lm.location?.coordinate.latitude)!, longitude: (lm.location?.coordinate.longitude)!)
+		}
+	}
+	
+	enum LocationSource {
+		case shopsCenter, userLocation
+	}
 
 	var body: some View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shopContainer: allShops, centerCoordinate: allShops.centerOfShops, latlonDelta: allShops.latlonDeltaOfShops)
+					MapView(shopContainer: allShops, centerCoordinate: centerCoordinate, latlonDelta: latlonDelta)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
 					Circle()
@@ -37,8 +64,9 @@ struct FindPage: View {
 								.overlay(RoundedRectangle(cornerRadius: 4.0).stroke(lineWidth: 0.5))
 								.padding(10)
 								.onTapGesture {
-									self.centerCoordinate.latitude = self.lm.location?.coordinate.latitude ?? 0
-									self.centerCoordinate.longitude = self.lm.location?.coordinate.longitude ?? 0
+									self.locationSource = .userLocation
+//									self.centerCoordinate.latitude = self.lm.location?.coordinate.latitude ?? 0
+//									self.centerCoordinate.longitude = self.lm.location?.coordinate.longitude ?? 0
 							}
 							Spacer()
 						}
@@ -46,7 +74,7 @@ struct FindPage: View {
 				}
 				List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 					NavigationLink (destination: ShopView(shop: shop.shop).environmentObject(self.reportingShop)){
-						ShopRow(centerCoordinate: self.$centerCoordinate, shop: shop)
+						ShopRow(shop: shop) // location for distance is provided through the Shops class
 					}
 				}
 			}

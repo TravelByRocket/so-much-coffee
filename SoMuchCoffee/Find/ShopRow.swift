@@ -15,7 +15,6 @@ struct ShopRow: View {
 	
 	var body: some View {
 		HStack {
-//			Text("\(shop.kilometersAway(from: self.centerCoordinate), specifier: "%4.1f") km")
 			Text("\(shop.distance, specifier: "%4.1f") km")
 				.font(Font.custom(monoregular, size: 15))
 				.padding(.vertical, 3)
@@ -23,6 +22,7 @@ struct ShopRow: View {
 				.overlay(Capsule()
 					.stroke(Color.primary))
 			Text(shop.shop.name)
+				.lineLimit(1)
 		}
 	}
 }

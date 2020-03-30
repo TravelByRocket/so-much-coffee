@@ -43,12 +43,6 @@ struct ContentView: View {
                 FlavorsPage()
             }
         }
-		.onAppear() {
-//			let test = Shop(id: "shopid", name: "namestring", address: "addressstring", latitude: 1.234, longitude: 5.678)
-//			let encoder = JSONEncoder()
-//			var container = encoder.container(keyedBy: CodingKeys.self)
-//			try container.encode(Base.addWater, forKey: .base)
-		}
     }
 }
 

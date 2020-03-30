@@ -30,8 +30,6 @@ struct ContentView: View {
                 MainPage()
             } else if settings.curPage == "FIND" {
                FindPage()
-            } else if settings.curPage == "LOG" {
-                LogPage()
             } else if settings.curPage == "ROASTERS" {
                 RoastersPage()
             } else if settings.curPage == "ORIGINS" {

@@ -16,14 +16,12 @@ struct MainPage: View {
 			Text("So Much Coffee")
 				.foregroundColor(Color("appOrange"))
 				.font(Font.custom(alfa,size: 40))
+				.multilineTextAlignment(.center)
 				.frame(maxHeight: .infinity)
 			Spacer()
 			// FIRST ROW
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
-					.frame(maxWidth: .infinity)
-				Divider()
-				NavItem(imageName: "log", label: "Log", destinationName: "LOG")
 					.frame(maxWidth: .infinity)
 				Divider()
 				VStack {

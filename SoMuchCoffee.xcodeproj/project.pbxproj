@@ -102,7 +102,6 @@
 		2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */; };
 		2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */; };
 		2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A023B31E3100A7EB7B /* RoastersPage.swift */; };
-		2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A223B31E3D00A7EB7B /* LogPage.swift */; };
 		2FB074A523B3276900A7EB7B /* CCC_FlavorWheel_English.pdf in Resources */ = {isa = PBXBuildFile; fileRef = 2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */; };
 		2FBB04B7241B4430002341D5 /* README.md in Resources */ = {isa = PBXBuildFile; fileRef = 2FBB04B6241B4430002341D5 /* README.md */; };
 		2FFAFBD42425A44B00E99E46 /* shops.json in Resources */ = {isa = PBXBuildFile; fileRef = 2FFAFBD32425A44B00E99E46 /* shops.json */; };
@@ -233,7 +232,6 @@
 		2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorsPage.swift; sourceTree = "<group>"; };
 		2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsPage.swift; sourceTree = "<group>"; };
 		2FB074A023B31E3100A7EB7B /* RoastersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastersPage.swift; sourceTree = "<group>"; };
-		2FB074A223B31E3D00A7EB7B /* LogPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = LogPage.swift; sourceTree = "<group>"; };
 		2FB074A423B3276800A7EB7B /* CCC_FlavorWheel_English.pdf */ = {isa = PBXFileReference; lastKnownFileType = image.pdf; path = CCC_FlavorWheel_English.pdf; sourceTree = "<group>"; };
 		2FB2E3C2F359F34F955CE983 /* Pods-SoMuchCoffeeTests.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffeeTests.release.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffeeTests/Pods-SoMuchCoffeeTests.release.xcconfig"; sourceTree = "<group>"; };
 		2FBB04B6241B4430002341D5 /* README.md */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = net.daringfireball.markdown; path = README.md; sourceTree = "<group>"; };
@@ -307,7 +305,6 @@
 				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
 				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
 				2FB0748A23B2DDE400A7EB7B /* Find */,
-				2FB0749823B31D8400A7EB7B /* Log */,
 				2FB0749923B31D8E00A7EB7B /* Roasters */,
 				2FB0749A23B31DA300A7EB7B /* Origins */,
 				2FB0749B23B31DAF00A7EB7B /* Flavors */,
@@ -470,14 +467,6 @@
 				E25683DF6150281B3D16A860 /* Pods_SoMuchCoffeeTests.framework */,
 			);
 			name = Frameworks;
-			sourceTree = "<group>";
-		};
-		2FB0749823B31D8400A7EB7B /* Log */ = {
-			isa = PBXGroup;
-			children = (
-				2FB074A223B31E3D00A7EB7B /* LogPage.swift */,
-			);
-			path = Log;
 			sourceTree = "<group>";
 		};
 		2FB0749923B31D8E00A7EB7B /* Roasters */ = {
@@ -851,7 +840,6 @@
 				2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
 				2F3F0E3624310B03004FC8B3 /* RoasterView.swift in Sources */,
-				2FB074A323B31E3D00A7EB7B /* LogPage.swift in Sources */,
 				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,
 				2FB0749223B2F66D00A7EB7B /* ShopView.swift in Sources */,
 				2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */,

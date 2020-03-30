@@ -20,10 +20,17 @@ struct RoasterView: View {
     var body: some View {
 		VStack {
 			MapView(shopContainer: filteredShops, centerCoordinate: filteredShops.centerOfShops, latlonDelta: filteredShops.latlonDeltaOfShops)
+			Text(roaster.name).font(.title).multilineTextAlignment(.center)
+			Text(roaster.description).multilineTextAlignment(.leading)
 			List {
-				Section {
-	//				Text(roaster.name)
-					Text(roaster.description).font(.headline)
+				Section (header: Text("Locations Serving")) {
+					ForEach (filteredShops.items, id: \.id) {shop in
+						NavigationLink(destination: ShopView(shop: shop)) {
+							DetailRowDisplayOnly(symbol: "s.circle.fill", str: shop.name)
+						}
+					}
+				}
+				Section (header: Text("More Details")){
 					InstagramRow(instagramHandle: roaster.instagram)
 					DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: "+roaster.fairtrade))
 					DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: "+roaster.code))
@@ -32,8 +39,10 @@ struct RoasterView: View {
 					WebsiteRow(url: roaster.subscription)
 				}
 			}
-			.navigationBarTitle(roaster.name)
 		}
+		.edgesIgnoringSafeArea(.top)
+//		.navigationBarTitle(roaster.name)
+//		.navigationBarHidden(true)
     }
 }
 

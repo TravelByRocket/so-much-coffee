@@ -30,9 +30,10 @@ class Shops: ObservableObject {
 	
 	var latlonDeltaOfShops: Double {
 		let latlonBuffer = 1.1 // Needs about 1.4 if not ignoring top safe area
+		let minDelta = 0.015
 		let latDelta = maxLatitude - minLatitude
 		let lonDelta = maxLongitude - minLongitude
-		let latlonDelta = max(latDelta,lonDelta)
+		let latlonDelta = max(latDelta,lonDelta,minDelta)
 		return latlonDelta * latlonBuffer
 	}
 	

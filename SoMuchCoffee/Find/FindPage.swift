@@ -13,7 +13,6 @@ struct FindPage: View {
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
 	@ObservedObject var lm = LocationManager()
-	private var reportingShop = ReportingShop()
 	
 	@State private var locationSource: LocationSource = .shopsCenter
 	
@@ -85,7 +84,7 @@ struct FindPage: View {
 					}
 				}
 				List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
-					NavigationLink (destination: ShopView(shop: shop.shop).environmentObject(self.reportingShop)){
+					NavigationLink (destination: ShopView(shop: shop.shop)){
 						ShopRow(shop: shop) // location for distance is provided through the Shops class
 					}
 				}

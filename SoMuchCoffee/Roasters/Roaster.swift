@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Roaster : Identifiable, Codable {
+struct Roaster : Identifiable, Codable, Comparable {
 	var id: String
     var name: String
 	var description: String = ""
@@ -21,6 +21,14 @@ struct Roaster : Identifiable, Codable {
 	
 	static func blankRoaster() -> Roaster {
 		return Roaster(id: "notfound", name: "Roaster Not Found", description: "Please report this error")
+	}
+	
+	static func < (lhs: Roaster, rhs: Roaster) -> Bool {
+		return lhs.name < rhs.name
+	}
+	
+	static func == (lhs: Roaster, rhs: Roaster) -> Bool {
+		return lhs.name == rhs.name
 	}
 
 }

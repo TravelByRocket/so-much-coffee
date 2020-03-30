@@ -13,6 +13,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var settings = UserSettings()
 	@ObservedObject var shops: Shops = Shops()
 	@ObservedObject var roasters: Roasters = Roasters()
+	@ObservedObject var currentShop: ReportingShop = ReportingShop()
     var window: UIWindow?
 
 
@@ -35,6 +36,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 				.environmentObject(settings)
 				.environmentObject(shops)
 				.environmentObject(roasters)
+				.environmentObject(currentShop)
 			)
             self.window = window
             window.makeKeyAndVisible()

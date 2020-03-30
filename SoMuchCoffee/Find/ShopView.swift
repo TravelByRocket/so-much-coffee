@@ -10,7 +10,7 @@ import SwiftUI
 import FontAwesome_swift
 
 struct ShopView: View {
-	@EnvironmentObject var reportingShop: ReportingShop
+	@EnvironmentObject var currentShop: ReportingShop
 	@EnvironmentObject var roasters: Roasters
 	var shop: Shop
 	
@@ -18,7 +18,7 @@ struct ShopView: View {
 		VStack {
 			MapView(shops: Shops(oneShop: shop), centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015)
 				.onAppear() {
-					self.reportingShop.shop = self.shop
+					self.currentShop.shop = self.shop
 			}
 			Text(shop.name).font(.title).multilineTextAlignment(.center)
 			Text(shop.summary).multilineTextAlignment(.leading)
@@ -317,13 +317,13 @@ struct DetailRowDisplayOnlyFA: View {
 }
 
 struct NotAvailable: View {
-	@EnvironmentObject var reportingShop: ReportingShop
+	@EnvironmentObject var currentShop: ReportingShop
 	var body: some View {
 		Text("No info. Click to provide details.")
 			.italic()
 			.foregroundColor(Color.secondary)
 			.onTapGesture {
-				sendEmail(addr: "app@somuchcoffee.co?subject=Correction%20for%20Shop%20%22\(self.reportingShop.shop!.id)%22")
+				sendEmail(addr: "app@somuchcoffee.co?subject=Correction%20for%20Shop%20%22\(self.currentShop.shop!.id)%22")
 		}
 	}
 }

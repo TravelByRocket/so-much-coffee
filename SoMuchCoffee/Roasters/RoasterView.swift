@@ -10,6 +10,7 @@ import SwiftUI
 
 struct RoasterView: View {
 	var roaster: Roaster
+	
 	@EnvironmentObject var allShops: Shops
 	
 	var filteredShops: Shops {
@@ -50,6 +51,7 @@ struct RoasterView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
 			RoasterView(roaster: Roaster(id: "sweetbloom", name: "Fake Sweet Bloom", description: "Using energy from the Sun", instagram: "sunny"))
+//			Text("placeholder")
 		}
 		.environmentObject(Shops())
 		.navigationBarTitle("Shop Name")

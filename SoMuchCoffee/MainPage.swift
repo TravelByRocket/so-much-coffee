@@ -9,40 +9,41 @@
 import SwiftUI
 
 struct MainPage: View {
+	@State private var showAbout = false
+	
 	var body: some View {
 		VStack {
 			// TITLE
-			Spacer()
-			Text("So Much Coffee")
-				.foregroundColor(Color("appOrange"))
-				.font(Font.custom(alfa,size: 40))
-				.multilineTextAlignment(.center)
-				.frame(maxHeight: .infinity)
-			Spacer()
+			ZStack {
+				TitleView()
+				AppInfoButton(showAbout: $showAbout)
+			}
+			.sheet(isPresented: $showAbout) {
+				AboutPage()
+			}
+			
 			// FIRST ROW
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
 					.frame(maxWidth: .infinity)
 				Divider()
-				VStack {
-					Image(systemName: "calendar")
-						.resizable()
-						.aspectRatio(contentMode: .fit)
-						.padding(.horizontal,30)
-					Text("Events")
-				}
-				.foregroundColor(Color.gray.opacity(0.6))
-				.frame(maxWidth: .infinity)
+				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
+					.frame(maxWidth: .infinity)
 			}
-			.padding([.leading, .trailing])
 			.padding(.bottom, 0)
 			
 			Divider()
 			
 			//SECOND ROW
 			HStack (alignment: .bottom) {
-				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
-					.frame(maxWidth: .infinity)
+				VStack {
+					Image(systemName: "calendar")
+						.resizable()
+						.aspectRatio(contentMode: .fit)
+					Text("Events")
+				}
+				.foregroundColor(Color.gray.opacity(0.6))
+				.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
 					.frame(maxWidth: .infinity)
@@ -50,10 +51,9 @@ struct MainPage: View {
 				NavItem(imageName: "flavors", label: "Flavors", destinationName: "FLAVORS")
 					.frame(maxWidth: .infinity)
 			}
-			.padding([.leading, .trailing])
 			.padding(.top, 0)
-			//			Divider()
 		}
+		.padding(.horizontal)
 	}
 }
 
@@ -78,6 +78,42 @@ struct NavItem: View {
 			withAnimation() {
 				self.settings.curPage = self.destinationName
 			}
+		}
+	}
+}
+
+struct AppInfoButton: View {
+	@Binding var showAbout: Bool
+	var body: some View {
+		HStack {
+			Spacer()
+			VStack {
+				Image(systemName: "info.circle")
+					.foregroundColor(Color.blue)
+					.padding()
+					.onTapGesture {
+						self.showAbout = true
+				}
+				Spacer()
+			}
+		}
+	}
+}
+
+struct TitleView: View {
+	var body: some View {
+		Text("So Much Coffee")
+			.foregroundColor(Color("appOrange"))
+			.font(Font.custom(alfa,size: 40))
+			.multilineTextAlignment(.center)
+			.frame(maxHeight: .infinity)
+	}
+}
+
+struct AboutPage: View {
+	var body: some View {
+		VStack (alignment: .center, spacing: 10){
+			Text("This app was made by Bryan Costanza")
 		}
 	}
 }

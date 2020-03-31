@@ -12,10 +12,24 @@ struct RoastersPage: View {
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
 	
+	@State private var searchString = ""
+	
+	private var filteredRoasters: [Roaster] {
+		if searchString == "" {
+			return allRoasters.items.sorted()
+		} else {
+			return allRoasters.items.sorted().filter { $0.name.lowercased().contains(searchString.lowercased()) }
+		}
+	}
+	
 	var body: some View {
 		NavigationView {
 			VStack {
-				List(allRoasters.items.sorted()) {roaster in
+				TextField("Filter roaster list", text: $searchString)
+					.autocapitalization(.none)
+					.textFieldStyle(RoundedBorderTextFieldStyle())
+					.padding(.horizontal)
+				List(filteredRoasters) {roaster in
 					NavigationLink(destination: RoasterView(roaster: roaster)) {
 						HStack {
 							Image(systemName: self.shopCountToCircleStringName(roaster))

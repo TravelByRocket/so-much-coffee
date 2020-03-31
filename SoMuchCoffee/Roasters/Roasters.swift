@@ -20,6 +20,10 @@ class Roasters: ObservableObject {
 		self.items = Bundle.main.decode([Roaster].self, from: "roasters.json")
 	}
 	
+	init(roasters: [Roaster]) {
+		self.items = roasters
+	}
+	
 	func roasterNameFromID (_ roasterID: String) -> String {
 		if let match = items.first(where: {$0.id == roasterID} ) {
 			return match.name

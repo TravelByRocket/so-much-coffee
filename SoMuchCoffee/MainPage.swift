@@ -74,6 +74,10 @@ struct NavItem: View {
 			Image(imageName).resizable().aspectRatio(contentMode: .fit)
 			Text(label)
 		}
-		.onTapGesture {self.settings.curPage = self.destinationName}
+		.onTapGesture {
+			withAnimation() {
+				self.settings.curPage = self.destinationName
+			}
+		}
 	}
 }

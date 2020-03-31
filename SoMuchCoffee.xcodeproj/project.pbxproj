@@ -33,6 +33,7 @@
 		2F4EFD4324283F3A00404A2A /* OriginsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4224283F3A00404A2A /* OriginsRow.swift */; };
 		2F4EFD472428461100404A2A /* RegionPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD462428461000404A2A /* RegionPages.swift */; };
 		2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4824285A2400404A2A /* SafariView.swift */; };
+		2F66CFFC2433B25700E78865 /* EventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66CFFB2433B25700E78865 /* EventsPage.swift */; };
 		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */; };
 		2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F90F51C23A0503100C4F0F4 /* AddButton.swift */; };
@@ -163,6 +164,7 @@
 		2F4EFD4224283F3A00404A2A /* OriginsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsRow.swift; sourceTree = "<group>"; };
 		2F4EFD462428461000404A2A /* RegionPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPages.swift; sourceTree = "<group>"; };
 		2F4EFD4824285A2400404A2A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		2F66CFFB2433B25700E78865 /* EventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPage.swift; sourceTree = "<group>"; };
 		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2F90F51C23A0503100C4F0F4 /* AddButton.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AddButton.swift; sourceTree = "<group>"; };
@@ -304,6 +306,7 @@
 				2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */,
 				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
 				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
+				2F66CFFB2433B25700E78865 /* EventsPage.swift */,
 				2FB0748A23B2DDE400A7EB7B /* Find */,
 				2FB0749923B31D8E00A7EB7B /* Roasters */,
 				2FB0749A23B31DA300A7EB7B /* Origins */,
@@ -833,6 +836,7 @@
 				2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */,
 				2F12C8E0239EBB9500BFF066 /* ContentView.swift in Sources */,
 				2FB0748E23B2E0D700A7EB7B /* Shop.swift in Sources */,
+				2F66CFFC2433B25700E78865 /* EventsPage.swift in Sources */,
 				2F12C8DE239EBB9500BFF066 /* SoMuchCoffee.xcdatamodeld in Sources */,
 				2F4EFD472428461100404A2A /* RegionPages.swift in Sources */,
 				2F3F0E3A24310D84004FC8B3 /* Roasters.swift in Sources */,

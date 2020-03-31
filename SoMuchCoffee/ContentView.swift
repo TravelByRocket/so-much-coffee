@@ -21,75 +21,82 @@ let monobold: String = "B12Mono-Bold"
 let timerInterval: CGFloat = 0.05
 
 struct ContentView: View {
-    @EnvironmentObject var settings: UserSettings
-    
-    var body: some View {
-    
-        VStack{
-            if settings.curPage == "MAIN" {
-                MainPage()
-            } else if settings.curPage == "FIND" {
-               FindPage()
-            } else if settings.curPage == "ROASTERS" {
-                RoastersPage()
-            } else if settings.curPage == "ORIGINS" {
-                OriginsPage()
-            } else if settings.curPage == "FLAVORS" {
-                FlavorsPage()
-            }
-        }
-    }
+	@EnvironmentObject var settings: UserSettings
+	
+	var body: some View {
+		
+		VStack{
+			if settings.curPage == "MAIN" {
+				MainPage()
+			} else if settings.curPage == "FIND" {
+				FindPage()
+			} else if settings.curPage == "ROASTERS" {
+				RoastersPage()
+			} else if settings.curPage == "ORIGINS" {
+				OriginsPage()
+			} else if settings.curPage == "FLAVORS" {
+				FlavorsPage()
+			} else if settings.curPage == "EVENTS" {
+				EventsPage()
+			}
+		}
+	}
+	
+	//	enum Pages {
+	//		case main, shops, roasters, origins, flavors
+	//	}
+	
 }
 
 struct ContentView_Previews: PreviewProvider {
-    static var previews: some View {
-        ContentView().environmentObject(UserSettings())
-    }
+	static var previews: some View {
+		ContentView().environmentObject(UserSettings())
+	}
 }
 
 class UserSettings: ObservableObject {
-    @Published var curPage = "MAIN"
+	@Published var curPage = "MAIN"
 }
 
 extension Color {
-    static let appOrange = Color("appOrange")
+	static let appOrange = Color("appOrange")
 }
 
 // https://www.hackingwithswift.com/example-code/system/how-to-decode-json-from-your-app-bundle-the-easy-way
 extension Bundle {
-    func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
-        guard let url = self.url(forResource: file, withExtension: nil) else {
-            fatalError("Failed to locate \(file) in bundle.")
-        }
-
-        guard let data = try? Data(contentsOf: url) else {
-            fatalError("Failed to load \(file) from bundle.")
-        }
-
-        let decoder = JSONDecoder()
-        decoder.dateDecodingStrategy = dateDecodingStrategy
-        decoder.keyDecodingStrategy = keyDecodingStrategy
-
-        do {
-            return try decoder.decode(T.self, from: data)
-        } catch DecodingError.keyNotFound(let key, let context) {
-            fatalError("Failed to decode \(file) from bundle due to missing key '\(key.stringValue)' not found – \(context.debugDescription)")
-        } catch DecodingError.typeMismatch(_, let context) {
-            fatalError("Failed to decode \(file) from bundle due to type mismatch – \(context.debugDescription)")
-        } catch DecodingError.valueNotFound(let type, let context) {
-            fatalError("Failed to decode \(file) from bundle due to missing \(type) value – \(context.debugDescription)")
-        } catch DecodingError.dataCorrupted(_) {
-            fatalError("Failed to decode \(file) from bundle because it appears to be invalid JSON")
-        } catch {
-            fatalError("Failed to decode \(file) from bundle: \(error.localizedDescription)")
-        }
-    }
+	func decode<T: Decodable>(_ type: T.Type, from file: String, dateDecodingStrategy: JSONDecoder.DateDecodingStrategy = .deferredToDate, keyDecodingStrategy: JSONDecoder.KeyDecodingStrategy = .useDefaultKeys) -> T {
+		guard let url = self.url(forResource: file, withExtension: nil) else {
+			fatalError("Failed to locate \(file) in bundle.")
+		}
+		
+		guard let data = try? Data(contentsOf: url) else {
+			fatalError("Failed to load \(file) from bundle.")
+		}
+		
+		let decoder = JSONDecoder()
+		decoder.dateDecodingStrategy = dateDecodingStrategy
+		decoder.keyDecodingStrategy = keyDecodingStrategy
+		
+		do {
+			return try decoder.decode(T.self, from: data)
+		} catch DecodingError.keyNotFound(let key, let context) {
+			fatalError("Failed to decode \(file) from bundle due to missing key '\(key.stringValue)' not found – \(context.debugDescription)")
+		} catch DecodingError.typeMismatch(_, let context) {
+			fatalError("Failed to decode \(file) from bundle due to type mismatch – \(context.debugDescription)")
+		} catch DecodingError.valueNotFound(let type, let context) {
+			fatalError("Failed to decode \(file) from bundle due to missing \(type) value – \(context.debugDescription)")
+		} catch DecodingError.dataCorrupted(_) {
+			fatalError("Failed to decode \(file) from bundle because it appears to be invalid JSON")
+		} catch {
+			fatalError("Failed to decode \(file) from bundle: \(error.localizedDescription)")
+		}
+	}
 }
 
 func getDocumentsDirectory() -> URL {
-    // find all possible documents directories for this user
-    let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
-
-    // just send back the first one, which ought to be the only one
-    return paths[0]
+	// find all possible documents directories for this user
+	let paths = FileManager.default.urls(for: .documentDirectory, in: .userDomainMask)
+	
+	// just send back the first one, which ought to be the only one
+	return paths[0]
 }

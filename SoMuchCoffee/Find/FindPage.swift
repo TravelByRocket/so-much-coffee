@@ -76,8 +76,6 @@ struct FindPage: View {
 								.padding(10)
 								.onTapGesture {
 									self.locationSource = .userLocation
-//									self.centerCoordinate.latitude = self.lm.location?.coordinate.latitude ?? 0
-//									self.centerCoordinate.longitude = self.lm.location?.coordinate.longitude ?? 0
 							}
 							Spacer()
 						}

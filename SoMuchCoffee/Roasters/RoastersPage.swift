@@ -42,15 +42,6 @@ struct RoastersPage: View {
 			.navigationBarItems(trailing: GoHome())
 		}
     }
-	
-//	func shopCountToCircleStringName(_ roaster: Roaster) -> String {
-//		let count = self.allShops.shopsServing(roasterID: roaster.id).count
-//		if count <= 50 {
-//			return String(count) + ".circle"
-//		} else {
-//			return "asterisk.circle"
-//		}
-//	}
 }
 
 struct RoastersPage_Previews: PreviewProvider {

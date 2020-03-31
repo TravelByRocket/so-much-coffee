@@ -26,6 +26,11 @@ class Shops: ObservableObject {
 	
 	private let bufferFactor = 1.2
 	
+	static var example: Shops {
+		let shop = Shop(id: "beleza", name: "Fake Beleza", address: "1234 Coffee Ln", latitude: 40.0252868, longitude: -105.2810327)
+		return Shops(oneShop: shop)
+	}
+	
 	var centerOfShops: CLLocationCoordinate2D {
 		return CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
 	}
@@ -48,7 +53,8 @@ class Shops: ObservableObject {
 		// npm i -g csvtojson
 		// csvtojson shops.csv > shops.json
 		// only issue is that lat/lon surrounded by quotes so for now manually adjusting JSON to fit the Float/Double formatting that is has now
-		self.items = Bundle.main.decode([Shop].self, from: "shops.json")
+//		self.items = Bundle.main.decode([Shop].self, from: "shops.json")
+		self.items = []
 	}
 	
 	init(oneShop: Shop) {
@@ -77,7 +83,7 @@ class Shops: ObservableObject {
 		}
 		
 	}
-	
+		
 	func updateShopsInMapAreaSorted(within area: MKMapRect, distanceTo point: CLLocationCoordinate2D) {
 		var shopsWithDistance: [ShopWithDistance] = []
 		for shop in items {

@@ -25,10 +25,8 @@ struct MainPage: View {
 			// FIRST ROW
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
-					.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
-					.frame(maxWidth: .infinity)
 			}
 			.padding(.bottom, 0)
 			
@@ -36,20 +34,11 @@ struct MainPage: View {
 			
 			//SECOND ROW
 			HStack (alignment: .bottom) {
-				VStack {
-					Image(systemName: "calendar")
-						.resizable()
-						.aspectRatio(contentMode: .fit)
-					Text("Events")
-				}
-				.foregroundColor(Color.gray.opacity(0.6))
-				.frame(maxWidth: .infinity)
+				NavItem(imageName: "calendar", label: "Events", destinationName: "EVENTS", isSystemName: true)
 				Divider()
 				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
-					.frame(maxWidth: .infinity)
 				Divider()
 				NavItem(imageName: "flavors", label: "Flavors", destinationName: "FLAVORS")
-					.frame(maxWidth: .infinity)
 			}
 			.padding(.top, 0)
 		}
@@ -67,11 +56,21 @@ struct NavItem: View {
 	var imageName: String
 	var label: String
 	var destinationName: String
+	var isSystemName = false
+	
 	@EnvironmentObject var settings: UserSettings
 	
 	var body: some View {
 		VStack{
-			Image(imageName).resizable().aspectRatio(contentMode: .fit)
+			if !isSystemName {
+				Image(imageName)
+				.resizable()
+				.aspectRatio(contentMode: .fit)
+			} else {
+				Image(systemName: imageName)
+				.resizable()
+				.aspectRatio(contentMode: .fit)
+			}
 			Text(label)
 		}
 		.onTapGesture {
@@ -79,6 +78,7 @@ struct NavItem: View {
 				self.settings.curPage = self.destinationName
 			}
 		}
+		.frame(maxWidth: .infinity)
 	}
 }
 

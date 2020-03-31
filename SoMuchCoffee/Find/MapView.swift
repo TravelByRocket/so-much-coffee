@@ -26,6 +26,7 @@ struct MapView: UIViewRepresentable {
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
 			parent.centerCoordinate = mapView.centerCoordinate
 			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
+			print("ran mapViewDidChangeVisibleRegion")
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {

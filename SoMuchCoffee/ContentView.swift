@@ -22,6 +22,7 @@ let timerInterval: CGFloat = 0.05
 
 struct ContentView: View {
 	@EnvironmentObject var settings: UserSettings
+	@EnvironmentObject var allShops: Shops
 	
 	var body: some View {
 		

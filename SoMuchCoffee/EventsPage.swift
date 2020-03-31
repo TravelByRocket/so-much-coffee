@@ -9,12 +9,9 @@
 import SwiftUI
 
 struct EventsPage: View {
-	@EnvironmentObject var allShops: Shops
-	
-	var eventShops: Shops {
-		let filtered = allShops.items.filter { $0.events != "" }
-		return Shops(shops: filtered)
-	}
+	@State var eventShops: Shops = Shops(shops:
+		Bundle.main.decode([Shop].self, from: "shops.json").filter { $0.events != "" }
+	)
 	
 	var body: some View {
 		NavigationView {
@@ -23,33 +20,12 @@ struct EventsPage: View {
 					.navigationBarTitle("Find Events")
 					.navigationBarItems(trailing: GoHome())
 				
-				// BROKEN
-				//				List(eventShops.allWithinMapAreaSortedComputed, id: \.shop.id) {shop in
-				//					NavigationLink(destination: ShopView(shop: shop.shop)) {
-				//						ShopRow(shop: shop)
-				//					}
-				//				}
-				
 				// WORKING ICOMPLETE
 				List(eventShops.items.sorted()) {shop in
 					NavigationLink(destination: ShopView(shop: shop)) {
 						Text(shop.name)
 					}
 				}
-				
-				// BROKEN
-				//				ForEach(eventShops.allWithinMapAreaSortedComputed, id: \.shop.id) {shop in
-				//					NavigationLink(destination: ShopView(shop: shop.shop)) {
-				//						ShopRow(shop: shop)
-				//					}
-				//				}
-				
-//				// TESTING
-//				List (allShops.allWithinMapAreaSorted.filter { $0.shop.roastsOwn ?? false }, id: \.shop.id) {shop in
-//					NavigationLink (destination: ShopView(shop: shop.shop)){
-//						ShopRow(shop: shop) // location for distance is provided through the Shops class
-//					}
-//				}
 			}
 		}
 	}
@@ -58,8 +34,7 @@ struct EventsPage: View {
 struct EventsPage_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			EventsPage()
-				.environmentObject(Shops())
+			EventsPage(eventShops: Shops.example)
 		}
 	}
 }

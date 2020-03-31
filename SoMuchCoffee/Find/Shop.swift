@@ -34,6 +34,18 @@ struct Shop : Identifiable, Codable, Comparable {
 	var socializing = ""
 	var working = ""
 	var summary = ""
+	var roastsOwnRaw = ""
+	var roastsOwn: Bool? {
+		switch roastsOwnRaw {
+		case "yes":
+			return true
+		case "no":
+			return false
+		default:
+			return nil
+		}
+	}
+	var events = ""
 	
 	init(shop: Shop) {
 		self.id = shop.id
@@ -43,12 +55,13 @@ struct Shop : Identifiable, Codable, Comparable {
 		self.longitudeRaw = shop.longitudeRaw
 	}
 	
-	init(id: String, name: String, address: String, latitude: Double, longitude: Double) {
+	init(id: String, name: String, address: String, latitude: Double, longitude: Double, events: String = "") {
 		self.id = id
 		self.name = name
 		self.address = address
 		self.latitudeRaw = String(latitude)
 		self.longitudeRaw = String(longitude)
+		self.events = events
 	}
 	
 	static func < (lhs: Shop, rhs: Shop) -> Bool {

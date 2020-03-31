@@ -16,7 +16,8 @@ class Roasters: ObservableObject {
 		// npm i -g csvtojson
 		// csvtojson shops.csv > shops.json
 		// only issue is that lat/lon surrounded by quotes so for now manually adjusting JSON to fit the Float/Double formatting that is has now
-		self.items = Bundle.main.decode([Roaster].self, from: "roasters.json")
+//		self.items = Bundle.main.decode([Roaster].self, from: "roasters.json")
+		self.items = []
 	}
 	
 	init(roasters: [Roaster]) {

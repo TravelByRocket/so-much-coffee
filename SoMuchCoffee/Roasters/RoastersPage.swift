@@ -18,7 +18,8 @@ struct RoastersPage: View {
 		if searchString == "" {
 			return allRoasters.items.sorted()
 		} else {
-			return allRoasters.items.sorted().filter { $0.name.lowercased().contains(searchString.lowercased()) }
+			return allRoasters.items.sorted().filter { $0.name.lowercased().contains(searchString.lowercased())
+			}
 		}
 	}
 	

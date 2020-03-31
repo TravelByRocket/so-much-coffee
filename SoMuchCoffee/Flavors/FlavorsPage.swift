@@ -21,7 +21,9 @@ struct FlavorsPage: View {
 						ScrollView ([.horizontal, .vertical], showsIndicators: false) {
 							Image("flavorwheel")
 								.resizable()
-								.offset(x: 150, y: 20)
+								.aspectRatio(contentMode: .fit)
+								.offset(x: 450, y: 450)
+								.frame(width: 1500)
 						}
 					} else {
 						Image("flavorwheel")

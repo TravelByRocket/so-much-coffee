@@ -31,7 +31,7 @@ struct MainPage: View {
 						.padding(.horizontal,30)
 					Text("Events")
 				}
-				.foregroundColor(Color.gray)
+				.foregroundColor(Color.gray.opacity(0.6))
 				.frame(maxWidth: .infinity)
 			}
 			.padding([.leading, .trailing])

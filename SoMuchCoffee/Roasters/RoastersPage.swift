@@ -32,7 +32,7 @@ struct RoastersPage: View {
 				List(filteredRoasters) {roaster in
 					NavigationLink(destination: RoasterView(roaster: roaster)) {
 						HStack {
-							Image(systemName: self.shopCountToCircleStringName(roaster))
+							Image(systemName: self.allShops.shopCountToCircleStringName(roaster.id))
 							Text(roaster.name)
 						}
 					}
@@ -43,14 +43,14 @@ struct RoastersPage: View {
 		}
     }
 	
-	func shopCountToCircleStringName(_ roaster: Roaster) -> String {
-		let count = self.allShops.shopsServing(roasterID: roaster.id).count
-		if count <= 50 {
-			return String(count) + ".circle"
-		} else {
-			return "asterisk.circle"
-		}
-	}
+//	func shopCountToCircleStringName(_ roaster: Roaster) -> String {
+//		let count = self.allShops.shopsServing(roasterID: roaster.id).count
+//		if count <= 50 {
+//			return String(count) + ".circle"
+//		} else {
+//			return "asterisk.circle"
+//		}
+//	}
 }
 
 struct RoastersPage_Previews: PreviewProvider {

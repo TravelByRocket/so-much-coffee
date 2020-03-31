@@ -11,7 +11,8 @@ import FontAwesome_swift
 
 struct ShopView: View {
 	@EnvironmentObject var currentShop: ReportingShop
-	@EnvironmentObject var roasters: Roasters
+	@EnvironmentObject var allShops: Shops
+	@EnvironmentObject var allRoasters: Roasters
 	var shop: Shop
 	
 	var body: some View {
@@ -27,9 +28,9 @@ struct ShopView: View {
 					DetailRowDisplayOnly(symbol: "message.fill", str: shop.stayAtHomeOrderNote)
 				}
 				Section (header: Text("Supplying Roasters")) {
-					ForEach (shop.roasters.components(separatedBy: ","), id: \.self) {roaster in
-						NavigationLink(destination: RoasterView(roaster: self.roasters.roasterFromID(roaster))) {
-							DetailRowDisplayOnly(symbol: "r.circle.fill", str: self.roasters.roasterNameFromID(roaster))
+					ForEach (shop.roasters.components(separatedBy: ","), id: \.self) {roasterID in
+						NavigationLink(destination: RoasterView(roaster: self.allRoasters.roasterFromID(roasterID))) {
+							DetailRowDisplayOnly(symbol: self.allShops.shopCountToCircleStringName(roasterID), str: self.allRoasters.roasterNameFromID(roasterID))
 						}
 						
 					}

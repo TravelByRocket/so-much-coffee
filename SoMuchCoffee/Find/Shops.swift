@@ -100,4 +100,13 @@ class Shops: ObservableObject {
 		return matchingShops
 	}
 	
+	func shopCountToCircleStringName(_ roasterID: String) -> String {
+		let count = shopsServing(roasterID: roasterID).count
+		if count <= 50 {
+			return String(count) + ".circle"
+		} else {
+			return "asterisk.circle"
+		}
+	}
+	
 }

@@ -27,7 +27,7 @@ struct RoasterView: View {
 				Section (header: Text("Locations Serving")) {
 					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
 						NavigationLink(destination: ShopView(shop: shop)) {
-							DetailRowDisplayOnly(symbol: "s.circle.fill", str: shop.name)
+							DetailRowDisplayOnly(symbol: "smallcircle.fill.circle", str: shop.name)
 						}
 					}
 				}

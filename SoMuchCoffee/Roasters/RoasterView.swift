@@ -25,7 +25,7 @@ struct RoasterView: View {
 			Text(roaster.description).multilineTextAlignment(.leading)
 			List {
 				Section (header: Text("Locations Serving")) {
-					ForEach (filteredShops.items, id: \.id) {shop in
+					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
 						NavigationLink(destination: ShopView(shop: shop)) {
 							DetailRowDisplayOnly(symbol: "s.circle.fill", str: shop.name)
 						}

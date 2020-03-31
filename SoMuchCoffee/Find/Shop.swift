@@ -9,12 +9,14 @@
 import SwiftUI
 import CoreLocation
 
-struct Shop : Identifiable, Codable {
+struct Shop : Identifiable, Codable, Comparable {
 	var id: String
     var name: String
 	var address: String
-	var latitude: Double
-	var longitude: Double
+	var latitudeRaw: String
+	var latitude: Double { Double(latitudeRaw) ?? 0 }
+	var longitudeRaw: String
+	var longitude: Double { Double(longitudeRaw) ?? 0 }
 	var roasters: String = "" // probably better as [String]? or [String?]
 	var phone: String = ""
 	var instagram: String = ""
@@ -37,16 +39,24 @@ struct Shop : Identifiable, Codable {
 		self.id = shop.id
 		self.name = shop.name
 		self.address = shop.address
-		self.latitude = shop.latitude
-		self.longitude = shop.longitude
+		self.latitudeRaw = shop.latitudeRaw
+		self.longitudeRaw = shop.longitudeRaw
 	}
 	
 	init(id: String, name: String, address: String, latitude: Double, longitude: Double) {
 		self.id = id
 		self.name = name
 		self.address = address
-		self.latitude = latitude
-		self.longitude = longitude
+		self.latitudeRaw = String(latitude)
+		self.longitudeRaw = String(longitude)
+	}
+	
+	static func < (lhs: Shop, rhs: Shop) -> Bool {
+		return lhs.name < rhs.name
+	}
+	
+	static func == (lhs: Shop, rhs: Shop) -> Bool {
+		return lhs.name == rhs.name
 	}
 	
 	var latlon: CLLocationCoordinate2D {

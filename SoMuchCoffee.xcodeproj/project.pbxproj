@@ -1018,6 +1018,7 @@
 				DEVELOPMENT_TEAM = CX9A4TZM67;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SoMuchCoffee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",
@@ -1041,6 +1042,7 @@
 				DEVELOPMENT_TEAM = CX9A4TZM67;
 				ENABLE_PREVIEWS = YES;
 				INFOPLIST_FILE = SoMuchCoffee/Info.plist;
+				IPHONEOS_DEPLOYMENT_TARGET = 13.1;
 				LD_RUNPATH_SEARCH_PATHS = (
 					"$(inherited)",
 					"@executable_path/Frameworks",

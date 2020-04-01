@@ -136,7 +136,7 @@
 		2F11CC0823A2D67B0011BC94 /* Lato-Light.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "Lato-Light.ttf"; sourceTree = "<group>"; };
 		2F11CC1F23A7258E0011BC94 /* MainPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MainPage.swift; sourceTree = "<group>"; };
 		2F11CC2123A732EC0011BC94 /* GoHome.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
-		2F12C8D5239EBB9500BFF066 /* SoMuchCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMuchCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F12C8D5239EBB9500BFF066 /* S-M-C.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = "S-M-C.app"; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F12C8D8239EBB9500BFF066 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = AppDelegate.swift; path = Fonts/AppDelegate.swift; sourceTree = "<group>"; };
 		2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SceneDelegate.swift; sourceTree = "<group>"; };
 		2F12C8DD239EBB9500BFF066 /* SoMuchCoffee.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = SoMuchCoffee.xcdatamodel; sourceTree = "<group>"; };
@@ -292,7 +292,7 @@
 		2F12C8D6239EBB9500BFF066 /* Products */ = {
 			isa = PBXGroup;
 			children = (
-				2F12C8D5239EBB9500BFF066 /* SoMuchCoffee.app */,
+				2F12C8D5239EBB9500BFF066 /* S-M-C.app */,
 				2F12C8EE239EBB9D00BFF066 /* SoMuchCoffeeTests.xctest */,
 				2F12C8F9239EBB9D00BFF066 /* SoMuchCoffeeUITests.xctest */,
 			);
@@ -534,7 +534,7 @@
 			);
 			name = SoMuchCoffee;
 			productName = SoMuchCoffee;
-			productReference = 2F12C8D5239EBB9500BFF066 /* SoMuchCoffee.app */;
+			productReference = 2F12C8D5239EBB9500BFF066 /* S-M-C.app */;
 			productType = "com.apple.product-type.application";
 		};
 		2F12C8ED239EBB9D00BFF066 /* SoMuchCoffeeTests */ = {
@@ -1024,7 +1024,7 @@
 				);
 				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.somuchcoffee.SoMuchCoffee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "S-M-C";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};
@@ -1047,7 +1047,7 @@
 				);
 				MARKETING_VERSION = 0.2.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.somuchcoffee.SoMuchCoffee;
-				PRODUCT_NAME = "$(TARGET_NAME)";
+				PRODUCT_NAME = "S-M-C";
 				SWIFT_VERSION = 5.0;
 				TARGETED_DEVICE_FAMILY = 1;
 			};

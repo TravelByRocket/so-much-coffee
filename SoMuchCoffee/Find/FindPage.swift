@@ -61,9 +61,11 @@ struct FindPage: View {
 					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(trailing: GoHome())
-					Circle()
-						.frame(width: 10, height: 10)
-						.foregroundColor(Color.gray.opacity(0.5))
+//					Circle()
+//						.frame(width: 10, height: 10)
+//						.foregroundColor(Color.gray.opacity(0.5))
+					Image(systemName: "smallcircle.circle")
+					
 //					HStack { // hack-y solution to pushing the locator button to the upper-right
 //						Spacer()
 //						VStack {

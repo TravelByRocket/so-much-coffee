@@ -64,22 +64,22 @@ struct FindPage: View {
 					Circle()
 						.frame(width: 10, height: 10)
 						.foregroundColor(Color.gray.opacity(0.5))
-					HStack { // hack-y solution to pushing the locator button to the upper-right
-						Spacer()
-						VStack {
-							Image(systemName: "location.fill")
-								.foregroundColor(Color.blue)
-								.frame(width:10, height: 10)
-								.padding(10)
-								.background(Color.gray.opacity(0.3))
-								.overlay(RoundedRectangle(cornerRadius: 4.0).stroke(lineWidth: 0.5))
-								.padding(10)
-								.onTapGesture {
-									self.locationSource = .userLocation
-							}
-							Spacer()
-						}
-					}
+//					HStack { // hack-y solution to pushing the locator button to the upper-right
+//						Spacer()
+//						VStack {
+//							Image(systemName: "location.fill")
+//								.foregroundColor(Color.blue)
+//								.frame(width:10, height: 10)
+//								.padding(10)
+//								.background(Color.gray.opacity(0.6))
+//								.overlay(RoundedRectangle(cornerRadius: 4.0).stroke(lineWidth: 0.5))
+//								.padding(10)
+//								.onTapGesture {
+//									self.locationSource = .userLocation
+//							}
+//							Spacer()
+//						}
+//					}
 				}
 				List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 					NavigationLink (destination: ShopView(shop: shop.shop)){

@@ -63,7 +63,7 @@ struct FindPage: View {
 						.navigationBarItems(trailing: GoHome())
 					Circle()
 						.frame(width: 10, height: 10)
-						.foregroundColor(Color.orange.opacity(0.5))
+						.foregroundColor(Color.gray.opacity(0.5))
 					HStack { // hack-y solution to pushing the locator button to the upper-right
 						Spacer()
 						VStack {

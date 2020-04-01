@@ -21,8 +21,8 @@ struct RoasterView: View {
     var body: some View {
 		VStack {
 			MapView(shops: filteredShops, centerCoordinate: filteredShops.centerOfShops, latitudeDelta: filteredShops.latitudeDeltaOfShops, longitudeDelta: filteredShops.longitudeDeltaOfShops)
-			Text(roaster.name).font(.title).multilineTextAlignment(.center)
-			Text(roaster.description).multilineTextAlignment(.leading)
+			Text(roaster.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
+			Text(roaster.description).multilineTextAlignment(.leading).padding(.horizontal)
 			List {
 				Section (header: Text("Locations Serving")) {
 					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
@@ -42,8 +42,6 @@ struct RoasterView: View {
 			}
 		}
 		.edgesIgnoringSafeArea(.top)
-//		.navigationBarTitle(roaster.name)
-//		.navigationBarHidden(true)
     }
 }
 

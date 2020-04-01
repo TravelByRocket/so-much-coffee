@@ -21,8 +21,8 @@ struct ShopView: View {
 				.onAppear() {
 					self.currentShop.shop = self.shop
 			}
-			Text(shop.name).font(.title).multilineTextAlignment(.center)
-			Text(shop.summary).multilineTextAlignment(.leading)
+			Text(shop.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
+			Text(shop.summary).multilineTextAlignment(.leading).padding(.horizontal)
 			List {
 				Section (header: Text("Support During COVID-19 Stay at Home Order")) {
 					DetailRowDisplayOnly(symbol: "message.fill", str: shop.stayAtHomeOrderNote)

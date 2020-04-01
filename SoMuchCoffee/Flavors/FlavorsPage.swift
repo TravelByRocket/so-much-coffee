@@ -13,7 +13,6 @@ struct FlavorsPage: View {
 	@State var sheetIsPresented = false
 	
 	var body: some View {
-//		NavigationView {
 			VStack {
 				ZStack {
 					Color.white.edgesIgnoringSafeArea(.all)
@@ -38,14 +37,9 @@ struct FlavorsPage: View {
 						}
 					}
 				}
-				
 			}
-//			.background(Color.white.edgesIgnoringSafeArea(.all))
-//			.navigationBarTitle(isZoomed ? "" : "Flavor Wheel")
-//			.navigationBarItems(trailing: GoHome())
 			.sheet(isPresented: $sheetIsPresented) {
 			SafariView(url:URL(string: "https://counterculturecoffee.com/learn/resource-center/coffee-tasters-flavor-wheel")!) }
-//		}
 	}
 }
 

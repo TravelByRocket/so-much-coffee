@@ -10,9 +10,11 @@ import SwiftUI
 
 struct CoffeesPage: View {
 	var allCoffee: [Coffee] = Coffees.everyFromJSON
+	var allOrigins: Origins = Origins.all
+	
 	@EnvironmentObject var allRoasters: Roasters
 	
-	var countries: [String] {
+	var originIDs: [String] {
 		let set = Set(allCoffee.map { $0.originID })
 		let array = Array(set)
 		return array.sorted()
@@ -21,14 +23,32 @@ struct CoffeesPage: View {
     var body: some View {
 		NavigationView {
 			VStack {
-				Text("Countries of Origin").font(.largeTitle)
-				Text("Single Origin Coffee")
-				List(countries, id: \.self) { country in
-					NavigationLink (destination: CountryView(country: country)) {
-						Image(systemName: "\(self.allCoffee.filter { $0.originID == country }.count).circle")
-						Text(country)
+				Text("Coffee Origins").font(.largeTitle)
+				Text("Only Single Origin Roasts")
+				List {
+					Section (header: Text("By Region")) {
+						ForEach(allOrigins.regionNames, id: \.self) {region in
+							NavigationLink (destination: RegionView(regionName: region)) {
+								Text(region)
+							}
+						}
+					}
+					Section (header: Text("All Origins")) {
+						ForEach(originIDs, id: \.self) { originID in
+							NavigationLink (destination: OriginView(origin: self.allOrigins.originFromID(originID))) {
+								Image(systemName: "\(self.allCoffee.filter { $0.originID == originID }.count).circle")
+								Text(self.allOrigins.originFromID(originID).name)
+							}
+						}
 					}
 				}
+				
+//				List(originIDs, id: \.self) { originID in
+//					NavigationLink (destination: OriginView(origin: self.allOrigins.originFromID(originID))) {
+//						Image(systemName: "\(self.allCoffee.filter { $0.originID == originID }.count).circle")
+//						Text(self.allOrigins.originFromID(originID).name)
+//					}
+//				}
 			}
 		.navigationBarItems(trailing: GoHome())
 		}

@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct CoffeesPage: View {
-	var allCoffees: [Coffee] = Bundle.main.decode([Coffee].self, from: "coffees.json")
+	var allCoffee: [Coffee] = Coffees.everyFromJSON
 	@EnvironmentObject var allRoasters: Roasters
 	
 	var countries: [String] {
-		let set = Set(allCoffees.map { $0.originID })
+		let set = Set(allCoffee.map { $0.originID })
 		let array = Array(set)
 		return array.sorted()
 	}
@@ -25,7 +25,7 @@ struct CoffeesPage: View {
 				Text("Single Origin Coffee")
 				List(countries, id: \.self) { country in
 					NavigationLink (destination: CountryView(country: country)) {
-						Image(systemName: "\(self.allCoffees.filter { $0.originID == country }.count).circle")
+						Image(systemName: "\(self.allCoffee.filter { $0.originID == country }.count).circle")
 						Text(country)
 					}
 				}
@@ -38,6 +38,6 @@ struct CoffeesPage: View {
 struct CoffeesPage_Previews: PreviewProvider {
     static var previews: some View {
         CoffeesPage()
-			.environmentObject(Roasters.load())
+			.environmentObject(Roasters.all)
     }
 }

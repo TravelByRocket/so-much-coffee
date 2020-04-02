@@ -8,6 +8,15 @@
 
 import SwiftUI
 
-//struct Coffees {
-//	<#fields#>
-//}
+struct Coffees {
+	let items: [Coffee]
+		
+	static var everyFromJSON: [Coffee] {
+		Bundle.main.decode([Coffee].self, from: "coffees.json")
+	}
+	
+	static var all: Coffees {
+		Coffees(items: everyFromJSON)
+	}
+	
+}

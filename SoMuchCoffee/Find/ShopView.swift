@@ -343,7 +343,9 @@ struct InstagramRow: View {
 
 struct WebsiteRow: View {
 	let url: String
+	var msg: String = ""
+	
 	var body: some View {
-		DetailRowActionableFA(name: .globe, type: .solid, str: url, url: url, rawString: url)
+		DetailRowActionableFA(name: .globe, type: .solid, str: (msg.isEmpty ? url : msg), url: url, rawString: url)
 	}
 }

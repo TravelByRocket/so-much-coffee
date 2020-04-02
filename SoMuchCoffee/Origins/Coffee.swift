@@ -8,7 +8,8 @@
 
 import SwiftUI
 
-struct Coffee: Codable, Hashable, Comparable {
+struct Coffee: Decodable, Hashable, Comparable {
+//	var id = UUID() // breaks decodable and would be easier to just use \.self for List at this point
 	var name: String
 	var originID: String
 	var roasterID: String

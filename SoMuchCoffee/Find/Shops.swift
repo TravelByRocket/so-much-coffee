@@ -114,5 +114,13 @@ class Shops: ObservableObject {
 			return "asterisk.circle"
 		}
 	}
+		
+	static var everyFromJSON: [Shop] {
+		Bundle.main.decode([Shop].self, from: "shops.json")
+	}
+	
+	static var all: Shops {
+		Shops(shops: everyFromJSON)
+	}
 	
 }

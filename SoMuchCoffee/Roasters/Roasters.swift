@@ -40,7 +40,11 @@ class Roasters: ObservableObject {
 		}
 	}
 	
-	static func load () -> Roasters {
-		Roasters(roasters: Bundle.main.decode([Roaster].self, from: "roasters.json"))
+	static var everyFromJSON: [Roaster] {
+		Bundle.main.decode([Roaster].self, from: "roasters.json")
+	}
+	
+	static var all: Roasters {
+		Roasters(roasters: everyFromJSON)
 	}
 }

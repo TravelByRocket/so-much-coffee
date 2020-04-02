@@ -9,23 +9,39 @@
 import SwiftUI
 
 struct CoffeeView: View {
-	var coffee: Coffee
+	let coffee: Coffee
 	
-	@State private var showSheet = false
+	let allCoffees = Coffees.all
+	let allOrigins = Origins.all
 	
 	@EnvironmentObject var allRoasters: Roasters
+
+	var roaster: Roaster {
+		allRoasters.roasterFromID(coffee.roasterID)
+	}
 	
     var body: some View {
 		VStack {
-			Text(coffee.name).font(.title)
-			Text(coffee.roasterID)
+			Text(coffee.name).font(.largeTitle).multilineTextAlignment(.center).padding()
+			Text("from \(allOrigins.originFromID(coffee.originID).name)")
+			Text("by \(roaster.name)")
 			List {
-//				.frame(maxWidth: .infinity)
-				Text(coffee.originID)
-				NavigationLink(destination: RoasterView(roaster: allRoasters.roasterFromID(coffee.roasterID))) {
-					Text(allRoasters.roasterNameFromID(coffee.roasterID))
+				Section (header: Text("Explore")) {
+					NavigationLink (destination: Text("Still working on this")) {
+						Text(allOrigins.originFromID(coffee.originID).regionName)
+					}
+					NavigationLink (destination: OriginView(origin: allOrigins.originFromID(coffee.originID))) {
+						Text(allOrigins.originFromID(coffee.originID).name)
+					}
+					NavigationLink(destination: RoasterView(roaster: roaster)) {
+						Text(allRoasters.roasterFromID(coffee.roasterID).name)
+					}
 				}
-				WebsiteRow(url: coffee.url)
+				Section (header: Text("Order Online")) {
+					DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer Details: "+roaster.code))
+					DetailRowDisplayOnly(symbol: "barcode", str: ("Offer Code: "+roaster.code))
+					WebsiteRow(url: coffee.url, msg: "\(coffee.name) Product Page")
+				}
 			}
 		}
     }
@@ -34,7 +50,8 @@ struct CoffeeView: View {
 struct CoffeeView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			CoffeeView(coffee: Coffee.example)
+			CoffeeView(coffee: Coffees.oneFromJSON)
+				.environmentObject(Roasters.all)
 		}
     }
 }

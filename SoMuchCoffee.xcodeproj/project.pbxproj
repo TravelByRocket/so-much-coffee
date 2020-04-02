@@ -26,8 +26,11 @@
 		2F34CCB82435ABB700D7A5F2 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCB72435ABB700D7A5F2 /* Coffee.swift */; };
 		2F34CCBA2435AC7B00D7A5F2 /* Coffees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */; };
 		2F34CCBC2435AD0700D7A5F2 /* CoffeesPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCBB2435AD0700D7A5F2 /* CoffeesPage.swift */; };
-		2F34CCBE2435B7D500D7A5F2 /* CountryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCBD2435B7D500D7A5F2 /* CountryView.swift */; };
+		2F34CCBE2435B7D500D7A5F2 /* OriginView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCBD2435B7D500D7A5F2 /* OriginView.swift */; };
 		2F34CCC02435B9D300D7A5F2 /* CoffeeView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCBF2435B9D300D7A5F2 /* CoffeeView.swift */; };
+		2F34CCC824367FD100D7A5F2 /* origins.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F34CCC724367FD100D7A5F2 /* origins.json */; };
+		2F34CCCB2436800600D7A5F2 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCC92436800600D7A5F2 /* Origin.swift */; };
+		2F34CCCC2436800600D7A5F2 /* Origins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCCA2436800600D7A5F2 /* Origins.swift */; };
 		2F3F0E3424307CEA004FC8B3 /* roasters.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3324307CEA004FC8B3 /* roasters.json */; };
 		2F3F0E3624310B03004FC8B3 /* RoasterView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3524310B03004FC8B3 /* RoasterView.swift */; };
 		2F3F0E3824310D76004FC8B3 /* Roaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3724310D76004FC8B3 /* Roaster.swift */; };
@@ -39,6 +42,7 @@
 		2F4EFD4324283F3A00404A2A /* OriginsRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4224283F3A00404A2A /* OriginsRow.swift */; };
 		2F4EFD472428461100404A2A /* RegionPages.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD462428461000404A2A /* RegionPages.swift */; };
 		2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F4EFD4824285A2400404A2A /* SafariView.swift */; };
+		2F666C42243695F500256D3D /* RegionView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F666C41243695F500256D3D /* RegionView.swift */; };
 		2F66CFFC2433B25700E78865 /* EventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F66CFFB2433B25700E78865 /* EventsPage.swift */; };
 		2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCE92426A7D5006CC990 /* Shops.swift */; };
 		2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */; };
@@ -163,8 +167,11 @@
 		2F34CCB72435ABB700D7A5F2 /* Coffee.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
 		2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffees.swift; sourceTree = "<group>"; };
 		2F34CCBB2435AD0700D7A5F2 /* CoffeesPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeesPage.swift; sourceTree = "<group>"; };
-		2F34CCBD2435B7D500D7A5F2 /* CountryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CountryView.swift; sourceTree = "<group>"; };
+		2F34CCBD2435B7D500D7A5F2 /* OriginView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginView.swift; sourceTree = "<group>"; };
 		2F34CCBF2435B9D300D7A5F2 /* CoffeeView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeView.swift; sourceTree = "<group>"; };
+		2F34CCC724367FD100D7A5F2 /* origins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = origins.json; sourceTree = "<group>"; };
+		2F34CCC92436800600D7A5F2 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		2F34CCCA2436800600D7A5F2 /* Origins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origins.swift; sourceTree = "<group>"; };
 		2F3F0E3324307CEA004FC8B3 /* roasters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roasters.json; sourceTree = "<group>"; };
 		2F3F0E3524310B03004FC8B3 /* RoasterView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterView.swift; sourceTree = "<group>"; };
 		2F3F0E3724310D76004FC8B3 /* Roaster.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roaster.swift; sourceTree = "<group>"; };
@@ -176,6 +183,7 @@
 		2F4EFD4224283F3A00404A2A /* OriginsRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsRow.swift; sourceTree = "<group>"; };
 		2F4EFD462428461000404A2A /* RegionPages.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionPages.swift; sourceTree = "<group>"; };
 		2F4EFD4824285A2400404A2A /* SafariView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		2F666C41243695F500256D3D /* RegionView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RegionView.swift; sourceTree = "<group>"; };
 		2F66CFFB2433B25700E78865 /* EventsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = EventsPage.swift; sourceTree = "<group>"; };
 		2F6AFCE92426A7D5006CC990 /* Shops.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Shops.swift; sourceTree = "<group>"; };
 		2F6AFCEB2426ECA4006CC990 /* ShopRow.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
@@ -499,15 +507,19 @@
 		2FB0749A23B31DA300A7EB7B /* Origins */ = {
 			isa = PBXGroup;
 			children = (
-				2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */,
 				2F34CCBB2435AD0700D7A5F2 /* CoffeesPage.swift */,
-				2F34CCBD2435B7D500D7A5F2 /* CountryView.swift */,
+				2F666C41243695F500256D3D /* RegionView.swift */,
+				2F34CCBD2435B7D500D7A5F2 /* OriginView.swift */,
 				2F34CCBF2435B9D300D7A5F2 /* CoffeeView.swift */,
-				2F4EFD462428461000404A2A /* RegionPages.swift */,
 				2F4EFD4224283F3A00404A2A /* OriginsRow.swift */,
 				2F34CCB72435ABB700D7A5F2 /* Coffee.swift */,
 				2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */,
 				2F34CCB52435A74900D7A5F2 /* coffees.json */,
+				2F34CCC92436800600D7A5F2 /* Origin.swift */,
+				2F34CCCA2436800600D7A5F2 /* Origins.swift */,
+				2F34CCC724367FD100D7A5F2 /* origins.json */,
+				2FB0749E23B31E1F00A7EB7B /* OriginsPage.swift */,
+				2F4EFD462428461000404A2A /* RegionPages.swift */,
 			);
 			path = Origins;
 			sourceTree = "<group>";
@@ -657,6 +669,7 @@
 				2FAC603323B17D1600122255 /* noun_Map_2665257.svg in Resources */,
 				2FAC604723B17D1600122255 /* noun_timer_1338698.svg in Resources */,
 				2FAC605223B17D1600122255 /* noun_chemex_1025620.svg in Resources */,
+				2F34CCC824367FD100D7A5F2 /* origins.json in Resources */,
 				2FB0744023B2DA0000A7EB7B /* icon80.png in Resources */,
 				2FAC603B23B17D1600122255 /* noun_Spider chart_762110.svg in Resources */,
 				2F11CC0A23A2D67B0011BC94 /* Lato-Light.ttf in Resources */,
@@ -852,6 +865,7 @@
 				2FB0749F23B31E1F00A7EB7B /* OriginsPage.swift in Sources */,
 				2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */,
 				2FB0749423B2F6A900A7EB7B /* MapView.swift in Sources */,
+				2F666C42243695F500256D3D /* RegionView.swift in Sources */,
 				2F11CC2223A732EC0011BC94 /* GoHome.swift in Sources */,
 				2F11CC2023A7258E0011BC94 /* MainPage.swift in Sources */,
 				2F12C8E0239EBB9500BFF066 /* ContentView.swift in Sources */,
@@ -862,15 +876,17 @@
 				2F3F0E3A24310D84004FC8B3 /* Roasters.swift in Sources */,
 				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
 				2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */,
-				2F34CCBE2435B7D500D7A5F2 /* CountryView.swift in Sources */,
+				2F34CCBE2435B7D500D7A5F2 /* OriginView.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
 				2F3F0E3624310B03004FC8B3 /* RoasterView.swift in Sources */,
 				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,
 				2FB0749223B2F66D00A7EB7B /* ShopView.swift in Sources */,
 				2F34CCBC2435AD0700D7A5F2 /* CoffeesPage.swift in Sources */,
 				2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */,
+				2F34CCCC2436800600D7A5F2 /* Origins.swift in Sources */,
 				2F34CCB82435ABB700D7A5F2 /* Coffee.swift in Sources */,
 				2F34CCBA2435AC7B00D7A5F2 /* Coffees.swift in Sources */,
+				2F34CCCB2436800600D7A5F2 /* Origin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

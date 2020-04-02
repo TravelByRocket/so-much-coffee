@@ -23,8 +23,4 @@ struct Coffee: Decodable, Hashable, Comparable {
 		// return lhs.hashValue == rhs.hashValue
 		return lhs.name == rhs.name
 	}
-	
-	static var example: Coffee {
-		Coffee(name: "Generic Roast", originID: "ecuador", roasterID: "sweetbloom", url: "http://somuchcoffee.co")
-	}
 }

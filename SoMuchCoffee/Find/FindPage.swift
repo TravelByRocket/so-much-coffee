@@ -53,39 +53,39 @@ struct FindPage: View {
 	enum LocationSource {
 		case shopsCenter, userLocation
 	}
+	
+	@State private var showList = true
 
 	var body: some View {
 		NavigationView {
 			VStack {
 				ZStack {
 					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
-						.navigationBarItems(trailing: GoHome())
-//					Circle()
-//						.frame(width: 10, height: 10)
-//						.foregroundColor(Color.gray.opacity(0.5))
-					Image(systemName: "smallcircle.circle")
-					
-//					HStack { // hack-y solution to pushing the locator button to the upper-right
-//						Spacer()
-//						VStack {
-//							Image(systemName: "location.fill")
-//								.foregroundColor(Color.blue)
-//								.frame(width:10, height: 10)
-//								.padding(10)
-//								.background(Color.gray.opacity(0.6))
-//								.overlay(RoundedRectangle(cornerRadius: 4.0).stroke(lineWidth: 0.5))
-//								.padding(10)
-//								.onTapGesture {
-//									self.locationSource = .userLocation
-//							}
-//							Spacer()
-//						}
-//					}
+						.navigationBarItems(trailing:
+								GoHome()
+					)
+					Image(systemName: "smallcircle.circle").opacity(0.7)
+
+					HStack {
+						Spacer()
+						VStack {
+							Spacer()
+							Image(systemName: "arrow.up.arrow.down.square").font(.title).padding()
+								.onTapGesture {
+									withAnimation {
+										self.showList.toggle()
+									}
+							}
+						}
+					}
 				}
-				List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
-					NavigationLink (destination: ShopView(shop: shop.shop)){
-						ShopRow(shop: shop) // location for distance is provided through the Shops class
+				if showList {
+					List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+						NavigationLink (destination: ShopView(shop: shop.shop)){
+							ShopRow(shop: shop) // location for distance is provided through the Shops class
+						}
 					}
 				}
 			}
@@ -96,6 +96,8 @@ struct FindPage: View {
 struct FindPage_Previews: PreviewProvider {
 	static var previews: some View {
 		FindPage()
+		.environmentObject(Shops.example)
+		.environmentObject(Roasters())
 	}
 }
 

@@ -505,9 +505,9 @@
 				2F34CCBF2435B9D300D7A5F2 /* CoffeeView.swift */,
 				2F4EFD462428461000404A2A /* RegionPages.swift */,
 				2F4EFD4224283F3A00404A2A /* OriginsRow.swift */,
-				2F34CCB52435A74900D7A5F2 /* coffees.json */,
 				2F34CCB72435ABB700D7A5F2 /* Coffee.swift */,
 				2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */,
+				2F34CCB52435A74900D7A5F2 /* coffees.json */,
 			);
 			path = Origins;
 			sourceTree = "<group>";

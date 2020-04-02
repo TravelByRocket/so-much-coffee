@@ -34,7 +34,7 @@ struct ContentView: View {
 			} else if settings.curPage == "ROASTERS" {
 				RoastersPage()
 			} else if settings.curPage == "ORIGINS" {
-				OriginsPage()
+				CoffeesPage()
 			} else if settings.curPage == "FLAVORS" {
 				FlavorsPage()
 			} else if settings.curPage == "EVENTS" {

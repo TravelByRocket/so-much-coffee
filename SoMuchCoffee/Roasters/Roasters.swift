@@ -39,4 +39,8 @@ class Roasters: ObservableObject {
 			return Roaster.blankRoaster()
 		}
 	}
+	
+	static func load () -> Roasters {
+		Roasters(roasters: Bundle.main.decode([Roaster].self, from: "roasters.json"))
+	}
 }

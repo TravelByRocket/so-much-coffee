@@ -238,23 +238,6 @@ func sendEmail(addr: String) {
 	}
 }
 
-struct FontAwesomeIcon: View {
-	let name: FontAwesome
-	let type: FontAwesomeStyle
-	
-	var body: some View {
-		Image(uiImage: UIImage.fontAwesomeIcon(
-			name: name,
-			style: type,
-			textColor: .black,
-			size: CGSize(width: 25, height: 25)))
-			.padding(2)
-			.background(Color.white)
-			.mask(RoundedRectangle(cornerRadius: 3.0))
-			.padding(.leading,-5)
-	}
-}
-
 struct DetailRowActionableFA: View {
 	@State private var showSheet = false
 	let name: FontAwesome
@@ -280,54 +263,7 @@ struct DetailRowActionableFA: View {
 	}
 }
 
-struct DetailRowDisplayOnly: View {
-	let symbol: String
-	let str: String
-	
-	var body: some View {
-		HStack {
-			Image(systemName: symbol)
-			if (str != "") {
-				HStack {
-					Text(str)
-				}
-			} else {
-				NotAvailable()
-			}
-		}
-	}
-}
 
-struct DetailRowDisplayOnlyFA: View {
-	let name: FontAwesome
-	let type: FontAwesomeStyle
-	let str: String
-	
-	var body: some View {
-		HStack {
-			FontAwesomeIcon(name: name, type: type)
-			if (str != "") {
-				HStack {
-					Text(str)
-				}
-			} else {
-				NotAvailable()
-			}
-		}
-	}
-}
-
-struct NotAvailable: View {
-	@EnvironmentObject var currentShop: ReportingShop
-	var body: some View {
-		Text("No info. Click to provide details.")
-			.italic()
-			.foregroundColor(Color.secondary)
-			.onTapGesture {
-				sendEmail(addr: "app@somuchcoffee.co?subject=Correction%20for%20Shop%20%22\(self.currentShop.shop!.id)%22")
-		}
-	}
-}
 
 class ReportingShop: ObservableObject {
 	@Published var shop: Shop?
@@ -341,11 +277,3 @@ struct InstagramRow: View {
 	}
 }
 
-struct WebsiteRow: View {
-	let url: String
-	var msg: String = ""
-	
-	var body: some View {
-		DetailRowActionableFA(name: .globe, type: .solid, str: (msg.isEmpty ? url : msg), url: url, rawString: url)
-	}
-}

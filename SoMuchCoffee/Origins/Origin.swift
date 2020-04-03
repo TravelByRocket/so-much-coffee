@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct Origin: Decodable, Hashable, Comparable {
-	let id: String
-	let name: String
-	let regionName: String
-	let wikiURL: String = ""
-	let atlasURL: String = ""
-	let cafeImportURL: String = ""
-	let otherURL1: String = ""
-	let otherURL2: String = ""
+	var id: String
+	var name: String
+	var regionName: String
+	var wikiURL: String = ""
+	var atlasURL: String = ""
+	var cafeImportURL: String = ""
+	var otherURL1: String = ""
+	var otherURL2: String = ""
 	
 	static func < (lhs: Origin, rhs: Origin) -> Bool {
 		return lhs.name < rhs.name

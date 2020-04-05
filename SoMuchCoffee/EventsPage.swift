@@ -9,24 +9,28 @@
 import SwiftUI
 
 struct EventsPage: View {
-	@State var eventShops: Shops = Shops(shops:
-		Bundle.main.decode([Shop].self, from: "shops.json").filter { $0.events != "" }
-	)
+	@State private var showList = true
+	@ObservedObject private var eventShops: Shops = Shops(shops: Shops.everyFromJSON.filter { $0.events != "" })
 	
 	var body: some View {
 		NavigationView {
 			VStack {
-				MapView(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
-					.navigationBarTitle("Find Events")
-					.navigationBarItems(trailing: GoHome())
-				
-				// WORKING ICOMPLETE
-				List(eventShops.items.sorted()) {shop in
-					NavigationLink(destination: ShopView(shop: shop)) {
-						Text(shop.name)
+				ZStack {
+					MapView(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
+						.edgesIgnoringSafeArea(.bottom)
+						.navigationBarTitle("Find Events")
+						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
+					Image(systemName: "smallcircle.circle").opacity(0.7)
+				}
+				if showList {
+					List (eventShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+						NavigationLink (destination: ShopView(shop: shop.shop)){
+							ShopRow(shop: shop) // location for distance is provided through the Shops class
+						}
 					}
 				}
 			}
+			.animation(.default)
 		}
 	}
 }
@@ -34,7 +38,7 @@ struct EventsPage: View {
 struct EventsPage_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			EventsPage(eventShops: Shops.example)
+			EventsPage()
 		}
 	}
 }

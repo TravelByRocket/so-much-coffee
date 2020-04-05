@@ -66,7 +66,6 @@ struct FindPage: View {
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
-				.animation(.default)
 				if showList {
 					List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 						NavigationLink (destination: ShopView(shop: shop.shop)){
@@ -75,6 +74,7 @@ struct FindPage: View {
 					}
 				}
 			}
+			.animation(.default)
 		}
 	}	
 }

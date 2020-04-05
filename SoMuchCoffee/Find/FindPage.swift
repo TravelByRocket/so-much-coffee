@@ -55,7 +55,7 @@ struct FindPage: View {
 	}
 	
 	@State private var showList = true
-
+	
 	var body: some View {
 		NavigationView {
 			VStack {
@@ -63,24 +63,10 @@ struct FindPage: View {
 					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
-						.navigationBarItems(trailing:
-								GoHome()
-					)
+						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
 					Image(systemName: "smallcircle.circle").opacity(0.7)
-
-					HStack {
-						Spacer()
-						VStack {
-							Spacer()
-							Image(systemName: "arrow.up.arrow.down.square").font(.title).padding()
-								.onTapGesture {
-									withAnimation {
-										self.showList.toggle()
-									}
-							}
-						}
-					}
 				}
+				.animation(.default)
 				if showList {
 					List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 						NavigationLink (destination: ShopView(shop: shop.shop)){
@@ -93,11 +79,30 @@ struct FindPage: View {
 	}	
 }
 
+struct ShowHideList: View {
+	@Binding var showList: Bool
+	
+	var body: some View {
+		HStack {
+			Image(systemName: showList ? "arrow.down.square" : "arrow.up.square")
+				.onTapGesture {
+					self.showList.toggle()
+			}
+			
+			Text(showList ? "Hide List" : "Show List")
+			Spacer()
+		}
+		.frame(width: 150)
+		.background(Color.yellow)
+	}
+}
+
+
 struct FindPage_Previews: PreviewProvider {
 	static var previews: some View {
 		FindPage()
-		.environmentObject(Shops.example)
-		.environmentObject(Roasters())
+			.environmentObject(Shops.example)
+			.environmentObject(Roasters())
 	}
 }
 

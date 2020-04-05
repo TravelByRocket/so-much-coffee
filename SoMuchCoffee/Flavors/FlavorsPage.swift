@@ -62,10 +62,21 @@ struct FlavorWheel: View {
 						.frame(width: 1500)
 				}
 			} else {
-				Image(systemName: "plus.magnifyingglass").foregroundColor(Color.black).font(.largeTitle)
 				Image("flavorwheel")
 					.resizable()
 					.aspectRatio(contentMode: .fit)
+				.overlay(
+					VStack {
+						HStack {
+							Spacer()
+							Image(systemName: "plus.magnifyingglass")
+								.foregroundColor(Color.black)
+								.font(.largeTitle)
+								.padding(50)
+						}
+						Spacer()
+					}
+				)
 			}
 		}
 		.onTapGesture {withAnimation {self.isZoomed.toggle()}}

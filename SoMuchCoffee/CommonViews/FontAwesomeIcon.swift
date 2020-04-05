@@ -9,11 +9,12 @@
 import SwiftUI
 import FontAwesome_swift
 
+/// FA icon as Image, styled to match Image(systemName: "SFSymbolName") and dark-responding
 struct FontAwesomeIcon: View {
 	let name: FontAwesome
 	let type: FontAwesomeStyle
 	
-	@Environment(\.colorScheme) var colorScheme
+	@Environment(\.colorScheme) private var colorScheme
 	
 	var body: some View {
 		Image(uiImage: UIImage.fontAwesomeIcon(

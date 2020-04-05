@@ -13,6 +13,9 @@ struct RoasterView: View {
 	
 	@EnvironmentObject var allShops: Shops
 	
+	var allCoffees: [Coffee] = Coffees.everyFromJSON
+	var allOrigins: Origins = Origins.all
+	
 	var filteredShops: Shops {
 		let filtered = allShops.shopsServing(roasterID: roaster.id)
 		return Shops(shops: filtered)
@@ -28,6 +31,18 @@ struct RoasterView: View {
 					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
 						NavigationLink(destination: ShopView(shop: shop)) {
 							DetailRowDisplayOnly(symbol: (shop.roastsOwn ?? false ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
+						}
+					}
+				}
+				Section (header: Text("Roasts")) {
+					ForEach(allCoffees.filter { $0.roasterID == roaster.id }.sorted(), id: \.self) {coffee in
+						NavigationLink(destination: CoffeeView(coffee: coffee)) {
+							VStack (alignment: .leading) {
+								Text(coffee.name)
+								Text(self.allOrigins.originFromID(coffee.originID).name)
+									.foregroundColor(Color.secondary)
+									.font(.caption)
+							}
 						}
 					}
 				}

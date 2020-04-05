@@ -93,7 +93,6 @@ struct ShowHideList: View {
 			Spacer()
 		}
 		.frame(width: 150)
-		.background(Color.yellow)
 	}
 }
 

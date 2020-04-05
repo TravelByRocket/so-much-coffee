@@ -19,13 +19,6 @@ struct OriginView: View {
 		VStack {
 			Text("Roasts from \(origin.name)").font(.title).padding().multilineTextAlignment(.center)
 			List {
-				Section (header: Text("Resources")) {
-					WebsiteRow(url: origin.wikiURL, msg: "Wikipedia")
-					WebsiteRow(url: origin.atlasURL, msg: "Atlas Coffee Importers")
-					WebsiteRow(url: origin.cafeImportURL, msg: "Cafe Imports")
-					WebsiteRow(url: origin.otherURL1, msg: "Other URL")
-					WebsiteRow(url: origin.otherURL2, msg: "Other URL")
-				}
 				Section (header: Text("Roasts")) {
 					ForEach(allCoffees.filter { $0.originID == origin.id }.sorted(), id: \.self) {coffee in
 						NavigationLink(destination: CoffeeView(coffee: coffee)) {
@@ -38,9 +31,39 @@ struct OriginView: View {
 						}
 					}
 				}
+				Section (header: Text("Learn More")) {
+					ResourcesView(urls: [ // hack-y to the point of sadness but it is working as desired
+						origin.wikiURL,
+						origin.atlasURL,
+						origin.cafeImportURL,
+						origin.otherURL1,
+						origin.otherURL2
+					])
+				}
 			}
 		}
     }
+}
+
+struct ResourcesView: View {
+	let urls: [String]
+	let labels = ["Wikipedia","Atlas Coffee Importers","Cafe Imports","Other URL 1","Other URL 2"]
+	
+	var merged: [(String, String)] {
+		return [ // this is so bad but having issues with loops, typing, initializing with tuple
+			(urls[0],labels[0]),
+			(urls[1],labels[1]),
+			(urls[2],labels[2]),
+			(urls[3],labels[3]),
+			(urls[4],labels[4])
+		]
+	}
+	
+	var body: some View {
+		ForEach (merged.filter { $0.0 != "" }, id: \.1) {pair in
+			DetailRowActionableFA(name: .globe, type: .solid, str: pair.1, url: pair.0, rawString: pair.0)
+		}
+	}
 }
 
 struct CountryView_Previews: PreviewProvider {

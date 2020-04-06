@@ -11,6 +11,8 @@ import SwiftUI
 struct MainPage: View {
 	@State private var showAbout = false
 	
+	@EnvironmentObject var mapStatus: MapStatusManager
+	
 	var body: some View {
 		VStack {
 			// TITLE
@@ -43,6 +45,9 @@ struct MainPage: View {
 			.padding(.top, 0)
 		}
 		.padding(.horizontal)
+		.onAppear() {
+			self.mapStatus.reset()
+		}
 	}
 }
 

@@ -15,6 +15,9 @@ struct MapView: UIViewRepresentable {
 	var latitudeDelta: Double
 	var longitudeDelta: Double
 	var showMarker = true
+	var keepMapLocation = false
+	
+	@EnvironmentObject var mapStatus: MapStatusManager
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
 		var parent: MapView
@@ -26,6 +29,13 @@ struct MapView: UIViewRepresentable {
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
 			parent.centerCoordinate = mapView.centerCoordinate
 			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
+			if parent.keepMapLocation {
+				parent.mapStatus.centerCoordinate = mapView.centerCoordinate
+				parent.mapStatus.longitudeSpan = mapView.region.span.longitudeDelta
+				print("msm will update values for mapState from mapView")
+				print("msm centerCoord is \(mapView.centerCoordinate)")
+				print("msm the constantly updated center parent.mapStatus.centerCoordinate \(parent.mapStatus.centerCoordinate)")
+			}
 			print("ran mapViewDidChangeVisibleRegion")
 		}
 		

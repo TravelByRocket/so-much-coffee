@@ -51,8 +51,8 @@ struct RoasterView: View {
 					DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: "+roaster.fairtrade))
 					DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: "+roaster.code))
 					DetailRowDisplayOnly(symbol: "barcode", str: ("Code: "+roaster.code))
-					WebsiteRow(url: roaster.ordering)
-					WebsiteRow(url: roaster.subscription)
+					DetailRowActionableFA(name: .globe, type: .solid, str: "Order Beans", url: roaster.ordering, rawString: roaster.ordering, noun: "ordering")
+					DetailRowActionableFA(name: .globe, type: .solid, str: "Bean Subscription", url: roaster.ordering, rawString: roaster.subscription, noun: "subscription")
 				}
 			}
 		}

@@ -24,9 +24,13 @@ struct OriginView: View {
 						NavigationLink(destination: CoffeeView(coffee: coffee)) {
 							VStack (alignment: .leading) {
 								Text(coffee.name)
-								Text(self.allRoasters.roasterNameFromID(coffee.roasterID))
-									.foregroundColor(Color.secondary)
-									.font(.caption)
+								HStack {
+									Text(self.allRoasters.roasterNameFromID(coffee.roasterID))
+									Spacer()
+									Text(self.allRoasters.roasterFromID(coffee.roasterID).locationShort)
+								}
+								.foregroundColor(Color.secondary)
+								.font(.caption)
 							}
 						}
 					}

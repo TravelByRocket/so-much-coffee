@@ -18,6 +18,7 @@ struct Roaster : Identifiable, Codable, Comparable {
 	var offer: String = ""
 	var ordering: String = ""
 	var subscription: String = ""
+	var locationShort: String = ""
 	
 	static func blankRoaster() -> Roaster {
 		return Roaster(id: "notfound", name: "Roaster Not Found", description: "Please report this error")

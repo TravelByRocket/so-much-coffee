@@ -85,14 +85,13 @@ struct ShowHideList: View {
 	var body: some View {
 		HStack {
 			Image(systemName: showList ? "arrow.down.square" : "arrow.up.square")
-				.onTapGesture {
-					self.showList.toggle()
-			}
-			
 			Text(showList ? "Hide List" : "Show List")
 			Spacer()
 		}
-		.frame(width: 150)
+		.frame(width: 200)
+		.onTapGesture {
+			self.showList.toggle()
+		}
 	}
 }
 

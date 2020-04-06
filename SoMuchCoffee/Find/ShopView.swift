@@ -36,12 +36,13 @@ struct ShopView: View {
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {
-					DetailRowDisplayOnlyFA(name: .glassWhiskey, type: .solid, str: shop.beverages)
-					DetailRowDisplayOnlyFA(name: .utensils, type: .solid, str: shop.food)
-					DetailRowDisplayOnlyFA(name: .wifi, type: .solid, str: shop.wifi)
-					DetailRowDisplayOnlyFA(name: .plug, type: .solid, str: shop.power)
-					DetailRowDisplayOnlyFA(name: .userFriends, type: .solid, str: shop.socializing)
-					DetailRowDisplayOnlyFA(name: .book, type: .solid, str: shop.working)
+					DetailRowActionableFA(name: .calendarCheck, type: .regular, str: "Events Page", url: shop.events, rawString: shop.events, noun: "event")
+					DetailRowDisplayOnlyFA(name: .glassWhiskey, type: .solid, str: shop.beverages, noun: "beverage")
+					DetailRowDisplayOnlyFA(name: .utensils, type: .solid, str: shop.food, noun: "food")
+					DetailRowDisplayOnlyFA(name: .wifi, type: .solid, str: shop.wifi, noun: "wifi")
+					DetailRowDisplayOnlyFA(name: .plug, type: .solid, str: shop.power, noun: "power outlet")
+					DetailRowDisplayOnlyFA(name: .userFriends, type: .solid, str: shop.socializing, noun: "socializing")
+					DetailRowDisplayOnlyFA(name: .book, type: .solid, str: shop.working, noun: "working/studying")
 					
 				}
 				Section (header: Text("Online & Social")) {
@@ -74,9 +75,10 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104))
+			ShopView(shop: Shops.oneFromJSON)
 			.environmentObject(ReportingShop())
-			.environmentObject(Roasters())
+			.environmentObject(Roasters.all)
+			.environmentObject(Shops.all)
 		}
 	}
 }
@@ -245,6 +247,7 @@ struct DetailRowActionableFA: View {
 	let str: String
 	let url: String
 	let rawString: String
+	var noun: String = ""
 	
 	var body: some View {
 		HStack {
@@ -257,7 +260,7 @@ struct DetailRowActionableFA: View {
 					self.showSheet = true
 				}
 			} else {
-				NotAvailable()
+				NotAvailable(detail: noun)
 			}
 		}.sheet(isPresented: $showSheet, content: { SafariView(url: URL(string: self.url)!) } )
 	}

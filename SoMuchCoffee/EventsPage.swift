@@ -18,7 +18,7 @@ struct EventsPage: View {
 				ZStack {
 					MapView(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
 						.edgesIgnoringSafeArea(.bottom)
-						.navigationBarTitle("Find Events")
+						.navigationBarTitle("Shops with Events")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}

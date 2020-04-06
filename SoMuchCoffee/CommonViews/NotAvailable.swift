@@ -9,9 +9,10 @@
 import SwiftUI
 
 struct NotAvailable: View {
-	@EnvironmentObject var currentShop: ReportingShop
+	var detail: String = ""
+	@EnvironmentObject private var currentShop: ReportingShop
 	var body: some View {
-		Text("No info. Click to provide details.")
+		Text("No \(detail != "" ? detail + " " : detail)info. Click to provide details.")
 			.italic()
 			.foregroundColor(Color.secondary)
 			.onTapGesture {

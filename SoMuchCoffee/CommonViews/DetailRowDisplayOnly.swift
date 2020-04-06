@@ -14,7 +14,7 @@ struct DetailRowDisplayOnly: View {
 	let str: String
 	
 	var body: some View {
-		HStack {
+		HStack (alignment: .firstTextBaseline){
 			Image(systemName: symbol)
 			if (str != "") {
 				HStack {
@@ -31,6 +31,7 @@ struct DetailRowDisplayOnlyFA: View {
 	let name: FontAwesome
 	let type: FontAwesomeStyle
 	let str: String
+	var noun: String = ""
 	
 	var body: some View {
 		HStack {
@@ -40,7 +41,7 @@ struct DetailRowDisplayOnlyFA: View {
 					Text(str)
 				}
 			} else {
-				NotAvailable()
+				NotAvailable(detail: noun)
 			}
 		}
 	}

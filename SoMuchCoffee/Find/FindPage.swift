@@ -80,6 +80,47 @@ struct FindPage: View {
 	
 	@State private var showList = true
 	
+//	@GestureState var isDetectingDrag = false
+//	@GestureState var isDetectingLongPress = false
+//
+//	var dragmod: some Gesture {
+//		DragGesture()
+//			.updating($isDetectingDrag){currentstate, gestureState, transaction in
+////				gestureState = currentstate
+//				print("isDetectingDrag = \(self.isDetectingDrag)")
+//		}
+//			.onChanged({ _ in
+//				self.mapStatus.allowUpdating = true
+//				print("mapStatus.allowUpdating = true via drag")
+//			})
+//			.onEnded({ finished in
+//				self.mapStatus.allowUpdating = false
+//				print("mapStatus.allowUpdating = false via drag")
+//				print("onEnded \(finished) via drag")
+//			})
+//	}
+//
+//	var tapmod: some Gesture {
+//		TapGesture()
+//			.onEnded({ finished in
+//				self.mapStatus.allowUpdating = false
+//				print("mapStatus.allowUpdating = false via tap")
+//				print("onEnded \(finished) via tap")
+//			})
+//	}
+//
+//    var longPress: some Gesture {
+//        LongPressGesture(minimumDuration: 3)
+//            .updating($isDetectingLongPress) { currentstate, gestureState,
+//                    transaction in
+//                gestureState = currentstate
+//                transaction.animation = Animation.easeIn(duration: 2.0)
+//            }
+//            .onEnded { finished in
+//				print("onEnded \(finished) via longPress")
+//            }
+//    }
+	
 	var body: some View {
 		NavigationView {
 			VStack {
@@ -111,6 +152,9 @@ struct FindPage: View {
 				}
 				ZStack {
 					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: 0.01, longitudeDelta: longitudeDelta, keepMapLocation: true)
+//						.gesture(tapmod, including: .all)
+//						.gesture(dragmod, including: .all)
+//						.gesture(longPress, including: .all)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
@@ -128,7 +172,15 @@ struct FindPage: View {
 					List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
 						NavigationLink (destination: ShopView(shop: shop.shop)){
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
+//							.gesture(TapGesture().onEnded({_ in print("NavLink activated here")}), including: .all)
+//													.onTapGesture {
+//														print("NavLink activated here")
+//													}
 						}
+//						.gesture(TapGesture().onEnded({_ in print("NavLink activated here")}), including: .all)
+//						.onTapGesture {
+//							print("NavLink activated here")
+//						}
 					}
 				}
 			}

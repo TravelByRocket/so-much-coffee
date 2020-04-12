@@ -32,7 +32,6 @@ struct ShopView: View {
 						NavigationLink(destination: RoasterView(roaster: self.allRoasters.roasterFromID(roasterID))) {
 							DetailRowDisplayOnly(symbol: self.allShops.shopCountToCircleStringName(roasterID), str: self.allRoasters.roasterNameFromID(roasterID))
 						}
-						
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {
@@ -74,9 +73,10 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			ShopView(shop: Shop(id: "anything", name: "Some Great Place", address: "1234 Here St", latitude: 40, longitude: 104))
+			ShopView(shop: Shops.oneFromJSON)
 			.environmentObject(ReportingShop())
-			.environmentObject(Roasters())
+			.environmentObject(Roasters.all)
+			.environmentObject(Shops.all)
 		}
 	}
 }

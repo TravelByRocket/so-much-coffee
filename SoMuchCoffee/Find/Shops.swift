@@ -119,6 +119,12 @@ class Shops: ObservableObject {
 		Bundle.main.decode([Shop].self, from: "shops.json")
 	}
 	
+	static var oneFromJSON: Shop {
+		let count = everyFromJSON.count
+		let index = Int.random(in: 0..<count)
+		return everyFromJSON[index]
+	}
+	
 	static var all: Shops {
 		Shops(shops: everyFromJSON)
 	}

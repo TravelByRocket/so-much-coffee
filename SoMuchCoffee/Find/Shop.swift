@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Shop : Object, Identifiable { // identifiable is not used in this processing app but would be used when I bring this class definition back to the main app
+class Shop : Object, Identifiable {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     let roasters = List<Roaster>()

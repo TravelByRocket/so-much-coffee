@@ -18,13 +18,6 @@
 			<key>orderHint</key>
 			<integer>0</integer>
 		</dict>
-		<key>Pods-SoMuchCoffee-SoMuchCoffeeUITests.xcscheme</key>
-		<dict>
-			<key>isShown</key>
-			<false/>
-			<key>orderHint</key>
-			<integer>3</integer>
-		</dict>
 		<key>Pods-SoMuchCoffee.xcscheme</key>
 		<dict>
 			<key>isShown</key>
@@ -32,10 +25,17 @@
 			<key>orderHint</key>
 			<integer>2</integer>
 		</dict>
-		<key>Pods-SoMuchCoffeeTests.xcscheme</key>
+		<key>Realm.xcscheme</key>
 		<dict>
 			<key>isShown</key>
 			<false/>
+			<key>orderHint</key>
+			<integer>3</integer>
+		</dict>
+		<key>RealmSwift.xcscheme</key>
+		<dict>
+			<key>isShown</key>
+			<true/>
 			<key>orderHint</key>
 			<integer>4</integer>
 		</dict>

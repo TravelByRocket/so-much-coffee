@@ -81,7 +81,7 @@ struct FindPage: View {
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
 						}
 					}
-					.id(UUID()) // eliminates animation, which I think was the cause of links popping back
+//					.id(UUID()) // eliminates animation, which I think was the cause of links popping back
 				}
 			}
 			.animation(.default)

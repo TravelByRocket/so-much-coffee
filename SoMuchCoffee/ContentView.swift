@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 //var appOrange:    Color = Color.init(red: 1.00, green: 0.34, blue: 0.13)
 var appOrange50:  Color = Color.init(red: 1.00, green: 0.67, blue: 0.26)
@@ -19,6 +20,15 @@ let lato: String = "Lato-Light"
 let monoregular: String = "B12Mono-Regular"
 let monobold: String = "B12Mono-Bold"
 let timerInterval: CGFloat = 0.05
+
+let config = Realm.Configuration(
+	// Get the URL to the bundled file
+	fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"),
+	// Open the file in read-only mode as application bundles are not writeable
+	readOnly: true)
+
+// Open the Realm with the configuration
+let realm = try! Realm(configuration: config)
 
 struct ContentView: View {
 	@EnvironmentObject var settings: UserSettings

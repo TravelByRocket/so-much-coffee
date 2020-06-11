@@ -120,6 +120,7 @@
 		2FE91ABE2492AA4100D1FC80 /* Roaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE91ABD2492AA4100D1FC80 /* Roaster.swift */; };
 		2FE91AC02492AA5100D1FC80 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE91ABF2492AA5100D1FC80 /* Coffee.swift */; };
 		2FE91AC22492AA6F00D1FC80 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FE91AC12492AA6F00D1FC80 /* Origin.swift */; };
+		2FE91AC32492B33C00D1FC80 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2FE91ABA2492958300D1FC80 /* default.realm */; };
 		2FEEA1A42436CDFF0074C70E /* WebsiteRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEA1A32436CDFF0074C70E /* WebsiteRow.swift */; };
 		2FEEA1A62436CEDB0074C70E /* NotAvailable.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEA1A52436CEDB0074C70E /* NotAvailable.swift */; };
 		2FEEA1A82436CF520074C70E /* DetailRowDisplayOnly.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FEEA1A72436CF520074C70E /* DetailRowDisplayOnly.swift */; };
@@ -672,6 +673,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FE91AC32492B33C00D1FC80 /* default.realm in Resources */,
 				2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */,
 				2FAC603423B17D1600122255 /* noun_edit_2964091.svg in Resources */,
 				2FAC604523B17D1600122255 /* noun_Location_82758.svg in Resources */,

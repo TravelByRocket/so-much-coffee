@@ -14,6 +14,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 	@ObservedObject var shops: Shops = Shops(shops: Bundle.main.decode([Shop].self, from: "shops.json"))
 	@ObservedObject var roasters: Roasters = Roasters(roasters: Bundle.main.decode([Roaster].self, from: "roasters.json"))
 	@ObservedObject var currentShop: ReportingShop = ReportingShop()
+	@ObservedObject var mapStatusManager: MapStatusManager = MapStatusManager()
     var window: UIWindow?
 
 
@@ -37,6 +38,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 				.environmentObject(shops)
 				.environmentObject(roasters)
 				.environmentObject(currentShop)
+				.environmentObject(mapStatusManager)
 			)
             self.window = window
             window.makeKeyAndVisible()

@@ -27,7 +27,7 @@ struct CoffeeView: View {
 			Text("by \(roaster.name)")
 			List {
 				Section (header: Text("Explore")) {
-					NavigationLink (destination: Text("Still working on this")) {
+					NavigationLink (destination: RegionView(regionName: allOrigins.originFromID(coffee.originID).regionName)) {
 						Text(allOrigins.originFromID(coffee.originID).regionName)
 					}
 					NavigationLink (destination: OriginView(origin: allOrigins.originFromID(coffee.originID))) {

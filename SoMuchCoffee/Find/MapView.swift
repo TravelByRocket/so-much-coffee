@@ -15,6 +15,9 @@ struct MapView: UIViewRepresentable {
 	var latitudeDelta: Double
 	var longitudeDelta: Double
 	var showMarker = true
+	var keepMapLocation = false
+	
+	@EnvironmentObject var mapStatus: MapStatusManager
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
 		var parent: MapView
@@ -25,15 +28,39 @@ struct MapView: UIViewRepresentable {
 		
 		func mapViewDidChangeVisibleRegion(_ mapView: MKMapView) {
 			parent.centerCoordinate = mapView.centerCoordinate
+			if parent.keepMapLocation {
+				parent.mapStatus.centerCoordinate = mapView.centerCoordinate
+				parent.mapStatus.longitudeSpan = mapView.region.span.longitudeDelta
+				print("msm will update values for mapState from mapView")
+				print("msm centerCoord is \(mapView.centerCoordinate)")
+				print("msm the constantly updated center parent.mapStatus.centerCoordinate \(String(describing: parent.mapStatus.centerCoordinate))")
+			}
+			print("ran mapViewDidChangeVisibleRegion at \(Date())")
 			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
-			print("ran mapViewDidChangeVisibleRegion")
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-			print("ran mapView")
+//			print("ran mapView")
 			let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+//			if ([annotation isKindOfClass:[MKUserLocation class]])
+//			return nil;  //return nil to use default blue dot view
+			
+//			var view: View
+//			if [annotation isKindOfClass:[MKUserLocation class]] {
+//				view = nil
+//			} else {
+//				view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
+//			}
+			
 			view.canShowCallout = true
-			return view
+//			return view
+			
+			if (annotation is MKUserLocation) {
+				return nil
+			} else {
+				return view
+			}
+			
 		}
 		
 	}
@@ -42,8 +69,11 @@ struct MapView: UIViewRepresentable {
 		print("ran makeUIVew")
         let mapView = MKMapView()
 		mapView.delegate = context.coordinator
+		mapView.isRotateEnabled = false
+		mapView.showsUserLocation = true
+//		mapView.userTrackingMode = .follow
 		
-		if shops.items.count != mapView.annotations.count {
+//		if shops.items.count != mapView.annotations.count {
 			for shop in shops.items {
 				let annotation = MKPointAnnotation()
 				annotation.title = shop.name
@@ -51,7 +81,7 @@ struct MapView: UIViewRepresentable {
 				annotation.coordinate = shop.latlon
 				mapView.addAnnotation(annotation)
 			}
-		}
+//		}
 
 		return mapView
     }
@@ -61,7 +91,7 @@ struct MapView: UIViewRepresentable {
         let coordinate = centerCoordinate
 		let span = MKCoordinateSpan(latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
         let region = MKCoordinateRegion(center: coordinate, span: span)
-        view.setRegion(region, animated: true)
+        view.setRegion(region, animated: false)
 
 // More MapKit Guides:
 // https://www.hackingwithswift.com/example-code/location/adding-places-to-mkmapview-using-mkplacemark

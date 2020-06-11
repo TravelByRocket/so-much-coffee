@@ -32,7 +32,6 @@ struct ShopView: View {
 						NavigationLink(destination: RoasterView(roaster: self.allRoasters.roasterFromID(roasterID))) {
 							DetailRowDisplayOnly(symbol: self.allShops.shopCountToCircleStringName(roasterID), str: self.allRoasters.roasterNameFromID(roasterID))
 						}
-						
 					}
 				}
 				Section (header: Text("Atmosphere & Features")) {

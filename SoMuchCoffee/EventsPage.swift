@@ -23,11 +23,12 @@ struct EventsPage: View {
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (eventShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+					List (eventShops.allWithinMapAreaSorted[0 ..< min(eventShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
 						NavigationLink (destination: ShopView(shop: shop.shop)){
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
 						}
 					}
+					.id(UUID())
 				}
 			}
 			.animation(.default)

@@ -12,41 +12,42 @@ import MapKit
 struct FindPage: View {
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
+	@EnvironmentObject var mapStatus: MapStatusManager
 	@ObservedObject var lm = LocationManager()
 	
-	@State private var locationSource: LocationSource = .shopsCenter
+	@State private var locationSource: LocationSource = .userLocation
 	
 	var latitudeDelta: Double {
-		switch locationSource {
-		case .shopsCenter:
-			return allShops.latitudeDeltaOfShops
-		case .userLocation:
-			if lm.status == .authorizedWhenInUse {
-				return 0.03
-			} else {
-				return 0.20
-			}
+		if mapStatus.longitudeSpanFixed != nil {
+			return 0.01 // set very small because longitude should rule the sizing in this case
+		} else if lm.location?.coordinate != nil {
+			return 0.04
+		} else {
+			return allShops.longitudeDeltaOfShops
 		}
 	}
+	
 	var longitudeDelta: Double {
-		switch locationSource {
-		case .shopsCenter:
+		if let span = mapStatus.longitudeSpanFixed {
+			return span
+		} else if let center = lm.location?.coordinate {
+			mapStatus.centerCoordinateFixed = center
+			mapStatus.longitudeSpanFixed = 0.04
+			return 0.04
+		} else {
 			return allShops.longitudeDeltaOfShops
-		case .userLocation:
-			if lm.status == .authorizedWhenInUse {
-				return 0.03
-			} else {
-				return 0.20
-			}
 		}
 	}
 	
 	var centerCoordinate: CLLocationCoordinate2D {
-		switch locationSource {
-		case .shopsCenter:
+		// TODO this would not be able to accomodate a "center on me" option
+		if let center = mapStatus.centerCoordinateFixed {
+			return center
+		} else if let center = lm.location?.coordinate {
+			mapStatus.centerCoordinateFixed = center
+			return center
+		} else {
 			return allShops.centerOfShops
-		case .userLocation:
-			return CLLocationCoordinate2D(latitude: (lm.location?.coordinate.latitude)!, longitude: (lm.location?.coordinate.longitude)!)
 		}
 	}
 	
@@ -57,21 +58,30 @@ struct FindPage: View {
 	@State private var showList = true
 	
 	var body: some View {
-		NavigationView {
+		print("aaa lm is \(String(describing: lm.location?.coordinate)) with status \(String(describing: lm.status))")
+		return NavigationView {
 			VStack {
 				ZStack {
-					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: latitudeDelta, longitudeDelta: longitudeDelta)
+					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: 0.01, longitudeDelta: longitudeDelta, keepMapLocation: true)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
+						.onAppear() {
+							print("msm incoming coord is \(String(describing: self.mapStatus.centerCoordinateFixed))")
+					}
+					.onDisappear() {
+						self.mapStatus.update()
+						print("msm map did disappear, called .update()")
+					}
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (allShops.allWithinMapAreaSorted, id: \.shop.id) {shop in
+					List (allShops.allWithinMapAreaSorted[0 ..< min(allShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
 						NavigationLink (destination: ShopView(shop: shop.shop)){
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
 						}
 					}
+//					.id(UUID()) // eliminates animation, which I think was the cause of links popping back
 				}
 			}
 			.animation(.default)
@@ -99,8 +109,9 @@ struct ShowHideList: View {
 struct FindPage_Previews: PreviewProvider {
 	static var previews: some View {
 		FindPage()
-			.environmentObject(Shops.example)
-			.environmentObject(Roasters())
+			.environmentObject(Shops.all)
+			.environmentObject(Roasters.all)
+			.environmentObject(MapStatusManager())
 	}
 }
 

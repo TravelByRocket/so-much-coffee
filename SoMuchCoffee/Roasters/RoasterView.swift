@@ -9,11 +9,11 @@
 import SwiftUI
 
 struct RoasterView: View {
-	var roaster: Roaster
+	var roaster: RoasterJSON
 	
 	@EnvironmentObject var allShops: Shops
 	
-	var allCoffees: [Coffee] = Coffees.everyFromJSON
+	var allCoffees: [CoffeeJSON] = Coffees.everyFromJSON
 	var allOrigins: Origins = Origins.all
 	
 	var filteredShops: Shops {
@@ -63,7 +63,7 @@ struct RoasterView: View {
 struct RoasterView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			RoasterView(roaster: Roaster(id: "sweetbloom", name: "Fake Sweet Bloom", description: "Using energy from the Sun", instagram: "sunny"))
+			RoasterView(roaster: RoasterJSON(id: "sweetbloom", name: "Fake Sweet Bloom", description: "Using energy from the Sun", instagram: "sunny"))
 //			Text("placeholder")
 		}
 		.environmentObject(Shops())

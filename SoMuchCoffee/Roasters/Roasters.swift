@@ -9,7 +9,7 @@
 import SwiftUI
 
 class Roasters: ObservableObject {
-	let items: [Roaster]
+	let items: [RoasterJSON]
 	
 	init() {
 		// https://www.npmjs.com/package/csvtojson
@@ -20,7 +20,7 @@ class Roasters: ObservableObject {
 		self.items = []
 	}
 	
-	init(roasters: [Roaster]) {
+	init(roasters: [RoasterJSON]) {
 		self.items = roasters
 	}
 	
@@ -32,16 +32,16 @@ class Roasters: ObservableObject {
 		}
 	}
 	
-	func roasterFromID (_ roasterID: String) -> Roaster {
+	func roasterFromID (_ roasterID: String) -> RoasterJSON {
 		if let match = items.first(where: {$0.id == roasterID} ) {
 			return match
 		} else {
-			return Roaster.blankRoaster()
+			return RoasterJSON.blankRoaster()
 		}
 	}
 	
-	static var everyFromJSON: [Roaster] {
-		Bundle.main.decode([Roaster].self, from: "roasters.json")
+	static var everyFromJSON: [RoasterJSON] {
+		Bundle.main.decode([RoasterJSON].self, from: "roasters.json")
 	}
 	
 	static var all: Roasters {

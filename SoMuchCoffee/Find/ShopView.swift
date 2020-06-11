@@ -13,7 +13,7 @@ struct ShopView: View {
 	@EnvironmentObject var currentShop: ReportingShop
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
-	var shop: Shop
+	var shop: ShopJSON
 	
 	var body: some View {
 		VStack {
@@ -268,7 +268,7 @@ struct DetailRowActionableFA: View {
 
 
 class ReportingShop: ObservableObject {
-	@Published var shop: Shop?
+	@Published var shop: ShopJSON?
 }
 
 

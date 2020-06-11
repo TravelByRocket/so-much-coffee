@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Origin: Decodable, Hashable, Comparable {
+struct OriginJSON: Decodable, Hashable, Comparable {
 	var id: String
 	var name: String
 	var regionName: String
@@ -18,16 +18,16 @@ struct Origin: Decodable, Hashable, Comparable {
 	var otherURL1: String = ""
 	var otherURL2: String = ""
 	
-	static func < (lhs: Origin, rhs: Origin) -> Bool {
+	static func < (lhs: OriginJSON, rhs: OriginJSON) -> Bool {
 		return lhs.name < rhs.name
 	}
 	
-	static func == (lhs: Origin, rhs: Origin) -> Bool {
+	static func == (lhs: OriginJSON, rhs: OriginJSON) -> Bool {
 		// return lhs.hashValue == rhs.hashValue
 		return lhs.name == rhs.name
 	}
 	
-	static func placeholder (_ info: String) -> Origin {
-		Origin(id: "??? \(info)", name: "??? \(info)", regionName: "??? \(info)")
+	static func placeholder (_ info: String) -> OriginJSON {
+		OriginJSON(id: "??? \(info)", name: "??? \(info)", regionName: "??? \(info)")
 	}
 }

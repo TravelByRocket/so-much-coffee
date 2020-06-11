@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct Origins {
-	let items: [Origin]
+	let items: [OriginJSON]
 	
 	var regionNames: [String] {
 		let set = Set(items.map { $0.regionName })
@@ -17,25 +17,25 @@ struct Origins {
 		return arr
 	}
 		
-	static var everyFromJSON: [Origin] {
-		Bundle.main.decode([Origin].self, from: "origins.json")
+	static var everyFromJSON: [OriginJSON] {
+		Bundle.main.decode([OriginJSON].self, from: "origins.json")
 	}
 	
 	static var all: Origins {
 		Origins(items: everyFromJSON)
 	}
 	
-	static var oneFromJSON: Origin {
+	static var oneFromJSON: OriginJSON {
 		let count = everyFromJSON.count
 		let index = Int.random(in: 0..<count)
 		return everyFromJSON[index]
 	}
 	
-	func originFromID (_ countryID: String) -> Origin {
+	func originFromID (_ countryID: String) -> OriginJSON {
 		if let match = items.first(where: {$0.id == countryID} ) {
 			return match
 		} else {
-			return Origin.placeholder(countryID)
+			return OriginJSON.placeholder(countryID)
 		}
 	}
 	

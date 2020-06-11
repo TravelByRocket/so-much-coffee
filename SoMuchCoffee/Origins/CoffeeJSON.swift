@@ -8,18 +8,18 @@
 
 import SwiftUI
 
-struct Coffee: Decodable, Hashable, Comparable {
+struct CoffeeJSON: Decodable, Hashable, Comparable {
 //	var id = UUID() // breaks decodable and would be easier to just use \.self for List at this point
 	var name: String
 	var originID: String
 	var roasterID: String
 	var url: String
 	
-	static func < (lhs: Coffee, rhs: Coffee) -> Bool {
+	static func < (lhs: CoffeeJSON, rhs: CoffeeJSON) -> Bool {
 		return lhs.name < rhs.name
 	}
 	
-	static func == (lhs: Coffee, rhs: Coffee) -> Bool {
+	static func == (lhs: CoffeeJSON, rhs: CoffeeJSON) -> Bool {
 		// return lhs.hashValue == rhs.hashValue
 		return lhs.name == rhs.name
 	}

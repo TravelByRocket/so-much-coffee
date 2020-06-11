@@ -9,9 +9,9 @@
 import SwiftUI
 
 struct OriginView: View {
-	var origin: Origin
+	var origin: OriginJSON
 	
-	var allCoffees: [Coffee] = Bundle.main.decode([Coffee].self, from: "coffees.json")
+	var allCoffees: [CoffeeJSON] = Bundle.main.decode([CoffeeJSON].self, from: "coffees.json")
 	
 	@EnvironmentObject var allRoasters: Roasters
 	

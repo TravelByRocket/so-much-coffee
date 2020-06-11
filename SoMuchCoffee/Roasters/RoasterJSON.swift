@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct Roaster : Identifiable, Codable, Comparable {
+struct RoasterJSON : Identifiable, Codable, Comparable {
 	var id: String
     var name: String
 	var description: String = ""
@@ -20,15 +20,15 @@ struct Roaster : Identifiable, Codable, Comparable {
 	var subscription: String = ""
 	var locationShort: String = ""
 	
-	static func blankRoaster() -> Roaster {
-		return Roaster(id: "notfound", name: "Roaster Not Found", description: "Please report this error")
+	static func blankRoaster() -> RoasterJSON {
+		return RoasterJSON(id: "notfound", name: "Roaster Not Found", description: "Please report this error")
 	}
 	
-	static func < (lhs: Roaster, rhs: Roaster) -> Bool {
+	static func < (lhs: RoasterJSON, rhs: RoasterJSON) -> Bool {
 		return lhs.name < rhs.name
 	}
 	
-	static func == (lhs: Roaster, rhs: Roaster) -> Bool {
+	static func == (lhs: RoasterJSON, rhs: RoasterJSON) -> Bool {
 		return lhs.name == rhs.name
 	}
 

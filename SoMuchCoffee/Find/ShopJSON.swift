@@ -9,7 +9,7 @@
 import SwiftUI
 import CoreLocation
 
-struct Shop : Identifiable, Codable, Comparable {
+struct ShopJSON : Identifiable, Codable, Comparable {
 	var id: String
     var name: String
 	var address: String
@@ -47,7 +47,7 @@ struct Shop : Identifiable, Codable, Comparable {
 	}
 	var events = ""
 	
-	init(shop: Shop) {
+	init(shop: ShopJSON) {
 		self.id = shop.id
 		self.name = shop.name
 		self.address = shop.address
@@ -64,11 +64,11 @@ struct Shop : Identifiable, Codable, Comparable {
 		self.events = events
 	}
 	
-	static func < (lhs: Shop, rhs: Shop) -> Bool {
+	static func < (lhs: ShopJSON, rhs: ShopJSON) -> Bool {
 		return lhs.name < rhs.name
 	}
 	
-	static func == (lhs: Shop, rhs: Shop) -> Bool {
+	static func == (lhs: ShopJSON, rhs: ShopJSON) -> Bool {
 		return lhs.name == rhs.name
 	}
 	

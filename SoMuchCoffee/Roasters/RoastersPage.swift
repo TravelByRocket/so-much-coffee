@@ -14,7 +14,7 @@ struct RoastersPage: View {
 	
 	@State private var searchString = ""
 	
-	private var filteredRoasters: [Roaster] {
+	private var filteredRoasters: [RoasterJSON] {
 		if searchString == "" {
 			return allRoasters.items.sorted()
 		} else {

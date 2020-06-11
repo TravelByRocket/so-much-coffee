@@ -9,7 +9,7 @@
 import SwiftUI
 
 struct CoffeesPage: View {
-	var allCoffee: [Coffee] = Coffees.everyFromJSON
+	var allCoffee: [CoffeeJSON] = Coffees.everyFromJSON
 	var allOrigins: Origins = Origins.all
 	
 	@EnvironmentObject var allRoasters: Roasters

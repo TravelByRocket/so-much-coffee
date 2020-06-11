@@ -11,7 +11,7 @@ import MapKit
 
 class Shops: ObservableObject {
 	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
-	let items: [Shop]
+	let items: [ShopJSON]
 	
 	private var latitudes: [Double] { items.map { $0.latitude } }
 	private var longitudes: [Double] { items.map { $0.longitude } }
@@ -27,7 +27,7 @@ class Shops: ObservableObject {
 	private let bufferFactor = 1.2
 	
 	static var example: Shops {
-		let shop = Shop(id: "beleza", name: "Fake Beleza", address: "1234 Coffee Ln", latitude: 40.0252868, longitude: -105.2810327)
+		let shop = ShopJSON(id: "beleza", name: "Fake Beleza", address: "1234 Coffee Ln", latitude: 40.0252868, longitude: -105.2810327)
 		return Shops(oneShop: shop)
 	}
 	
@@ -57,19 +57,19 @@ class Shops: ObservableObject {
 		self.items = []
 	}
 	
-	init(oneShop: Shop) {
+	init(oneShop: ShopJSON) {
 		self.items = [oneShop]
 	}
 	
-	init(shops: [Shop]) {
+	init(shops: [ShopJSON]) {
 		self.items = shops
 	}
 	
 	struct ShopWithDistance: Comparable {
-		let shop: Shop
+		let shop: ShopJSON
 		let distance: Float
 		
-		init(shop: Shop, point: CLLocationCoordinate2D) {
+		init(shop: ShopJSON, point: CLLocationCoordinate2D) {
 			self.shop = shop
 			self.distance = shop.kilometersAway(from: point)
 		}
@@ -94,8 +94,8 @@ class Shops: ObservableObject {
 		allWithinMapAreaSorted = shopsWithDistance.sorted()
 	}
 	
-	func shopsServing(roasterID: String) -> [Shop] {
-		var matchingShops = [Shop]()
+	func shopsServing(roasterID: String) -> [ShopJSON] {
+		var matchingShops = [ShopJSON]()
 		for shop in items {
 			for id in shop.roasters.components(separatedBy: ",") {
 				if roasterID == id { // could make this a `where` in enclosing `for`
@@ -115,11 +115,11 @@ class Shops: ObservableObject {
 		}
 	}
 		
-	static var everyFromJSON: [Shop] {
-		Bundle.main.decode([Shop].self, from: "shops.json")
+	static var everyFromJSON: [ShopJSON] {
+		Bundle.main.decode([ShopJSON].self, from: "shops.json")
 	}
 	
-	static var oneFromJSON: Shop {
+	static var oneFromJSON: ShopJSON {
 		let count = everyFromJSON.count
 		let index = Int.random(in: 0..<count)
 		return everyFromJSON[index]

@@ -9,14 +9,14 @@
 import SwiftUI
 
 struct CoffeeView: View {
-	let coffee: Coffee
+	let coffee: CoffeeJSON
 	
 	let allCoffees = Coffees.all
 	let allOrigins = Origins.all
 	
 	@EnvironmentObject var allRoasters: Roasters
 
-	var roaster: Roaster {
+	var roaster: RoasterJSON {
 		allRoasters.roasterFromID(coffee.roasterID)
 	}
 	

@@ -7,11 +7,12 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct MainPage: View {
 	@State private var showAbout = false
-	
 	@EnvironmentObject var mapStatus: MapStatusManager
+	let realm = try! Realm()
 	
 	var body: some View {
 		VStack {

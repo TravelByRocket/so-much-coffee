@@ -102,8 +102,6 @@
 		2FB0744723B2DA0000A7EB7B /* icon1024.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743823B2DA0000A7EB7B /* icon1024.png */; };
 		2FB0744823B2DA0000A7EB7B /* icon152.png in Resources */ = {isa = PBXBuildFile; fileRef = 2FB0743923B2DA0000A7EB7B /* icon152.png */; };
 		2FB0748E23B2E0D700A7EB7B /* ShopJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0748D23B2E0D700A7EB7B /* ShopJSON.swift */; };
-		2FB0749223B2F66D00A7EB7B /* ShopViewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749123B2F66D00A7EB7B /* ShopViewJSON.swift */; };
-		2FB0749423B2F6A900A7EB7B /* MapViewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749323B2F6A900A7EB7B /* MapViewJSON.swift */; };
 		2FB0749723B3119600A7EB7B /* MapKit.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 2FB0749623B3119600A7EB7B /* MapKit.framework */; };
 		2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */; };
 		2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FB074A023B31E3100A7EB7B /* RoastersPage.swift */; };
@@ -255,8 +253,6 @@
 		2FB0743823B2DA0000A7EB7B /* icon1024.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon1024.png; sourceTree = "<group>"; };
 		2FB0743923B2DA0000A7EB7B /* icon152.png */ = {isa = PBXFileReference; lastKnownFileType = image.png; path = icon152.png; sourceTree = "<group>"; };
 		2FB0748D23B2E0D700A7EB7B /* ShopJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopJSON.swift; sourceTree = "<group>"; };
-		2FB0749123B2F66D00A7EB7B /* ShopViewJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ShopViewJSON.swift; sourceTree = "<group>"; };
-		2FB0749323B2F6A900A7EB7B /* MapViewJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = MapViewJSON.swift; sourceTree = "<group>"; };
 		2FB0749623B3119600A7EB7B /* MapKit.framework */ = {isa = PBXFileReference; lastKnownFileType = wrapper.framework; name = MapKit.framework; path = System/Library/Frameworks/MapKit.framework; sourceTree = SDKROOT; };
 		2FB0749C23B31DF800A7EB7B /* FlavorsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlavorsPage.swift; sourceTree = "<group>"; };
 		2FB074A023B31E3100A7EB7B /* RoastersPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoastersPage.swift; sourceTree = "<group>"; };
@@ -496,9 +492,7 @@
 			children = (
 				2FC70C1F24969B6B007F56AC /* FindPage.swift */,
 				2F9FD071242C381A00FED48E /* LocationManager.swift */,
-				2FB0749123B2F66D00A7EB7B /* ShopViewJSON.swift */,
 				2FE91AC62493177F00D1FC80 /* ShopPage.swift */,
-				2FB0749323B2F6A900A7EB7B /* MapViewJSON.swift */,
 				2FE91AC8249326EA00D1FC80 /* MapViewLinkingObjects.swift */,
 				2FC70C17249606C0007F56AC /* MapViewShop.swift */,
 				2FC70C2124969C40007F56AC /* MapViewResults.swift */,
@@ -842,7 +836,6 @@
 				2F3F0E3824310D76004FC8B3 /* RoasterJSON.swift in Sources */,
 				2FE91ACD2495E95F00D1FC80 /* RealmExtension.swift in Sources */,
 				2F6AFCEA2426A7D5006CC990 /* Shops.swift in Sources */,
-				2FB0749423B2F6A900A7EB7B /* MapViewJSON.swift in Sources */,
 				2FEEA1A62436CEDB0074C70E /* NotAvailableJSON.swift in Sources */,
 				2F11CC2223A732EC0011BC94 /* GoHome.swift in Sources */,
 				2FB93F86243AA2DF006D35A3 /* MapStatusManager.swift in Sources */,
@@ -863,7 +856,6 @@
 				2FE91AC72493177F00D1FC80 /* ShopPage.swift in Sources */,
 				2FB0749D23B31DF800A7EB7B /* FlavorsPage.swift in Sources */,
 				2FE91ACB2493349B00D1FC80 /* CoffeePage.swift in Sources */,
-				2FB0749223B2F66D00A7EB7B /* ShopViewJSON.swift in Sources */,
 				2F34CCBC2435AD0700D7A5F2 /* OriginsPage.swift in Sources */,
 				2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */,
 				2F34CCCC2436800600D7A5F2 /* Origins.swift in Sources */,

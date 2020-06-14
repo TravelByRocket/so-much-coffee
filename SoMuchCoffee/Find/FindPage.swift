@@ -30,7 +30,7 @@ struct FindPage: View {
 		return NavigationView {
 			VStack {
 				ZStack {
-					MapViewResults(shops: shops, centerCoordinate: shops.centerCoordinate, latitudeDelta: shops.latitudeDelta * bufferFactor, longitudeDelta: shops.longitudeDelta * bufferFactor, keepMapLocation: true)
+					MapView(shops: shops, centerCoordinate: shops.centerCoordinate, latitudeDelta: shops.latitudeDelta * bufferFactor, longitudeDelta: shops.longitudeDelta * bufferFactor, keepMapLocation: true)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())

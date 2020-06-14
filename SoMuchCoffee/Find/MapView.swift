@@ -10,8 +10,9 @@ import SwiftUI
 import MapKit
 import RealmSwift
 
-struct MapViewResults: UIViewRepresentable {
-	var shops: Results<Shop>
+//struct woodchips<T: RealmCollection>: View {
+struct MapView<T: RealmCollection>: UIViewRepresentable where T.Element : Shop{
+	var shops: T
 	var centerCoordinate: CLLocationCoordinate2D
 	var latitudeDelta: Double
 	var longitudeDelta: Double
@@ -21,9 +22,9 @@ struct MapViewResults: UIViewRepresentable {
 	@EnvironmentObject var mapStatus: MapStatusManager
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
-		var parent: MapViewResults
+		var parent: MapView
 
-		init(_ parent: MapViewResults) {
+		init(_ parent: MapView) {
 			self.parent = parent
 		}
 		

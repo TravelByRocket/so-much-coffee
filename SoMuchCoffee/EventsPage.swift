@@ -17,7 +17,7 @@ struct EventsPage: View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapViewResults(shops: eventShops, centerCoordinate: eventShops.centerCoordinate, latitudeDelta: eventShops.latitudeDelta, longitudeDelta: eventShops.longitudeDelta)
+					MapView(shops: eventShops, centerCoordinate: eventShops.centerCoordinate, latitudeDelta: eventShops.latitudeDelta, longitudeDelta: eventShops.longitudeDelta)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Shops with Events")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())

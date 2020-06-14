@@ -15,7 +15,7 @@ struct RoasterPage: View {
 	
     var body: some View {
 		VStack {
-			MapViewLinkingObjects(shops: roaster.shopsServing,
+			MapView(shops: roaster.shopsServing,
 					centerCoordinate: roaster.shopsServing.centerCoordinate,
 					latitudeDelta: roaster.shopsServing.latitudeDelta * mapBufferFactor,
 					longitudeDelta: roaster.shopsServing.longitudeDelta * mapBufferFactor)

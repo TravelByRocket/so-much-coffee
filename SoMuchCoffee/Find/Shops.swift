@@ -6,127 +6,48 @@
 //  Copyright © 2020 Bryan Costanza. All rights reserved.
 //
 
-import SwiftUI
-import MapKit
-
-class Shops: ObservableObject {
-	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
-	let items: [ShopJSON]
-	
-	private var latitudes: [Double] { items.map { $0.latitude } }
-	private var longitudes: [Double] { items.map { $0.longitude } }
-	
-	private var minLatitude: Double { latitudes.min()! }
-	private var maxLatitude: Double { latitudes.max()! }
-	private var midLatitude: Double { (maxLatitude + minLatitude) / 2 }
-	
-	private var minLongitude: Double { longitudes.min()! }
-	private var maxLongitude: Double { longitudes.max()! }
-	private var midLongitude: Double { (maxLongitude + minLongitude) / 2 }
-	
-	private let bufferFactor = 1.2
-	
-	static var example: Shops {
-		let shop = ShopJSON(id: "beleza", name: "Fake Beleza", address: "1234 Coffee Ln", latitude: 40.0252868, longitude: -105.2810327)
-		return Shops(oneShop: shop)
-	}
-	
-	var centerOfShops: CLLocationCoordinate2D {
-		return CLLocationCoordinate2D(latitude: midLatitude, longitude: midLongitude)
-	}
-	
-	var latitudeDeltaOfShops: Double {
-		let minDelta = 0.015
-		let latDelta = maxLatitude - minLatitude
-		let latDeltaChecked = max(latDelta,minDelta)
-		return latDeltaChecked * bufferFactor
-	}
-	var longitudeDeltaOfShops: Double {
-		let minDelta = 0.015
-		let lonDelta = maxLongitude - minLongitude
-		let lonDeltaChecked = max(lonDelta,minDelta)
-		return lonDeltaChecked * bufferFactor
-	}
-	
-	init() {
-		// https://www.npmjs.com/package/csvtojson
-		// npm i -g csvtojson
-		// csvtojson shops.csv > shops.json
-		// only issue is that lat/lon surrounded by quotes so for now manually adjusting JSON to fit the Float/Double formatting that is has now
-//		self.items = Bundle.main.decode([Shop].self, from: "shops.json")
-		self.items = []
-	}
-	
-	init(oneShop: ShopJSON) {
-		self.items = [oneShop]
-	}
-	
-	init(shops: [ShopJSON]) {
-		self.items = shops
-	}
-	
-	struct ShopWithDistance: Comparable {
-		let shop: ShopJSON
-		let distance: Float
-		
-		init(shop: ShopJSON, point: CLLocationCoordinate2D) {
-			self.shop = shop
-			self.distance = shop.kilometersAway(from: point)
-		}
-		
-		static func == (lhs: ShopWithDistance, rhs: ShopWithDistance) -> Bool {
-			return lhs.distance == rhs.distance
-		}
-		
-		static func < (lhs: ShopWithDistance, rhs: ShopWithDistance) -> Bool {
-			return lhs.distance < rhs.distance
-		}
-		
-	}
-		
-	func updateShopsInMapAreaSorted(within area: MKMapRect, distanceTo point: CLLocationCoordinate2D) {
-		var shopsWithDistance: [ShopWithDistance] = []
-		for shop in items {
-			if area.contains(MKMapPoint(shop.latlon)) {
-				shopsWithDistance.append(ShopWithDistance(shop: shop, point: point))
-			}
-		}
-		allWithinMapAreaSorted = shopsWithDistance.sorted()
-	}
-	
-	func shopsServing(roasterID: String) -> [ShopJSON] {
-		var matchingShops = [ShopJSON]()
-		for shop in items {
-			for id in shop.roasters.components(separatedBy: ",") {
-				if roasterID == id { // could make this a `where` in enclosing `for`
-					matchingShops.append(shop)
-				}
-			}
-		}
-		return matchingShops
-	}
-	
-	func shopCountToCircleStringName(_ roasterID: String) -> String {
-		let count = shopsServing(roasterID: roasterID).count
-		if count <= 50 {
-			return String(count) + ".circle"
-		} else {
-			return "asterisk.circle"
-		}
-	}
-		
-	static var everyFromJSON: [ShopJSON] {
-		Bundle.main.decode([ShopJSON].self, from: "shops.json")
-	}
-	
-	static var oneFromJSON: ShopJSON {
-		let count = everyFromJSON.count
-		let index = Int.random(in: 0..<count)
-		return everyFromJSON[index]
-	}
-	
-	static var all: Shops {
-		Shops(shops: everyFromJSON)
-	}
-	
-}
+//import SwiftUI
+//import MapKit
+//
+//class Shops: ObservableObject {
+//	@Published var allWithinMapAreaSorted: [ShopWithDistance] = []
+//	let items: [ShopJSON]
+//	
+//	struct ShopWithDistance: Comparable {
+//		let shop: ShopJSON
+//		let distance: Float
+//		
+//		init(shop: ShopJSON, point: CLLocationCoordinate2D) {
+//			self.shop = shop
+//			self.distance = shop.kilometersAway(from: point)
+//		}
+//		
+//		static func == (lhs: ShopWithDistance, rhs: ShopWithDistance) -> Bool {
+//			return lhs.distance == rhs.distance
+//		}
+//		
+//		static func < (lhs: ShopWithDistance, rhs: ShopWithDistance) -> Bool {
+//			return lhs.distance < rhs.distance
+//		}
+//		
+//	}
+//		
+//	func updateShopsInMapAreaSorted(within area: MKMapRect, distanceTo point: CLLocationCoordinate2D) {
+//		var shopsWithDistance: [ShopWithDistance] = []
+//		for shop in items {
+//			if area.contains(MKMapPoint(shop.latlon)) {
+//				shopsWithDistance.append(ShopWithDistance(shop: shop, point: point))
+//			}
+//		}
+//		allWithinMapAreaSorted = shopsWithDistance.sorted()
+//	}
+//	
+//	func shopCountToCircleStringName(_ roasterID: String) -> String {
+//		let count = shopsServing(roasterID: roasterID).count
+//		if count <= 50 {
+//			return String(count) + ".circle"
+//		} else {
+//			return "asterisk.circle"
+//		}
+//	}
+//}

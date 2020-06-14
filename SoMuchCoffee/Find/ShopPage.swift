@@ -256,7 +256,3 @@ struct ShopView_Previews: PreviewProvider {
 class ReportingShop: ObservableObject {
 	@Published var shop: Shop?
 }
-
-class ReportingShopJSON: ObservableObject {
-	@Published var shop: ShopJSON?
-}

@@ -11,7 +11,7 @@ import MapKit
 import RealmSwift
 
 struct FindPage: View {
-	var shops: RealmSwift.Results<Shop> = realm.objects(Shop.self)
+	var shops = realm.objects(Shop.self)
 	let bufferFactor = 1.2
 	
 	@EnvironmentObject var mapStatus: MapStatusManager
@@ -44,16 +44,15 @@ struct FindPage: View {
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (shops) {shop in
+					List (Array(shops).filter({$0.isInMapRect}).sorted(by: { (first, second) -> Bool in
+						first.kilometersAway(from: mapStatus.centerCoordinate) < second.kilometersAway(from: mapStatus.centerCoordinate)
+					})) {shop in
 						NavigationLink (destination: ShopPage(shop: shop)){
 							VStack {
-								Text(shop.name)
-								Text("fix ShopRow needing distance as Shop")
-//								ShopRow(shop: shop) // location for distance is provided through the Shops class
+								ShopRow(shop: shop)
 							}
 						}
 					}
-//					.id(UUID()) // eliminates animation, which I think was the cause of links popping back
 				}
 			}
 			.animation(.default)

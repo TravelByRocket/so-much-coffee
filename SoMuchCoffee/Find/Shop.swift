@@ -45,4 +45,16 @@ class Shop : Object, Identifiable {
 		let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
 		return coord
 	}
+
+	func kilometersAway(from referencePoint: CLLocationCoordinate2D?) -> Double { // not truly optional but I would rather do nil handling here for now
+		let mapCenter = CLLocation(latitude: referencePoint?.latitude ?? 40, longitude: referencePoint?.longitude ?? -105)
+		let shopPosition = CLLocation(latitude: self.latitude, longitude: self.longitude)
+		return mapCenter.distance(from: shopPosition) / 1000
+	}
+	
+	static var visibleMapRect: MKMapRect?
+	
+	var isInMapRect: Bool {
+		Shop.visibleMapRect?.contains(MKMapPoint(CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude))) ?? true
+	}
 }

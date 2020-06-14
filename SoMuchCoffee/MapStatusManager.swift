@@ -7,6 +7,7 @@
 //
 
 import SwiftUI
+import MapKit
 import CoreLocation
 
 class MapStatusManager: ObservableObject {
@@ -27,6 +28,8 @@ class MapStatusManager: ObservableObject {
 			print("msm MapStatusManager.longitudeSpanCur is now \(String(describing: self.longitudeSpanCur)) at \(Date())")
 		}
 	}
+	
+//	@Published var visibleMapRect: MKMapRect?
 	
 //	var centerCoordinate: CLLocationCoordinate2D?
 //	var longitudeSpan: Double?

@@ -37,6 +37,8 @@ struct MapView<T: RealmCollection>: UIViewRepresentable where T.Element : Shop{
 				print("msm the constantly updated center parent.mapStatus.centerCoordinate \(String(describing: parent.mapStatus.centerCoordinate))")
 			}
 			print("ran mapViewDidChangeVisibleRegion at \(Date())")
+			Shop.visibleMapRect = mapView.visibleMapRect
+//			parent.mapStatus.visibleMapRect = mapView.visibleMapRect
 //			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
 		}
 		

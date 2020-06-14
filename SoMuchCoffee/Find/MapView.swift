@@ -10,7 +10,6 @@ import SwiftUI
 import MapKit
 import RealmSwift
 
-//struct woodchips<T: RealmCollection>: View {
 struct MapView<T: RealmCollection>: UIViewRepresentable where T.Element : Shop{
 	var shops: T
 	var centerCoordinate: CLLocationCoordinate2D

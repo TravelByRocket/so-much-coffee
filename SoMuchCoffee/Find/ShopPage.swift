@@ -16,7 +16,7 @@ struct ShopPage: View {
 	
 	var body: some View {
 		VStack {
-			MapViewShop(shop: shop, centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015)
+			MapView(shops: realm.objects(Shop.self).filter("id == %@", shop.id), centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015) // Hacked workaround on getting a RealmCollection to go to the generic MapView instead of just a Shop object
 				.onAppear() {
 					self.currentShop.shop = self.shop
 			}

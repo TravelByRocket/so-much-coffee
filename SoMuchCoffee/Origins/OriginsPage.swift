@@ -10,16 +10,6 @@ import SwiftUI
 import RealmSwift
 
 struct OriginsPage: View {
-	var allCoffee: [CoffeeJSON] = Coffees.everyFromJSON
-	var allOrigins: Origins = Origins.all
-	
-	@EnvironmentObject var allRoasters: Roasters
-	
-	var originIDs: [String] {
-		let set = Set(allCoffee.map { $0.originID })
-		let array = Array(set)
-		return array.sorted()
-	}
 	
 	var body: some View {
 		NavigationView {
@@ -62,6 +52,5 @@ struct OriginsPage: View {
 struct OriginsPage_Previews: PreviewProvider {
 	static var previews: some View {
 		OriginsPage()
-			.environmentObject(Roasters.all)
 	}
 }

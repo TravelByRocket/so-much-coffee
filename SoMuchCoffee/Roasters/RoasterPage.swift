@@ -9,7 +9,7 @@
 import SwiftUI
 import RealmSwift
 
-struct RoasterPage: View { // should be `RoasterPage`
+struct RoasterPage: View {
 	var roaster: Roaster
 	let mapBufferFactor = 1.2
 	
@@ -30,7 +30,7 @@ struct RoasterPage: View { // should be `RoasterPage`
 					}
 				}
 				Section (header: Text("Roasts")) {
-					ForEach(realm.objects(Coffee.self).filter("roaster == %@", roaster).sorted(byKeyPath: "name")) {coffee in // TODO consider change from filter to LinkingObjects in DB
+					ForEach(roaster.coffees.sorted(byKeyPath: "name")) {coffee in
 						NavigationLink(destination: CoffeePage(coffee: coffee)) {
 							VStack (alignment: .leading) {
 								Text(coffee.name)

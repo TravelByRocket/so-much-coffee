@@ -32,7 +32,6 @@ let realm = try! Realm(configuration: config)
 
 struct ContentView: View {
 	@EnvironmentObject var settings: UserSettings
-	@EnvironmentObject var allShops: Shops
 	
 	var body: some View {
 		
@@ -52,10 +51,6 @@ struct ContentView: View {
 			}
 		}
 	}
-	
-	//	enum Pages {
-	//		case main, shops, roasters, origins, flavors
-	//	}
 	
 }
 

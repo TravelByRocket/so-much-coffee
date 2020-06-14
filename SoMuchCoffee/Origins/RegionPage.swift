@@ -16,8 +16,8 @@ struct RegionPage: View {
 		VStack {
 			Text(regionName).font(.largeTitle)
 			List(realm.objects(Origin.self)
-				.filter("region == %@", Origin.Region(rawValue: regionName) ?? Origin.Region.Other)
 				.sorted(byKeyPath: "name")
+				.filter { $0.region.rawValue == regionName }
 			) { origin in
 				NavigationLink (destination: OriginPage(origin: origin)) {
 					Image(systemName: "\(origin.coffees.count).circle") // TODO protect for >50

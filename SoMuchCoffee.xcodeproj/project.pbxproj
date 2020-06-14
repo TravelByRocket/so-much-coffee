@@ -22,15 +22,8 @@
 		2F12C8FE239EBB9D00BFF066 /* SoMuchCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F12C8FD239EBB9D00BFF066 /* SoMuchCoffeeUITests.swift */; };
 		2F2E336523AAED410064DC09 /* B612Mono-Bold.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */; };
 		2F2E336623AAED410064DC09 /* B612Mono-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */; };
-		2F34CCB62435A74A00D7A5F2 /* coffees.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F34CCB52435A74900D7A5F2 /* coffees.json */; };
-		2F34CCB82435ABB700D7A5F2 /* CoffeeJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCB72435ABB700D7A5F2 /* CoffeeJSON.swift */; };
-		2F34CCBA2435AC7B00D7A5F2 /* Coffees.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */; };
 		2F34CCBC2435AD0700D7A5F2 /* OriginsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCBB2435AD0700D7A5F2 /* OriginsPage.swift */; };
-		2F34CCC824367FD100D7A5F2 /* origins.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F34CCC724367FD100D7A5F2 /* origins.json */; };
-		2F34CCCB2436800600D7A5F2 /* OriginJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCC92436800600D7A5F2 /* OriginJSON.swift */; };
-		2F34CCCC2436800600D7A5F2 /* Origins.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F34CCCA2436800600D7A5F2 /* Origins.swift */; };
 		2F3F0E3424307CEA004FC8B3 /* roasters.json in Resources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3324307CEA004FC8B3 /* roasters.json */; };
-		2F3F0E3624310B03004FC8B3 /* RoasterViewJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3524310B03004FC8B3 /* RoasterViewJSON.swift */; };
 		2F3F0E3824310D76004FC8B3 /* RoasterJSON.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3724310D76004FC8B3 /* RoasterJSON.swift */; };
 		2F3F0E3A24310D84004FC8B3 /* Roasters.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F3F0E3924310D84004FC8B3 /* Roasters.swift */; };
 		2F4EFD3B24273F3300404A2A /* docs in Resources */ = {isa = PBXBuildFile; fileRef = 2F4EFD3A24273F3300404A2A /* docs */; };
@@ -173,15 +166,8 @@
 		2F12C8FF239EBB9D00BFF066 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2F2E336323AAED410064DC09 /* B612Mono-Bold.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Bold.ttf"; sourceTree = "<group>"; };
 		2F2E336423AAED410064DC09 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
-		2F34CCB52435A74900D7A5F2 /* coffees.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = coffees.json; sourceTree = "<group>"; };
-		2F34CCB72435ABB700D7A5F2 /* CoffeeJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CoffeeJSON.swift; sourceTree = "<group>"; };
-		2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Coffees.swift; sourceTree = "<group>"; };
 		2F34CCBB2435AD0700D7A5F2 /* OriginsPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = OriginsPage.swift; sourceTree = "<group>"; };
-		2F34CCC724367FD100D7A5F2 /* origins.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = origins.json; sourceTree = "<group>"; };
-		2F34CCC92436800600D7A5F2 /* OriginJSON.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginJSON.swift; sourceTree = "<group>"; };
-		2F34CCCA2436800600D7A5F2 /* Origins.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origins.swift; sourceTree = "<group>"; };
 		2F3F0E3324307CEA004FC8B3 /* roasters.json */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text.json; path = roasters.json; sourceTree = "<group>"; };
-		2F3F0E3524310B03004FC8B3 /* RoasterViewJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterViewJSON.swift; sourceTree = "<group>"; };
 		2F3F0E3724310D76004FC8B3 /* RoasterJSON.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RoasterJSON.swift; sourceTree = "<group>"; };
 		2F3F0E3924310D84004FC8B3 /* Roasters.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Roasters.swift; sourceTree = "<group>"; };
 		2F4EFD3A24273F3300404A2A /* docs */ = {isa = PBXFileReference; lastKnownFileType = folder; path = docs; sourceTree = "<group>"; };
@@ -518,7 +504,6 @@
 			isa = PBXGroup;
 			children = (
 				2FB074A023B31E3100A7EB7B /* RoastersPage.swift */,
-				2F3F0E3524310B03004FC8B3 /* RoasterViewJSON.swift */,
 				2FE91AC42492DEB500D1FC80 /* RoasterPage.swift */,
 				2F3F0E3924310D84004FC8B3 /* Roasters.swift */,
 				2FE91ABD2492AA4100D1FC80 /* Roaster.swift */,
@@ -536,14 +521,8 @@
 				2FC70C1924966350007F56AC /* OriginPage.swift */,
 				2FE91ACA2493349B00D1FC80 /* CoffeePage.swift */,
 				2F4EFD4224283F3A00404A2A /* OriginsRow.swift */,
-				2F34CCB92435AC7B00D7A5F2 /* Coffees.swift */,
 				2FE91ABF2492AA5100D1FC80 /* Coffee.swift */,
-				2F34CCB72435ABB700D7A5F2 /* CoffeeJSON.swift */,
-				2F34CCB52435A74900D7A5F2 /* coffees.json */,
-				2F34CCC92436800600D7A5F2 /* OriginJSON.swift */,
-				2F34CCCA2436800600D7A5F2 /* Origins.swift */,
 				2FE91AC12492AA6F00D1FC80 /* Origin.swift */,
-				2F34CCC724367FD100D7A5F2 /* origins.json */,
 			);
 			path = Origins;
 			sourceTree = "<group>";
@@ -698,7 +677,6 @@
 				2FAC603323B17D1600122255 /* noun_Map_2665257.svg in Resources */,
 				2FAC604723B17D1600122255 /* noun_timer_1338698.svg in Resources */,
 				2FAC605223B17D1600122255 /* noun_chemex_1025620.svg in Resources */,
-				2F34CCC824367FD100D7A5F2 /* origins.json in Resources */,
 				2FB0744023B2DA0000A7EB7B /* icon80.png in Resources */,
 				2FAC603B23B17D1600122255 /* noun_Spider chart_762110.svg in Resources */,
 				2F11CC0A23A2D67B0011BC94 /* Lato-Light.ttf in Resources */,
@@ -727,7 +705,6 @@
 				2FAC604123B17D1600122255 /* trail.svg in Resources */,
 				2FAC602A23B17D1600122255 /* brew.png in Resources */,
 				2FAC604B23B17D1600122255 /* noun_Kettle_663636.svg in Resources */,
-				2F34CCB62435A74A00D7A5F2 /* coffees.json in Resources */,
 				2F3F0E3424307CEA004FC8B3 /* roasters.json in Resources */,
 				2FB0743D23B2DA0000A7EB7B /* icon29.png in Resources */,
 				2FB0744223B2DA0000A7EB7B /* icon40.png in Resources */,
@@ -850,7 +827,6 @@
 				2FB074A123B31E3100A7EB7B /* RoastersPage.swift in Sources */,
 				2F4EFD4924285A2400404A2A /* SafariView.swift in Sources */,
 				2F90F51D23A0503100C4F0F4 /* AddButton.swift in Sources */,
-				2F3F0E3624310B03004FC8B3 /* RoasterViewJSON.swift in Sources */,
 				2FEEA1A42436CDFF0074C70E /* WebsiteRow.swift in Sources */,
 				2FC70C1E249699B5007F56AC /* StringSubscriptExtension.swift in Sources */,
 				2FE91AC72493177F00D1FC80 /* ShopPage.swift in Sources */,
@@ -858,14 +834,10 @@
 				2FE91ACB2493349B00D1FC80 /* CoffeePage.swift in Sources */,
 				2F34CCBC2435AD0700D7A5F2 /* OriginsPage.swift in Sources */,
 				2F6AFCEC2426ECA4006CC990 /* ShopRow.swift in Sources */,
-				2F34CCCC2436800600D7A5F2 /* Origins.swift in Sources */,
 				2FE91ABC2492AA3200D1FC80 /* Shop.swift in Sources */,
-				2F34CCB82435ABB700D7A5F2 /* CoffeeJSON.swift in Sources */,
 				2FEEA1A82436CF520074C70E /* DetailRowDisplayOnly.swift in Sources */,
 				2FC70C2024969B6B007F56AC /* FindPage.swift in Sources */,
 				2FC70C1C24967C0F007F56AC /* RegionPage.swift in Sources */,
-				2F34CCBA2435AC7B00D7A5F2 /* Coffees.swift in Sources */,
-				2F34CCCB2436800600D7A5F2 /* OriginJSON.swift in Sources */,
 				2FE91AC02492AA5100D1FC80 /* Coffee.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

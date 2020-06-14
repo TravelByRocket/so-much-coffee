@@ -16,6 +16,8 @@ class Coffee : Object, Identifiable {
     @objc dynamic var roaster: Roaster? // objects must be optional; no placeholder Roaster anyway, nor a way to use one
     @objc dynamic var url: String? // it might not be available online
     
+	var id: String {uuid} // enable Identifiable
+	
     // TASTING NOTES or FLAVORS
     // SUMMARY from website?
     // ACTIVE or AVAILABLE or INSTOCK or delete old ones?

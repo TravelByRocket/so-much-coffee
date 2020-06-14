@@ -48,6 +48,27 @@ struct OriginPage: View {
     }
 }
 
+struct ResourcesView: View {
+	let urls: [String]
+	let labels = ["Wikipedia","Atlas Coffee Importers","Cafe Imports","Other URL 1","Other URL 2"]
+	
+	var merged: [(String, String)] {
+		return [ // this is so bad but having issues with loops, typing, initializing with tuple
+			(urls[0],labels[0]),
+			(urls[1],labels[1]),
+			(urls[2],labels[2]),
+			(urls[3],labels[3]),
+			(urls[4],labels[4])
+		]
+	}
+	
+	var body: some View {
+		ForEach (merged.filter { $0.0 != "" }, id: \.1) {pair in
+			DetailRowActionableFA(name: .globe, type: .solid, str: pair.1, url: pair.0, rawString: pair.0)
+		}
+	}
+}
+
 struct OriginPage_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {

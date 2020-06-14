@@ -7,25 +7,30 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct EventsPage: View {
+	let eventShops = realm.objects(Shop.self).filter("eventsURL CONTAINS 'http'")
 	@State private var showList = true
-	@ObservedObject private var eventShops: Shops = Shops(shops: Shops.everyFromJSON.filter { $0.events != "" })
 	
 	var body: some View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapViewJSON(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
+					MapViewResults(shops: eventShops, centerCoordinate: eventShops.centerCoordinate, latitudeDelta: eventShops.latitudeDelta, longitudeDelta: eventShops.longitudeDelta)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Shops with Events")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (eventShops.allWithinMapAreaSorted[0 ..< min(eventShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
-						NavigationLink (destination: ShopViewJSON(shop: shop.shop)){
-							ShopRow(shop: shop) // location for distance is provided through the Shops class
+					List (eventShops) {shop in
+						NavigationLink (destination: ShopPage(shop: shop)){
+							VStack (alignment: .leading){
+								Text(shop.name)
+								Text("fix ShopRow needing distance as Shop").foregroundColor(.secondary).italic().font(.caption)
+//								ShopRow(shop: shop) // location for distance is provided through the Shops class
+							}
 						}
 					}
 					.id(UUID())

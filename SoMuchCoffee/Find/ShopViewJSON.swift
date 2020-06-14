@@ -14,7 +14,7 @@ struct ShopViewJSON: View {
 	@EnvironmentObject var allShops: Shops
 	@EnvironmentObject var allRoasters: Roasters
 	var shop: ShopJSON
-	
+
 	var body: some View {
 		VStack {
 			MapViewJSON(shops: Shops(oneShop: shop), centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015)
@@ -42,7 +42,7 @@ struct ShopViewJSON: View {
 					DetailRowDisplayOnlyFA(name: .plug, type: .solid, str: shop.power, noun: "power outlet")
 					DetailRowDisplayOnlyFA(name: .userFriends, type: .solid, str: shop.socializing, noun: "socializing")
 					DetailRowDisplayOnlyFA(name: .book, type: .solid, str: shop.working, noun: "working/studying")
-					
+
 				}
 				Section (header: Text("Online & Social")) {
 					WebsiteRow(url: shop.website)
@@ -64,7 +64,7 @@ struct ShopViewJSON: View {
 				Section (header: Text("Other")) {
 					EmailCorrectionRow()
 				}
-				
+
 			}
 		}
 		.edgesIgnoringSafeArea(.top)
@@ -82,204 +82,4 @@ struct ShopViewJSON_Previews: PreviewProvider {
 	}
 }
 
-struct CopyFieldToClipboard: View {
-	// view disables itself if string = nil
-	let string: String?
-	var body: some View {
-		Image(systemName: "doc.on.doc")
-			.padding(.vertical,10)
-			.padding(.horizontal,7)
-			.background(Color.gray.opacity(0.2))
-			.mask(RoundedRectangle(cornerRadius: 3.0))
-			.onTapGesture {
-				UIPasteboard.general.string = self.string
-		}
-		.disabled(string == nil)
-	}
-}
-
-struct ActionIndicator: View {
-	var body: some View {
-		Image(systemName: "chevron.right.circle")
-	}
-}
-
-struct AddressRow: View {
-	let addr: String
-	var body: some View {
-		HStack {
-			Image(systemName: "map.fill")
-			Text(addr)
-			Spacer()
-			CopyFieldToClipboard(string: addr)
-		}
-	}
-}
-
-struct PhoneNumberRow: View {
-	let phone: String
-	var phoneFormatted: String {
-		var formatted = ""
-		if phone != "" {
-			formatted += "+1 ("
-			formatted += phone[0..<3]
-			formatted += ") "
-			formatted += phone[3..<6]
-			formatted += "-"
-			formatted += phone[6..<10]
-		}
-		return formatted
-	}
-	var body: some View {
-		HStack {
-			HStack {
-				Image(systemName: "phone.fill")
-				if phone != "" { // if phone is not empty
-					HStack {
-						Text(phoneFormatted) // then show the formatted phone number
-						ActionIndicator() // and the indicator that it will do an action if clicked
-					}
-					.onTapGesture {
-						callPhoneNumber(number: self.phone) // and make a call if clicked
-					}
-				} else { // otherwise if phone is blank then just show that it's not set
-					NotAvailableJSON()
-				}
-			}
-			Spacer()
-			CopyFieldToClipboard(string: phone)
-		}
-	}
-}
-
-struct EmailRow: View {
-	let email: String
-	var body: some View {
-		HStack {
-			HStack {
-				Image(systemName: "at")
-				if email != "" { // if phone is not nil
-					HStack {
-						Text(email) // then show the formatted phone number
-						ActionIndicator() // and the indicator that it will do an action if clicked
-					}
-					.onTapGesture {
-						sendEmail(addr: self.email) // and make a call if clicked
-					}
-				} else { // otherwise if phone is empty then just show that it's not set
-					NotAvailableJSON()
-				}
-			}
-			Spacer()
-			CopyFieldToClipboard(string: self.email)
-		}
-	}
-}
-
-struct ScheduleRow: View {
-	let sched: String
-	var body: some View {
-		HStack {
-			Image(systemName: "calendar")
-			Text(sched != "" ? sched : "No hours set")
-			Spacer()
-		}
-	}
-}
-
-struct EmailCorrectionRow: View {
-	var body: some View {
-		HStack {
-			Image(systemName: "exclamationmark.square.fill")
-			Text("Correction? Send us an email!")
-				.italic()
-			ActionIndicator()
-		}
-		.foregroundColor(Color.orange)
-		.onTapGesture {
-			sendEmail(addr: "app@somuchcoffee.co")
-		}
-	}
-}
-
-// String extension to use integers for subscripting
-// https://stackoverflow.com/questions/45497705/subscript-is-unavailable-cannot-subscript-string-with-a-countableclosedrange
-extension String {
-	subscript (bounds: CountableClosedRange<Int>) -> String {
-		let start = index(startIndex, offsetBy: bounds.lowerBound)
-		let end = index(startIndex, offsetBy: bounds.upperBound)
-		return String(self[start...end])
-	}
-	
-	subscript (bounds: CountableRange<Int>) -> String {
-		let start = index(startIndex, offsetBy: bounds.lowerBound)
-		let end = index(startIndex, offsetBy: bounds.upperBound)
-		return String(self[start..<end])
-	}
-}
-
-func callPhoneNumber(number: String) {
-	// https://stackoverflow.com/questions/27259824/calling-a-phone-number-in-swift
-	if let url = URL(string: "tel://\(number)"), UIApplication.shared.canOpenURL(url) {
-		if #available(iOS 10, *) {
-			UIApplication.shared.open(url)
-		} else {
-			UIApplication.shared.openURL(url)
-		}
-	}
-}
-
-func sendEmail(addr: String) {
-	if let url = URL(string: "mailto:\(addr)"), UIApplication.shared.canOpenURL(url) {
-		if #available(iOS 10, *) {
-			UIApplication.shared.open(url)
-		} else {
-			UIApplication.shared.openURL(url)
-		}
-	}
-}
-
-struct DetailRowActionableFA: View {
-	@State private var showSheet = false
-	let name: FontAwesome
-	let type: FontAwesomeStyle
-	let str: String
-	let url: String
-	let rawString: String
-	var noun: String = ""
-	
-	var body: some View {
-		HStack {
-			FontAwesomeIcon(name: name, type: type)
-			if (rawString != "") {
-				HStack {
-					Text(str)
-					ActionIndicator()
-				}.onTapGesture {
-					self.showSheet = true
-				}
-			} else {
-				NotAvailableJSON(detail: noun)
-			}
-		}.sheet(isPresented: $showSheet, content: { SafariView(url: URL(string: self.url)!) } )
-	}
-}
-
-
-
-class ReportingShopJSON: ObservableObject {
-	@Published var shop: ShopJSON?
-}
-
-class ReportingShop: ObservableObject {
-	@Published var shop: Shop?
-}
-
-
-struct InstagramRow: View {
-	let instagramHandle: String
-	var body: some View {
-		DetailRowActionableFA(name: .instagram, type: .brands, str: "@\(instagramHandle)", url: "https://instagram.com/\(instagramHandle)", rawString: instagramHandle)
-	}
-}
 

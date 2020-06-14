@@ -28,19 +28,19 @@ struct OriginsPage: View {
 				Text("Only Single Origin Roasts") // TODO This might not be true one day
 				List {
 					Section (header: Text("By Region")) { // TODO make more concise with ForEach on the enaum but there are issues to solve to make that happen
-						NavigationLink (destination: RegionViewJSON(regionName: Origin.Region.AfricaAndMiddleEast.rawValue)) {
+						NavigationLink (destination: RegionPage(regionName: Origin.Region.AfricaAndMiddleEast.rawValue)) {
 							Text(Origin.Region.AfricaAndMiddleEast.rawValue)
 						}
-						NavigationLink (destination: RegionViewJSON(regionName: Origin.Region.AsiaPacific.rawValue)) {
+						NavigationLink (destination: RegionPage(regionName: Origin.Region.AsiaPacific.rawValue)) {
 							Text(Origin.Region.AsiaPacific.rawValue)
 						}
-						NavigationLink (destination: RegionViewJSON(regionName: Origin.Region.NorthAmerica.rawValue)) {
+						NavigationLink (destination: RegionPage(regionName: Origin.Region.NorthAmerica.rawValue)) {
 							Text(Origin.Region.NorthAmerica.rawValue)
 						}
-						NavigationLink (destination: RegionViewJSON(regionName: Origin.Region.CentralAmerica.rawValue)) {
+						NavigationLink (destination: RegionPage(regionName: Origin.Region.CentralAmerica.rawValue)) {
 							Text(Origin.Region.CentralAmerica.rawValue)
 						}
-						NavigationLink (destination: RegionViewJSON(regionName: Origin.Region.SouthAmerica.rawValue)) {
+						NavigationLink (destination: RegionPage(regionName: Origin.Region.SouthAmerica.rawValue)) {
 							Text(Origin.Region.SouthAmerica.rawValue)
 						}
 					}

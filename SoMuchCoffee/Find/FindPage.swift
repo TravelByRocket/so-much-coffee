@@ -2,55 +2,23 @@
 //  FindPage.swift
 //  SoMuchCoffee
 //
-//  Created by Bryan Costanza on 12/24/19.
-//  Copyright © 2019 Bryan Costanza. All rights reserved.
+//  Created by Bryan Costanza on 6/14/20.
+//  Copyright © 2020 Bryan Costanza. All rights reserved.
 //
 
 import SwiftUI
 import MapKit
+import RealmSwift
 
 struct FindPage: View {
-	@EnvironmentObject var allShops: Shops
-	@EnvironmentObject var allRoasters: Roasters
+	var shops: RealmSwift.Results<Shop> = realm.objects(Shop.self)
+	let bufferFactor = 1.2
+	
 	@EnvironmentObject var mapStatus: MapStatusManager
 	@ObservedObject var lm = LocationManager()
 	
 	@State private var locationSource: LocationSource = .userLocation
-	
-	var latitudeDelta: Double {
-		if mapStatus.longitudeSpanFixed != nil {
-			return 0.01 // set very small because longitude should rule the sizing in this case
-		} else if lm.location?.coordinate != nil {
-			return 0.04
-		} else {
-			return allShops.longitudeDeltaOfShops
-		}
-	}
-	
-	var longitudeDelta: Double {
-		if let span = mapStatus.longitudeSpanFixed {
-			return span
-		} else if let center = lm.location?.coordinate {
-			mapStatus.centerCoordinateFixed = center
-			mapStatus.longitudeSpanFixed = 0.04
-			return 0.04
-		} else {
-			return allShops.longitudeDeltaOfShops
-		}
-	}
-	
-	var centerCoordinate: CLLocationCoordinate2D {
-		// TODO this would not be able to accomodate a "center on me" option
-		if let center = mapStatus.centerCoordinateFixed {
-			return center
-		} else if let center = lm.location?.coordinate {
-			mapStatus.centerCoordinateFixed = center
-			return center
-		} else {
-			return allShops.centerOfShops
-		}
-	}
-	
+		
 	enum LocationSource {
 		case shopsCenter, userLocation
 	}
@@ -62,7 +30,7 @@ struct FindPage: View {
 		return NavigationView {
 			VStack {
 				ZStack {
-					MapViewJSON(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: 0.01, longitudeDelta: longitudeDelta, keepMapLocation: true)
+					MapViewResults(shops: shops, centerCoordinate: shops.centerCoordinate, latitudeDelta: shops.latitudeDelta * bufferFactor, longitudeDelta: shops.longitudeDelta * bufferFactor, keepMapLocation: true)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
@@ -76,9 +44,13 @@ struct FindPage: View {
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (allShops.allWithinMapAreaSorted[0 ..< min(allShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
-						NavigationLink (destination: ShopViewJSON(shop: shop.shop)){
-							ShopRow(shop: shop) // location for distance is provided through the Shops class
+					List (shops) {shop in
+						NavigationLink (destination: ShopPage(shop: shop)){
+							VStack {
+								Text(shop.name)
+								Text("fix ShopRow needing distance as Shop")
+//								ShopRow(shop: shop) // location for distance is provided through the Shops class
+							}
 						}
 					}
 //					.id(UUID()) // eliminates animation, which I think was the cause of links popping back
@@ -86,7 +58,7 @@ struct FindPage: View {
 			}
 			.animation(.default)
 		}
-	}	
+	}
 }
 
 struct ShowHideList: View {
@@ -105,13 +77,9 @@ struct ShowHideList: View {
 	}
 }
 
-
 struct FindPage_Previews: PreviewProvider {
-	static var previews: some View {
-		FindPage()
-			.environmentObject(Shops.all)
-			.environmentObject(Roasters.all)
-			.environmentObject(MapStatusManager())
-	}
+    static var previews: some View {
+        FindPage()
+		.environmentObject(MapStatusManager())
+    }
 }
-

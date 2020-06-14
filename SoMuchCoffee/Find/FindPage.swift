@@ -62,7 +62,7 @@ struct FindPage: View {
 		return NavigationView {
 			VStack {
 				ZStack {
-					MapView(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: 0.01, longitudeDelta: longitudeDelta, keepMapLocation: true)
+					MapViewJSON(shops: allShops, centerCoordinate: centerCoordinate, latitudeDelta: 0.01, longitudeDelta: longitudeDelta, keepMapLocation: true)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
@@ -77,7 +77,7 @@ struct FindPage: View {
 				}
 				if showList {
 					List (allShops.allWithinMapAreaSorted[0 ..< min(allShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
-						NavigationLink (destination: ShopView(shop: shop.shop)){
+						NavigationLink (destination: ShopViewJSON(shop: shop.shop)){
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
 						}
 					}

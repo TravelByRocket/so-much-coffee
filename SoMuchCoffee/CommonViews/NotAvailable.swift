@@ -10,7 +10,7 @@ import SwiftUI
 
 struct NotAvailable: View {
 	var detail: String = ""
-	@EnvironmentObject private var currentShop: ReportingShop
+	@EnvironmentObject private var currentShop: ReportingShopJSON
 	var body: some View {
 		Text("No \(detail != "" ? detail + " " : detail)info. Click to provide details.")
 			.italic()

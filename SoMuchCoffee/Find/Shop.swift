@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import MapKit
 
 class Shop : Object, Identifiable {
     @objc dynamic var id: String = ""
@@ -37,4 +38,11 @@ class Shop : Object, Identifiable {
     
     override var description: String { return "Shop: \(name)"}
     override static func primaryKey() -> String? {return "id"}
+	
+	var latlon: CLLocationCoordinate2D {
+		let lat = CLLocationDegrees(latitude)
+		let lon = CLLocationDegrees(longitude)
+		let coord = CLLocationCoordinate2D(latitude: lat, longitude: lon)
+		return coord
+	}
 }

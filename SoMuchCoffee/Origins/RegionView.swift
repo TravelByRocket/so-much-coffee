@@ -18,7 +18,7 @@ struct RegionView: View {
 		VStack {
 			Text(regionName).font(.largeTitle)
 			List(origins.filter { $0.regionName == self.regionName }, id: \.self) { origin in
-				NavigationLink (destination: OriginView(origin: origin)) {
+				NavigationLink (destination: OriginViewJSON(origin: origin)) {
 					Image(systemName: "\(self.allCoffee.filter { $0.originID == origin.id }.count).circle")
 					Text(self.allOrigins.originFromID(origin.id).name)
 				}

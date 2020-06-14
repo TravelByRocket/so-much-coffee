@@ -35,7 +35,7 @@ struct CoffeesPage: View {
 					}
 					Section (header: Text("All Origins")) {
 						ForEach(originIDs, id: \.self) { originID in
-							NavigationLink (destination: OriginView(origin: self.allOrigins.originFromID(originID))) {
+							NavigationLink (destination: OriginViewJSON(origin: self.allOrigins.originFromID(originID))) {
 								Image(systemName: "\(self.allCoffee.filter { $0.originID == originID }.count).circle")
 								Text(self.allOrigins.originFromID(originID).name)
 							}

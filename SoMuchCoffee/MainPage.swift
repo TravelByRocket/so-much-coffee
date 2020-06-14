@@ -23,9 +23,7 @@ struct MainPage: View {
 			.sheet(isPresented: $showAbout) {
 				AboutPage()
 			}
-			
-			Text("\(realm.objects(Shop.self).count) shops found")
-			
+			 
 			// FIRST ROW
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")

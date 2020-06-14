@@ -2,44 +2,40 @@
 //  RoasterView.swift
 //  SoMuchCoffee
 //
-//  Created by Bryan Costanza on 3/29/20.
+//  Created by Bryan Costanza on 6/11/20.
 //  Copyright © 2020 Bryan Costanza. All rights reserved.
 //
 
 import SwiftUI
+import RealmSwift
 
-struct RoasterView: View {
-	var roaster: RoasterJSON
-	
-	@EnvironmentObject var allShops: Shops
-	
-	var allCoffees: [CoffeeJSON] = Coffees.everyFromJSON
-	var allOrigins: Origins = Origins.all
-	
-	var filteredShops: Shops {
-		let filtered = allShops.shopsServing(roasterID: roaster.id)
-		return Shops(shops: filtered)
-	}
+struct RoasterView: View { // should be `RoasterPage`
+	var roaster: Roaster
+	let mapBufferFactor = 1.2
 	
     var body: some View {
 		VStack {
-			MapView(shops: filteredShops, centerCoordinate: filteredShops.centerOfShops, latitudeDelta: filteredShops.latitudeDeltaOfShops, longitudeDelta: filteredShops.longitudeDeltaOfShops)
+			MapViewLinkingObjects(shops: roaster.shopsServing,
+					centerCoordinate: roaster.shopsServing.centerCoordinate,
+					latitudeDelta: roaster.shopsServing.latitudeDelta * mapBufferFactor,
+					longitudeDelta: roaster.shopsServing.longitudeDelta * mapBufferFactor)
 			Text(roaster.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
-			Text(roaster.description).multilineTextAlignment(.leading).padding(.horizontal)
+			Text(roaster.summary ?? "No summary yet").multilineTextAlignment(.leading).padding(.horizontal)
 			List {
 				Section (header: Text("Locations Serving")) {
-					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
-						NavigationLink(destination: ShopView(shop: shop)) {
-							DetailRowDisplayOnly(symbol: (shop.roastsOwn ?? false ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
+					ForEach (roaster.shopsServing.sorted(byKeyPath: "name")) {shop in
+//						NavigationLink(destination: ShopViewJSON(shop: shop)) {
+						NavigationLink(destination: Text("Placeholder")) {
+							DetailRowDisplayOnly(symbol: (shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
 						}
 					}
 				}
 				Section (header: Text("Roasts")) {
-					ForEach(allCoffees.filter { $0.roasterID == roaster.id }.sorted(), id: \.self) {coffee in
-						NavigationLink(destination: CoffeeView(coffee: coffee)) {
+					ForEach(realm.objects(Coffee.self).filter("roaster == %@", roaster).sorted(byKeyPath: "name")) {coffee in // TODO consider change from filter to LinkingObjects in DB
+						NavigationLink(destination: CoffeePage(coffee: coffee)) {
 							VStack (alignment: .leading) {
 								Text(coffee.name)
-								Text(self.allOrigins.originFromID(coffee.originID).name)
+								Text(coffee.origins.map{$0.name}.joined(separator: ", "))
 									.foregroundColor(Color.secondary)
 									.font(.caption)
 							}
@@ -47,12 +43,28 @@ struct RoasterView: View {
 					}
 				}
 				Section (header: Text("More Details")){
-					InstagramRow(instagramHandle: roaster.instagram)
-					DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: "+roaster.fairtrade))
-					DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: "+roaster.code))
-					DetailRowDisplayOnly(symbol: "barcode", str: ("Code: "+roaster.code))
-					DetailRowActionableFA(name: .globe, type: .solid, str: "Order Beans", url: roaster.ordering, rawString: roaster.ordering, noun: "ordering")
-					DetailRowActionableFA(name: .globe, type: .solid, str: "Bean Subscription", url: roaster.ordering, rawString: roaster.subscription, noun: "subscription")
+					InstagramRow(instagramHandle: roaster.instagram ?? "") // TODO handle the nil cases within the View
+					
+					if roaster.isFairtrade.value != nil {
+						DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: " + (roaster.isFairtrade.value! ? "Yes" : "No") ))
+					} else {
+						DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: Unknown"))
+					}
+					
+					if roaster.offerDetails != nil {
+						DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: " + roaster.offerDetails!))
+					} else {
+						DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: Unknown"))
+					}
+					
+					if roaster.offerCode != nil {
+						DetailRowDisplayOnly(symbol: "barcode", str: ("Offer: " + roaster.offerCode!))
+					} else {
+						DetailRowDisplayOnly(symbol: "barcode", str: ("Offer: Unknown"))
+					}
+					
+					DetailRowActionableFA(name: .globe, type: .solid, str: "Order Beans", url: roaster.orderingURL ?? "", rawString: roaster.orderingURL ?? "", noun: "ordering")
+					DetailRowActionableFA(name: .globe, type: .solid, str: "Bean Subscription", url: roaster.subscriptionURL ?? "", rawString: roaster.subscriptionURL ?? "", noun: "subscription")
 				}
 			}
 		}
@@ -63,10 +75,8 @@ struct RoasterView: View {
 struct RoasterView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			RoasterView(roaster: RoasterJSON(id: "sweetbloom", name: "Fake Sweet Bloom", description: "Using energy from the Sun", instagram: "sunny"))
-//			Text("placeholder")
+			RoasterView(roaster: realm.objects(Roaster.self).randomElement()!)
 		}
-		.environmentObject(Shops())
 		.navigationBarTitle("Shop Name")
     }
 }

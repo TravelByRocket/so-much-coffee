@@ -9,7 +9,7 @@
 import SwiftUI
 import MapKit
 
-struct MapView: UIViewRepresentable {
+struct MapViewJSON: UIViewRepresentable {
 	var shops: Shops
 	var centerCoordinate: CLLocationCoordinate2D
 	var latitudeDelta: Double
@@ -20,9 +20,9 @@ struct MapView: UIViewRepresentable {
 	@EnvironmentObject var mapStatus: MapStatusManager
 	
 	class Coordinator: NSObject, MKMapViewDelegate {
-		var parent: MapView
+		var parent: MapViewJSON
 
-		init(_ parent: MapView) {
+		init(_ parent: MapViewJSON) {
 			self.parent = parent
 		}
 		
@@ -105,9 +105,3 @@ struct MapView: UIViewRepresentable {
 		Coordinator(self)
 	}
 }
-
-//struct MapView_Previews: PreviewProvider {
-//    static var previews: some View {
-//        MapView()
-//    }
-//}

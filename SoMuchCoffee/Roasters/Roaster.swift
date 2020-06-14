@@ -8,6 +8,7 @@
 
 import Foundation
 import RealmSwift
+import MapKit
 
 class Roaster : Object, Identifiable {
     @objc dynamic var id = ""
@@ -23,6 +24,23 @@ class Roaster : Object, Identifiable {
     
     let shopsOwned = LinkingObjects(fromType: Shop.self, property: "affiliatedRoaster")
     let shopsServing = LinkingObjects(fromType: Shop.self, property: "roasters")
+	
+	var shopsServing_centerCoordinate: CLLocationCoordinate2D {
+		let lats = shopsServing.map{$0.latitude}
+		let latmid = (lats.min()! + lats.max()!) / 2
+		
+		let lngs = shopsServing.map{$0.longitude}
+		let lngmid = (lngs.min()! + lngs.max()!) / 2
+		
+		return CLLocationCoordinate2D(latitude: latmid, longitude: lngmid)
+	}
+	
+	var shopsServing_latitudeDelta: Double {
+		let lats = shopsServing.map{$0.latitude}
+		let delta = lats.max()! + lats.min()!
+		
+		return delta
+	}
     
     override var description: String { return "Roaster: \(name)"}
     override static func primaryKey() -> String? {return "id"}

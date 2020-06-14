@@ -16,7 +16,7 @@ struct EventsPage: View {
 		NavigationView {
 			VStack {
 				ZStack {
-					MapView(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
+					MapViewJSON(shops: eventShops, centerCoordinate: eventShops.centerOfShops, latitudeDelta: eventShops.latitudeDeltaOfShops, longitudeDelta: eventShops.longitudeDeltaOfShops)
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Shops with Events")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
@@ -24,7 +24,7 @@ struct EventsPage: View {
 				}
 				if showList {
 					List (eventShops.allWithinMapAreaSorted[0 ..< min(eventShops.allWithinMapAreaSorted.count,10)], id: \.shop.id) {shop in
-						NavigationLink (destination: ShopView(shop: shop.shop)){
+						NavigationLink (destination: ShopViewJSON(shop: shop.shop)){
 							ShopRow(shop: shop) // location for distance is provided through the Shops class
 						}
 					}

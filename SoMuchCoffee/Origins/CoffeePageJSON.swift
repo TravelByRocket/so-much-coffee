@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct CoffeeView: View {
+struct CoffeePageJSON: View {
 	let coffee: CoffeeJSON
 	
 	let allCoffees = Coffees.all
@@ -30,10 +30,10 @@ struct CoffeeView: View {
 					NavigationLink (destination: RegionView(regionName: allOrigins.originFromID(coffee.originID).regionName)) {
 						Text(allOrigins.originFromID(coffee.originID).regionName)
 					}
-					NavigationLink (destination: OriginView(origin: allOrigins.originFromID(coffee.originID))) {
+					NavigationLink (destination: OriginViewJSON(origin: allOrigins.originFromID(coffee.originID))) {
 						Text(allOrigins.originFromID(coffee.originID).name)
 					}
-					NavigationLink(destination: RoasterView(roaster: roaster)) {
+					NavigationLink(destination: RoasterViewJSON(roaster: roaster)) {
 						Text(allRoasters.roasterFromID(coffee.roasterID).name)
 					}
 				}
@@ -47,10 +47,10 @@ struct CoffeeView: View {
     }
 }
 
-struct CoffeeView_Previews: PreviewProvider {
+struct CoffeePageJSON_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			CoffeeView(coffee: Coffees.oneFromJSON)
+			CoffeePageJSON(coffee: Coffees.oneFromJSON)
 				.environmentObject(Roasters.all)
 		}
     }

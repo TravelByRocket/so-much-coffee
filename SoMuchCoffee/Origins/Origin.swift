@@ -12,7 +12,7 @@ import RealmSwift
 class Origin : Object, Identifiable {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
-    private dynamic var privateRawRegion: String = Region.Other.rawValue
+    @objc private dynamic var privateRawRegion: String = Region.Other.rawValue
     var region: Region {
         // enum example from https://medium.com/it-works-locally/persisting-swift-enumerations-with-realm-io-dab37cd98bcd
         // enum pattern from https://stackoverflow.com/questions/37997766/enums-support-with-realm

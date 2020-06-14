@@ -7,22 +7,19 @@
 //
 
 import SwiftUI
+import RealmSwift
 
 struct RoastersPage: View {
-	@EnvironmentObject var allShops: Shops
-	@EnvironmentObject var allRoasters: Roasters
-	
 	@State private var searchString = ""
 	
-	private var filteredRoasters: [RoasterJSON] {
+	private var filteredRoasters: RealmSwift.Results<Roaster> {
 		if searchString == "" {
-			return allRoasters.items.sorted()
+			return realm.objects(Roaster.self).sorted(byKeyPath: "name")
 		} else {
-			return allRoasters.items.sorted().filter { $0.name.lowercased().contains(searchString.lowercased())
-			}
+			return realm.objects(Roaster.self).sorted(byKeyPath: "name").filter("name CONTAINS[c] '\(searchString)'")
 		}
 	}
-	
+		
 	var body: some View {
 		NavigationView {
 			VStack {
@@ -31,12 +28,7 @@ struct RoastersPage: View {
 					.textFieldStyle(RoundedBorderTextFieldStyle())
 					.padding(.horizontal)
 				List(filteredRoasters) {roaster in
-					NavigationLink(destination: RoasterView(roaster: roaster)) {
-						HStack {
-							Image(systemName: self.allShops.shopCountToCircleStringName(roaster.id))
-							Text(roaster.name)
-						}
-					}
+					RoasterRow(roaster: roaster)
 				}
 			}
 			.navigationBarTitle("Roasters")
@@ -48,7 +40,21 @@ struct RoastersPage: View {
 struct RoastersPage_Previews: PreviewProvider {
     static var previews: some View {
 		RoastersPage()
-		.environmentObject(Shops())
-		.environmentObject(Roasters())
     }
+}
+
+struct RoasterRow: View {
+	var roaster: Roaster
+	var body: some View {
+		NavigationLink(destination: RoasterView(roaster: roaster)) {
+			HStack {
+				Image(systemName:
+					roaster.shopsServing.count <= 50 ?
+						"\(roaster.shopsServing.count).circle" :
+					"asterisk.circle"
+				)
+				Text(roaster.name)
+			}
+		}
+	}
 }

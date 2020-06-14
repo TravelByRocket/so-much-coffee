@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct OriginView: View {
+struct OriginViewJSON: View {
 	var origin: OriginJSON
 	
 	var allCoffees: [CoffeeJSON] = Bundle.main.decode([CoffeeJSON].self, from: "coffees.json")
@@ -21,7 +21,7 @@ struct OriginView: View {
 			List {
 				Section (header: Text("Roasts")) {
 					ForEach(allCoffees.filter { $0.originID == origin.id }.sorted(), id: \.self) {coffee in
-						NavigationLink(destination: CoffeeView(coffee: coffee)) {
+						NavigationLink(destination: CoffeePageJSON(coffee: coffee)) {
 							VStack (alignment: .leading) {
 								Text(coffee.name)
 								HStack {
@@ -73,7 +73,7 @@ struct ResourcesView: View {
 struct CountryView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			OriginView(origin: Origins.oneFromJSON)
+			OriginViewJSON(origin: Origins.oneFromJSON)
 				.environmentObject(Roasters.all)
 		}
     }

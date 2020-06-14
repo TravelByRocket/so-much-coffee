@@ -10,7 +10,7 @@ import SwiftUI
 import RealmSwift
 import FontAwesome_swift
 
-struct ShopView: View {
+struct ShopPage: View {
 	@EnvironmentObject var currentShop: ReportingShop // TODO replace this by passing entire Shop object into each subview and then handle everything within that view, including a way to report an error, though that will itself be done with some common element
 	var shop: Shop
 	
@@ -28,7 +28,7 @@ struct ShopView: View {
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach (shop.roasters) {roaster in
-						NavigationLink(destination: RoasterView(roaster: roaster)) {
+						NavigationLink(destination: RoasterPage(roaster: roaster)) {
 							DetailRowDisplayOnly(symbol: String(roaster.shopsServing.count) + ".circle" , str: roaster.name)
 						} // TODO make this circle part of an extension
 					}
@@ -72,7 +72,7 @@ struct ShopView: View {
 struct ShopView_Previews: PreviewProvider {
 	static var previews: some View {
 		NavigationView {
-			ShopView(shop: realm.objects(Shop.self).randomElement()!)
+			ShopPage(shop: realm.objects(Shop.self).randomElement()!)
 			.environmentObject(ReportingShop())
 		}
 	}

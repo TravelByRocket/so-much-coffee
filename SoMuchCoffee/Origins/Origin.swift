@@ -24,13 +24,15 @@ class Origin : Object, Identifiable {
     @objc dynamic var cafeImportURL: String?
     @objc dynamic var otherURL1: String?
     @objc dynamic var otherURL2: String?
+	
+	let coffees = LinkingObjects(fromType: Coffee.self, property: "origins")
     
     // INDICATIVE FLAVORS
     
     override var description: String { return "Origin: \(name)"}
     override static func primaryKey() -> String? {return "id"}
     
-    public enum Region: String {
+    public enum Region: String, CaseIterable {
         case NorthAmerica = "North America"
         case CentralAmerica = "Central America"
         case SouthAmerica = "South America"

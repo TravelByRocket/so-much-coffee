@@ -9,7 +9,7 @@
 import SwiftUI
 import RealmSwift
 
-struct RoasterView: View { // should be `RoasterPage`
+struct RoasterPage: View { // should be `RoasterPage`
 	var roaster: Roaster
 	let mapBufferFactor = 1.2
 	
@@ -24,8 +24,7 @@ struct RoasterView: View { // should be `RoasterPage`
 			List {
 				Section (header: Text("Locations Serving")) {
 					ForEach (roaster.shopsServing.sorted(byKeyPath: "name")) {shop in
-//						NavigationLink(destination: ShopViewJSON(shop: shop)) {
-						NavigationLink(destination: Text("Placeholder")) {
+						NavigationLink(destination: ShopPage(shop: shop)) {
 							DetailRowDisplayOnly(symbol: (shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
 						}
 					}
@@ -75,7 +74,7 @@ struct RoasterView: View { // should be `RoasterPage`
 struct RoasterView_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			RoasterView(roaster: realm.objects(Roaster.self).randomElement()!)
+			RoasterPage(roaster: realm.objects(Roaster.self).randomElement()!)
 		}
 		.navigationBarTitle("Shop Name")
     }

@@ -143,7 +143,7 @@ struct PhoneNumberRow: View {
 						callPhoneNumber(number: self.phone) // and make a call if clicked
 					}
 				} else { // otherwise if phone is blank then just show that it's not set
-					NotAvailable()
+					NotAvailableJSON()
 				}
 			}
 			Spacer()
@@ -167,7 +167,7 @@ struct EmailRow: View {
 						sendEmail(addr: self.email) // and make a call if clicked
 					}
 				} else { // otherwise if phone is empty then just show that it's not set
-					NotAvailable()
+					NotAvailableJSON()
 				}
 			}
 			Spacer()
@@ -259,7 +259,7 @@ struct DetailRowActionableFA: View {
 					self.showSheet = true
 				}
 			} else {
-				NotAvailable(detail: noun)
+				NotAvailableJSON(detail: noun)
 			}
 		}.sheet(isPresented: $showSheet, content: { SafariView(url: URL(string: self.url)!) } )
 	}

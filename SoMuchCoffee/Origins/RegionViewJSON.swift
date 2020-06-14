@@ -8,7 +8,7 @@
 
 import SwiftUI
 
-struct RegionView: View {
+struct RegionViewJSON: View {
 	var regionName: String
 	let origins = Origins.everyFromJSON
 	let allCoffee = Coffees.everyFromJSON
@@ -27,10 +27,10 @@ struct RegionView: View {
     }
 }
 
-struct RegionView_Previews: PreviewProvider {
+struct RegionViewJSON_Previews: PreviewProvider {
     static var previews: some View {
 		NavigationView {
-			RegionView(regionName: "South America")
+			RegionViewJSON(regionName: "South America")
 		}
     }
 }

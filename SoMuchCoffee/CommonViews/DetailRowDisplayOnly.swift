@@ -21,7 +21,7 @@ struct DetailRowDisplayOnly: View {
 					Text(str)
 				}
 			} else {
-				NotAvailable()
+				NotAvailableJSON()
 			}
 		}
 	}
@@ -41,7 +41,7 @@ struct DetailRowDisplayOnlyFA: View {
 					Text(str)
 				}
 			} else {
-				NotAvailable(detail: noun)
+				NotAvailableJSON(detail: noun)
 			}
 		}
 	}

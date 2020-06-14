@@ -8,9 +8,9 @@
 
 import SwiftUI
 
-struct NotAvailable: View {
+struct NotAvailableJSON: View {
 	var detail: String = ""
-	@EnvironmentObject private var currentShop: ReportingShopJSON
+	@EnvironmentObject private var currentShop: ReportingShop
 	var body: some View {
 		Text("No \(detail != "" ? detail + " " : detail)info. Click to provide details.")
 			.italic()
@@ -23,6 +23,6 @@ struct NotAvailable: View {
 
 struct NotAvailable_Previews: PreviewProvider {
     static var previews: some View {
-		NotAvailable()
+		NotAvailableJSON()
     }
 }

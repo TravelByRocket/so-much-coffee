@@ -19,22 +19,22 @@ struct OriginViewJSON: View {
 		VStack {
 			Text("Roasts from \(origin.name)").font(.title).padding().multilineTextAlignment(.center)
 			List {
-				Section (header: Text("Roasts")) {
-					ForEach(allCoffees.filter { $0.originID == origin.id }.sorted(), id: \.self) {coffee in
-						NavigationLink(destination: CoffeePageJSON(coffee: coffee)) {
-							VStack (alignment: .leading) {
-								Text(coffee.name)
-								HStack {
-									Text(self.allRoasters.roasterNameFromID(coffee.roasterID))
-									Spacer()
-									Text(self.allRoasters.roasterFromID(coffee.roasterID).locationShort)
-								}
-								.foregroundColor(Color.secondary)
-								.font(.caption)
-							}
-						}
-					}
-				}
+//				Section (header: Text("Roasts")) {
+//					ForEach(allCoffees.filter { $0.originID == origin.id }.sorted(), id: \.self) {coffee in
+//						NavigationLink(destination: CoffeePageJSON(coffee: coffee)) {
+//							VStack (alignment: .leading) {
+//								Text(coffee.name)
+//								HStack {
+//									Text(self.allRoasters.roasterNameFromID(coffee.roasterID))
+//									Spacer()
+//									Text(self.allRoasters.roasterFromID(coffee.roasterID).locationShort)
+//								}
+//								.foregroundColor(Color.secondary)
+//								.font(.caption)
+//							}
+//						}
+//					}
+//				}
 				Section (header: Text("Learn More")) {
 					ResourcesView(urls: [ // hack-y to the point of sadness but it is working as desired
 						origin.wikiURL,

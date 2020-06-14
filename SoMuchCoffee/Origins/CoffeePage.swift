@@ -18,17 +18,19 @@ struct CoffeePage: View {
 			Text("by \(coffee.roaster!.name)")
 			List {
 				Section (header: Text("Explore")) {
-//					NavigationLink (destination: RegionView(regionName: allOrigins.originFromID(coffee.originID).regionName)) {
-					NavigationLink (destination: Text("Placeholder")) {
-//						Text(coffee.origins[0].region.rawValue)
-						Text(coffee.origins.map { $0.region.rawValue }.joined(separator: ", "))
+					ForEach (coffee.origins) { origin in
+						NavigationLink (destination: RegionPage(regionName: origin.region.rawValue)) {
+							Text(origin.region.rawValue)
+						}
 					}
-//					NavigationLink (destination: OriginView(origin: allOrigins.originFromID(coffee.originID))) {
-					NavigationLink (destination: Text("Placeholder")) {
-//						Text(coffee.origins[0].name)
-						Text(coffee.origins.map{ $0.name }.joined(separator: ", "))
+					
+					ForEach (coffee.origins) { origin in
+						NavigationLink (destination: OriginPage(origin: origin)) {
+							Text(origin.name)
+						}
 					}
-					NavigationLink(destination: RoasterView(roaster: coffee.roaster!)) {
+					
+					NavigationLink(destination: RoasterPage(roaster: coffee.roaster!)) {
 						Text(coffee.roaster!.name)
 					}
 				}

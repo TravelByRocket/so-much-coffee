@@ -46,7 +46,7 @@ struct RoastersPage_Previews: PreviewProvider {
 struct RoasterRow: View {
 	var roaster: Roaster
 	var body: some View {
-		NavigationLink(destination: RoasterView(roaster: roaster)) {
+		NavigationLink(destination: RoasterPage(roaster: roaster)) {
 			HStack {
 				Image(systemName:
 					roaster.shopsServing.count <= 50 ?

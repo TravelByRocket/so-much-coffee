@@ -23,29 +23,29 @@ struct RoasterViewJSON: View {
 	
     var body: some View {
 		VStack {
-			MapViewJSON(shops: filteredShops, centerCoordinate: filteredShops.centerOfShops, latitudeDelta: filteredShops.latitudeDeltaOfShops, longitudeDelta: filteredShops.longitudeDeltaOfShops)
+//			MapViewJSON(shops: filteredShops, centerCoordinate: filteredShops.centerOfShops, latitudeDelta: filteredShops.latitudeDeltaOfShops, longitudeDelta: filteredShops.longitudeDeltaOfShops)
 			Text(roaster.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
 			Text(roaster.description).multilineTextAlignment(.leading).padding(.horizontal)
 			List {
-				Section (header: Text("Locations Serving")) {
-					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
-						NavigationLink(destination: ShopViewJSON(shop: shop)) {
-							DetailRowDisplayOnly(symbol: (shop.roastsOwn ?? false ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
-						}
-					}
-				}
-				Section (header: Text("Roasts")) {
-					ForEach(allCoffees.filter { $0.roasterID == roaster.id }.sorted(), id: \.self) {coffee in
-						NavigationLink(destination: CoffeePageJSON(coffee: coffee)) {
-							VStack (alignment: .leading) {
-								Text(coffee.name)
-								Text(self.allOrigins.originFromID(coffee.originID).name)
-									.foregroundColor(Color.secondary)
-									.font(.caption)
-							}
-						}
-					}
-				}
+//				Section (header: Text("Locations Serving")) {
+//					ForEach (filteredShops.items.sorted(), id: \.id) {shop in
+//						NavigationLink(destination: ShopViewJSON(shop: shop)) {
+//							DetailRowDisplayOnly(symbol: (shop.roastsOwn ?? false ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
+//						}
+//					}
+//				}
+//				Section (header: Text("Roasts")) {
+//					ForEach(allCoffees.filter { $0.roasterID == roaster.id }.sorted(), id: \.self) {coffee in
+//						NavigationLink(destination: CoffeePageJSON(coffee: coffee)) {
+//							VStack (alignment: .leading) {
+//								Text(coffee.name)
+//								Text(self.allOrigins.originFromID(coffee.originID).name)
+//									.foregroundColor(Color.secondary)
+//									.font(.caption)
+//							}
+//						}
+//					}
+//				}
 				Section (header: Text("More Details")){
 					InstagramRow(instagramHandle: roaster.instagram)
 					DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: "+roaster.fairtrade))

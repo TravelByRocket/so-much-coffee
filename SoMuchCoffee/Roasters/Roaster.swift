@@ -21,6 +21,7 @@ class Roaster : Object, Identifiable {
     @objc dynamic var offerDetails: String?
     @objc dynamic var orderingURL: String?
     @objc dynamic var subscriptionURL: String?
+    @objc dynamic var basedIn: String?
     
     let shopsOwned = LinkingObjects(fromType: Shop.self, property: "affiliatedRoaster")
     let shopsServing = LinkingObjects(fromType: Shop.self, property: "roasters")

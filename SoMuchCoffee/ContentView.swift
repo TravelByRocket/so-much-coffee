@@ -19,7 +19,6 @@ let alfa: String = "AlfaSlabOne-Regular"
 let lato: String = "Lato-Light"
 let monoregular: String = "B12Mono-Regular"
 let monobold: String = "B12Mono-Bold"
-let timerInterval: CGFloat = 0.05
 
 let config = Realm.Configuration(
 	// Get the URL to the bundled file

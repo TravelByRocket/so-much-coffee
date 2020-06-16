@@ -16,7 +16,7 @@ class MapStatusManager: ObservableObject {
 		set {
 			centerCoordinatePrev = centerCoordinateCur
 			centerCoordinateCur = newValue
-			print("msm MapStatusManager.centerCoordinateCur is now \(String(describing: self.centerCoordinateCur)) at \(Date())")
+//			print("msm MapStatusManager.centerCoordinateCur is now \(String(describing: self.centerCoordinateCur)) at \(Date())")
 		}
 	}
 
@@ -25,7 +25,7 @@ class MapStatusManager: ObservableObject {
 		set {
 			longitudeSpanPrev = longitudeSpanCur
 			longitudeSpanCur = newValue
-			print("msm MapStatusManager.longitudeSpanCur is now \(String(describing: self.longitudeSpanCur)) at \(Date())")
+//			print("msm MapStatusManager.longitudeSpanCur is now \(String(describing: self.longitudeSpanCur)) at \(Date())")
 		}
 	}
 	
@@ -86,10 +86,6 @@ class MapStatusManager: ObservableObject {
 			self.longitudeSpanCur = nil
 			self.longitudeSpanPrev = nil
 		}
-
-		print("msm MapStatusManager.centerCoordinateFixed is now \(self.centerCoordinateFixed)")
-//		print("lat centercoordfixed is \(String(describing: self.centerCoordinateFixed?.latitude))")
-//		print("lon centercoordfixed is \(String(describing: self.centerCoordinateFixed?.longitude))")
 	}
 	
 	

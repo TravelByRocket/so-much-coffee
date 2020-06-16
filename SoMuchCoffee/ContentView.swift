@@ -36,7 +36,7 @@ struct ContentView: View {
 		
 		VStack{
 			if settings.curPage == "MAIN" {
-				MainPage()
+				HomePage()
 			} else if settings.curPage == "FIND" {
 				FindPage()
 			} else if settings.curPage == "ROASTERS" {

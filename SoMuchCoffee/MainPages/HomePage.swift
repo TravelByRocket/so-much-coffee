@@ -9,7 +9,7 @@
 import SwiftUI
 import RealmSwift
 
-struct MainPage: View {
+struct HomePage: View {
 	@State private var showAbout = false
 	@EnvironmentObject var mapStatus: MapStatusManager
 	

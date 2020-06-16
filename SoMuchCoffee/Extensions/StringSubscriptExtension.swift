@@ -8,6 +8,7 @@
 
 import Foundation
 
+// TODO do not use this extension via Rob Anpier at UIKonf 2020 https://www.youtube.com/watch?v=Cz64DHcRxAU
 // String extension to use integers for subscripting
 // https://stackoverflow.com/questions/45497705/subscript-is-unavailable-cannot-subscript-string-with-a-countableclosedrange
 extension String {

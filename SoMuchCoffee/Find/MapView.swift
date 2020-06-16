@@ -32,18 +32,11 @@ struct MapView<T: RealmCollection>: UIViewRepresentable where T.Element : Shop{
 			if parent.keepMapLocation {
 				parent.mapStatus.centerCoordinate = mapView.centerCoordinate
 				parent.mapStatus.longitudeSpan = mapView.region.span.longitudeDelta
-				print("msm will update values for mapState from mapView")
-				print("msm centerCoord is \(mapView.centerCoordinate)")
-				print("msm the constantly updated center parent.mapStatus.centerCoordinate \(String(describing: parent.mapStatus.centerCoordinate))")
 			}
-			print("ran mapViewDidChangeVisibleRegion at \(Date())")
 			Shop.visibleMapRect = mapView.visibleMapRect
-//			parent.mapStatus.visibleMapRect = mapView.visibleMapRect
-//			parent.shops.updateShopsInMapAreaSorted(within: mapView.visibleMapRect, distanceTo: mapView.centerCoordinate)
 		}
 		
 		func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
-//			print("ran mapView")
 			let view = MKPinAnnotationView(annotation: annotation, reuseIdentifier: nil)
 //			if ([annotation isKindOfClass:[MKUserLocation class]])
 //			return nil;  //return nil to use default blue dot view

@@ -26,7 +26,6 @@ struct FindPage: View {
 	@State private var showList = true
 	
 	var body: some View {
-		print("aaa lm is \(String(describing: lm.location?.coordinate)) with status \(String(describing: lm.status))")
 		return NavigationView {
 			VStack {
 				ZStack {
@@ -34,12 +33,8 @@ struct FindPage: View {
 						.edgesIgnoringSafeArea(.bottom)
 						.navigationBarTitle("Find a Shop")
 						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome())
-						.onAppear() {
-							print("msm incoming coord is \(String(describing: self.mapStatus.centerCoordinateFixed))")
-					}
 					.onDisappear() {
 						self.mapStatus.update()
-						print("msm map did disappear, called .update()")
 					}
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}

@@ -315,10 +315,10 @@
 				2F12C8DA239EBB9500BFF066 /* SceneDelegate.swift */,
 				2F12C8DF239EBB9500BFF066 /* ContentView.swift */,
 				2F11CC1F23A7258E0011BC94 /* MainPage.swift */,
-				2F66CFFB2433B25700E78865 /* EventsPage.swift */,
 				2FB93F85243AA2DF006D35A3 /* MapStatusManager.swift */,
 				2FE91ACC2495E95F00D1FC80 /* RealmExtension.swift */,
 				2FC70C1D249699B5007F56AC /* StringSubscriptExtension.swift */,
+				2F66CFFB2433B25700E78865 /* EventsPage.swift */,
 				2FEEA1A22436CDBD0074C70E /* CommonViews */,
 				2FB0748A23B2DDE400A7EB7B /* Find */,
 				2FB0749923B31D8E00A7EB7B /* Roasters */,
@@ -496,11 +496,11 @@
 			isa = PBXGroup;
 			children = (
 				2F34CCBB2435AD0700D7A5F2 /* OriginsPage.swift */,
-				2FC70C1B24967C0E007F56AC /* RegionPage.swift */,
 				2FC70C1924966350007F56AC /* OriginPage.swift */,
+				2FC70C1B24967C0E007F56AC /* RegionPage.swift */,
 				2FE91ACA2493349B00D1FC80 /* CoffeePage.swift */,
-				2F4EFD4224283F3A00404A2A /* OriginsRow.swift */,
 				2FE91ABF2492AA5100D1FC80 /* Coffee.swift */,
+				2F4EFD4224283F3A00404A2A /* OriginsRow.swift */,
 				2FE91AC12492AA6F00D1FC80 /* Origin.swift */,
 			);
 			path = Origins;

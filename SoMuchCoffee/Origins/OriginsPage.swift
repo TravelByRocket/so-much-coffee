@@ -15,9 +15,8 @@ struct OriginsPage: View {
 		NavigationView {
 			VStack {
 				Text("Coffee Origins").font(.largeTitle)
-				Text("Only Single Origin Roasts") // TODO This might not be true one day
 				List {
-					Section (header: Text("By Region")) { // TODO make more concise with ForEach on the enaum but there are issues to solve to make that happen
+					Section (header: Text("Origins by Region")) { // TODO make more concise with ForEach on the enaum but there are issues to solve to make that happen
 						NavigationLink (destination: RegionPage(regionName: Origin.Region.AfricaAndMiddleEast.rawValue)) {
 							Text(Origin.Region.AfricaAndMiddleEast.rawValue)
 						}
@@ -34,8 +33,8 @@ struct OriginsPage: View {
 							Text(Origin.Region.SouthAmerica.rawValue)
 						}
 					}
-					Section (header: Text("All Origins")) {
-						ForEach(realm.objects(Origin.self).sorted(byKeyPath: "name")) { origin in
+					Section (header: Text("Coffees by Origin")) {
+						ForEach(realm.objects(Origin.self).sorted(byKeyPath: "name").filter({$0.coffees.count > 0})) { origin in
 							NavigationLink (destination: OriginPage(origin: origin)) {
 								Image(systemName: "\(origin.coffees.count).circle") // TODO protect for >50
 								Text(origin.name)

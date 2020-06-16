@@ -31,7 +31,7 @@ struct OriginPage: View {
 						}
 					}
 					if origin.coffees.count == 0 {
-						Text("No coffees listed from this region")
+						Text("No coffees listed from this origin")
 					}
 				}
 				Section (header: Text("Learn More")) {

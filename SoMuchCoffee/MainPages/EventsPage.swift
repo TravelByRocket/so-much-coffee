@@ -12,6 +12,9 @@ import RealmSwift
 struct EventsPage: View {
 	let eventShops = realm.objects(Shop.self).filter("eventsURL CONTAINS 'http'")
 	@State private var showList = true
+	let bufferFactor = 1.2
+	
+	@EnvironmentObject var mapStatus: MapStatusManager
 	
 	var body: some View {
 		NavigationView {
@@ -24,16 +27,15 @@ struct EventsPage: View {
 					Image(systemName: "smallcircle.circle").opacity(0.7)
 				}
 				if showList {
-					List (eventShops) {shop in
+					List (Array(eventShops).filter({$0.isInMapRect}).sorted(by: { (first, second) -> Bool in
+						first.kilometersAway(from: mapStatus.centerCoordinate) < second.kilometersAway(from: mapStatus.centerCoordinate)
+					})) {shop in
 						NavigationLink (destination: ShopPage(shop: shop)){
-							VStack (alignment: .leading){
-								Text(shop.name)
-								Text("fix ShopRow needing distance as Shop").foregroundColor(.secondary).italic().font(.caption)
-//								ShopRow(shop: shop) // location for distance is provided through the Shops class
+							VStack {
+								ShopRow(shop: shop)
 							}
 						}
 					}
-					.id(UUID())
 				}
 			}
 			.animation(.default)

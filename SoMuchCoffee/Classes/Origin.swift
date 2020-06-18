@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Origin : Object, Identifiable {
+class Origin : Object, Identifiable, Reportable {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     @objc private dynamic var privateRawRegion: String = Region.Other.rawValue

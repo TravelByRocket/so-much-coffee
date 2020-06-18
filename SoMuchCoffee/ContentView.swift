@@ -26,6 +26,8 @@ let config = Realm.Configuration(
 	// Open the file in read-only mode as application bundles are not writeable
 	readOnly: true)
 
+// TODO follow Realm guidance on file permission  https://realm.io/docs/swift/latest/#using-the-realm-framework
+
 // Open the Realm with the configuration
 let realm = try! Realm(configuration: config)
 

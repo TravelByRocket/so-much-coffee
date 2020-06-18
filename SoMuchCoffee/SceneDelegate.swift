@@ -11,7 +11,7 @@ import SwiftUI
 
 class SceneDelegate: UIResponder, UIWindowSceneDelegate {
     var settings = UserSettings()
-	@ObservedObject var currentShop: ReportingShop = ReportingShop()
+//	@ObservedObject var currentShop: ReportingShop = ReportingShop()
 	@ObservedObject var mapStatusManager: MapStatusManager = MapStatusManager()
     var window: UIWindow?
 
@@ -33,7 +33,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
             let window = UIWindow(windowScene: windowScene)
             window.rootViewController = UIHostingController(rootView: ContentView()
 				.environmentObject(settings)
-				.environmentObject(currentShop)
+//				.environmentObject(currentShop)
 				.environmentObject(mapStatusManager)
 			)
             self.window = window

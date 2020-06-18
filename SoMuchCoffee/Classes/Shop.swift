@@ -10,7 +10,7 @@ import Foundation
 import RealmSwift
 import MapKit
 
-class Shop : Object, Identifiable {
+class Shop : Object, Identifiable, Reportable {
     @objc dynamic var id: String = ""
     @objc dynamic var name: String = ""
     let roasters = List<Roaster>()

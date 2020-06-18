@@ -10,7 +10,9 @@ import Foundation
 import RealmSwift
 import MapKit
 
-class Roaster : Object, Identifiable {
+class Roaster : Object, Identifiable, Reportable {
+	// TODO missing a general roaster website field
+	
     @objc dynamic var id = ""
     @objc dynamic var name = ""
     

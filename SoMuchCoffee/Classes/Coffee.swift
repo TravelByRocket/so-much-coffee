@@ -9,7 +9,7 @@
 import Foundation
 import RealmSwift
 
-class Coffee : Object, Identifiable {
+class Coffee : Object, Identifiable, Reportable {
     @objc dynamic var uuid: String = UUID().uuidString // I want some id but no need to id each by hand like a Shop
     @objc dynamic var name: String = "" // should not be blank but must have a default value and seems innapropriate for optional, as in it would be silly to add logic to my app for an optional when it should not be happening
     let origins = List<Origin>() // this would not need to be a list for single-origin but I think I'll keep it for future compatibility since it doesn't lose meaning or impede usefulness very much; non-zero chance of putting espresso blends, for example, into the directory

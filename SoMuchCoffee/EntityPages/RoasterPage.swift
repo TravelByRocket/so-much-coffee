@@ -19,13 +19,16 @@ struct RoasterPage: View {
 					centerCoordinate: roaster.shopsServing.centerCoordinate,
 					latitudeDelta: roaster.shopsServing.latitudeDelta * mapBufferFactor,
 					longitudeDelta: roaster.shopsServing.longitudeDelta * mapBufferFactor)
-			Text(roaster.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
-			Text(roaster.summary ?? "No summary yet").multilineTextAlignment(.leading).padding(.horizontal)
+			NameTitle(name: roaster.name)
+			SummaryBlock(summary: roaster.summary)
 			List {
 				Section (header: Text("Locations Serving")) {
 					ForEach (roaster.shopsServing.sorted(byKeyPath: "name")) {shop in
 						NavigationLink(destination: ShopPage(shop: shop)) {
-							DetailRowDisplayOnly(symbol: (shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle"), str: shop.name)
+							HStack {
+								Image(systemName: shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle")
+								Text(shop.name)
+							}
 						}
 					}
 				}
@@ -42,33 +45,34 @@ struct RoasterPage: View {
 					}
 				}
 				Section (header: Text("More Details")){
-					InstagramRow(instagramHandle: roaster.instagram ?? "") // TODO handle the nil cases within the View
+					DetailRow(style: .instagram, value: roaster.instagram, entity: roaster)
 					
-					if roaster.isFairtrade.value != nil {
-						DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: " + (roaster.isFairtrade.value! ? "Yes" : "No") ))
-					} else {
-						DetailRowDisplayOnly(symbol: "equal.circle.fill", str: ("Fair Trade: Unknown"))
+					HStack {
+						Image(systemName: "equal.circle.fill")
+						Text("Fair Trade: \(fairTradeString())")
 					}
 					
-					if roaster.offerDetails != nil {
-						DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: " + roaster.offerDetails!))
-					} else {
-						DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer: Unknown"))
-					}
+					DetailRow(style: .offerDetails, value: roaster.offerDetails, entity: roaster)
+					DetailRow(style: .offerCode, value: roaster.offerCode, entity: roaster)
 					
-					if roaster.offerCode != nil {
-						DetailRowDisplayOnly(symbol: "barcode", str: ("Offer: " + roaster.offerCode!))
-					} else {
-						DetailRowDisplayOnly(symbol: "barcode", str: ("Offer: Unknown"))
-					}
-					
-					DetailRowActionableFA(name: .globe, type: .solid, str: "Order Beans", url: roaster.orderingURL ?? "", rawString: roaster.orderingURL ?? "", noun: "ordering")
-					DetailRowActionableFA(name: .globe, type: .solid, str: "Bean Subscription", url: roaster.subscriptionURL ?? "", rawString: roaster.subscriptionURL ?? "", noun: "subscription")
+					DetailRow(style: .orderURL, value: roaster.orderingURL, entity: roaster)
+					DetailRow(style: .subscribeURL, value: roaster.subscriptionURL, entity: roaster)
 				}
 			}
 		}
 		.edgesIgnoringSafeArea(.top)
     }
+	
+	func fairTradeString() -> String {
+		if (roaster.isFairtrade.value == nil) {
+			return "Unknown"
+		} else if (roaster.isFairtrade.value == true) {
+			return "Yes"
+		} else {
+			return "No"
+		}
+	}
+	
 }
 
 struct RoasterView_Previews: PreviewProvider {

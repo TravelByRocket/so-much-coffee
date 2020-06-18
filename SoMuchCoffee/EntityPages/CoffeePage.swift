@@ -35,9 +35,9 @@ struct CoffeePage: View {
 					}
 				}
 				Section (header: Text("Order Online")) {
-					DetailRowDisplayOnly(symbol: "dollarsign.square.fill", str: ("Offer Details: "+(coffee.roaster?.offerDetails ?? "")))
-					DetailRowDisplayOnly(symbol: "barcode", str: ("Offer Code: "+(coffee.roaster?.offerCode ?? "")))
-					WebsiteRow(url: coffee.url!, msg: "\(coffee.name) Product Page")
+					DetailRow(style: .offerDetails, value: coffee.roaster!.offerDetails, entity: coffee)
+					DetailRow(style: .offerCode, value: coffee.roaster!.offerCode, entity: coffee)
+					DetailRow(style: .productURL, value: coffee.url, entity: coffee)
 				}
 			}
 		}

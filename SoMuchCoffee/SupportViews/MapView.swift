@@ -103,7 +103,7 @@ struct MapView<T: RealmCollection>: UIViewRepresentable where T.Element : Shop{
 }
 
 
-struct MapViewResults_Previews: PreviewProvider {
+struct MapView_Previews: PreviewProvider {
     static var previews: some View {
 //        MapView()
 		Text("no preview yet")

@@ -73,7 +73,7 @@ enum DetailType: String { // the raw values are used to describe what informatio
 		case .hours:
 			return AnyView ( Image(systemName: "clock.fill") )
 		case .stayAtHomeOrderNote:
-			return AnyView ( Image(systemName: "message.fill") )
+			return AnyView ( Image(systemName: "exclamationmark.bubble") )
 		case .beveragesNote:
 			return AnyView ( FontAwesomeIcon(name: .glassWhiskey, type: .solid) )
 		case .foodNote:

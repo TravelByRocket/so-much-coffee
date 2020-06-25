@@ -9,13 +9,20 @@
 import SwiftUI
 import RealmSwift
 import FontAwesome_swift
+import MapKit
 
 struct ShopPage: View {
 	var shop: Shop
 	
+	@State private var regionaroundshop = MKCoordinateRegion()
+	
 	var body: some View {
 		VStack {
 			MapView(shops: realm.objects(Shop.self).filter("id == %@", shop.id), centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015) // Hacked workaround on getting a RealmCollection to go to the generic MapView instead of just a Shop object
+			Map(coordinateRegion: $regionaroundshop, showsUserLocation: true)
+				.onAppear {
+				regionaroundshop = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
+			}
 			NameTitle(name: shop.name)
 			SummaryBlock(summary: shop.summary)
 			List {

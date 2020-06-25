@@ -77,8 +77,3 @@ struct ShopView_Previews: PreviewProvider {
 		}
 	}
 }
-
-//// DELETE THIS WHEN POSSIBLE
-//class ReportingShop: ObservableObject {
-//	@Published var shop: Shop?
-//}

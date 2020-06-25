@@ -19,7 +19,7 @@ struct ShopPage: View {
 			NameTitle(name: shop.name)
 			SummaryBlock(summary: shop.summary)
 			List {
-				Section (header: Text("Support During COVID-19 Stay at Home Order")) {
+				Section (header: Text("Social Distancing Note")) {
 					DetailRow(style: .stayAtHomeOrderNote, value: shop.stayAtHomeOrderNote, entity: shop)
 				}
 				Section (header: Text("Supplying Roasters")) {

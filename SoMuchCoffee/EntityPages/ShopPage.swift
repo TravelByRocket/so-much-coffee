@@ -28,6 +28,8 @@ struct ShopPage: View {
 			List {
 				Section (header: Text("Social Distancing Note")) {
 					DetailRow(style: .stayAtHomeOrderNote, value: shop.stayAtHomeOrderNote, entity: shop)
+					Label("No COVID info available. What to do?", systemImage: "exclamationmark.bubble")
+						.foregroundColor(.secondary)
 				}
 				Section (header: Text("Supplying Roasters")) {
 					ForEach (shop.roasters) {roaster in

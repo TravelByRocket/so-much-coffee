@@ -30,6 +30,10 @@ struct FontAwesomeIcon: View {
 struct FontAwesomeIcon_Previews: PreviewProvider {
     static var previews: some View {
 		Group {
+			Text(String.fontAwesomeIcon(name: .book))
+//				.font(.title)
+				.font(Font.custom("Font Awesome 5 Free-Solid-900.otf",size: 40))
+//			Image(uiImage: UIImage.fontAwesomeIcon(name: <#T##FontAwesome#>, style: <#T##FontAwesomeStyle#>, textColor: <#T##UIColor#>, size: <#T##CGSize#>))
 			FontAwesomeIcon(name: .book, type: .solid)
 			FontAwesomeIcon(name: .book, type: .solid)
 				.environment(\.colorScheme, .dark)

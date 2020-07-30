@@ -57,4 +57,17 @@ class Shop : Object, Identifiable, Reportable {
 	var isInMapRect: Bool {
 		Shop.visibleMapRect?.contains(MKMapPoint(CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude))) ?? true
 	}
+	
+	func isInMap(_ region: MKCoordinateRegion) -> Bool {
+		
+		let topLeft = CLLocationCoordinate2D(latitude: region.center.latitude + (region.span.latitudeDelta/2), longitude: region.center.longitude - (region.span.longitudeDelta/2))
+		let bottomRight = CLLocationCoordinate2D(latitude: region.center.latitude - (region.span.latitudeDelta/2), longitude: region.center.longitude + (region.span.longitudeDelta/2))
+
+		let a = MKMapPoint(topLeft)
+		let b = MKMapPoint(bottomRight)
+
+		let rect = MKMapRect(origin: MKMapPoint(x:min(a.x,b.x), y:min(a.y,b.y)), size: MKMapSize(width: abs(a.x-b.x), height: abs(a.y-b.y)))
+		
+		return rect.contains(MKMapPoint(CLLocationCoordinate2D(latitude: self.latitude, longitude: self.longitude)))
+	}
 }

@@ -27,8 +27,8 @@ struct HomePage: View {
 			// FIRST ROW
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
-				Divider()
-				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
+//				Divider()
+//				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
 			}
 			.padding(.bottom, 0)
 			
@@ -36,7 +36,8 @@ struct HomePage: View {
 			
 			//SECOND ROW
 			HStack (alignment: .bottom) {
-				NavItem(imageName: "calendar", label: "Events", destinationName: "EVENTS", isSystemName: true)
+//				NavItem(imageName: "calendar", label: "Events", destinationName: "EVENTS", isSystemName: true)
+				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
 				Divider()
 				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
 				Divider()

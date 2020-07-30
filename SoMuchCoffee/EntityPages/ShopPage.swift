@@ -18,9 +18,10 @@ struct ShopPage: View {
 	
 	var body: some View {
 		VStack {
-			MapView(shops: realm.objects(Shop.self).filter("id == %@", shop.id), centerCoordinate: shop.latlon, latitudeDelta: 0.015, longitudeDelta: 0.015) // Hacked workaround on getting a RealmCollection to go to the generic MapView instead of just a Shop object
-			Map(coordinateRegion: $regionaroundshop, showsUserLocation: true)
-				.onAppear {
+			Map(coordinateRegion: $regionaroundshop, showsUserLocation: true, annotationItems: [shop], annotationContent: { annotation in
+				return MapPin(coordinate: CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude))
+			}) // TODO make frame height ~3/5 of wdith. Possible with GeometryReader but title stayed in the position it would have before changing the frame size of the map.
+			.onAppear {
 				regionaroundshop = MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude), span: MKCoordinateSpan(latitudeDelta: 0.015, longitudeDelta: 0.015))
 			}
 			NameTitle(name: shop.name)

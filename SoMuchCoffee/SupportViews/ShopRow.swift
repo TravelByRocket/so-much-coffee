@@ -11,12 +11,13 @@ import CoreLocation
 
 struct ShopRow: View {
 	let shop: Shop
+	let mapCenter: CLLocationCoordinate2D
 	
-	@EnvironmentObject var mapStatus: MapStatusManager
+	@EnvironmentObject private var mapStatus: MapStatusManager
 
 	var body: some View {
 		HStack {
-			Text("\(shop.kilometersAway(from: mapStatus.centerCoordinate), specifier: "%4.1f") km")
+			Text("\(shop.kilometersAway(from: mapCenter), specifier: "%4.1f") km")
 				.font(Font.custom(monoregular, size: 15))
 				.padding(.vertical, 3)
 				.padding(.horizontal, 6)
@@ -31,7 +32,7 @@ struct ShopRow: View {
 
 struct ShopRow_Previews: PreviewProvider {
     static var previews: some View {
-		ShopRow(shop: realm.objects(Shop.self).randomElement()!)
+		ShopRow(shop: realm.objects(Shop.self).randomElement()!, mapCenter: CLLocationCoordinate2D(latitude: 39.98767, longitude: -105.223802))
 		.environmentObject(MapStatusManager())
     }
 }

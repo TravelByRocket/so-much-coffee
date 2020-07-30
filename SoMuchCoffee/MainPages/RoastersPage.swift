@@ -12,6 +12,7 @@ import RealmSwift
 struct RoastersPage: View {
 	@State private var searchString = ""
 	
+	// Consider other implementation from WWDC2020 Type Inference video at ~3:30-~8:30
 	private var filteredRoasters: RealmSwift.Results<Roaster> {
 		if searchString == "" {
 			return realm.objects(Roaster.self).sorted(byKeyPath: "name")

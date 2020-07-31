@@ -7,17 +7,17 @@ Click for a video tour
 ## App Architecture and Screenshots
 [![User Flow](docs/assets/images/userFlow.png)](docs/assets/images/userFlow.png)
 
-[![User Flow](docs/assets/images/sms_screencap00000.png)](docs/assets/images/sms_screencap00000.png){:height="20%" width="20%"} [![User Flow](docs/assets/images/sms_screencap00001.png)](docs/assets/images/sms_screencap00001.png){:height="20%" width="20%"}
+[![cap00](docs/assets/images/sms_screencap00000.png)](docs/assets/images/sms_screencap00000.png) [![cap01](docs/assets/images/sms_screencap00001.png)](docs/assets/images/sms_screencap00001.png)
 
-[![User Flow](docs/assets/images/sms_screencap00002.png)](docs/assets/images/sms_screencap00002.png) [![User Flow](docs/assets/images/sms_screencap00003.png)](docs/assets/images/sms_screencap00003.png)
+[![cap02](docs/assets/images/sms_screencap00002.png)](docs/assets/images/sms_screencap00002.png) [![cap03](docs/assets/images/sms_screencap00003.png)](docs/assets/images/sms_screencap00003.png)
 
-[![User Flow](docs/assets/images/sms_screencap00004.png)](docs/assets/images/sms_screencap00004.png) [![User Flow](docs/assets/images/sms_screencap00005.png)](docs/assets/images/sms_screencap00005.png)
+[![cap04](docs/assets/images/sms_screencap00004.png)](docs/assets/images/sms_screencap00004.png) [![cap05](docs/assets/images/sms_screencap00005.png)](docs/assets/images/sms_screencap00005.png)
 
-[![User Flow](docs/assets/images/sms_screencap00006.png)](docs/assets/images/sms_screencap00006.png) [![User Flow](docs/assets/images/sms_screencap00007.png)](docs/assets/images/sms_screencap00007.png)
+[![cap06](docs/assets/images/sms_screencap00006.png)](docs/assets/images/sms_screencap00006.png) [![cap07](docs/assets/images/sms_screencap00007.png)](docs/assets/images/sms_screencap00007.png)
 
-[![User Flow](docs/assets/images/sms_screencap00008.png)](docs/assets/images/sms_screencap00008.png) [![User Flow](docs/assets/images/sms_screencap00009.png)](docs/assets/images/sms_screencap00009.png)
+[![cap08](docs/assets/images/sms_screencap00008.png)](docs/assets/images/sms_screencap00008.png) [![cap09](docs/assets/images/sms_screencap00009.png)](docs/assets/images/sms_screencap00009.png)
 
-[![User Flow](docs/assets/images/sms_screencap00010.png)](docs/assets/images/sms_screencap00010.png) [![User Flow](docs/assets/images/sms_screencap00011.png)](docs/assets/images/sms_screencap00011.png)
+[![cap10](docs/assets/images/sms_screencap00010.png)](docs/assets/images/sms_screencap00010.png) [![cap11](docs/assets/images/sms_screencap00011.png)](docs/assets/images/sms_screencap00011.png)
 
 ## Notes to Self or Management
 

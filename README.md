@@ -7,7 +7,7 @@ Click for a video tour
 ## App Architecture and Screenshots
 [![User Flow](docs/assets/images/userFlow.png)](docs/assets/images/userFlow.png)
 
-[![User Flow](docs/assets/images/sms_screencap00000.png)](docs/assets/images/sms_screencap00000.png){:height="350px"} [![User Flow](docs/assets/images/sms_screencap00001.png)](docs/assets/images/sms_screencap00001.png){:height="350px"}
+[![User Flow](docs/assets/images/sms_screencap00000.png)](docs/assets/images/sms_screencap00000.png){:height="20%" width="20%"} [![User Flow](docs/assets/images/sms_screencap00001.png)](docs/assets/images/sms_screencap00001.png){:height="20%" width="20%"}
 
 [![User Flow](docs/assets/images/sms_screencap00002.png)](docs/assets/images/sms_screencap00002.png) [![User Flow](docs/assets/images/sms_screencap00003.png)](docs/assets/images/sms_screencap00003.png)
 

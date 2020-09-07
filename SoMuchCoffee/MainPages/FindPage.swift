@@ -54,7 +54,7 @@ struct FindPage: View {
 				}
 				if showList {
 					List{
-						Toggle("Only Locations with Events", isOn: $onlyShowEvents)
+//						Toggle("Only Locations with Events", isOn: $onlyShowEvents)
 						ForEach(Array(onlyShowEvents ? eventShops : shops).filter({$0.isInMap(region)}).sorted( by: { $0.kilometersAway(from: region.center) < $1.kilometersAway(from: region.center) } )) { shop in
 							NavigationLink (destination: ShopPage(shop: shop)){
 								VStack {

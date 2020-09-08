@@ -39,6 +39,7 @@
 		2FC54CEC25071875003A9224 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE625071874003A9224 /* MapView.swift */; };
 		2FC54CED25071875003A9224 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE725071874003A9224 /* ShopRow.swift */; };
 		2FC54CEE25071875003A9224 /* GoHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE825071874003A9224 /* GoHome.swift */; };
+		2FC54CF225071DDE003A9224 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54CF125071DDE003A9224 /* default.realm */; };
 		53D19795911D8945EBF869C9 /* Pods_SoMuchCoffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */; };
 /* End PBXBuildFile section */
 
@@ -99,6 +100,8 @@
 		2FC54CE625071874003A9224 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2FC54CE725071874003A9224 /* ShopRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2FC54CE825071874003A9224 /* GoHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
+		2FC54CF125071DDE003A9224 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		2FC54CF325071E92003A9224 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		43C48A367828495D821F76C3 /* Pods-SoMuchCoffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.debug.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C93A8706EF2518E13665A9 /* Pods-SoMuchCoffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.release.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -164,6 +167,7 @@
 			children = (
 				2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */,
 				2FC54C8A2506EEBB003A9224 /* ContentView.swift */,
+				2FC54CF025071DDE003A9224 /* RealmFiles */,
 				2FC54CC8250717F1003A9224 /* MainPages */,
 				2FC54CE225071874003A9224 /* SupportViews */,
 				2FC54CCF250717F1003A9224 /* EntityPages */,
@@ -206,6 +210,7 @@
 		2FC54CB32506FEF0003A9224 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2FC54CF325071E92003A9224 /* B612Mono-Regular.ttf */,
 				2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */,
 			);
 			path = Fonts;
@@ -236,11 +241,11 @@
 		2FC54CC8250717F1003A9224 /* MainPages */ = {
 			isa = PBXGroup;
 			children = (
+				2FC54CCD250717F1003A9224 /* HomePage.swift */,
 				2FC54CC9250717F1003A9224 /* OriginsPage.swift */,
 				2FC54CCA250717F1003A9224 /* RoastersPage.swift */,
 				2FC54CCB250717F1003A9224 /* EventsPage.swift */,
 				2FC54CCC250717F1003A9224 /* FlavorsPage.swift */,
-				2FC54CCD250717F1003A9224 /* HomePage.swift */,
 				2FC54CCE250717F1003A9224 /* FindPage.swift */,
 			);
 			path = MainPages;
@@ -269,6 +274,14 @@
 				2FC54CE825071874003A9224 /* GoHome.swift */,
 			);
 			path = SupportViews;
+			sourceTree = "<group>";
+		};
+		2FC54CF025071DDE003A9224 /* RealmFiles */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CF125071DDE003A9224 /* default.realm */,
+			);
+			path = RealmFiles;
 			sourceTree = "<group>";
 		};
 		5BE7A1C5BB078F10956298FD /* Pods */ = {
@@ -386,6 +399,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				2FC54CB72506FF65003A9224 /* AlfaSlabOne-Regular.ttf in Resources */,
+				2FC54CF225071DDE003A9224 /* default.realm in Resources */,
 				2FC54C902506EEC1003A9224 /* Preview Assets.xcassets in Resources */,
 				2FC54C8D2506EEC1003A9224 /* Assets.xcassets in Resources */,
 			);

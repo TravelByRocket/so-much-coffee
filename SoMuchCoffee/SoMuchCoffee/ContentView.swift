@@ -9,16 +9,10 @@
 import SwiftUI
 import RealmSwift
 
-//var appOrange:    Color = Color.init(red: 1.00, green: 0.34, blue: 0.13)
-var appOrange50:  Color = Color.init(red: 1.00, green: 0.67, blue: 0.26)
-var appBlue:      Color = Color.init(red: 0.26, green: 0.52, blue: 0.97)
-var appDarkGray:  Color = Color.init(red: 0.66, green: 0.66, blue: 0.66)
-var appLightGray: Color = Color.init(red: 0.90, green: 0.90, blue: 0.90)
-var transparent:  Color = Color.init(red: 0.00, green: 0.00, blue: 0.00, opacity: 0.00)
-let alfa: String = "AlfaSlabOne-Regular"
-let lato: String = "Lato-Light"
-let monoregular: String = "B12Mono-Regular"
-let monobold: String = "B12Mono-Bold"
+struct Fonts {
+    static var alfa: String {"AlfaSLabOne-Regular"}
+    static var mono: String {"B12Mono-Regular"}
+}
 
 let config = Realm.Configuration(
 	// Get the URL to the bundled file

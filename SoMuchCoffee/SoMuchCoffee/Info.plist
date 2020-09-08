@@ -51,6 +51,7 @@
 	<key>UIAppFonts</key>
 	<array>
 		<string>AlfaSlabOne-Regular.ttf</string>
+		<string>B612Mono-Regular.otf</string>
 	</array>
 </dict>
 </plist>

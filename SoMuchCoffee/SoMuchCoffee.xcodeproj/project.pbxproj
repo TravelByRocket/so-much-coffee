@@ -40,6 +40,8 @@
 		2FC54CED25071875003A9224 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE725071874003A9224 /* ShopRow.swift */; };
 		2FC54CEE25071875003A9224 /* GoHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE825071874003A9224 /* GoHome.swift */; };
 		2FC54CF625072215003A9224 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54CF525072215003A9224 /* default.realm */; };
+		2FC54CF825072375003A9224 /* RealmConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CF725072375003A9224 /* RealmConfig.swift */; };
+		2FC54CFA250723DC003A9224 /* Fonts.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CF9250723DC003A9224 /* Fonts.swift */; };
 		53D19795911D8945EBF869C9 /* Pods_SoMuchCoffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */; };
 /* End PBXBuildFile section */
 
@@ -102,6 +104,8 @@
 		2FC54CE825071874003A9224 /* GoHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
 		2FC54CF325071E92003A9224 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
 		2FC54CF525072215003A9224 /* default.realm */ = {isa = PBXFileReference; lastKnownFileType = file; path = default.realm; sourceTree = "<group>"; };
+		2FC54CF725072375003A9224 /* RealmConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RealmConfig.swift; sourceTree = "<group>"; };
+		2FC54CF9250723DC003A9224 /* Fonts.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Fonts.swift; sourceTree = "<group>"; };
 		43C48A367828495D821F76C3 /* Pods-SoMuchCoffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.debug.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.debug.xcconfig"; sourceTree = "<group>"; };
 		F2C93A8706EF2518E13665A9 /* Pods-SoMuchCoffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.release.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
@@ -167,13 +171,14 @@
 			children = (
 				2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */,
 				2FC54C8A2506EEBB003A9224 /* ContentView.swift */,
-				2FC54CF425072215003A9224 /* RealmFiles */,
+				2FC54CF725072375003A9224 /* RealmConfig.swift */,
 				2FC54CC8250717F1003A9224 /* MainPages */,
 				2FC54CE225071874003A9224 /* SupportViews */,
 				2FC54CCF250717F1003A9224 /* EntityPages */,
 				2FC54CC5250717F1003A9224 /* Extensions */,
 				2FC54CB32506FEF0003A9224 /* Fonts */,
 				2FC54CB8250717E3003A9224 /* Classes */,
+				2FC54CF425072215003A9224 /* RealmFiles */,
 				2FC54C8C2506EEC1003A9224 /* Assets.xcassets */,
 				2FC54C912506EEC1003A9224 /* Info.plist */,
 				2FC54C8E2506EEC1003A9224 /* Preview Content */,
@@ -210,6 +215,7 @@
 		2FC54CB32506FEF0003A9224 /* Fonts */ = {
 			isa = PBXGroup;
 			children = (
+				2FC54CF9250723DC003A9224 /* Fonts.swift */,
 				2FC54CF325071E92003A9224 /* B612Mono-Regular.ttf */,
 				2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */,
 			);
@@ -475,7 +481,9 @@
 				2FC54C892506EEBB003A9224 /* SoMuchCoffeeApp.swift in Sources */,
 				2FC54CDE250717F1003A9224 /* RoasterPage.swift in Sources */,
 				2FC54CD9250717F1003A9224 /* EventsPage.swift in Sources */,
+				2FC54CF825072375003A9224 /* RealmConfig.swift in Sources */,
 				2FC54CD8250717F1003A9224 /* RoastersPage.swift in Sources */,
+				2FC54CFA250723DC003A9224 /* Fonts.swift in Sources */,
 				2FC54CDC250717F1003A9224 /* FindPage.swift in Sources */,
 				2FC54CC3250717E3003A9224 /* LocationManager.swift in Sources */,
 				2FC54CC1250717E3003A9224 /* Shop.swift in Sources */,

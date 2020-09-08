@@ -9,22 +9,6 @@
 import SwiftUI
 import RealmSwift
 
-struct Fonts {
-    static var alfa: String {"AlfaSLabOne-Regular"}
-    static var mono: String {"B12Mono-Regular"}
-}
-
-let config = Realm.Configuration(
-	// Get the URL to the bundled file
-	fileURL: Bundle.main.url(forResource: "default", withExtension: "realm"),
-	// Open the file in read-only mode as application bundles are not writeable
-	readOnly: true)
-
-// TODO follow Realm guidance on file permission  https://realm.io/docs/swift/latest/#using-the-realm-framework
-
-// Open the Realm with the configuration
-let realm = try! Realm(configuration: config)
-
 struct ContentView: View {
 	@EnvironmentObject var settings: UserSettings
 	

@@ -12,6 +12,8 @@ struct SoMuchCoffeeApp: App {
     var body: some Scene {
         WindowGroup {
             ContentView()
+                .environmentObject(UserSettings())
+                .environmentObject(MapStatusManager())
         }
     }
 }

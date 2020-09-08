@@ -3,7 +3,7 @@
 	archiveVersion = 1;
 	classes = {
 	};
-	objectVersion = 50;
+	objectVersion = 51;
 	objects = {
 
 /* Begin PBXBuildFile section */
@@ -13,6 +13,33 @@
 		2FC54C902506EEC1003A9224 /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54C8F2506EEC1003A9224 /* Preview Assets.xcassets */; };
 		2FC54C9B2506EEC5003A9224 /* SoMuchCoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C9A2506EEC5003A9224 /* SoMuchCoffeeTests.swift */; };
 		2FC54CA62506EEC5003A9224 /* SoMuchCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CA52506EEC5003A9224 /* SoMuchCoffeeUITests.swift */; };
+		2FC54CB72506FF65003A9224 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */; };
+		2FC54CBF250717E3003A9224 /* MapStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CB9250717E3003A9224 /* MapStatusManager.swift */; };
+		2FC54CC0250717E3003A9224 /* Roaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBA250717E3003A9224 /* Roaster.swift */; };
+		2FC54CC1250717E3003A9224 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBB250717E3003A9224 /* Shop.swift */; };
+		2FC54CC2250717E3003A9224 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBC250717E3003A9224 /* Coffee.swift */; };
+		2FC54CC3250717E3003A9224 /* LocationManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBD250717E3003A9224 /* LocationManager.swift */; };
+		2FC54CC4250717E3003A9224 /* Origin.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBE250717E3003A9224 /* Origin.swift */; };
+		2FC54CD5250717F1003A9224 /* RealmExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CC6250717F1003A9224 /* RealmExtension.swift */; };
+		2FC54CD6250717F1003A9224 /* ObjectExtension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CC7250717F1003A9224 /* ObjectExtension.swift */; };
+		2FC54CD7250717F1003A9224 /* OriginsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CC9250717F1003A9224 /* OriginsPage.swift */; };
+		2FC54CD8250717F1003A9224 /* RoastersPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CCA250717F1003A9224 /* RoastersPage.swift */; };
+		2FC54CD9250717F1003A9224 /* EventsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CCB250717F1003A9224 /* EventsPage.swift */; };
+		2FC54CDA250717F1003A9224 /* FlavorsPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CCC250717F1003A9224 /* FlavorsPage.swift */; };
+		2FC54CDB250717F1003A9224 /* HomePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CCD250717F1003A9224 /* HomePage.swift */; };
+		2FC54CDC250717F1003A9224 /* FindPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CCE250717F1003A9224 /* FindPage.swift */; };
+		2FC54CDD250717F1003A9224 /* CoffeePage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CD0250717F1003A9224 /* CoffeePage.swift */; };
+		2FC54CDE250717F1003A9224 /* RoasterPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CD1250717F1003A9224 /* RoasterPage.swift */; };
+		2FC54CDF250717F1003A9224 /* OriginPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CD2250717F1003A9224 /* OriginPage.swift */; };
+		2FC54CE0250717F1003A9224 /* RegionPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CD3250717F1003A9224 /* RegionPage.swift */; };
+		2FC54CE1250717F1003A9224 /* ShopPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CD4250717F1003A9224 /* ShopPage.swift */; };
+		2FC54CE925071875003A9224 /* DetailRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE325071874003A9224 /* DetailRows.swift */; };
+		2FC54CEA25071875003A9224 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE425071874003A9224 /* SafariView.swift */; };
+		2FC54CEB25071875003A9224 /* FontAwesomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */; };
+		2FC54CEC25071875003A9224 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE625071874003A9224 /* MapView.swift */; };
+		2FC54CED25071875003A9224 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE725071874003A9224 /* ShopRow.swift */; };
+		2FC54CEE25071875003A9224 /* GoHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE825071874003A9224 /* GoHome.swift */; };
+		53D19795911D8945EBF869C9 /* Pods_SoMuchCoffee.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = 1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -33,6 +60,7 @@
 /* End PBXContainerItemProxy section */
 
 /* Begin PBXFileReference section */
+		1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoMuchCoffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC54C852506EEBB003A9224 /* SoMuchCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMuchCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeApp.swift; sourceTree = "<group>"; };
 		2FC54C8A2506EEBB003A9224 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -45,6 +73,34 @@
 		2FC54CA12506EEC5003A9224 /* SoMuchCoffeeUITests.xctest */ = {isa = PBXFileReference; explicitFileType = wrapper.cfbundle; includeInIndex = 0; path = SoMuchCoffeeUITests.xctest; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC54CA52506EEC5003A9224 /* SoMuchCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeUITests.swift; sourceTree = "<group>"; };
 		2FC54CA72506EEC5003A9224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
+		2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
+		2FC54CB9250717E3003A9224 /* MapStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapStatusManager.swift; sourceTree = "<group>"; };
+		2FC54CBA250717E3003A9224 /* Roaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roaster.swift; sourceTree = "<group>"; };
+		2FC54CBB250717E3003A9224 /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
+		2FC54CBC250717E3003A9224 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
+		2FC54CBD250717E3003A9224 /* LocationManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = LocationManager.swift; sourceTree = "<group>"; };
+		2FC54CBE250717E3003A9224 /* Origin.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Origin.swift; sourceTree = "<group>"; };
+		2FC54CC6250717F1003A9224 /* RealmExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RealmExtension.swift; sourceTree = "<group>"; };
+		2FC54CC7250717F1003A9224 /* ObjectExtension.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ObjectExtension.swift; sourceTree = "<group>"; };
+		2FC54CC9250717F1003A9224 /* OriginsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginsPage.swift; sourceTree = "<group>"; };
+		2FC54CCA250717F1003A9224 /* RoastersPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoastersPage.swift; sourceTree = "<group>"; };
+		2FC54CCB250717F1003A9224 /* EventsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = EventsPage.swift; sourceTree = "<group>"; };
+		2FC54CCC250717F1003A9224 /* FlavorsPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FlavorsPage.swift; sourceTree = "<group>"; };
+		2FC54CCD250717F1003A9224 /* HomePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = HomePage.swift; sourceTree = "<group>"; };
+		2FC54CCE250717F1003A9224 /* FindPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FindPage.swift; sourceTree = "<group>"; };
+		2FC54CD0250717F1003A9224 /* CoffeePage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = CoffeePage.swift; sourceTree = "<group>"; };
+		2FC54CD1250717F1003A9224 /* RoasterPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RoasterPage.swift; sourceTree = "<group>"; };
+		2FC54CD2250717F1003A9224 /* OriginPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = OriginPage.swift; sourceTree = "<group>"; };
+		2FC54CD3250717F1003A9224 /* RegionPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = RegionPage.swift; sourceTree = "<group>"; };
+		2FC54CD4250717F1003A9224 /* ShopPage.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopPage.swift; sourceTree = "<group>"; };
+		2FC54CE325071874003A9224 /* DetailRows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRows.swift; sourceTree = "<group>"; };
+		2FC54CE425071874003A9224 /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
+		2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeIcon.swift; sourceTree = "<group>"; };
+		2FC54CE625071874003A9224 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
+		2FC54CE725071874003A9224 /* ShopRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
+		2FC54CE825071874003A9224 /* GoHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
+		43C48A367828495D821F76C3 /* Pods-SoMuchCoffee.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.debug.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.debug.xcconfig"; sourceTree = "<group>"; };
+		F2C93A8706EF2518E13665A9 /* Pods-SoMuchCoffee.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SoMuchCoffee.release.xcconfig"; path = "Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -52,6 +108,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				53D19795911D8945EBF869C9 /* Pods_SoMuchCoffee.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -72,6 +129,14 @@
 /* End PBXFrameworksBuildPhase section */
 
 /* Begin PBXGroup section */
+		018E364297785300E1717E7E /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 		2FC54C7C2506EEBB003A9224 = {
 			isa = PBXGroup;
 			children = (
@@ -79,6 +144,8 @@
 				2FC54C992506EEC5003A9224 /* SoMuchCoffeeTests */,
 				2FC54CA42506EEC5003A9224 /* SoMuchCoffeeUITests */,
 				2FC54C862506EEBB003A9224 /* Products */,
+				5BE7A1C5BB078F10956298FD /* Pods */,
+				018E364297785300E1717E7E /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -97,6 +164,12 @@
 			children = (
 				2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */,
 				2FC54C8A2506EEBB003A9224 /* ContentView.swift */,
+				2FC54CC8250717F1003A9224 /* MainPages */,
+				2FC54CE225071874003A9224 /* SupportViews */,
+				2FC54CCF250717F1003A9224 /* EntityPages */,
+				2FC54CC5250717F1003A9224 /* Extensions */,
+				2FC54CB32506FEF0003A9224 /* Fonts */,
+				2FC54CB8250717E3003A9224 /* Classes */,
 				2FC54C8C2506EEC1003A9224 /* Assets.xcassets */,
 				2FC54C912506EEC1003A9224 /* Info.plist */,
 				2FC54C8E2506EEC1003A9224 /* Preview Content */,
@@ -130,6 +203,83 @@
 			path = SoMuchCoffeeUITests;
 			sourceTree = "<group>";
 		};
+		2FC54CB32506FEF0003A9224 /* Fonts */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */,
+			);
+			path = Fonts;
+			sourceTree = "<group>";
+		};
+		2FC54CB8250717E3003A9224 /* Classes */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CB9250717E3003A9224 /* MapStatusManager.swift */,
+				2FC54CBA250717E3003A9224 /* Roaster.swift */,
+				2FC54CBB250717E3003A9224 /* Shop.swift */,
+				2FC54CBC250717E3003A9224 /* Coffee.swift */,
+				2FC54CBD250717E3003A9224 /* LocationManager.swift */,
+				2FC54CBE250717E3003A9224 /* Origin.swift */,
+			);
+			path = Classes;
+			sourceTree = "<group>";
+		};
+		2FC54CC5250717F1003A9224 /* Extensions */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CC6250717F1003A9224 /* RealmExtension.swift */,
+				2FC54CC7250717F1003A9224 /* ObjectExtension.swift */,
+			);
+			path = Extensions;
+			sourceTree = "<group>";
+		};
+		2FC54CC8250717F1003A9224 /* MainPages */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CC9250717F1003A9224 /* OriginsPage.swift */,
+				2FC54CCA250717F1003A9224 /* RoastersPage.swift */,
+				2FC54CCB250717F1003A9224 /* EventsPage.swift */,
+				2FC54CCC250717F1003A9224 /* FlavorsPage.swift */,
+				2FC54CCD250717F1003A9224 /* HomePage.swift */,
+				2FC54CCE250717F1003A9224 /* FindPage.swift */,
+			);
+			path = MainPages;
+			sourceTree = "<group>";
+		};
+		2FC54CCF250717F1003A9224 /* EntityPages */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CD0250717F1003A9224 /* CoffeePage.swift */,
+				2FC54CD1250717F1003A9224 /* RoasterPage.swift */,
+				2FC54CD2250717F1003A9224 /* OriginPage.swift */,
+				2FC54CD3250717F1003A9224 /* RegionPage.swift */,
+				2FC54CD4250717F1003A9224 /* ShopPage.swift */,
+			);
+			path = EntityPages;
+			sourceTree = "<group>";
+		};
+		2FC54CE225071874003A9224 /* SupportViews */ = {
+			isa = PBXGroup;
+			children = (
+				2FC54CE325071874003A9224 /* DetailRows.swift */,
+				2FC54CE425071874003A9224 /* SafariView.swift */,
+				2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */,
+				2FC54CE625071874003A9224 /* MapView.swift */,
+				2FC54CE725071874003A9224 /* ShopRow.swift */,
+				2FC54CE825071874003A9224 /* GoHome.swift */,
+			);
+			path = SupportViews;
+			sourceTree = "<group>";
+		};
+		5BE7A1C5BB078F10956298FD /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				43C48A367828495D821F76C3 /* Pods-SoMuchCoffee.debug.xcconfig */,
+				F2C93A8706EF2518E13665A9 /* Pods-SoMuchCoffee.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -137,9 +287,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 2FC54CAA2506EEC5003A9224 /* Build configuration list for PBXNativeTarget "SoMuchCoffee" */;
 			buildPhases = (
+				3A3C321126C522618DFE5749 /* [CP] Check Pods Manifest.lock */,
 				2FC54C812506EEBB003A9224 /* Sources */,
 				2FC54C822506EEBB003A9224 /* Frameworks */,
 				2FC54C832506EEBB003A9224 /* Resources */,
+				5B711E37F11875F7CD189A1A /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -233,6 +385,7 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC54CB72506FF65003A9224 /* AlfaSlabOne-Regular.ttf in Resources */,
 				2FC54C902506EEC1003A9224 /* Preview Assets.xcassets in Resources */,
 				2FC54C8D2506EEC1003A9224 /* Assets.xcassets in Resources */,
 			);
@@ -254,13 +407,80 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		3A3C321126C522618DFE5749 /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-SoMuchCoffee-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		5B711E37F11875F7CD189A1A /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-SoMuchCoffee/Pods-SoMuchCoffee-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		2FC54C812506EEBB003A9224 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				2FC54CD6250717F1003A9224 /* ObjectExtension.swift in Sources */,
+				2FC54CD5250717F1003A9224 /* RealmExtension.swift in Sources */,
+				2FC54CC0250717E3003A9224 /* Roaster.swift in Sources */,
 				2FC54C8B2506EEBB003A9224 /* ContentView.swift in Sources */,
 				2FC54C892506EEBB003A9224 /* SoMuchCoffeeApp.swift in Sources */,
+				2FC54CDE250717F1003A9224 /* RoasterPage.swift in Sources */,
+				2FC54CD9250717F1003A9224 /* EventsPage.swift in Sources */,
+				2FC54CD8250717F1003A9224 /* RoastersPage.swift in Sources */,
+				2FC54CDC250717F1003A9224 /* FindPage.swift in Sources */,
+				2FC54CC3250717E3003A9224 /* LocationManager.swift in Sources */,
+				2FC54CC1250717E3003A9224 /* Shop.swift in Sources */,
+				2FC54CD7250717F1003A9224 /* OriginsPage.swift in Sources */,
+				2FC54CEC25071875003A9224 /* MapView.swift in Sources */,
+				2FC54CE0250717F1003A9224 /* RegionPage.swift in Sources */,
+				2FC54CEA25071875003A9224 /* SafariView.swift in Sources */,
+				2FC54CE1250717F1003A9224 /* ShopPage.swift in Sources */,
+				2FC54CDB250717F1003A9224 /* HomePage.swift in Sources */,
+				2FC54CDA250717F1003A9224 /* FlavorsPage.swift in Sources */,
+				2FC54CEB25071875003A9224 /* FontAwesomeIcon.swift in Sources */,
+				2FC54CBF250717E3003A9224 /* MapStatusManager.swift in Sources */,
+				2FC54CE925071875003A9224 /* DetailRows.swift in Sources */,
+				2FC54CDD250717F1003A9224 /* CoffeePage.swift in Sources */,
+				2FC54CDF250717F1003A9224 /* OriginPage.swift in Sources */,
+				2FC54CC2250717E3003A9224 /* Coffee.swift in Sources */,
+				2FC54CEE25071875003A9224 /* GoHome.swift in Sources */,
+				2FC54CED25071875003A9224 /* ShopRow.swift in Sources */,
+				2FC54CC4250717E3003A9224 /* Origin.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -333,6 +553,7 @@
 				DEBUG_INFORMATION_FORMAT = dwarf;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
 				ENABLE_TESTABILITY = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_DYNAMIC_NO_PIC = NO;
 				GCC_NO_COMMON_BLOCKS = YES;
@@ -394,6 +615,7 @@
 				DEBUG_INFORMATION_FORMAT = "dwarf-with-dsym";
 				ENABLE_NS_ASSERTIONS = NO;
 				ENABLE_STRICT_OBJC_MSGSEND = YES;
+				EXCLUDED_ARCHS = "";
 				GCC_C_LANGUAGE_STANDARD = gnu11;
 				GCC_NO_COMMON_BLOCKS = YES;
 				GCC_WARN_64_TO_32_BIT_CONVERSION = YES;
@@ -414,10 +636,12 @@
 		};
 		2FC54CAB2506EEC5003A9224 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 43C48A367828495D821F76C3 /* Pods-SoMuchCoffee.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SoMuchCoffee/Preview Content\"";
 				DEVELOPMENT_TEAM = CX9A4TZM67;
 				ENABLE_PREVIEWS = YES;
@@ -427,19 +651,22 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.somuchcoffee.SoMuchCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Debug;
 		};
 		2FC54CAC2506EEC5003A9224 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = F2C93A8706EF2518E13665A9 /* Pods-SoMuchCoffee.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
 				CODE_SIGN_STYLE = Automatic;
+				CURRENT_PROJECT_VERSION = 1;
 				DEVELOPMENT_ASSET_PATHS = "\"SoMuchCoffee/Preview Content\"";
 				DEVELOPMENT_TEAM = CX9A4TZM67;
 				ENABLE_PREVIEWS = YES;
@@ -449,10 +676,11 @@
 					"$(inherited)",
 					"@executable_path/Frameworks",
 				);
+				MARKETING_VERSION = 0.4.0;
 				PRODUCT_BUNDLE_IDENTIFIER = co.somuchcoffee.SoMuchCoffee;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SWIFT_VERSION = 5.0;
-				TARGETED_DEVICE_FAMILY = "1,2";
+				TARGETED_DEVICE_FAMILY = 1;
 			};
 			name = Release;
 		};

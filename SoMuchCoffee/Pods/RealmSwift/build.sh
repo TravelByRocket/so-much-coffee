@@ -22,7 +22,7 @@ source_root="$(dirname "$0")"
 
 : ${REALM_SYNC_VERSION:=$(sed -n 's/^REALM_SYNC_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
-: ${REALM_OBJECT_SERVER_VERSION:=$(sed -n 's/^REALM_OBJECT_SERVER_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
+: ${REALM_OBJECT_SERVER_VERSION:=$(sed -n 's/^MONGODB_STITCH_ADMIN_SDK_VERSION=\(.*\)$/\1/p' ${source_root}/dependencies.list)}
 
 # You can override the xcmode used
 : ${XCMODE:=xcodebuild} # must be one of: xcodebuild (default), xcpretty, xctool
@@ -325,6 +325,10 @@ copy_core() {
         mkdir core
     fi
     ditto "$src" core
+
+    # XCFramework processing only copies the "realm" headers, so put the third-party ones in a known location
+    mkdir -p core/include
+    find "$src" -name external -exec ditto "{}" core/include/external \; -quit
 }
 
 download_common() {
@@ -358,7 +362,7 @@ download_common() {
             echo "Switching from version $(cat core/version.txt) to ${version}"
         fi
     else
-        if [ "$(find core -name librealm.a)" ]; then
+        if [ "$(find core -name librealm-sync.a)" ]; then
             echo 'Using existing custom core build without checking version'
             exit 0
         fi
@@ -369,7 +373,7 @@ download_common() {
     local versioned_dir="${download_type}-${version}${suffix}"
     if [ -e "$versioned_dir/version.txt" ]; then
         echo "Setting ${version} as the active version"
-        copy_core "$versioned_dir${suffix}"
+        copy_core "$versioned_dir"
         exit 0
     fi
 
@@ -398,11 +402,26 @@ download_common() {
 
     (
         cd "$temp_dir"
-        rm -rf "$download_type"
+        rm -rf core
         tar xf "$tar_path" --xz
         if [ ! -f core/version.txt ]; then
             printf %s "${version}" > core/version.txt
         fi
+
+        # Xcode 11 dsymutil crashes when given debugging symbols created by
+        # Xcode 12. Check if this breaks, and strip them if so.
+        local test_lib=core/realm-sync-dbg.xcframework/ios-*-simulator/librealm-sync-dbg.a
+        if ! [ -f $test_lib ]; then
+            test_lib="core/librealm-sync-ios-dbg.a"
+        fi
+        clang++ -Wl,-all_load -g -arch x86_64 -shared -target ios13.0 \
+          -isysroot $(xcrun --sdk iphonesimulator --show-sdk-path) -o tmp.dylib \
+          $test_lib -lz -framework Security
+        if ! dsymutil tmp.dylib -o tmp.dSYM 2> /dev/null; then
+            find core -name '*.a' -exec strip -x "{}" \; 2> /dev/null
+        fi
+        rm -r tmp.dylib tmp.dSYM
+
         mv core "${versioned_dir}"
     )
 
@@ -613,9 +632,9 @@ case "$COMMAND" in
         sed -i '' 's/Realm.framework/RealmObjc.framework/' RealmObjc.xcframework/Info.plist
 
         find RealmSwift.xcframework -name '*.swiftinterface' \
-            -exec sed -i '' 's/import Realm/import RealmObjc/' {} \;
-        find RealmSwift.xcframework -name '*.swiftinterface' \
-            -exec sed -i '' 's/Realm.RLM/RealmObjc.RLM/g' {} \;
+            -exec sed -i '' 's/import Realm/import RealmObjc/' {} \; \
+            -exec sed -i '' 's/Realm.RLM/RealmObjc.RLM/g' {} \; \
+            -exec sed -i '' 's/Realm.RealmSwift/RealmObjc.RealmSwift/g' {} \; \
 
         # Realm is statically linked into RealmSwift so we no longer actually
         # need the obj-c static library, and just need the framework shell.
@@ -950,6 +969,12 @@ case "$COMMAND" in
         exit 0
         ;;
 
+    "verify-osx-swift-evolution")
+        export REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS REALM_BUILD_LIBRARY_FOR_DISTRIBUTION=YES"
+        sh build.sh test-osx-swift
+        exit 0
+        ;;
+
     "verify-ios-static")
         REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS -workspace examples/ios/objc/RealmExamples.xcworkspace" \
             sh build.sh test-ios-static
@@ -964,6 +989,12 @@ case "$COMMAND" in
         REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS -workspace examples/ios/swift/RealmExamples.xcworkspace" \
             sh build.sh test-ios-swift
         sh build.sh examples-ios-swift
+        ;;
+
+    "verify-ios-swift-evolution")
+        export REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS REALM_BUILD_LIBRARY_FOR_DISTRIBUTION=YES"
+        sh build.sh test-ios-swift
+        exit 0
         ;;
 
     "verify-ios-device-objc")
@@ -1005,6 +1036,12 @@ case "$COMMAND" in
         REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS -workspace examples/tvos/swift/RealmExamples.xcworkspace" \
             sh build.sh test-tvos-swift
         sh build.sh examples-tvos-swift
+        exit 0
+        ;;
+
+    "verify-tvos-swift-evolution")
+        export REALM_EXTRA_BUILD_ARGUMENTS="$REALM_EXTRA_BUILD_ARGUMENTS REALM_BUILD_LIBRARY_FOR_DISTRIBUTION=YES"
+        sh build.sh test-tvos-swift
         exit 0
         ;;
 
@@ -1209,28 +1246,25 @@ EOM
           fi
 
           if [ ! -f core/version.txt ]; then
-            sh build.sh download-sync
-            mv core/librealm-ios.a core/librealmcore-ios.a
-            mv core/librealm-macosx.a core/librealmcore-macosx.a
-            mv core/librealm-tvos.a core/librealmcore-tvos.a
-            mv core/librealm-watchos.a core/librealmcore-watchos.a
-            rm core/librealm*-dbg.a
+            sh build.sh download-sync xcframework
           fi
 
           rm -rf include
           mkdir -p include
-          mv core/include include/core
+          cp -R core/realm-sync.xcframework/ios-armv7_arm64/Headers include/core
+          cp Realm/ObjectStore/external/json/json.hpp include/core
 
-          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple
+          mkdir -p include/impl/apple include/util/apple include/sync/impl/apple include/util/bson
           cp Realm/*.hpp include
           cp Realm/ObjectStore/src/*.hpp include
+          cp Realm/ObjectStore/src/impl/*.hpp include/impl
+          cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
           cp Realm/ObjectStore/src/sync/*.hpp include/sync
           cp Realm/ObjectStore/src/sync/impl/*.hpp include/sync/impl
           cp Realm/ObjectStore/src/sync/impl/apple/*.hpp include/sync/impl/apple
-          cp Realm/ObjectStore/src/impl/*.hpp include/impl
-          cp Realm/ObjectStore/src/impl/apple/*.hpp include/impl/apple
           cp Realm/ObjectStore/src/util/*.hpp include/util
           cp Realm/ObjectStore/src/util/apple/*.hpp include/util/apple
+          cp Realm/ObjectStore/src/util/bson/*.hpp include/util/bson
 
           echo '' > Realm/RLMPlatform.h
           cp Realm/*.h include
@@ -1519,11 +1553,10 @@ x.y.z Release notes (yyyy-MM-dd)
 <!-- ### Breaking Changes - ONLY INCLUDE FOR NEW MAJOR version -->
 
 ### Compatibility
-* File format: Generates Realms with format v10 (Reads and upgrades all previous formats)
-* Realm Object Server: 3.21.0 or later.
-* Realm Studio: 3.11 or later.
-* APIs are backwards compatible with all previous releases in the 5.x.y series.
-* Carthage release for Swift is built with Xcode 11.6.
+* Realm Studio: 10.0.0 or later.
+* APIs are backwards compatible with all previous releases in the 10.x.y series.
+* Carthage release for Swift is built with Xcode 12.1.
+* CocoaPods: 1.10 or later.
 
 ### Internal
 * Upgraded realm-core from ? to ?

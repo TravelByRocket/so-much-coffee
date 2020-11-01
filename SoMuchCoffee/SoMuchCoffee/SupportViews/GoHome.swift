@@ -12,7 +12,7 @@ struct GoHome: View {
     @EnvironmentObject var settings: UserSettings
     var body: some View {
 		Image(systemName: "house")
-			.font(/*@START_MENU_TOKEN@*/.title/*@END_MENU_TOKEN@*/)
+			.font(.title)
 			.onTapGesture {withAnimation{self.settings.curPage = "MAIN"}}
         
     }

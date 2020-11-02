@@ -8,59 +8,79 @@
 
 import SwiftUI
 import RealmSwift
+import MapKit
 
 struct RoasterPage: View {
 	var roaster: Roaster
-	let mapBufferFactor = 1.2
-	
+    var showMap: Bool = true
+    
+    @State private var region: MKCoordinateRegion = MKCoordinateRegion()
+    
+    @EnvironmentObject var us: UserSettings
+    
     var body: some View {
-		VStack {
-			MapView(shops: roaster.shopsServing,
-					centerCoordinate: roaster.shopsServing.centerCoordinate,
-					latitudeDelta: roaster.shopsServing.latitudeDelta * mapBufferFactor,
-					longitudeDelta: roaster.shopsServing.longitudeDelta * mapBufferFactor)
-			NameTitle(name: roaster.name)
-			SummaryBlock(summary: roaster.summary)
-			List {
-				Section (header: Text("Locations Serving")) {
-					ForEach (roaster.shopsServing.sorted(byKeyPath: "name")) {shop in
-						NavigationLink(destination: ShopPage(shop: shop)) {
-							HStack {
-								Image(systemName: shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle")
-								Text(shop.name)
-							}
-						}
-					}
-				}
-				Section (header: Text("Roasts")) {
-					ForEach(roaster.coffees.sorted(byKeyPath: "name")) {coffee in
-						NavigationLink(destination: CoffeePage(coffee: coffee)) {
-							VStack (alignment: .leading) {
-								Text(coffee.name)
-								Text(coffee.origins.map{$0.name}.joined(separator: ", "))
-									.foregroundColor(Color.secondary)
-									.font(.caption)
-							}
-						}
-					}
-				}
-				Section (header: Text("More Details")){
-					DetailRow(style: .instagram, value: roaster.instagram, entity: roaster)
-					
-					HStack {
-						Image(systemName: "equal.circle.fill")
-						Text("Fair Trade: \(fairTradeString())")
-					}
-					
-					DetailRow(style: .offerDetails, value: roaster.offerDetails, entity: roaster)
-					DetailRow(style: .offerCode, value: roaster.offerCode, entity: roaster)
-					
-					DetailRow(style: .orderURL, value: roaster.orderingURL, entity: roaster)
-					DetailRow(style: .subscribeURL, value: roaster.subscriptionURL, entity: roaster)
-				}
-			}
-		}
-		.edgesIgnoringSafeArea(.top)
+        GeometryReader {geo in
+            VStack {
+                if showMap {
+                    Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: roaster.shopsServing,
+                        annotationContent: { annotation in
+                            return MapPin(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude))
+                        })
+                        .frame(width: geo.size.width, height: geo.size.height * 2 / 5)
+                        .onAppear{
+                            region = regionIncluding(shops: Array(roaster.shopsServing))
+                    }
+                }
+                NameTitle(name: roaster.name)
+                    .onDisappear(perform: {
+                        us.curRoaster = nil
+                    })
+    //                .navigationTitle(roaster.name)
+    //                .navigationBarHidden(false)
+                SummaryBlock(summary: roaster.summary)
+                List {
+                    Section (header: Text("Locations Serving")) {
+                        ForEach (roaster.shopsServing.sorted(byKeyPath: "name")) {shop in
+                            NavigationLink(destination: ShopPage(shop: shop)) {
+                                HStack {
+                                    Image(systemName: shop.affiliatedRoaster != nil ? "link.circle.fill" : "smallcircle.fill.circle")
+                                    Text(shop.name)
+                                }
+                            }
+                        }
+                    }
+    //				Section (header: Text("Roasts")) {
+    //					ForEach(roaster.coffees.sorted(byKeyPath: "name")) {coffee in
+    //						NavigationLink(destination: CoffeePage(coffee: coffee)) {
+    //							VStack (alignment: .leading) {
+    //								Text(coffee.name)
+    //								Text(coffee.origins.map{$0.name}.joined(separator: ", "))
+    //									.foregroundColor(Color.secondary)
+    //									.font(.caption)
+    //							}
+    //						}
+    //					}
+    //				}
+                    Section (header: Text("More Details")){
+                        DetailRow(style: .instagram, value: roaster.instagram, entity: roaster)
+                        
+                        HStack {
+                            Image(systemName: "equal.circle.fill")
+                            Text("Fair Trade: \(fairTradeString())")
+                        }
+                        
+                        DetailRow(style: .offerDetails, value: roaster.offerDetails, entity: roaster)
+                        DetailRow(style: .offerCode, value: roaster.offerCode, entity: roaster)
+                        
+                        DetailRow(style: .orderURL, value: roaster.orderingURL, entity: roaster)
+                        DetailRow(style: .subscribeURL, value: roaster.subscriptionURL, entity: roaster)
+                    }
+                }
+            }
+    //        .navigationBarHidden(true)
+    //        .navigationBarBackButtonHidden(false)
+            .edgesIgnoringSafeArea(.top)
+        }
     }
 	
 	func fairTradeString() -> String {
@@ -72,7 +92,6 @@ struct RoasterPage: View {
 			return "No"
 		}
 	}
-	
 }
 
 struct RoasterView_Previews: PreviewProvider {

@@ -11,6 +11,8 @@ import RealmSwift
 
 struct RoastersPage: View {
 	@State private var searchString = ""
+    
+    @EnvironmentObject var us: UserSettings
 	
 	// Consider other implementation from WWDC2020 Type Inference video at ~3:30-~8:30
 	private var filteredRoasters: RealmSwift.Results<Roaster> {
@@ -31,9 +33,11 @@ struct RoastersPage: View {
 				List(filteredRoasters) {roaster in
 					RoasterRow(roaster: roaster)
 				}
+                .listStyle(PlainListStyle())
 			}
-			.navigationBarTitle("Roasters")
-			.navigationBarItems(trailing: GoHome())
+            .navigationBarHidden(true)
+//			.navigationBarTitle("Roasters")
+//			.navigationBarItems(trailing: GoHome())
 		}
     }
 }
@@ -46,8 +50,25 @@ struct RoastersPage_Previews: PreviewProvider {
 
 struct RoasterRow: View {
 	var roaster: Roaster
+    
+    @EnvironmentObject var us: UserSettings
+    
 	var body: some View {
-		NavigationLink(destination: RoasterPage(roaster: roaster)) {
+//        NavigationLink(
+//            destination: RoasterPage(roaster: roaster),
+//            tag: roaster,
+//            selection: $us.curRoaster,
+//            label: {
+//                HStack {
+//                    Image(systemName:
+//                        roaster.shopsServing.count <= 50 ?
+//                            "\(roaster.shopsServing.count).circle" :
+//                        "asterisk.circle"
+//                    )
+//                    Text(roaster.name)
+//                }
+//            })
+        NavigationLink(destination: RoasterPage(roaster: roaster)) {
 			HStack {
 				Image(systemName:
 					roaster.shopsServing.count <= 50 ?

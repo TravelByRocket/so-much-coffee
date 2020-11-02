@@ -16,7 +16,7 @@ struct ContentView: View {
 		
 		VStack{
 			if settings.curPage == "MAIN" {
-				HomePage()
+				HomeTab()
 			} else if settings.curPage == "FIND" {
 				FindPage()
 			} else if settings.curPage == "ROASTERS" {
@@ -41,6 +41,9 @@ struct ContentView_Previews: PreviewProvider {
 
 class UserSettings: ObservableObject {
 	@Published var curPage = "MAIN"
+    @Published var curTab: Views = .shops
+    var curShop: Shop?
+    var curRoaster: Roaster?
 }
 
 extension Color {

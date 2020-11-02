@@ -10,7 +10,8 @@ import Foundation
 import RealmSwift
 import MapKit
 
-extension RealmCollection where Element: Shop {
+//extension RealmCollection where Element: Shop {
+extension Collection where Element: Shop {
 	
 	var centerCoordinate: CLLocationCoordinate2D {
 		let lats = self.map{$0.latitude}
@@ -40,9 +41,3 @@ extension RealmCollection where Element: Shop {
 	}
 	
 }
-
-//extension RealmCollection where T: Shop, Origin, Coffee {
-//	var randomItem: T {
-//		self[Int.random(in: 0..<self.count)]
-//	}
-//}

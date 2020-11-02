@@ -11,8 +11,6 @@ import RealmSwift
 
 struct EventsPage: View {
 	
-	@EnvironmentObject var mapStatus: MapStatusManager
-	
 	var body: some View {
 		Text("Go to Find page,\nthis will eventually list just events")
 	}

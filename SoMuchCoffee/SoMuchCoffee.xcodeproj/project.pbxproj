@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		2F72C27D254F82C200BEED5F /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F72C27C254F82C100BEED5F /* HomeTab.swift */; };
 		2FC54C892506EEBB003A9224 /* SoMuchCoffeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */; };
 		2FC54C8B2506EEBB003A9224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C8A2506EEBB003A9224 /* ContentView.swift */; };
 		2FC54C8D2506EEC1003A9224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54C8C2506EEC1003A9224 /* Assets.xcassets */; };
@@ -14,7 +15,6 @@
 		2FC54C9B2506EEC5003A9224 /* SoMuchCoffeeTests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C9A2506EEC5003A9224 /* SoMuchCoffeeTests.swift */; };
 		2FC54CA62506EEC5003A9224 /* SoMuchCoffeeUITests.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CA52506EEC5003A9224 /* SoMuchCoffeeUITests.swift */; };
 		2FC54CB72506FF65003A9224 /* AlfaSlabOne-Regular.ttf in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */; };
-		2FC54CBF250717E3003A9224 /* MapStatusManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CB9250717E3003A9224 /* MapStatusManager.swift */; };
 		2FC54CC0250717E3003A9224 /* Roaster.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBA250717E3003A9224 /* Roaster.swift */; };
 		2FC54CC1250717E3003A9224 /* Shop.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBB250717E3003A9224 /* Shop.swift */; };
 		2FC54CC2250717E3003A9224 /* Coffee.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CBC250717E3003A9224 /* Coffee.swift */; };
@@ -36,7 +36,6 @@
 		2FC54CE925071875003A9224 /* DetailRows.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE325071874003A9224 /* DetailRows.swift */; };
 		2FC54CEA25071875003A9224 /* SafariView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE425071874003A9224 /* SafariView.swift */; };
 		2FC54CEB25071875003A9224 /* FontAwesomeIcon.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */; };
-		2FC54CEC25071875003A9224 /* MapView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE625071874003A9224 /* MapView.swift */; };
 		2FC54CED25071875003A9224 /* ShopRow.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE725071874003A9224 /* ShopRow.swift */; };
 		2FC54CEE25071875003A9224 /* GoHome.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54CE825071874003A9224 /* GoHome.swift */; };
 		2FC54CF625072215003A9224 /* default.realm in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54CF525072215003A9224 /* default.realm */; };
@@ -64,6 +63,7 @@
 
 /* Begin PBXFileReference section */
 		1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoMuchCoffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		2F72C27C254F82C100BEED5F /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
 		2FC54C852506EEBB003A9224 /* SoMuchCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMuchCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeApp.swift; sourceTree = "<group>"; };
 		2FC54C8A2506EEBB003A9224 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -77,7 +77,6 @@
 		2FC54CA52506EEC5003A9224 /* SoMuchCoffeeUITests.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeUITests.swift; sourceTree = "<group>"; };
 		2FC54CA72506EEC5003A9224 /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
 		2FC54CB62506FF65003A9224 /* AlfaSlabOne-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "AlfaSlabOne-Regular.ttf"; sourceTree = "<group>"; };
-		2FC54CB9250717E3003A9224 /* MapStatusManager.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapStatusManager.swift; sourceTree = "<group>"; };
 		2FC54CBA250717E3003A9224 /* Roaster.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Roaster.swift; sourceTree = "<group>"; };
 		2FC54CBB250717E3003A9224 /* Shop.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Shop.swift; sourceTree = "<group>"; };
 		2FC54CBC250717E3003A9224 /* Coffee.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = Coffee.swift; sourceTree = "<group>"; };
@@ -99,7 +98,6 @@
 		2FC54CE325071874003A9224 /* DetailRows.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = DetailRows.swift; sourceTree = "<group>"; };
 		2FC54CE425071874003A9224 /* SafariView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = SafariView.swift; sourceTree = "<group>"; };
 		2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = FontAwesomeIcon.swift; sourceTree = "<group>"; };
-		2FC54CE625071874003A9224 /* MapView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = MapView.swift; sourceTree = "<group>"; };
 		2FC54CE725071874003A9224 /* ShopRow.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = ShopRow.swift; sourceTree = "<group>"; };
 		2FC54CE825071874003A9224 /* GoHome.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = GoHome.swift; sourceTree = "<group>"; };
 		2FC54CF325071E92003A9224 /* B612Mono-Regular.ttf */ = {isa = PBXFileReference; lastKnownFileType = file; path = "B612Mono-Regular.ttf"; sourceTree = "<group>"; };
@@ -225,7 +223,6 @@
 		2FC54CB8250717E3003A9224 /* Classes */ = {
 			isa = PBXGroup;
 			children = (
-				2FC54CB9250717E3003A9224 /* MapStatusManager.swift */,
 				2FC54CBA250717E3003A9224 /* Roaster.swift */,
 				2FC54CBB250717E3003A9224 /* Shop.swift */,
 				2FC54CBC250717E3003A9224 /* Coffee.swift */,
@@ -248,6 +245,7 @@
 			isa = PBXGroup;
 			children = (
 				2FC54CCD250717F1003A9224 /* HomePage.swift */,
+				2F72C27C254F82C100BEED5F /* HomeTab.swift */,
 				2FC54CC9250717F1003A9224 /* OriginsPage.swift */,
 				2FC54CCA250717F1003A9224 /* RoastersPage.swift */,
 				2FC54CCB250717F1003A9224 /* EventsPage.swift */,
@@ -275,7 +273,6 @@
 				2FC54CE325071874003A9224 /* DetailRows.swift */,
 				2FC54CE425071874003A9224 /* SafariView.swift */,
 				2FC54CE525071874003A9224 /* FontAwesomeIcon.swift */,
-				2FC54CE625071874003A9224 /* MapView.swift */,
 				2FC54CE725071874003A9224 /* ShopRow.swift */,
 				2FC54CE825071874003A9224 /* GoHome.swift */,
 			);
@@ -486,16 +483,15 @@
 				2FC54CFA250723DC003A9224 /* Fonts.swift in Sources */,
 				2FC54CDC250717F1003A9224 /* FindPage.swift in Sources */,
 				2FC54CC3250717E3003A9224 /* LocationManager.swift in Sources */,
+				2F72C27D254F82C200BEED5F /* HomeTab.swift in Sources */,
 				2FC54CC1250717E3003A9224 /* Shop.swift in Sources */,
 				2FC54CD7250717F1003A9224 /* OriginsPage.swift in Sources */,
-				2FC54CEC25071875003A9224 /* MapView.swift in Sources */,
 				2FC54CE0250717F1003A9224 /* RegionPage.swift in Sources */,
 				2FC54CEA25071875003A9224 /* SafariView.swift in Sources */,
 				2FC54CE1250717F1003A9224 /* ShopPage.swift in Sources */,
 				2FC54CDB250717F1003A9224 /* HomePage.swift in Sources */,
 				2FC54CDA250717F1003A9224 /* FlavorsPage.swift in Sources */,
 				2FC54CEB25071875003A9224 /* FontAwesomeIcon.swift in Sources */,
-				2FC54CBF250717E3003A9224 /* MapStatusManager.swift in Sources */,
 				2FC54CE925071875003A9224 /* DetailRows.swift in Sources */,
 				2FC54CDD250717F1003A9224 /* CoffeePage.swift in Sources */,
 				2FC54CDF250717F1003A9224 /* OriginPage.swift in Sources */,

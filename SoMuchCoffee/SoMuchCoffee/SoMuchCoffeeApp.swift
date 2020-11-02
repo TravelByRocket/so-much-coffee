@@ -13,7 +13,6 @@ struct SoMuchCoffeeApp: App {
         WindowGroup {
             ContentView()
                 .environmentObject(UserSettings())
-                .environmentObject(MapStatusManager())
         }
     }
 }

@@ -10,45 +10,24 @@ import SwiftUI
 import RealmSwift
 
 struct HomePage: View {
-	@State private var showAbout = false
-	@EnvironmentObject var mapStatus: MapStatusManager
-	
 	var body: some View {
 		VStack {
-			// TITLE
-			ZStack {
-				TitleView()
-				AppInfoButton(showAbout: $showAbout)
-			}
-			.sheet(isPresented: $showAbout) {
-				AboutPage()
-			}
-			 
-			// FIRST ROW
+            Spacer()
+            Spacer()
+            Text("So Much Coffee")
+                .foregroundColor(Color("AccentColor"))
+                .font(Font.custom(Fonts.alfa, size: 40))
+                .multilineTextAlignment(.center)
+            Spacer()
 			HStack (alignment: .bottom) {
 				NavItem(imageName: "find", label: "Shops", destinationName: "FIND")
-//				Divider()
-//				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
+                    .padding()
+                NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
+                    .padding()
 			}
-			.padding(.bottom, 0)
-			
-			Divider()
-			
-			//SECOND ROW
-			HStack (alignment: .bottom) {
-//				NavItem(imageName: "calendar", label: "Events", destinationName: "EVENTS", isSystemName: true)
-				NavItem(imageName: "roasters", label: "Roasters", destinationName: "ROASTERS")
-				Divider()
-				NavItem(imageName: "origins", label: "Origins", destinationName: "ORIGINS")
-				Divider()
-				NavItem(imageName: "flavors", label: "Flavors", destinationName: "FLAVORS")
-			}
-			.padding(.top, 0)
+            Spacer()
 		}
 		.padding(.horizontal)
-//		.onAppear() {
-//			self.mapStatus.reset()
-//		}
 	}
 }
 
@@ -78,6 +57,7 @@ struct NavItem: View {
 				.aspectRatio(contentMode: .fit)
 			}
 			Text(label)
+                .font(.title)
 		}
 		.onTapGesture {
 			withAnimation() {
@@ -85,41 +65,5 @@ struct NavItem: View {
 			}
 		}
 		.frame(maxWidth: .infinity)
-	}
-}
-
-struct AppInfoButton: View {
-	@Binding var showAbout: Bool
-	var body: some View {
-		HStack {
-			Spacer()
-			VStack {
-				Image(systemName: "info.circle")
-					.foregroundColor(Color.blue)
-					.padding()
-					.onTapGesture {
-						self.showAbout = true
-				}
-				Spacer()
-			}
-		}
-	}
-}
-
-struct TitleView: View {
-	var body: some View {
-		Text("So Much Coffee")
-			.foregroundColor(Color("AccentColor"))
-            .font(Font.custom(Fonts.alfa, size: 40))
-			.multilineTextAlignment(.center)
-			.frame(maxHeight: .infinity)
-	}
-}
-
-struct AboutPage: View {
-	var body: some View {
-		VStack (alignment: .center, spacing: 10){
-			Text("This app was made by Bryan Costanza")
-		}
 	}
 }

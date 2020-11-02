@@ -11,89 +11,114 @@ import MapKit
 import RealmSwift
 
 struct FindPage: View {
-	var shops = realm.objects(Shop.self)
-	let eventShops = realm.objects(Shop.self).filter("eventsURL CONTAINS 'http'")
-	
-	@State private var region = regionForAllShops()
-	@ObservedObject private var lm = LocationManager()
-	
-	@State private var locationSource: LocationSource = .userLocation
-	@State private var onlyShowEvents = false
-	
-	enum LocationSource {
-		case shopsCenter, userLocation
-	}
-	
-	@State private var showList = true
-	
-	var body: some View {
-		return NavigationView {
-			VStack {
-				ZStack {
-					Map(coordinateRegion: $region, showsUserLocation: true, annotationItems: onlyShowEvents ? eventShops : shops,
-						annotationContent: { annotation in
-							return MapPin(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude))
-						})
-						.edgesIgnoringSafeArea(.bottom)
-						.navigationBarTitle("Find a Shop")
-						.navigationBarItems(trailing: GoHome())
-					//						.navigationBarItems(leading: ShowHideList(showList: $showList), trailing: GoHome()) // TODO showing list zooms map out trying to maintain max of latitude
-					Image(systemName: "smallcircle.circle").opacity(0.7)
-					HStack{
-						Spacer()
-						VStack{
-							Button(action: {
-								region = regionForAllShops()
-							}, label: {
-								Image(systemName: "location")
-									.padding()
-							})
-							Spacer()
-						}
-					}
-				}
-				if showList {
-					List{
-//						Toggle("Only Locations with Events", isOn: $onlyShowEvents)
-						ForEach(Array(onlyShowEvents ? eventShops : shops).filter({$0.isInMap(region)}).sorted( by: { $0.kilometersAway(from: region.center) < $1.kilometersAway(from: region.center) } )) { shop in
-							NavigationLink (destination: ShopPage(shop: shop)){
-								VStack {
-									ShopRow(shop: shop, mapCenter: region.center)
-								}
-							}
-						}
-					}
-				}
-			}
-			.animation(.default)
-		}
-	}
+    private var shops = realm.objects(Shop.self)
+    
+    @State private var region = regionIncluding(shops: Array(realm.objects(Shop.self)))
+//    @State private var isMapCompact = false
+    
+    var body: some View {
+        GeometryReader {geo in
+        NavigationView {
+            VStack {
+                    ZStack {
+                        Map(coordinateRegion: $region,
+                            showsUserLocation: true,
+                            annotationItems: shops,
+                            annotationContent: { annotation in
+                                return MapPin(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude))
+                            })
+//                            .navigationBarTitle("Find a Shop")
+//                            .navigationBarItems(trailing: GoHome())
+//                            .navigationBarTitleDisplayMode(.inline)
+                            .edgesIgnoringSafeArea(.top)
+                            .navigationBarHidden(true)
+                        Image(systemName: "smallcircle.circle").opacity(0.7)
+//                        HStack{
+    //                        VStack{
+    //                            Button(action: {
+    //                                region = regionIncluding(shops: Array(shops))
+    //                            }, label: {
+    //                                Image(systemName: "location")
+    //                                    .padding()
+    //                            })
+    //                            Spacer()
+    //                        }
+//                            Spacer()
+//                            VStack{
+//                                GoHome()
+//                                    .padding()
+//                                Spacer()
+//                            }
+//                        }
+                    }
+                    .frame(width: geo.size.width, height: geo.size.height / 2)
+//                    NavigationView {
+                    ShopsInMapSorted(region: $region, shops: shops)
+                }
+                .animation(.default)
+            }
+        }
+    }
 }
 
 struct ShowHideList: View {
-	@Binding var showList: Bool
-	
-	var body: some View {
-		HStack {
-			Image(systemName: showList ? "arrow.down.square" : "arrow.up.square")
-			Text(showList ? "Hide List" : "Show List")
-			Spacer()
-		}
-		.frame(width: 200)
-		.onTapGesture {
-			self.showList.toggle()
-		}
-	}
+    @Binding var showList: Bool
+    
+    var body: some View {
+        HStack {
+            Image(systemName: showList ? "arrow.down.square" : "arrow.up.square")
+            Text(showList ? "Hide List" : "Show List")
+            Spacer()
+        }
+        .frame(width: 200)
+        .onTapGesture {
+            self.showList.toggle()
+        }
+    }
 }
 
-fileprivate func regionForAllShops() -> MKCoordinateRegion {
-	let shops = realm.objects(Shop.self)
-	let bufferFactor = 1.2
-	return MKCoordinateRegion(center: CLLocationCoordinate2D(latitude: shops.centerCoordinate.latitude, longitude: shops.centerCoordinate.longitude), span: MKCoordinateSpan(latitudeDelta: shops.latitudeDelta * bufferFactor, longitudeDelta: shops.longitudeDelta * bufferFactor))
+func regionIncluding(shops: [Shop], bufferFactor: Double = 1.2) -> MKCoordinateRegion {
+    
+    let center = CLLocationCoordinate2D(
+        latitude: shops.centerCoordinate.latitude,
+        longitude: shops.centerCoordinate.longitude)
+    
+    let latitudeDelta = shops.latitudeDelta * bufferFactor
+    let longitudeDelta = shops.longitudeDelta * bufferFactor
+    let minDelta = 0.02 // single-item maps are too zoomed in without this
+    let span = MKCoordinateSpan(
+        latitudeDelta: max(latitudeDelta,minDelta),
+        longitudeDelta: max(longitudeDelta,minDelta))
+    
+    let region = MKCoordinateRegion(center: center, span: span)
+    
+    return region
 }
 
 struct FindPage_Previews: PreviewProvider {
-	static var previews: some View {
-		FindPage()
-	}
+    static var previews: some View {
+        NavigationView {
+            FindPage()
+        }
+    }
+}
+
+struct ShopsInMapSorted: View {
+    @Binding var region: MKCoordinateRegion
+    let shops: Results<Shop>
+    
+    var body: some View {
+        List{
+            Section(header: Text("Shops by Distance to Center")) {
+                ForEach(Array(shops).filter({$0.isInMap(region)})
+                            .sorted( by: { $0.kilometersAway(from: region.center) < $1.kilometersAway(from: region.center) } )
+                ) { shop in
+                    NavigationLink (destination: ShopPage(shop: shop)){
+                            ShopRow(shop: shop, mapCenter: region.center)
+                    }
+                }
+            }
+        }
+        .listStyle(GroupedListStyle())
+    }
 }

@@ -13,7 +13,7 @@ struct ShopRow: View {
 	let shop: Shop
 	let mapCenter: CLLocationCoordinate2D
 	
-	@EnvironmentObject private var mapStatus: MapStatusManager
+//	@EnvironmentObject private var mapStatus: MapStatusManager
 
 	var body: some View {
 		HStack {
@@ -33,6 +33,6 @@ struct ShopRow: View {
 struct ShopRow_Previews: PreviewProvider {
     static var previews: some View {
 		ShopRow(shop: realm.objects(Shop.self).randomElement()!, mapCenter: CLLocationCoordinate2D(latitude: 39.98767, longitude: -105.223802))
-		.environmentObject(MapStatusManager())
+//		.environmentObject(MapStatusManager())
     }
 }

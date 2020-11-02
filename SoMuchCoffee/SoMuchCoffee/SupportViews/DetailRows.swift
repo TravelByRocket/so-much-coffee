@@ -121,14 +121,19 @@ enum DetailType: String { // the raw values are used to describe what informatio
 struct NameTitle: View {
     let name: String
     var body: some View {
-        Text(self.name).font(.title).multilineTextAlignment(.center).padding(.horizontal)
+        Text(self.name)
+            .font(.title)
+            .multilineTextAlignment(.center)
+            .padding(.horizontal)
     }
 }
 
 struct SummaryBlock: View {
     let summary: String?
     var body: some View {
-        Text(summary ?? "No summary yet").multilineTextAlignment(.leading).padding(.horizontal)
+        Text(summary ?? "No summary yet")
+            .multilineTextAlignment(.leading)
+            .padding(.horizontal)
     }
 }
 

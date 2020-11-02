@@ -8,7 +8,6 @@
 
 import SwiftUI
 import RealmSwift
-//import FontAwesome_swift
 import MapKit
 
 struct ShopPage: View {
@@ -25,34 +24,22 @@ struct ShopPage: View {
                 if showMap {
                     Map(coordinateRegion: $regionaroundshop, showsUserLocation: true, annotationItems: [shop], annotationContent: { annotation in
                         return MapPin(coordinate: CLLocationCoordinate2D(latitude: shop.latitude, longitude: shop.longitude))
-                    }) // TODO make frame height ~3/5 of wdith. Possible with GeometryReader but title stayed in the position it would have before changing the frame size of the map.
+                    })
                     .frame(width: geo.size.width, height: geo.size.height * 2 / 5)
                     .onAppear {
                         regionaroundshop = regionIncluding(shops: [shop])
                     }
                 }
                 NameTitle(name: shop.name)
-//                    .navigationTitle(shop.name)
-//                    .navigationBarHidden(false)
                 SummaryBlock(summary: shop.summary)
                 List {
-                    Section (header: Text("Social Distancing Note")) {
-                        DetailRow(style: .stayAtHomeOrderNote, value: shop.stayAtHomeOrderNote, entity: shop)
-                        Label("No COVID info available. What to do?", systemImage: "exclamationmark.bubble")
-                            .foregroundColor(.secondary)
-                    }
-                    Section (header: Text("Supplying Roasters")) {
+                    Section (header: Text(
+                        shop.roasters.count > 1
+                            ? "Featured Roasters"
+                            : "Featured Roaster"
+                    )) {
                         ForEach (shop.roasters) {roaster in
-//                            NavigationLink(destination: RoasterPage(roaster: roaster)) {
-                                HStack {
-                                    Image(systemName: String(roaster.shopsServing.count) + ".circle")
-                                    Text(roaster.name)
-                                }
-//                                .onTapGesture {
-//                                    us.curTab = .roasters
-//                                    us.curRoaster = roaster
-//                                }
-//                            } // TODO make this circle part of an extension
+                            SupplyingRoasterRow(roaster: roaster)
                         }
                     }
                     Section (header: Text("Atmosphere & Features")) {
@@ -71,7 +58,6 @@ struct ShopPage: View {
                     Section (header: Text("Contact")) {
                         DetailRow(style: .address, value: shop.address, entity: shop)
                         DetailRow(style: .phone, value: shop.phone, entity: shop)
-                        DetailRow(style: .hours, value: shop.hours, entity: shop)
                         DetailRow(style: .email, value: shop.email, entity: shop)
                     }
                     Section (header: Text("Other")) {
@@ -91,6 +77,27 @@ struct ShopView_Previews: PreviewProvider {
         NavigationView {
             ShopPage(shop: realm.objects(Shop.self).randomElement()!)
                 .navigationBarHidden(true)
+        }
+    }
+}
+
+struct SupplyingRoasterRow: View {
+    let roaster: Roaster
+    var body: some View {
+        VStack {
+            Text(roaster.name)
+                .font(.title3)
+            HStack {
+                Spacer()
+                Group {
+                    Text("Location count:")
+                        .italic()
+                    Image(systemName: String(roaster.shopsServing.count) + ".circle")
+                }
+                .foregroundColor(.secondary)
+                .font(.caption)
+                Spacer()
+            }
         }
     }
 }

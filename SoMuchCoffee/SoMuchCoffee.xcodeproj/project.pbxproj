@@ -8,6 +8,7 @@
 
 /* Begin PBXBuildFile section */
 		2F72C27D254F82C200BEED5F /* HomeTab.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F72C27C254F82C100BEED5F /* HomeTab.swift */; };
+		2F9FB097255076E200E66F0F /* InfoPage.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2F9FB096255076E200E66F0F /* InfoPage.swift */; };
 		2FC54C892506EEBB003A9224 /* SoMuchCoffeeApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */; };
 		2FC54C8B2506EEBB003A9224 /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 2FC54C8A2506EEBB003A9224 /* ContentView.swift */; };
 		2FC54C8D2506EEC1003A9224 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 2FC54C8C2506EEC1003A9224 /* Assets.xcassets */; };
@@ -64,6 +65,7 @@
 /* Begin PBXFileReference section */
 		1E0E00305707AF052C37472A /* Pods_SoMuchCoffee.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_SoMuchCoffee.framework; sourceTree = BUILT_PRODUCTS_DIR; };
 		2F72C27C254F82C100BEED5F /* HomeTab.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = HomeTab.swift; sourceTree = "<group>"; };
+		2F9FB096255076E200E66F0F /* InfoPage.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = InfoPage.swift; sourceTree = "<group>"; };
 		2FC54C852506EEBB003A9224 /* SoMuchCoffee.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SoMuchCoffee.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		2FC54C882506EEBB003A9224 /* SoMuchCoffeeApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SoMuchCoffeeApp.swift; sourceTree = "<group>"; };
 		2FC54C8A2506EEBB003A9224 /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -245,6 +247,7 @@
 			isa = PBXGroup;
 			children = (
 				2FC54CCD250717F1003A9224 /* HomePage.swift */,
+				2F9FB096255076E200E66F0F /* InfoPage.swift */,
 				2F72C27C254F82C100BEED5F /* HomeTab.swift */,
 				2FC54CC9250717F1003A9224 /* OriginsPage.swift */,
 				2FC54CCA250717F1003A9224 /* RoastersPage.swift */,
@@ -474,6 +477,7 @@
 				2FC54CD6250717F1003A9224 /* ObjectExtension.swift in Sources */,
 				2FC54CD5250717F1003A9224 /* RealmExtension.swift in Sources */,
 				2FC54CC0250717E3003A9224 /* Roaster.swift in Sources */,
+				2F9FB097255076E200E66F0F /* InfoPage.swift in Sources */,
 				2FC54C8B2506EEBB003A9224 /* ContentView.swift in Sources */,
 				2FC54C892506EEBB003A9224 /* SoMuchCoffeeApp.swift in Sources */,
 				2FC54CDE250717F1003A9224 /* RoasterPage.swift in Sources */,

@@ -33,7 +33,7 @@ struct HomePage: View {
 
 struct Main_Previews: PreviewProvider {
 	static var previews: some View {
-		ContentView().environmentObject(UserSettings())
+		HomePage()
 	}
 }
 

@@ -24,6 +24,20 @@ struct HomeTab: View {
                     Text("Roasters")
                 }
                 .tag(Views.roasters)
+            
+            FlavorsPage()
+                .tabItem {
+                    Image(systemName: "asterisk.circle")
+                    Text("Flavors")
+                }
+                .tag(Views.flavors)
+            
+            InfoPage()
+                .tabItem {
+                    Image(systemName: "info")
+                    Text("About")
+                }
+                .tag(Views.about)
         }
     }
 }
@@ -36,5 +50,5 @@ struct HomeTab_Previews: PreviewProvider {
 }
 
 enum Views {
-    case shops, roasters
+    case shops, roasters, about, flavors
 }

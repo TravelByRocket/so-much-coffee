@@ -88,16 +88,13 @@ struct SupplyingRoasterRow: View {
             Text(roaster.name)
                 .font(.title3)
             HStack {
+                Text("Based in \(roaster.basedIn ?? "")")
                 Spacer()
-                Group {
-                    Text("Location count:")
-                        .italic()
-                    Image(systemName: String(roaster.shopsServing.count) + ".circle")
-                }
-                .foregroundColor(.secondary)
-                .font(.caption)
-                Spacer()
+                Text("Location count:")
+                Image(systemName: String(roaster.shopsServing.count) + ".circle")
             }
+            .foregroundColor(.secondary)
+            .font(.caption)
         }
     }
 }

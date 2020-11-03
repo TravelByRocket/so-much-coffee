@@ -13,47 +13,8 @@ struct OriginPage: View {
 	
     var body: some View {
 		VStack {
-			Text("Roasts from \(origin.name)").font(.title).padding().multilineTextAlignment(.center)
 			List {
-				Section (header: Text("Single Origin")) {
-					ForEach(origin.coffees.filter("origins.@count == 1")) {coffee in
-						NavigationLink(destination: CoffeePage(coffee: coffee)) {
-							VStack (alignment: .leading) {
-								Text(coffee.name)
-								HStack {
-									Text(coffee.roaster!.name)
-									Spacer()
-									Text(coffee.roaster!.basedIn ?? "Error")
-								}
-								.foregroundColor(Color.secondary)
-								.font(.caption)
-							}
-						}
-					}
-					if (origin.coffees.filter("origins.@count == 1").count == 0) {
-						Text("None listed from this origin")
-					}
-				}
-				Section (header: Text("Blends")) {
-					ForEach(origin.coffees.filter("origins.@count > 1")) {coffee in
-						NavigationLink(destination: CoffeePage(coffee: coffee)) {
-							VStack (alignment: .leading) {
-								Text(coffee.name)
-								HStack {
-									Text(coffee.roaster!.name)
-									Spacer()
-									Text(coffee.roaster!.basedIn ?? "Error")
-								}
-								.foregroundColor(Color.secondary)
-								.font(.caption)
-							}
-						}
-					}
-					if (origin.coffees.filter("origins.@count > 1").count == 0) {
-						Text("None listed from this origin")
-					}
-				}
-				Section (header: Text("Learn More")) {
+				Section (header: Text("Resources")) {
 					if (origin.wikiURL != nil) { DetailRow(style: .wikiURL, value: origin.wikiURL, entity: origin) }
 					if (origin.atlasURL != nil) { DetailRow(style: .atlasURL, value: origin.atlasURL, entity: origin) }
 					if (origin.cafeImportURL != nil) { DetailRow(style: .cafeImportURL, value: origin.cafeImportURL, entity: origin) }
@@ -61,6 +22,8 @@ struct OriginPage: View {
 					if (origin.otherURL2 != nil) { DetailRow(style: .otherURL2, value: origin.otherURL2, entity: origin) }
 				}
 			}
+            .listStyle(GroupedListStyle())
+            .navigationTitle(origin.name)
 		}
     }
 }

@@ -32,6 +32,13 @@ struct HomeTab: View {
                 }
                 .tag(Views.flavors)
             
+            OriginsPage()
+                .tabItem {
+                    Image(systemName: "globe")
+                    Text("Origins")
+                }
+                .tag(Views.origins)
+            
             InfoPage()
                 .tabItem {
                     Image(systemName: "info")
@@ -50,5 +57,5 @@ struct HomeTab_Previews: PreviewProvider {
 }
 
 enum Views {
-    case shops, roasters, about, flavors
+    case shops, roasters, about, flavors, origins
 }

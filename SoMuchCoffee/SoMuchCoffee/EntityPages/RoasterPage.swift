@@ -32,11 +32,6 @@ struct RoasterPage: View {
                     }
                 }
                 NameTitle(name: roaster.name)
-                    .onDisappear(perform: {
-                        us.curRoaster = nil
-                    })
-    //                .navigationTitle(roaster.name)
-    //                .navigationBarHidden(false)
                 SummaryBlock(summary: roaster.summary)
                 List {
                     Section (header: Text("Locations Serving")) {
@@ -49,18 +44,6 @@ struct RoasterPage: View {
                             }
                         }
                     }
-    //				Section (header: Text("Roasts")) {
-    //					ForEach(roaster.coffees.sorted(byKeyPath: "name")) {coffee in
-    //						NavigationLink(destination: CoffeePage(coffee: coffee)) {
-    //							VStack (alignment: .leading) {
-    //								Text(coffee.name)
-    //								Text(coffee.origins.map{$0.name}.joined(separator: ", "))
-    //									.foregroundColor(Color.secondary)
-    //									.font(.caption)
-    //							}
-    //						}
-    //					}
-    //				}
                     Section (header: Text("More Details")){
                         DetailRow(style: .instagram, value: roaster.instagram, entity: roaster)
                         
@@ -77,8 +60,6 @@ struct RoasterPage: View {
                     }
                 }
             }
-    //        .navigationBarHidden(true)
-    //        .navigationBarBackButtonHidden(false)
             .edgesIgnoringSafeArea(.top)
         }
     }

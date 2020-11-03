@@ -14,17 +14,17 @@ struct RegionPage: View {
 	
     var body: some View {
 		VStack {
-			Text(regionName).font(.largeTitle)
 			List(realm.objects(Origin.self)
 				.sorted(byKeyPath: "name")
 				.filter { $0.region.rawValue == regionName }
 			) { origin in
 				NavigationLink (destination: OriginPage(origin: origin)) {
-					Image(systemName: "\(origin.coffees.count).circle") // TODO protect for >50
 					Text(origin.name)
 				}
 			}
 		}
+        .navigationTitle(regionName)
+        .navigationBarHidden(false)
     }
 }
 

@@ -20,7 +20,7 @@ struct FlavorsPage: View {
             FlavorWheel(scale: $scale, dragOffset: $dragOffset)
             VStack {
                 Button(action: {self.sheetIsPresented = true} ) {
-                    Text("Chart Courtesy of Counter Culture Coffee")
+                    Text("Credit: Counter Culture Coffee")
                         .font(.caption)
                 }
                 .foregroundColor(.blue)
@@ -60,7 +60,7 @@ struct ZoomControls: View {
                 scale = 1.0
                 dragOffset = CGPoint.zero
             }) {
-                Image(systemName: "arrowshape.turn.up.backward.2")
+                Image(systemName: "arrow.clockwise.circle")
                     .padding(.trailing)
             }
         }

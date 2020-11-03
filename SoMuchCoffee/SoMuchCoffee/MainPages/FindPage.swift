@@ -27,32 +27,21 @@ struct FindPage: View {
                             annotationContent: { annotation in
                                 return MapPin(coordinate: CLLocationCoordinate2D(latitude: annotation.latitude, longitude: annotation.longitude))
                             })
-//                            .navigationBarTitle("Find a Shop")
-//                            .navigationBarItems(trailing: GoHome())
-//                            .navigationBarTitleDisplayMode(.inline)
                             .edgesIgnoringSafeArea(.top)
                             .navigationBarHidden(true)
-                        Image(systemName: "smallcircle.circle").opacity(0.7)
-//                        HStack{
-    //                        VStack{
-    //                            Button(action: {
-    //                                region = regionIncluding(shops: Array(shops))
-    //                            }, label: {
-    //                                Image(systemName: "location")
-    //                                    .padding()
-    //                            })
-    //                            Spacer()
-    //                        }
-//                            Spacer()
-//                            VStack{
-//                                GoHome()
-//                                    .padding()
-//                                Spacer()
-//                            }
-//                        }
+                        Image(systemName: "smallcircle.circle")
+                            .opacity(0.7)
+                            .allowsHitTesting(false)
+                        VStack {
+                            Text("So Much Coffee")
+                                .foregroundColor(Color("AccentColor"))
+                                .font(Font.custom(Fonts.alfa, size: 40))
+                                .multilineTextAlignment(.center)
+                            Spacer()
+                        }
+                        .allowsHitTesting(false)
                     }
                     .frame(width: geo.size.width, height: geo.size.height / 2)
-//                    NavigationView {
                     ShopsInMapSorted(region: $region, shops: shops)
                 }
                 .animation(.default)

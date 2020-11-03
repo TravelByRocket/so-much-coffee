@@ -166,7 +166,7 @@ struct CommonDetailRow<T: Object>: View where T: Reportable {
                                     self.showSheet = true
                                 }
                                 .sheet(isPresented: $showSheet, content: {
-                                                                            SafariView(url: URL(string: "https://instagram.com/\(self.value!)")!)
+                                    SafariView(url: URL(string: "https://instagram.com/\(self.value!)")!)
                                 } // TODO this is not used
                                 )
                         } else {
@@ -251,24 +251,22 @@ struct StandardURL<T: Object>: View where T: Reportable {
         if (value != nil) {
             return AnyView (
                 HStack {
-                    style.icon
-                    Text(self.label!)
-                        .onTapGesture { self.showSheet = true }
-                        .sheet(
-                            isPresented: $showSheet,
-                            content: {
-                                SafariView(
-                                    url: URL(
-                                        string: (
-                                            style == .instagram
-                                                ? "https://instagram.com/\(self.value!)"
-                                                : self.value!
-                                        )
-                                    )!
-                                )
+                    Link(
+                        destination: URL(
+                            string: (
+                                style == .instagram
+                                    ? "https://instagram.com/\(self.value!)"
+                                    : self.value!
+                            )
+                        )!,
+                        label: {
+                            HStack{
+                                style.icon
+                                Text(self.label!)
                             }
-                        )
-                    }
+                        })
+                }
+                .foregroundColor(.primary)
             )
         } else {
             return AnyView (

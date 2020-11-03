@@ -13,22 +13,7 @@ struct ContentView: View {
 	@EnvironmentObject var settings: UserSettings
 	
 	var body: some View {
-		
-		VStack{
-			if settings.curPage == "MAIN" {
-				HomeTab()
-			} else if settings.curPage == "FIND" {
-				FindPage()
-			} else if settings.curPage == "ROASTERS" {
-				RoastersPage()
-			} else if settings.curPage == "ORIGINS" {
-				OriginsPage()
-			} else if settings.curPage == "FLAVORS" {
-				FlavorsPage()
-			} else if settings.curPage == "EVENTS" {
-				EventsPage()
-			}
-		}
+        HomeTab()
 	}
 	
 }
@@ -41,12 +26,5 @@ struct ContentView_Previews: PreviewProvider {
 }
 
 class UserSettings: ObservableObject {
-	@Published var curPage = "MAIN"
     @Published var curTab: Views = .shops
-    var curShop: Shop?
-    var curRoaster: Roaster?
-}
-
-extension Color {
-	static let appOrange = Color("appOrange")
 }

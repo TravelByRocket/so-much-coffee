@@ -25,19 +25,16 @@ struct RoastersPage: View {
 		
 	var body: some View {
 		NavigationView {
-			VStack {
+			List {
 				TextField("Filter roaster list", text: $searchString)
 					.autocapitalization(.none)
 					.textFieldStyle(RoundedBorderTextFieldStyle())
-					.padding(.horizontal)
-				List(filteredRoasters) {roaster in
+				ForEach(filteredRoasters) {roaster in
 					RoasterRow(roaster: roaster)
 				}
                 .listStyle(PlainListStyle())
 			}
             .navigationBarHidden(true)
-//			.navigationBarTitle("Roasters")
-//			.navigationBarItems(trailing: GoHome())
 		}
     }
 }
@@ -54,28 +51,15 @@ struct RoasterRow: View {
     @EnvironmentObject var us: UserSettings
     
 	var body: some View {
-//        NavigationLink(
-//            destination: RoasterPage(roaster: roaster),
-//            tag: roaster,
-//            selection: $us.curRoaster,
-//            label: {
-//                HStack {
-//                    Image(systemName:
-//                        roaster.shopsServing.count <= 50 ?
-//                            "\(roaster.shopsServing.count).circle" :
-//                        "asterisk.circle"
-//                    )
-//                    Text(roaster.name)
-//                }
-//            })
         NavigationLink(destination: RoasterPage(roaster: roaster)) {
 			HStack {
-				Image(systemName:
-					roaster.shopsServing.count <= 50 ?
-						"\(roaster.shopsServing.count).circle" :
-					"asterisk.circle"
-				)
-				Text(roaster.name)
+                Text(roaster.name)
+                Spacer()
+                Image(systemName:
+                    roaster.shopsServing.count <= 50 ?
+                        "\(roaster.shopsServing.count).circle" :
+                    "asterisk.circle"
+                )
 			}
 		}
 	}

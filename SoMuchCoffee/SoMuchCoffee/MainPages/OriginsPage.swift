@@ -10,11 +10,22 @@ import SwiftUI
 import RealmSwift
 
 struct OriginsPage: View {
-	
+    @State private var searchString = ""
+    
+    private var filteredOrigins: RealmSwift.Results<Origin> {
+        if searchString == "" {
+            return realm.objects(Origin.self)
+                .sorted(byKeyPath: "name")
+        } else {
+            return realm.objects(Origin.self)
+                .sorted(byKeyPath: "name")
+                .filter("name CONTAINS[c] '\(searchString)'")
+        }
+    }
+    
 	var body: some View {
 		NavigationView {
 			VStack {
-				Text("Coffee Origins").font(.largeTitle)
 				List {
 					Section (header: Text("Origins by Region")) { // TODO make more concise with ForEach on the enaum but there are issues to solve to make that happen
 						NavigationLink (destination: RegionPage(regionName: Origin.Region.AfricaAndMiddleEast.rawValue)) {
@@ -33,17 +44,20 @@ struct OriginsPage: View {
 							Text(Origin.Region.SouthAmerica.rawValue)
 						}
 					}
-					Section (header: Text("Coffees by Origin")) {
-						ForEach(realm.objects(Origin.self).sorted(byKeyPath: "name").filter({$0.coffees.count > 0})) { origin in
-							NavigationLink (destination: OriginPage(origin: origin)) {
-								Image(systemName: "\(origin.coffees.count).circle") // TODO protect for >50
-								Text(origin.name)
-							}
-						}
-					}
+                    Section (header: Text("All Origins")) {
+                        TextField("Filter origin list", text: $searchString)
+                            .textFieldStyle(RoundedBorderTextFieldStyle())
+                            .autocapitalization(.none)
+                        ForEach(filteredOrigins) { origin in
+                            NavigationLink (destination: OriginPage(origin: origin)) {
+                                Text(origin.name)
+                            }
+                        }
+                    }
 				}
+                .listStyle(GroupedListStyle())
+                .navigationBarHidden(true)
 			}
-			.navigationBarItems(trailing: GoHome())
 		}
 	}
 }
